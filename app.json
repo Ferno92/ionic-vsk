@@ -1,0 +1,7 @@
+{
+    "name": "VSK Heroku Example",
+    "description": "A simple VSK Ionic app for Heroku",
+    "repository": "https://github.com/Ferno92/ionic-vsk",
+    "logo": "https://png.pngtree.com/element_origin_min_pic/17/03/24/007195df20f05557152a28173d202d39.jpg",
+    "keywords": ["ionic", "vsk", "whatever"]
+}
