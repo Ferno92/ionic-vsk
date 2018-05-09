@@ -10,6 +10,10 @@ import { HomePage } from '../pages/home/home';
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireOfflineModule } from 'angularfire2-offline';
+// import {
+//   AfoListObservable,
+//   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -30,7 +34,8 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireOfflineModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

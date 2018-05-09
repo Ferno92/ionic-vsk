@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import {Observable} from 'rxjs/Rx';
+// import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import {
+  AfoListObservable,
+  AngularFireOfflineDatabase } from 'angularfire2-offline/database';
+// import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'page-home',
@@ -9,13 +12,13 @@ import {Observable} from 'rxjs/Rx';
 })
 export class HomePage {
 
-  songsRef: AngularFireList<any>;
-  songs: Observable<any[]>;
+  // songsRef: AngularFireList<any>;
+  songs: AfoListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, 
-    afDatabase: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
-      this.songsRef = afDatabase.list('/songs');
-      this.songs = afDatabase.list('/songs').valueChanges();
+    afoDatabase: AngularFireOfflineDatabase, public actionSheetCtrl: ActionSheetController) {
+      // this.songsRef = afDatabase.list('/songs');
+      this.songs = afoDatabase.list('/songs');
   }
 
   addSong(){
@@ -32,18 +35,20 @@ export class HomePage {
         {
           text: 'Cancel',
           handler: data => {
-            console.log('Cancel clicked');
+            console.log('Cancel clicked'); 
           }
         },
         {
           text: 'Save',
           handler: data => {
-            const newSongRef = this.songsRef.push({});
+            const newSongRef = this.songs.push({});
    
-            newSongRef.set({
+            const promise = newSongRef.set({
               id: newSongRef.key,
               title: data.title
             });
+            promise.offline.then(() => console.log('offline data added to device storage!'));
+            promise.then(() => console.log('data added to firebase!'));
           }
         }
       ]
@@ -79,7 +84,9 @@ export class HomePage {
   }
 
   removeSong(songId: string){
-    this.songsRef.remove(songId);
+    const promise = this.songs.remove(songId);
+    promise.offline.then(() => console.log('offline data removed from device storage!'));
+            promise.then(() => console.log('data removed from firebase!'));
   }
 
   updateSong(songId, songTitle){
@@ -103,9 +110,11 @@ export class HomePage {
         {
           text: 'Save',
           handler: data => {
-            this.songsRef.update(songId, {
+            const promise = this.songs.update(songId, {
               title: data.title
             });
+            promise.offline.then(() => console.log('offline data updated to device storage!'));
+            promise.then(() => console.log('data updated to firebase!'));
           }
         }
       ]
