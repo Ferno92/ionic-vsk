@@ -12,6 +12,9 @@ import { Platform } from 'ionic-angular';
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ * https://ionicthemes.com/tutorials/about/ionic2-app-with-socialsharing-and-deeplinking
+ * https://ionicframework.com/docs/native/deeplinks/
+ * https://angularfirebase.com/lessons/ionic-google-login-with-firebase-and-angularfire/
  */
 
 @IonicPage({
