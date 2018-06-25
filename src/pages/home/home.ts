@@ -121,4 +121,8 @@ export class HomePage {
     });
     prompt.present();
   }
+
+  login(){
+    this.navCtrl.push('login');
+  }
 }

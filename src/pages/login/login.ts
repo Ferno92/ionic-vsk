@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Platform } from 'ionic-angular';
+import { AuthService } from '../../services/auth.service';
 
 /**
  * Generated class for the LoginPage page.
@@ -29,14 +30,14 @@ export class LoginPage {
 
   user: Observable<firebase.User>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private gplus: GooglePlus,
-    private platform: Platform) {
+    private platform: Platform,
+    private authService: AuthService) {
 
-      this.user = this.afAuth.authState;
-      console.log("user not null? ", this.user != null);
+    console.log("user not null? ", this.user != null);
 
-    }
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -44,29 +45,29 @@ export class LoginPage {
 
   async nativeGoogleLogin(): Promise<void> {
     try {
-  
+
       const gplusUser = await this.gplus.login({
         'webClientId': '208284925648-u76mj4ulkproaqu8np57pv2444s8deuh.apps.googleusercontent.com',
         'offline': true,
         'scopes': 'profile email'
       })
-  
-      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
-  
-    } catch(err) {
+
+      return await this.authService.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+
+    } catch (err) {
       console.log(err)
     }
   }
 
   async webGoogleLogin(): Promise<void> {
     try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      const credential = await this.afAuth.auth.signInWithPopup(provider);
-  
-    } catch(err) {
+      console.log("webGoogleLogin " + this.authService);
+      const credential = await this.authService.signInWithPopup();
+
+    } catch (err) {
       console.log(err)
     }
-  
+
   }
 
   googleLogin() {
@@ -76,9 +77,17 @@ export class LoginPage {
       this.webGoogleLogin();
     }
   }
-  
+
   signOut() {
-    this.afAuth.auth.signOut();
+    this.authService.signOut();
+  }
+
+  login() {
+
+  }
+
+  createAccount() {
+    //https://firebase.google.com/docs/auth/web/password-auth#create_a_password_based_account
   }
 
 }
