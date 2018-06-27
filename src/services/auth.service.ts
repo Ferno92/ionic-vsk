@@ -7,7 +7,8 @@ import AuthProvider = firebase.auth.AuthProvider;
 @Injectable()
 export class AuthService {
     private user: firebase.User;
-    private userLogged: boolean;
+    public userLogged: boolean;
+    //public userLoggedChange: Subject<boolean> = new Subject<boolean>();
 
     constructor(public afAuth: AngularFireAuth) {
         console.log("AuthService constructor");
@@ -48,6 +49,10 @@ export class AuthService {
 
     isUserLogged(){
         return this.userLogged;
+    }
+
+    getUserImage(){
+        return this.afAuth.auth.currentUser.photoURL;
     }
 
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
 import { GooglePlus } from '@ionic-native/google-plus';
@@ -62,7 +61,11 @@ export class LoginPage {
   async webGoogleLogin(): Promise<void> {
     try {
       console.log("webGoogleLogin " + this.authService);
-      const credential = await this.authService.signInWithPopup();
+      const credential = await this.authService.signInWithPopup().then( success => {
+        console.log("login succesfull");
+        this.navCtrl.setRoot("dashboard") // <-- NEVER REACHED
+      })
+      .catch( error => console.error('ERROR', error));
 
     } catch (err) {
       console.log(err)
