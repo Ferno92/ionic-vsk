@@ -21,6 +21,19 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding class="dashboard-container">
+  <div class="empty-dashboard">
+    <ion-grid  class="full-height">
+      <ion-row class="full-height">
+        <ion-col col-sm-6 offset-sm-3 col-xs-10 offset-xs-1 class="text-parent">
+            <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-fab class="fab-dashboard">
+      <button ion-fab icon-only color="secondary">
+          <ion-icon md="md-add"></ion-icon>
+      </button>
+    </ion-fab>
 </ion-content>

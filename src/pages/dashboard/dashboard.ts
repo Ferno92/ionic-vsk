@@ -23,14 +23,16 @@ export class DashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private authService: AuthService, public menuCtrl: MenuController) {
-      if(authService.isUserLogged()){
-        console.log("user logged already");
-        this.userLogged = true;
-        this.userImage = authService.getUserImage();
-      }else{
-        console.log("no user logged");
-        this.userLogged = false;
-      }
+      this.authService.authState.subscribe(user => {
+        if (user != null) {
+          this.userLogged = true;
+          this.userImage = user.photoURL;
+          console.log("logged user: " + user.displayName);
+        }else{
+          this.userLogged = false;
+        }
+      });
+      this.userLogged = false;
   }
 
   ionViewDidLoad() {

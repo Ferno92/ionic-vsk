@@ -3,21 +3,23 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import AuthProvider = firebase.auth.AuthProvider;
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class AuthService {
     private user: firebase.User;
     public userLogged: boolean;
-    //public userLoggedChange: Subject<boolean> = new Subject<boolean>();
+    public authState: any;
 
     constructor(public afAuth: AngularFireAuth) {
         console.log("AuthService constructor");
         this.userLogged = false;
+        this.authState = this.afAuth.authState;
         this.afAuth.authState.subscribe(user => {
             this.user = user;
             if(this.user != null){
                 this.userLogged = true;
-                console.log("logged user: " + user.displayName);
+                console.log("logged picture: " + user.photoURL);
             }
         });
     }

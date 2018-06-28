@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,12 +14,21 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.user-image{
-    width: 100px;
-    height: 100px;
+.user-image {
+  width: 100px;
+  height: 100px;
+  margin: 15px;
+
+  &:not(.user-placeholder) {
+    border-radius: 50%;
+    border: solid color($colors, primary, base) 2px;
+  }
 }
 
-.visible{
-    display: block;
+.visible {
+  display: block;
 }
 
+.full-height{
+    height: 100%;
+}

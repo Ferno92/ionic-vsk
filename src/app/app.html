@@ -6,7 +6,7 @@
     </ion-header> -->
     <ion-content>
         <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />
-        <img class="user-image" src={{userImage}} *ngIf="userLogged" />
+        <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />
         <p *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>
         <ion-list>
             <button menuClose ion-item icon-left (click)="goToLogin()">

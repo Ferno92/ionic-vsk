@@ -24,19 +24,21 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      this.auth.userLogged.subscribe()
-      if(auth.isUserLogged()){
-        console.log("user logged already");
-        this.userLogged = true;
-        this.userImage = auth.getUserImage();
-      }else{
-        console.log("no user logged");
-        this.userLogged = false;
-      }
+      this.auth.authState.subscribe(user => {
+        console.log("logged user change ");
+        if (user != null) {
+          this.userLogged = true;
+          this.userImage = user.photoURL;
+          console.log("logged user: " + user.displayName);
+        }else{
+          this.userLogged = false;
+        }
+      });
+      this.userLogged = false;
     });
   }
 
-  goToLogin(){
+  goToLogin() {
     this.app.getActiveNav().push('login');
   }
 }
