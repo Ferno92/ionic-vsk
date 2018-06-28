@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase/app';
 import { AuthService } from '../../services/auth.service';
 import { MenuController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the DashboardPage page.
@@ -11,7 +12,10 @@ import { MenuController } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: "dashboard",
+  segment: "dashboard"
+})
 @Component({
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html',
@@ -22,7 +26,7 @@ export class DashboardPage {
   userImage: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private authService: AuthService, public menuCtrl: MenuController) {
+    private authService: AuthService, public menuCtrl: MenuController, public events: Events) {
       this.authService.authState.subscribe(user => {
         if (user != null) {
           this.userLogged = true;
@@ -38,6 +42,11 @@ export class DashboardPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
   }
+
+  ionViewWillEnter(){
+    this.events.publish('currentPage', 'dashboard');
+  }
+  
 
   logOut(){
     this.authService.signOut();

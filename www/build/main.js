@@ -21,6 +21,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the DashboardPage page.
  *
@@ -28,12 +29,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var DashboardPage = /** @class */ (function () {
-    function DashboardPage(navCtrl, navParams, authService, menuCtrl) {
+    function DashboardPage(navCtrl, navParams, authService, menuCtrl, events) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authService = authService;
         this.menuCtrl = menuCtrl;
+        this.events = events;
         this.authService.authState.subscribe(function (user) {
             if (user != null) {
                 _this.userLogged = true;
@@ -49,17 +51,20 @@ var DashboardPage = /** @class */ (function () {
     DashboardPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad DashboardPage');
     };
+    DashboardPage.prototype.ionViewWillEnter = function () {
+        this.events.publish('currentPage', 'dashboard');
+    };
     DashboardPage.prototype.logOut = function () {
         this.authService.signOut();
     };
     DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dashboard',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n  Generated template for the DashboardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>dashboard</ion-title>\n    <ion-buttons end *ngIf="userLogged">\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon md="md-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="dashboard-container">\n  <div class="empty-dashboard">\n    <ion-grid  class="full-height">\n      <ion-row class="full-height">\n        <ion-col col-sm-6 offset-sm-3 col-xs-10 offset-xs-1 class="text-parent">\n            <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n  <ion-fab class="fab-dashboard">\n      <button ion-fab icon-only color="secondary">\n          <ion-icon md="md-add"></ion-icon>\n      </button>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/,
+            selector: 'page-dashboard',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n  Generated template for the DashboardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>dashboard</ion-title>\n    <ion-buttons end *ngIf="userLogged">\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon md="md-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="dashboard-container">\n  <div class="empty-dashboard">\n    <ion-grid  class="full-height">\n      <ion-row class="full-height">\n        <ion-col col-sm-6 offset-sm-3 col-xs-10 offset-xs-1 class="text-parent">\n            <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n  <ion-fab class="fab-dashboard" bottom right>\n      <button ion-fab icon-only color="secondary">\n          <ion-icon md="md-add"></ion-icon>\n      </button>\n    </ion-fab>\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* MenuController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]) === "function" && _e || Object])
     ], DashboardPage);
     return DashboardPage;
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=dashboard.js.map
@@ -138,7 +143,7 @@ var LoginPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
     ], LoginPageModule);
@@ -230,7 +235,7 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'DashboardPage', segment: 'dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] }
@@ -241,7 +246,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10_angularfire2_offline__["a" /* AngularFireOfflineModule */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_login_login_module__["LoginPageModule"]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
@@ -250,7 +255,7 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_12_angularfire2_auth__["a" /* AngularFireAuth */],
                 __WEBPACK_IMPORTED_MODULE_13__ionic_native_google_plus__["a" /* GooglePlus */],
                 __WEBPACK_IMPORTED_MODULE_14__services_auth_service__["a" /* AuthService */]
@@ -275,6 +280,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -325,6 +331,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -335,16 +344,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  * https://angularfirebase.com/lessons/ionic-google-login-with-firebase-and-angularfire/
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, gplus, platform, authService) {
+    function LoginPage(navCtrl, navParams, gplus, platform, authService, toastCtrl, events) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.gplus = gplus;
         this.platform = platform;
         this.authService = authService;
+        this.toastCtrl = toastCtrl;
+        this.events = events;
         console.log("user not null? ", this.user != null);
     }
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
+        this.canGoBack = this.navCtrl.canGoBack();
+    };
+    LoginPage.prototype.ionViewWillEnter = function () {
+        this.events.publish('currentPage', 'login');
     };
     LoginPage.prototype.nativeGoogleLogin = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -382,7 +397,8 @@ var LoginPage = /** @class */ (function () {
                         console.log("webGoogleLogin " + this.authService);
                         return [4 /*yield*/, this.authService.signInWithPopup().then(function (success) {
                                 console.log("login succesfull");
-                                _this.navCtrl.setRoot("dashboard"); // <-- NEVER REACHED
+                                _this.showSuccesfullToast('Autenticazione eseguita', "success");
+                                _this.navCtrl.popToRoot();
                             })
                                 .catch(function (error) { return console.error('ERROR', error); })];
                     case 1:
@@ -413,16 +429,32 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.createAccount = function () {
         //https://firebase.google.com/docs/auth/web/password-auth#create_a_password_based_account
     };
+    LoginPage.prototype.showSuccesfullToast = function (text, result) {
+        var toast = this.toastCtrl.create({
+            message: '' + text,
+            duration: 2000,
+            position: 'top',
+            cssClass: 'toast-login ' + result
+        });
+        toast.present();
+    };
+    LoginPage.prototype.goBack = function () {
+        if (this.navCtrl.canGoBack()) {
+            this.navCtrl.pop();
+        }
+        else {
+            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard__["a" /* DashboardPage */]);
+            this.navCtrl.popToRoot();
+        }
+    };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n      <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list>\n\n\n\n    <ion-item>\n\n      <ion-label fixed>Username</ion-label>\n\n      <ion-input type="text" value=""></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label fixed>Password</ion-label>\n\n      <ion-input type="password"></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n  <button ion-button (click)="login()">LOGIN</button>\n\n  <button ion-button color="danger" (click)="googleLogin()">LOGIN WITH GOOGLE</button>\n\n  <div >or</div>\n\n  <div>\n\n      <button ion-button outline (click)="createAccount()">Create a new account</button>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n      <ion-buttons left *ngIf="!canGoBack">\n\n          <button ion-button icon-only (click)="goBack()">\n\n              <ion-icon name="arrow-back"></ion-icon>\n\n          </button>\n\n      </ion-buttons>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list>\n\n\n\n    <ion-item>\n\n      <ion-label fixed>Username</ion-label>\n\n      <ion-input type="text" value=""></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label fixed>Password</ion-label>\n\n      <ion-input type="password"></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n  <button ion-button (click)="login()">LOGIN</button>\n\n  <button ion-button color="danger" (click)="googleLogin()">LOGIN WITH GOOGLE</button>\n\n  <div >or</div>\n\n  <div>\n\n      <button ion-button outline (click)="createAccount()">Create a new account</button>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]) === "function" && _g || Object])
     ], LoginPage);
     return LoginPage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -440,6 +472,8 @@ var LoginPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_dashboard_dashboard__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -456,42 +490,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 var MyApp = /** @class */ (function () {
-    function MyApp(app, platform, statusBar, splashScreen, auth) {
+    function MyApp(app, platform, statusBar, splashScreen, auth, events) {
         var _this = this;
         this.app = app;
         this.auth = auth;
+        this.events = events;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_dashboard_dashboard__["a" /* DashboardPage */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
+            _this.userLogged = false;
+            _this.currentMenu = "dashboard";
             _this.auth.authState.subscribe(function (user) {
                 console.log("logged user change ");
                 if (user != null) {
                     _this.userLogged = true;
                     _this.userImage = user.photoURL;
+                    _this.userName = user.displayName;
                     console.log("logged user: " + user.displayName);
                 }
                 else {
                     _this.userLogged = false;
                 }
             });
-            _this.userLogged = false;
+            _this.subject = new __WEBPACK_IMPORTED_MODULE_6_rxjs__["Subject"]();
+            _this.subject.subscribe(function (next) {
+                _this.currentMenu = next;
+            });
+            events.subscribe('currentPage', function (page) {
+                // user and time are the same arguments passed in `events.publish(user, time)`
+                console.log('current page: ' + page);
+                _this.setCurrentPage(page);
+            });
         });
     }
     MyApp.prototype.goToLogin = function () {
-        this.app.getActiveNav().push('login');
+        this.app.getActiveNav().push("login");
+        this.subject.next("login");
+    };
+    MyApp.prototype.goToDashboard = function () {
+        this.app.getActiveNav().setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_dashboard_dashboard__["a" /* DashboardPage */]);
+        this.app.getActiveNav().popToRoot();
+        this.subject.next("dashboard");
+    };
+    MyApp.prototype.setCurrentPage = function (page) {
+        this.subject.next(page);
     };
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <!-- <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header> -->\n\n    <ion-content>\n\n        <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />\n\n        <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />\n\n        <p *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>\n\n        <ion-list>\n\n            <button menuClose ion-item icon-left (click)="goToLogin()">\n\n                <ion-icon name="login" md="md-contact"></ion-icon>\n\n                Login\n\n            </button>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-menu>\n\n<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <!-- <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header> -->\n\n    <ion-content>\n\n        <div>\n\n            <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />\n\n            <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />\n\n            <div *ngIf="userLogged" class="float-left user-info">\n\n                <div class="bigger-text">Ciao</div>\n\n                <div>{{userName}}</div>\n\n            </div>\n\n        </div>\n\n        <div class="clear"></div>\n\n        <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>\n\n        <ion-list>\n\n            <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{\'menu-active\': currentMenu == \'dashboard\'}">\n\n                <ion-icon name="homepage" md="md-home"></ion-icon>\n\n                Homepage\n\n            </button>\n\n            <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{\'menu-active\': currentMenu == \'login\'}">\n\n                <ion-icon name="login" md="md-contact"></ion-icon>\n\n                Login\n\n            </button>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-menu>\n\n<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]) === "function" && _f || Object])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -634,7 +691,7 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Ionic VSK\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addSong()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.id, song.title)">\n\n      {{song.title}}\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
     ], HomePage);
     return HomePage;

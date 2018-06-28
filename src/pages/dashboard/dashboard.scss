@@ -1,6 +1,6 @@
 page-dashboard {
   .dashboard-container {
-    position: relative;
+      
     .empty-dashboard {
       background: url("../../assets/imgs/volley_empty_list.png") no-repeat
         center center;
@@ -14,13 +14,10 @@ page-dashboard {
         text-align: center;
         position: absolute;
         top: 65%;
-        font-size: 30px;
+        font-size: 16px;
       }
     }
     .fab-dashboard{
-        position: absolute;
-        bottom: 0;
-        right: 0;
         margin: 15px;
     }
   }

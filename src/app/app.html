@@ -5,11 +5,22 @@
         </ion-toolbar>
     </ion-header> -->
     <ion-content>
-        <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />
-        <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />
-        <p *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>
+        <div>
+            <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />
+            <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />
+            <div *ngIf="userLogged" class="float-left user-info">
+                <div class="bigger-text">Ciao</div>
+                <div>{{userName}}</div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>
         <ion-list>
-            <button menuClose ion-item icon-left (click)="goToLogin()">
+            <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{'menu-active': currentMenu == 'dashboard'}">
+                <ion-icon name="homepage" md="md-home"></ion-icon>
+                Homepage
+            </button>
+            <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{'menu-active': currentMenu == 'login'}">
                 <ion-icon name="login" md="md-contact"></ion-icon>
                 Login
             </button>

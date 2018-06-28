@@ -7,9 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
+      <ion-buttons left *ngIf="!canGoBack">
+          <button ion-button icon-only (click)="goBack()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
     <ion-title>Login</ion-title>
   </ion-navbar>
 
