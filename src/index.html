@@ -19,7 +19,7 @@
   <!-- <script src="cordova.js"></script> -->
 
   <!-- un-comment this code to enable service worker-->
-  <!-- <script>
+  <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
         .then(() => console.log('service worker installed'))
@@ -27,10 +27,10 @@
         
       // Then later, request a one-off sync:
       navigator.serviceWorker.ready.then(function(swRegistration) {
-        return swRegistration.sync.register('myFirstSync');
+        return swRegistration.sync.register('alpha-0.0.1');
       });
     }
-  </script> -->
+  </script>
 
   <link href="build/main.css" rel="stylesheet">
 
