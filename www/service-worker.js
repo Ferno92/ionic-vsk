@@ -6,6 +6,7 @@
 
 'use strict';
 importScripts('./build/sw-toolbox.js');
+const cacheVersion = "0.0.2";
 
 self.toolbox.options.cache = {
   name: 'ionic-cache'
@@ -24,7 +25,7 @@ self.toolbox.precache(
 );
 
 // dynamically cache any other local assets
-self.toolbox.router.any('/*', self.toolbox.cacheFirst);
+self.toolbox.router.any('/*', self.toolbox.fastest);
 
 // for any other requests go to the network, cache,
 // and then only use that cached resource if your user goes offline
