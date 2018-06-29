@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 
@@ -16,7 +17,6 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AuthService } from '../services/auth.service';
-import { DashboardPageModule } from '../pages/dashboard/dashboard.module';
 // import {
 //   AfoListObservable,
 //   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
@@ -33,7 +33,9 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -41,12 +43,13 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireOfflineModule,
-    LoginPageModule,
-    DashboardPageModule
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage,
+    DashboardPage
   ],
   providers: [
     StatusBar,

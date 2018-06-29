@@ -6,6 +6,7 @@ import { AuthService } from "../services/auth.service";
 import { App } from "ionic-angular";
 import { Events } from 'ionic-angular';
 
+import { HomePage } from "../pages/home/home";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { Observable, Subject } from "rxjs";
 // import { GoogleLoginComponent } from '../components/google-login/google-login';

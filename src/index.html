@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8">
   <title>Ionic VSK</title>
@@ -20,58 +19,8 @@
   <!-- <script src="cordova.js"></script> -->
 
   <!-- un-comment this code to enable service worker-->
-  <script>
-
-    // make the whole serviceworker process into a promise so later on we can
-    // listen to it and in case new content is available a toast will be shown
-    window.isUpdateAvailable = new Promise(function (resolve, reject) {
-      // lazy way of disabling service workers while developing
-      //if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
-      // register service worker file
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => {
-          reg.onupdatefound = () => {
-            const installingWorker = reg.installing;
-            installingWorker.onstatechange = () => {
-              switch (installingWorker.state) {
-                case 'installed':
-                  if (navigator.serviceWorker.controller) {
-                    // new update available
-                    resolve(true);
-                  } else {
-                    // no update available
-                    resolve(false);
-                  }
-                  break;
-              }
-            };
-          };
-        })
-        .catch(err => console.error('[SW ERROR]', err));
-      //}
-    });
-
-    // Update:
-    // this also can be incorporated right into e.g. your run() function in angular,
-    // to avoid using the global namespace for such a thing.
-    // because the registering of a service worker doesn't need to be executed on the first load of the page.
-
-    window['isUpdateAvailable']
-      .then(isAvailable => {
-        console.log("isAvailable a new update");
-        if (isAvailable) {
-          const toast = this.toastCtrl.create({
-            message: 'New Update available! Reload the webapp to see the latest juicy changes.',
-            position: 'bottom',
-            showCloseButton: true,
-          });
-          toast.present();
-        }
-      });
-
-
-
-    /*if ('serviceWorker' in navigator) {
+  <!-- <script>
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
         .then(() => console.log('service worker installed'))
         .catch(err => console.error('Error', err));
@@ -80,19 +29,18 @@
       navigator.serviceWorker.ready.then(function(swRegistration) {
         return swRegistration.sync.register('myFirstSync');
       });
-    }*/
-  </script>
+    }
+  </script> -->
 
   <link href="build/main.css" rel="stylesheet">
 
 </head>
-
 <body>
-  <noscript>
-    <h3 style="color: #673ab7; font-family: Helvetica; margin: 2rem;">
-      Sorry, but app is not available without javascript
-    </h3>
-  </noscript>
+    <noscript>
+        <h3 style="color: #673ab7; font-family: Helvetica; margin: 2rem;">
+            Sorry, but app is not available without javascript
+        </h3>
+      </noscript>
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
@@ -108,5 +56,4 @@
   <script src="build/main.js"></script>
 
 </body>
-
 </html>
