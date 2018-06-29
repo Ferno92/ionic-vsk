@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>dashboard</ion-title>
+    <ion-title>Dashboard</ion-title>
     <ion-buttons end *ngIf="userLogged">
       <button ion-button icon-only (click)="logOut()">
         <ion-icon md="md-log-out"></ion-icon>
@@ -23,13 +23,14 @@
 
 <ion-content padding class="dashboard-container">
   <div class="empty-dashboard">
-    <ion-grid  class="full-height">
-      <ion-row class="full-height">
-        <ion-col col-sm-6 offset-sm-3 col-xs-10 offset-xs-1 class="text-parent">
-            <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-grid style="height: 100%">
+        <ion-row justify-content-center align-items-center style="height: 100%">
+          <div>
+              <img src="../../assets/imgs/volley_empty_list.png" />
+              <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
+          </div>
+        </ion-row>
+      </ion-grid>
   </div>
   <ion-fab class="fab-dashboard" bottom right>
       <button ion-fab icon-only color="secondary">

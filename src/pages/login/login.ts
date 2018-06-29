@@ -36,7 +36,11 @@ export class LoginPage {
     private gplus: GooglePlus, private platform: Platform,
     private authService: AuthService,private toastCtrl: ToastController, public events: Events) {
 
-    console.log("user not null? ", this.user != null);
+    this.authService.authState.subscribe(user => {
+      if (user != null) {
+        this.goBack();
+      }
+    });
 
   }
 
@@ -71,7 +75,7 @@ export class LoginPage {
       const credential = await this.authService.signInWithPopup().then( success => {
         console.log("login succesfull");
         this.showSuccesfullToast('Autenticazione eseguita', "success");
-        this.navCtrl.popToRoot();
+        this.goBack();
       })
       .catch( error => console.error('ERROR', error));
 

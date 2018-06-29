@@ -1,24 +1,18 @@
 page-dashboard {
   .dashboard-container {
-      
     .empty-dashboard {
-      background: url("../../assets/imgs/volley_empty_list.png") no-repeat
-        center center;
+      //background: url("../../assets/imgs/volley_empty_list.png") no-repeat center center;
       height: 100%;
-      width: 100%;
+      //width: 100%;
     }
-    .text-parent {
-      position: relative;
-
-      .text_empty_dashboard {
-        text-align: center;
-        position: absolute;
-        top: 65%;
-        font-size: 16px;
-      }
+    .text_empty_dashboard {
+      text-align: center;
+      //position: absolute;
+      //top: 65%;
+      font-size: 16px;
     }
-    .fab-dashboard{
-        margin: 15px;
+    .fab-dashboard {
+      margin: 15px;
     }
   }
 }
