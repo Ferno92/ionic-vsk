@@ -16,6 +16,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AuthService } from '../services/auth.service';
+import { DashboardPageModule } from '../pages/dashboard/dashboard.module';
 // import {
 //   AfoListObservable,
 //   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
@@ -32,8 +33,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    MyApp,
-    DashboardPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -41,12 +41,12 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireOfflineModule,
-    LoginPageModule
+    LoginPageModule,
+    DashboardPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    DashboardPage
+    MyApp
   ],
   providers: [
     StatusBar,
