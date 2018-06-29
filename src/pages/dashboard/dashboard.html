@@ -30,17 +30,17 @@
 <ion-content padding class="dashboard-container">
   <div class="empty-dashboard">
     <ion-grid style="height: 100%">
-        <ion-row justify-content-center align-items-center style="height: 100%">
-          <div>
-              <img src="../../assets/imgs/volley_empty_list.png" />
-              <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
-          </div>
-        </ion-row>
-      </ion-grid>
+      <ion-row justify-content-center align-items-center style="height: 100%">
+        <div>
+          <img src="../../assets/imgs/volley_empty_list.png" />
+          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
+        </div>
+      </ion-row>
+    </ion-grid>
   </div>
-  <ion-fab class="fab-dashboard" bottom right>
-      <button ion-fab icon-only color="secondary">
-          <ion-icon md="md-add"></ion-icon>
-      </button>
-    </ion-fab>
+  <!-- <ion-fab class="fab-dashboard" bottom right>
+    <button ion-fab icon-only color="secondary" (click)="createMatch()">
+      <ion-icon md="md-add"></ion-icon>
+    </button>
+  </ion-fab> -->
 </ion-content>
