@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import * as firebase from 'firebase/app';
 import { AuthService } from '../../services/auth.service';
 import { MenuController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
+import { AfoListObservable, AngularFireOfflineDatabase, AfoObjectObservable } from 'angularfire2-offline/database';
 
 /**
  * Generated class for the DashboardPage page.
@@ -24,9 +24,14 @@ export class DashboardPage {
 
   userLogged: boolean;
   userImage: String;
+  version: String = "0.0.1";
+  onlineVersion: AfoObjectObservable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private authService: AuthService, public menuCtrl: MenuController, public events: Events) {
+    private authService: AuthService, public menuCtrl: MenuController, public events: Events,
+    afoDatabase: AngularFireOfflineDatabase) {
+      this.userLogged = false;
+
       this.authService.authState.subscribe(user => {
         if (user != null) {
           this.userLogged = true;
@@ -36,7 +41,9 @@ export class DashboardPage {
           this.userLogged = false;
         }
       });
-      this.userLogged = false;
+
+      this.onlineVersion = afoDatabase.object('updateVersion');
+      console.log("version: " + this.onlineVersion)
   }
 
   ionViewDidLoad() {
@@ -50,6 +57,10 @@ export class DashboardPage {
 
   logOut(){
     this.authService.signOut();
+  }
+
+  reload(){
+    window.location.reload();
   }
 
 }

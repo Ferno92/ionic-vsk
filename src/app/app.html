@@ -24,6 +24,12 @@
                 <ion-icon name="login" md="md-contact"></ion-icon>
                 Login
             </button>
+
+            
+            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">
+                    <ion-icon name="logout" md="md-log-out"></ion-icon>
+                    Esci
+                </button>
         </ion-list>
     </ion-content>
 </ion-menu>
