@@ -27999,6 +27999,7 @@ div {
 .toast-login {
   margin: 20px;
   width: calc(100% - 40px);
+  margin-top: 70px;
 }
 
 .toast-login > div {
@@ -28049,4 +28050,16 @@ page-dashboard .dashboard-container .text_empty_dashboard {
 
 page-dashboard .dashboard-container .fab-dashboard {
   margin: 15px;
+}
+
+page-dashboard .update-button .button-inner {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-dashboard .update-button .button-inner .icon {
+  margin-bottom: 5px;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/*import { Component } from '@angular/core';
 import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
 // import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {
@@ -125,4 +125,4 @@ export class HomePage {
   login(){
     this.navCtrl.push('login');
   }
-}
+}*/

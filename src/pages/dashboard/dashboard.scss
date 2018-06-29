@@ -15,4 +15,12 @@ page-dashboard {
       margin: 15px;
     }
   }
+  .update-button{
+    .button-inner {
+      flex-direction: column;
+      .icon{
+        margin-bottom: 5px;
+      }
+    }
+  }
 }

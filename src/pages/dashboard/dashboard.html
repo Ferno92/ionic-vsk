@@ -11,11 +11,17 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Dashboard</ion-title>
-    <ion-buttons end *ngIf="userLogged">
-      <button ion-button icon-only (click)="logOut()">
-        <ion-icon md="md-log-out"></ion-icon>
+    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">
+      <button ion-button icon-only (click)="reload()" class="update-button">
+        <ion-icon md="md-cloud-download"></ion-icon>
+        Update
       </button>
     </ion-buttons>
+    <!-- <ion-buttons end *ngIf="userLogged">
+        <button ion-button icon-only (click)="logOut()">
+          <ion-icon md="md-log-out"></ion-icon>
+        </button>
+      </ion-buttons> -->
   </ion-navbar>
 
 </ion-header>

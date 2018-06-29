@@ -3,10 +3,8 @@ import { Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthService } from "../services/auth.service";
-import { App } from "ionic-angular";
+import { App, AlertController } from "ionic-angular";
 import { Events } from 'ionic-angular';
-
-import { HomePage } from "../pages/home/home";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { Observable, Subject } from "rxjs";
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
@@ -27,7 +25,8 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private auth: AuthService,
-    public events: Events
+    public events: Events, 
+    public alertCtrl: AlertController
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -75,5 +74,31 @@ export class MyApp {
 
   setCurrentPage(page: String){
     this.subject.next(page);
+  }
+
+  popupLogout(){
+    let prompt = this.alertCtrl.create({
+      title: 'Esci',
+      message: "Vuoi veramente uscire?",
+      buttons: [
+        {
+          text: 'Indietro',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Esci',
+          handler: data => {
+           this.logOut();
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  logOut(){
+    this.auth.signOut();
   }
 }
