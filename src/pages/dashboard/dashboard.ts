@@ -63,8 +63,4 @@ export class DashboardPage {
     window.location.reload();
   }
 
-  createMatch(){
-    this.navCtrl.push("create-match");
-  }
-
 }

@@ -28039,6 +28039,14 @@ div {
   background-color: #FFC107;
 }
 
+.fab-dashboard {
+  margin: 15px;
+}
+
+.scroll-content {
+  overflow: auto;
+}
+
 page-dashboard .dashboard-container .empty-dashboard {
   height: 100%;
 }
@@ -28046,10 +28054,6 @@ page-dashboard .dashboard-container .empty-dashboard {
 page-dashboard .dashboard-container .text_empty_dashboard {
   text-align: center;
   font-size: 16px;
-}
-
-page-dashboard .dashboard-container .fab-dashboard {
-  margin: 15px;
 }
 
 page-dashboard .update-button .button-inner {

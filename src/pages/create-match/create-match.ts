@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Events } from 'ionic-angular';
+import { BasePage } from '../../common/BasePage';
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -16,13 +18,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-create-match',
   templateUrl: 'create-match.html',
 })
-export class CreateMatchPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class CreateMatchPage extends BasePage {
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
+    super(navCtrl);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateMatchPage');
+    this.onInit();
+  }
+
+  ionViewWillEnter(){
+    this.events.publish('currentPage', 'create-match');
   }
 
 }

@@ -6,8 +6,8 @@ import { ToastController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Platform } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
-import { DashboardPage } from '../dashboard/dashboard';
 import { Events } from 'ionic-angular';
+import { BasePage } from '../../common/BasePage';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,14 +27,14 @@ import { Events } from 'ionic-angular';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage extends BasePage {
 
   user: Observable<firebase.User>;
-  canGoBack: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private gplus: GooglePlus, private platform: Platform,
     private authService: AuthService,private toastCtrl: ToastController, public events: Events) {
+      super(navCtrl)
 
     this.authService.authState.subscribe(user => {
       if (user != null) {
@@ -45,8 +45,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-    this.canGoBack = this.navCtrl.canGoBack();
+    this.onInit();
   }
 
   ionViewWillEnter(){
@@ -116,13 +115,5 @@ export class LoginPage {
     toast.present();
   }
 
-  goBack(){
-    if(this.navCtrl.canGoBack()){
-    this.navCtrl.pop();
-    }else{
-      this.navCtrl.setRoot(DashboardPage);
-      this.navCtrl.popToRoot();
-    }
-  }
 
 }
