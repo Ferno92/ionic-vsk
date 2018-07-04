@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"; 
+import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AuthService } from "../../services/auth.service";
 import { MenuController } from "ionic-angular";
@@ -43,7 +43,7 @@ export class DashboardPage extends BasePage {
     public events: Events,
     public afoDatabase: AngularFireOfflineDatabase
   ) {
-    super(navCtrl, authService)
+    super(navCtrl, authService);
     this.userLogged = false;
     this.emptyGames = true;
 
@@ -52,14 +52,16 @@ export class DashboardPage extends BasePage {
     console.log("version: " + this.onlineVersion);
   }
 
-  onUserChange(user: any){
+  onUserChange(user: any) {
     var self = this;
     if (user != null) {
       this.userLogged = true;
       this.userImage = user.photoURL;
-      this.games = this.afoDatabase.list('/'+ this.authService.user.uid + '/games');
+      this.games = this.afoDatabase.list(
+        "/" + this.authService.user.uid + "/games"
+      );
       this.games.subscribe({
-        next(gamesFound){
+        next(gamesFound) {
           self.emptyGames = gamesFound.length == 0;
         }
       });
@@ -82,5 +84,18 @@ export class DashboardPage extends BasePage {
 
   reload() {
     window.location.reload();
+  }
+
+  onActivate() {
+    console.log("onactivate");
+    //window.scroll(0,0);
+    //or document.body.scrollTop = 0;
+    //document.querySelector(".scroll-content").scrollTo(0, 0);
+    var el = document.querySelector(".scroll-content");
+    el.scrollTop = el.scrollHeight;
+
+    setTimeout(function() {
+      el.scrollTop = 0;
+    }, 500);
   }
 }

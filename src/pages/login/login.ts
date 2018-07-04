@@ -33,14 +33,8 @@ export class LoginPage extends BasePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private gplus: GooglePlus, private platform: Platform,
-    private authService: AuthService,private toastCtrl: ToastController, public events: Events) {
-      super(navCtrl)
-
-    this.authService.authState.subscribe(user => {
-      if (user != null) {
-        this.goBack();
-      }
-    });
+    public authService: AuthService,private toastCtrl: ToastController, public events: Events) {
+      super(navCtrl, authService)
 
   }
 
@@ -50,6 +44,12 @@ export class LoginPage extends BasePage {
 
   ionViewWillEnter(){
     this.events.publish('currentPage', 'login');
+  }
+
+  onUserChange(user: any){
+    if (user != null) {
+      this.goBack();
+    }
   }
 
   async nativeGoogleLogin(): Promise<void> {

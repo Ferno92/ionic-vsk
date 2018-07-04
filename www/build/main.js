@@ -1,97 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 177:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 177;
-
-/***/ }),
-
-/***/ 221:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/create-match/create-match.module": [
-		709,
-		1
-	],
-	"../pages/dashboard/dashboard.module": [
-		710,
-		2
-	],
-	"../pages/live-match/live-match.module": [
-		711,
-		0
-	],
-	"../pages/login/login.module": [
-		327
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 221;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 327:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(685);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
-    }
-    LoginPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
-            ],
-        })
-    ], LoginPageModule);
-    return LoginPageModule;
-}());
-
-//# sourceMappingURL=login.module.js.map
-
-/***/ }),
-
-/***/ 371:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -129,6 +38,97 @@ var BasePage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 178:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 178;
+
+/***/ }),
+
+/***/ 222:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/create-match/create-match.module": [
+		709,
+		1
+	],
+	"../pages/dashboard/dashboard.module": [
+		710,
+		2
+	],
+	"../pages/live-match/live-match.module": [
+		711,
+		0
+	],
+	"../pages/login/login.module": [
+		328
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 222;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 328:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(685);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
+    }
+    LoginPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+            ],
+        })
+    ], LoginPageModule);
+    return LoginPageModule;
+}());
+
+//# sourceMappingURL=login.module.js.map
+
+/***/ }),
+
 /***/ 373:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -152,16 +152,16 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(706);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2__ = __webpack_require__(707);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_database__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2_offline__ = __webpack_require__(708);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login_module__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_auth__ = __webpack_require__(222);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_google_plus__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login_module__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_auth__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_google_plus__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_auth_service__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -248,7 +248,7 @@ var AppModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -321,9 +321,9 @@ var AuthService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_BasePage__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_BasePage__ = __webpack_require__(167);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -399,7 +399,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var LoginPage = /** @class */ (function (_super) {
     __extends(LoginPage, _super);
     function LoginPage(navCtrl, navParams, gplus, platform, authService, toastCtrl, events) {
-        var _this = _super.call(this, navCtrl) || this;
+        var _this = _super.call(this, navCtrl, authService) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
         _this.gplus = gplus;
@@ -407,11 +407,6 @@ var LoginPage = /** @class */ (function (_super) {
         _this.authService = authService;
         _this.toastCtrl = toastCtrl;
         _this.events = events;
-        _this.authService.authState.subscribe(function (user) {
-            if (user != null) {
-                _this.goBack();
-            }
-        });
         return _this;
     }
     LoginPage.prototype.ionViewDidLoad = function () {
@@ -419,6 +414,11 @@ var LoginPage = /** @class */ (function (_super) {
     };
     LoginPage.prototype.ionViewWillEnter = function () {
         this.events.publish('currentPage', 'login');
+    };
+    LoginPage.prototype.onUserChange = function (user) {
+        if (user != null) {
+            this.goBack();
+        }
     };
     LoginPage.prototype.nativeGoogleLogin = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -519,8 +519,8 @@ var LoginPage = /** @class */ (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(370);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_dashboard_dashboard__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs__ = __webpack_require__(128);
@@ -678,7 +678,7 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_BasePage__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_BasePage__ = __webpack_require__(167);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -734,7 +734,7 @@ var DashboardPage = /** @class */ (function (_super) {
         if (user != null) {
             this.userLogged = true;
             this.userImage = user.photoURL;
-            this.games = this.afoDatabase.list('/' + this.authService.user.uid + '/games');
+            this.games = this.afoDatabase.list("/" + this.authService.user.uid + "/games");
             this.games.subscribe({
                 next: function (gamesFound) {
                     self.emptyGames = gamesFound.length == 0;
@@ -757,9 +757,20 @@ var DashboardPage = /** @class */ (function (_super) {
     DashboardPage.prototype.reload = function () {
         window.location.reload();
     };
+    DashboardPage.prototype.onActivate = function () {
+        console.log("onactivate");
+        //window.scroll(0,0);
+        //or document.body.scrollTop = 0;
+        //document.querySelector(".scroll-content").scrollTo(0, 0);
+        var el = document.querySelector(".scroll-content");
+        el.scrollTop = el.scrollHeight;
+        setTimeout(function () {
+            el.scrollTop = 0;
+        }, 500);
+    };
     DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-dashboard",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n\n  Generated template for the DashboardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Dashboard</ion-title>\n\n    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">\n\n      <button ion-button icon-only (click)="reload()" class="update-button">\n\n        <ion-icon md="md-cloud-download"></ion-icon>\n\n        Update\n\n      </button>\n\n    </ion-buttons>\n\n    <!-- <ion-buttons end *ngIf="userLogged">\n\n        <button ion-button icon-only (click)="logOut()">\n\n          <ion-icon md="md-log-out"></ion-icon>\n\n        </button>\n\n      </ion-buttons> -->\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="dashboard-container">\n\n  <div class="empty-dashboard" *ngIf="emptyGames">\n\n    <ion-grid style="height: 100%">\n\n      <ion-row justify-content-center align-items-center style="height: 100%">\n\n        <div>\n\n          <img src="../../assets/imgs/volley_empty_list.png" />\n\n          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n  <!-- <ion-list  *ngIf="!emptyGames">\n\n    <ion-item *ngFor="let game of games | async">\n\n      {{game.name}}\n\n    </ion-item>\n\n  </ion-list> -->\n\n  <div *ngIf="!emptyGames">\n\n      <ion-grid>\n\n          <ion-row>\n\n            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async">\n\n                <ion-card>\n\n                    <ion-card-header>\n\n                        {{game.name}}\n\n                    </ion-card-header>\n\n                    <ion-card-content>\n\n                      The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.\n\n                    </ion-card-content>\n\n                  </ion-card>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n  \n\n  </div>\n\n\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/
+            selector: "page-dashboard",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n\n  Generated template for the DashboardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Dashboard</ion-title>\n\n    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">\n\n      <button ion-button icon-only (click)="reload()" class="update-button">\n\n        <ion-icon md="md-cloud-download"></ion-icon>\n\n        Update\n\n      </button>\n\n    </ion-buttons>\n\n    <!-- <ion-buttons end *ngIf="userLogged">\n\n        <button ion-button icon-only (click)="logOut()">\n\n          <ion-icon md="md-log-out"></ion-icon>\n\n        </button>\n\n      </ion-buttons> -->\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="dashboard-container">\n\n  <div class="empty-dashboard" *ngIf="emptyGames">\n\n    <ion-grid style="height: 100%">\n\n      <ion-row justify-content-center align-items-center style="height: 100%">\n\n        <div>\n\n          <img src="../../assets/imgs/volley_empty_list.png" />\n\n          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n  <div *ngIf="!emptyGames">\n\n      <ion-grid>\n\n          <ion-row>\n\n            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async; let i = index">\n\n                <ion-card class="animated bounceIn" [style.animation-delay]=" i/10 + \'s\'">\n\n                    <ion-card-header>\n\n                        {{game.name}}\n\n                    </ion-card-header>\n\n                    <ion-card-content>\n\n                      The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.\n\n                    </ion-card-content>\n\n                  </ion-card>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n  \n\n  </div>\n\n\n\n  <button (click)="onActivate()">top!</button>\n\n\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _f || Object])
     ], DashboardPage);
