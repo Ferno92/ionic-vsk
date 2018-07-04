@@ -27989,7 +27989,7 @@ div {
 }
 
 .visible {
-  display: block;
+  display: block !important;
 }
 
 .full-height {

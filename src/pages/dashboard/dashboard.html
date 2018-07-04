@@ -28,7 +28,7 @@
 
 
 <ion-content padding class="dashboard-container">
-  <div class="empty-dashboard">
+  <div class="empty-dashboard" *ngIf="emptyGames">
     <ion-grid style="height: 100%">
       <ion-row justify-content-center align-items-center style="height: 100%">
         <div>
@@ -38,9 +38,29 @@
       </ion-row>
     </ion-grid>
   </div>
-  <!-- <ion-fab class="fab-dashboard" bottom right>
-    <button ion-fab icon-only color="secondary" (click)="createMatch()">
-      <ion-icon md="md-add"></ion-icon>
-    </button>
-  </ion-fab> -->
+
+  <!-- <ion-list  *ngIf="!emptyGames">
+    <ion-item *ngFor="let game of games | async">
+      {{game.name}}
+    </ion-item>
+  </ion-list> -->
+  <div *ngIf="!emptyGames">
+      <ion-grid>
+          <ion-row>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async">
+                <ion-card>
+                    <ion-card-header>
+                        {{game.name}}
+                    </ion-card-header>
+                    <ion-card-content>
+                      The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+                    </ion-card-content>
+                  </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  
+  </div>
+
+  
 </ion-content>

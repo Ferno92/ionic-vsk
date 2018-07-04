@@ -1,9 +1,16 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../services/auth.service';
-import { MenuController } from 'ionic-angular';
-import { Events } from 'ionic-angular';
-import { AfoListObservable, AngularFireOfflineDatabase, AfoObjectObservable } from 'angularfire2-offline/database';
+import { Component } from "@angular/core"; 
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AuthService } from "../../services/auth.service";
+import { MenuController } from "ionic-angular";
+import { Events } from "ionic-angular";
+import {
+  AfoListObservable,
+  AngularFireOfflineDatabase,
+  AfoObjectObservable
+} from "angularfire2-offline/database";
+import { empty } from "rxjs/observable/empty";
+import { BasePage } from "../../common/BasePage";
+import { auth } from "firebase/app";
 
 /**
  * Generated class for the DashboardPage page.
@@ -17,50 +24,63 @@ import { AfoListObservable, AngularFireOfflineDatabase, AfoObjectObservable } fr
   segment: "dashboard"
 })
 @Component({
-  selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+  selector: "page-dashboard",
+  templateUrl: "dashboard.html"
 })
-export class DashboardPage {
-
+export class DashboardPage extends BasePage {
   userLogged: boolean;
   userImage: String;
   version: String = "0.0.1";
   onlineVersion: AfoObjectObservable<any>;
+  games: AfoListObservable<any[]>;
+  emptyGames: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private authService: AuthService, public menuCtrl: MenuController, public events: Events,
-    afoDatabase: AngularFireOfflineDatabase) {
-      this.userLogged = false;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public authService: AuthService,
+    public menuCtrl: MenuController,
+    public events: Events,
+    public afoDatabase: AngularFireOfflineDatabase
+  ) {
+    super(navCtrl, authService)
+    this.userLogged = false;
+    this.emptyGames = true;
 
-      this.authService.authState.subscribe(user => {
-        if (user != null) {
-          this.userLogged = true;
-          this.userImage = user.photoURL;
-          console.log("logged user: " + user.displayName);
-        }else{
-          this.userLogged = false;
+    this.onlineVersion = afoDatabase.object("updateVersion");
+
+    console.log("version: " + this.onlineVersion);
+  }
+
+  onUserChange(user: any){
+    var self = this;
+    if (user != null) {
+      this.userLogged = true;
+      this.userImage = user.photoURL;
+      this.games = this.afoDatabase.list('/'+ this.authService.user.uid + '/games');
+      this.games.subscribe({
+        next(gamesFound){
+          self.emptyGames = gamesFound.length == 0;
         }
       });
-
-      this.onlineVersion = afoDatabase.object('updateVersion');
-      console.log("version: " + this.onlineVersion)
+    } else {
+      this.userLogged = false;
+    }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+    this.onInit();
   }
 
-  ionViewWillEnter(){
-    this.events.publish('currentPage', 'dashboard');
+  ionViewWillEnter() {
+    this.events.publish("currentPage", "dashboard");
   }
-  
 
-  logOut(){
+  logOut() {
     this.authService.signOut();
   }
 
-  reload(){
+  reload() {
     window.location.reload();
   }
-
 }

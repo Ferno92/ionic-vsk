@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { BasePage } from '../../common/BasePage';
+import { AuthService } from "../../services/auth.service";
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -20,8 +21,9 @@ import { BasePage } from '../../common/BasePage';
 })
 export class CreateMatchPage extends BasePage {
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
-    super(navCtrl);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events,
+    public authService: AuthService) {
+    super(navCtrl, authService);
   }
 
   ionViewDidLoad() {
