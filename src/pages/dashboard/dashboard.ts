@@ -86,16 +86,4 @@ export class DashboardPage extends BasePage {
     window.location.reload();
   }
 
-  onActivate() {
-    console.log("onactivate");
-    //window.scroll(0,0);
-    //or document.body.scrollTop = 0;
-    //document.querySelector(".scroll-content").scrollTo(0, 0);
-    var el = document.querySelector(".scroll-content");
-    el.scrollTop = el.scrollHeight;
-
-    setTimeout(function() {
-      el.scrollTop = 0;
-    }, 500);
-  }
 }

@@ -44,11 +44,21 @@
       <ion-row>
         <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async; let i = index">
           <ion-card class="animated bounceIn" [style.animation-delay]=" i/10 + 's'">
-            <ion-card-header>
+            <!-- <ion-card-header>
               {{game.name}}
-            </ion-card-header>
+            </ion-card-header> -->
             <ion-card-content>
-              The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+              <div>Punteggio Finale</div>
+              <div>Mar 3/7</div>
+              <div>
+                  <div>Svezia</div>
+                  <div>3</div>
+              </div>
+              <div>
+                  <div>Svizzera</div>
+                  <div>1</div>
+              </div>
+              <div>Imola</div>
             </ion-card-content>
           </ion-card>
         </ion-col>

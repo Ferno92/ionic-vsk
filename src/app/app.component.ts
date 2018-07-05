@@ -108,11 +108,13 @@ export class MyApp {
   }
 
   fabOnClick(){
-    if(this.currentMenu == "dashboard"){
-      this.createMatch();
-    }else if(this.currentMenu == "create-match"){
-      this.startMatch();
-    }
+    // if(this.currentMenu == "dashboard"){
+    //   this.createMatch();
+    // }else if(this.currentMenu == "create-match"){
+    //   this.startMatch();
+    // }else if(this.currentMenu == "dashboard-scroll"){
+      this.scrollTop();
+    // }
   }
 
   createMatch() {
@@ -121,6 +123,20 @@ export class MyApp {
 
   startMatch() {
     this.app.getActiveNav().push("live-match");
+  }
+
+  scrollTop(){
+    document.getElementsByClassName("scroll-content")[0].scrollTop = 0;
+    console.log("top!!!");
+    // var element = document.getElementsByClassName("fab-button");
+    // for(var i=0, len = element.length; i<len; i++)
+    // {
+    //     element[i].style["background-color"] = "#FFC107";
+    // }
+    // document.getElementsByClassName("fab-button") 'background-color', '#FFC107');
+    // this.renderer.setElementStyle(this.fabRef, 'color', '#000000');
+    // this.iconRef.classList.remove("ion-md-arrow-round-up");
+    // this.iconRef.classList.add("ion-md-add");
   }
 
   changeFab(type: String) {
