@@ -34,8 +34,8 @@
     </ion-content>
 </ion-menu>
 <ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>
-<ion-fab class="fab-dashboard" bottom right  (click)="fabOnClick()" *ngIf="hasFab">
-    <button ion-fab icon-only color="{{fabColor}}">
-        <ion-icon md="{{fabIcon}}"></ion-icon>
+<ion-fab class="fab-dashboard" bottom right (click)="fabOnClick()" *ngIf="hasFab">
+    <button ion-fab icon-only color="{{fabColor}}" class="fab-button">
+        <ion-icon md="{{fabIcon}}" class="fab-icon"></ion-icon>
     </button>
 </ion-fab>

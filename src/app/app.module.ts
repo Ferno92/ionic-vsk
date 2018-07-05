@@ -16,6 +16,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AuthService } from '../services/auth.service';
+import { HideFabDirective} from '../directives/hide-fab/hide-fab';
 // import {
 //   AfoListObservable,
 //   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
@@ -33,7 +34,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    DashboardPage
+    DashboardPage,
+    HideFabDirective
   ],
   imports: [
     BrowserModule,
