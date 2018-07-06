@@ -41,12 +41,12 @@ export class MyApp {
       this.userLogged = false;
       this.currentMenu = "dashboard";
       this.auth.authState.subscribe(user => {
-        console.log("logged user change ");
+        // console.log("logged user change ");
         if (user != null) {
           this.userLogged = true;
           this.userImage = user.photoURL;
           this.userName = user.displayName;
-          console.log("logged user: " + user.displayName);
+          // console.log("logged user: " + user.displayName);
         } else {
           this.userLogged = false;
         }
@@ -108,13 +108,13 @@ export class MyApp {
   }
 
   fabOnClick(){
-    // if(this.currentMenu == "dashboard"){
-    //   this.createMatch();
-    // }else if(this.currentMenu == "create-match"){
-    //   this.startMatch();
-    // }else if(this.currentMenu == "dashboard-scroll"){
+    if(this.currentMenu == "dashboard"){
+      this.createMatch();
+    }else if(this.currentMenu == "create-match"){
+      this.startMatch();
+    }else if(this.currentMenu == "dashboard-scroll"){
       this.scrollTop();
-    // }
+    }
   }
 
   createMatch() {
@@ -126,17 +126,22 @@ export class MyApp {
   }
 
   scrollTop(){
-    document.getElementsByClassName("scroll-content")[0].scrollTop = 0;
+    document.getElementsByClassName("dashboard-container")[0].getElementsByClassName("scroll-content")[0].scrollTop = 0;
+    
     console.log("top!!!");
     // var element = document.getElementsByClassName("fab-button");
     // for(var i=0, len = element.length; i<len; i++)
     // {
-    //     element[i].style["background-color"] = "#FFC107";
+    //   element[i].style["background-color"] = "#FFC107";
+    //   element[i].style["color"] = "#000000";
     // }
-    // document.getElementsByClassName("fab-button") 'background-color', '#FFC107');
-    // this.renderer.setElementStyle(this.fabRef, 'color', '#000000');
-    // this.iconRef.classList.remove("ion-md-arrow-round-up");
-    // this.iconRef.classList.add("ion-md-add");
+    // document.getElementsByClassName("fab-icon")[0].classList.remove("ion-md-arrow-round-up");
+    // document.getElementsByClassName("fab-icon")[0].classList.add("ion-md-add");
+    
+    this.fabColor = "secondary";
+    this.fabIcon = "md-add";
+    
+    this.events.publish("currentPage", "dashboard");
   }
 
   changeFab(type: String) {
@@ -149,6 +154,11 @@ export class MyApp {
       this.fabColor = "secondary";
       this.fabIcon = "md-add";
       this.hasFab = true;
+    }else if(type === "dashboard-scroll"){
+      this.fabColor = "primary";
+      this.fabIcon = "md-arrow-round-up";
+      this.hasFab = true;
+      console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
     }else{
       //hide fab
       this.hasFab = false;

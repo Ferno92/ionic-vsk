@@ -563,12 +563,12 @@ var MyApp = /** @class */ (function () {
             _this.userLogged = false;
             _this.currentMenu = "dashboard";
             _this.auth.authState.subscribe(function (user) {
-                console.log("logged user change ");
+                // console.log("logged user change ");
                 if (user != null) {
                     _this.userLogged = true;
                     _this.userImage = user.photoURL;
                     _this.userName = user.displayName;
-                    console.log("logged user: " + user.displayName);
+                    // console.log("logged user: " + user.displayName);
                 }
                 else {
                     _this.userLogged = false;
@@ -624,13 +624,15 @@ var MyApp = /** @class */ (function () {
         this.auth.signOut();
     };
     MyApp.prototype.fabOnClick = function () {
-        // if(this.currentMenu == "dashboard"){
-        //   this.createMatch();
-        // }else if(this.currentMenu == "create-match"){
-        //   this.startMatch();
-        // }else if(this.currentMenu == "dashboard-scroll"){
-        this.scrollTop();
-        // }
+        if (this.currentMenu == "dashboard") {
+            this.createMatch();
+        }
+        else if (this.currentMenu == "create-match") {
+            this.startMatch();
+        }
+        else if (this.currentMenu == "dashboard-scroll") {
+            this.scrollTop();
+        }
     };
     MyApp.prototype.createMatch = function () {
         this.app.getActiveNav().push("create-match");
@@ -639,17 +641,19 @@ var MyApp = /** @class */ (function () {
         this.app.getActiveNav().push("live-match");
     };
     MyApp.prototype.scrollTop = function () {
-        document.getElementsByClassName("scroll-content")[0].scrollTop = 0;
+        document.getElementsByClassName("dashboard-container")[0].getElementsByClassName("scroll-content")[0].scrollTop = 0;
         console.log("top!!!");
         // var element = document.getElementsByClassName("fab-button");
         // for(var i=0, len = element.length; i<len; i++)
         // {
-        //     element[i].style["background-color"] = "#FFC107";
+        //   element[i].style["background-color"] = "#FFC107";
+        //   element[i].style["color"] = "#000000";
         // }
-        // document.getElementsByClassName("fab-button") 'background-color', '#FFC107');
-        // this.renderer.setElementStyle(this.fabRef, 'color', '#000000');
-        // this.iconRef.classList.remove("ion-md-arrow-round-up");
-        // this.iconRef.classList.add("ion-md-add");
+        // document.getElementsByClassName("fab-icon")[0].classList.remove("ion-md-arrow-round-up");
+        // document.getElementsByClassName("fab-icon")[0].classList.add("ion-md-add");
+        this.fabColor = "secondary";
+        this.fabIcon = "md-add";
+        this.events.publish("currentPage", "dashboard");
     };
     MyApp.prototype.changeFab = function (type) {
         console.log("changeFab: " + type);
@@ -663,13 +667,19 @@ var MyApp = /** @class */ (function () {
             this.fabIcon = "md-add";
             this.hasFab = true;
         }
+        else if (type === "dashboard-scroll") {
+            this.fabColor = "primary";
+            this.fabIcon = "md-arrow-round-up";
+            this.hasFab = true;
+            console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
+        }
         else {
             //hide fab
             this.hasFab = false;
         }
     };
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <!-- <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header> -->\n\n    <ion-content>\n\n        <div>\n\n            <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />\n\n            <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />\n\n            <div *ngIf="userLogged" class="float-left user-info">\n\n                <div class="bigger-text">Ciao</div>\n\n                <div>{{userName}}</div>\n\n            </div>\n\n        </div>\n\n        <div class="clear"></div>\n\n        <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>\n\n        <ion-list>\n\n            <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{\'menu-active\': currentMenu == \'dashboard\'}">\n\n                <ion-icon name="homepage" md="md-home"></ion-icon>\n\n                Homepage\n\n            </button>\n\n            <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{\'menu-active\': currentMenu == \'login\'}">\n\n                <ion-icon name="login" md="md-contact"></ion-icon>\n\n                Login\n\n            </button>\n\n\n\n\n\n            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">\n\n                <ion-icon name="logout" md="md-log-out"></ion-icon>\n\n                Esci\n\n            </button>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-menu>\n\n<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>\n\n<ion-fab class="fab-dashboard" bottom right (click)="fabOnClick()" *ngIf="hasFab">\n\n    <button ion-fab icon-only color="{{fabColor}}" class="fab-button">\n\n        <ion-icon md="{{fabIcon}}" class="fab-icon"></ion-icon>\n\n    </button>\n\n</ion-fab>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <!-- <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header> -->\n\n    <ion-content>\n\n        <div>\n\n            <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />\n\n            <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />\n\n            <div *ngIf="userLogged" class="float-left user-info">\n\n                <div class="bigger-text">Ciao</div>\n\n                <div>{{userName}}</div>\n\n            </div>\n\n        </div>\n\n        <div class="clear"></div>\n\n        <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>\n\n        <ion-list>\n\n            <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{\'menu-active\': currentMenu == \'dashboard\'}">\n\n                <ion-icon name="homepage" md="md-home"></ion-icon>\n\n                Homepage\n\n            </button>\n\n            <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{\'menu-active\': currentMenu == \'login\'}">\n\n                <ion-icon name="login" md="md-contact"></ion-icon>\n\n                Login\n\n            </button>\n\n\n\n\n\n            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">\n\n                <ion-icon name="logout" md="md-log-out"></ion-icon>\n\n                Esci\n\n            </button>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-menu>\n\n<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>\n\n<ion-list>\n\n        <ion-item>\n\n                {{fabColor}}\n\n        </ion-item>\n\n        <ion-item>\n\n                {{fabIcon}}\n\n        </ion-item>\n\n</ion-list>\n\n<ion-fab class="fab-dashboard" bottom right (click)="fabOnClick()" *ngIf="hasFab">\n\n    <button ion-fab icon-only color="{{fabColor}}" class="fab-button">\n\n        <ion-icon md="{{fabIcon}}" class="fab-icon"></ion-icon>\n\n    </button>\n\n</ion-fab>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object])
     ], MyApp);
@@ -704,18 +714,25 @@ var HideFabDirective = /** @class */ (function () {
         this.element = element;
         this.renderer = renderer;
         this.events = events;
-        this.storedScroll = 0;
-        this.threshold = 10;
-        console.log("Hello HideFabDirective Directive");
+        // private storedScroll: number = 0;
+        // private threshold: number = 10;
+        this.onTop = true;
     }
     HideFabDirective.prototype.ngAfterViewInit = function () {
         var self = this;
         setTimeout(function () {
-            console.log("All Transtition set");
+            // console.log("All Transtition set");
             self.fabRef = document.getElementsByClassName("fab-button")[0];
             self.iconRef = self.fabRef.getElementsByClassName("fab-icon")[0];
-            console.log("All Transtition set " + self.fabRef + " | " + self.renderer);
+            // console.log("All Transtition set " + self.fabRef + " | " + self.renderer);
             self.renderer.setElementStyle(self.fabRef, "webkitTransition", "transform 500ms,bottom 500ms");
+            self.events.subscribe("currentPage", function (page) {
+                // user and time are the same arguments passed in `events.publish(user, time)`
+                console.log("HideFabDirective - current page: " + page);
+                if (page == "dashboard") {
+                    self.onTop = true;
+                }
+            });
         }, 500);
     };
     HideFabDirective.prototype.handleScroll = function (event) {
@@ -731,20 +748,27 @@ var HideFabDirective = /** @class */ (function () {
         // // console.log(event.scrollTop - this.storedScroll);
         // this.storedScroll = event.scrollTop;
         if (event.scrollTop != 0) {
-            // console.log("event scroll: " + event.scrollTop);
-            this.renderer.setElementStyle(this.fabRef, "background-color", "#3F51B5"); //md-arrow-round-up
-            this.renderer.setElementStyle(this.fabRef, "color", "#ffffff");
-            this.iconRef.classList.remove("ion-md-add");
-            this.iconRef.classList.add("ion-md-arrow-round-up");
-            // this.events.publish("currentPage", "dashboard-scroll");
+            // // console.log("event scroll: " + event.scrollTop);
+            // this.renderer.setElementStyle(this.fabRef, "background-color", "#3F51B5"); //md-arrow-round-up
+            // this.renderer.setElementStyle(this.fabRef, "color", "#ffffff");
+            // this.iconRef.classList.remove("ion-md-add");
+            // this.iconRef.classList.add("ion-md-arrow-round-up");
+            if (this.onTop) {
+                this.events.publish("currentPage", "dashboard-scroll");
+            }
+            this.onTop = false;
             // this.renderer.setElementStyle(this.fabRef, 'transform', 'rotate(360deg)');
         }
         else {
-            // console.log("event scroll zero");
-            this.renderer.setElementStyle(this.fabRef, "background-color", "#FFC107");
-            this.renderer.setElementStyle(this.fabRef, "color", "#000000");
-            this.iconRef.classList.remove("ion-md-arrow-round-up");
-            this.iconRef.classList.add("ion-md-add");
+            // // console.log("event scroll zero");
+            // this.renderer.setElementStyle(this.fabRef, "background-color", "#FFC107");
+            // this.renderer.setElementStyle(this.fabRef, "color", "#000000");
+            // this.iconRef.classList.remove("ion-md-arrow-round-up");
+            // this.iconRef.classList.add("ion-md-add");
+            if (!this.onTop) {
+                this.events.publish("currentPage", "dashboard");
+            }
+            this.onTop = true;
             // this.events.publish("currentPage", "dashboard");
             // this.renderer.setElementStyle(this.fabRef, 'transform', 'rotate(-360deg)');
         }
@@ -756,10 +780,11 @@ var HideFabDirective = /** @class */ (function () {
                 "(ionScroll)": "handleScroll($event)"
             }
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Renderer */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Renderer */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
     ], HideFabDirective);
     return HideFabDirective;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=hide-fab.js.map
@@ -858,10 +883,14 @@ var DashboardPage = /** @class */ (function (_super) {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: "page-dashboard",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n\n  Generated template for the DashboardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Dashboard</ion-title>\n\n    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">\n\n      <button ion-button icon-only (click)="reload()" class="update-button">\n\n        <ion-icon md="md-cloud-download"></ion-icon>\n\n        Update\n\n      </button>\n\n    </ion-buttons>\n\n    <!-- <ion-buttons end *ngIf="userLogged">\n\n        <button ion-button icon-only (click)="logOut()">\n\n          <ion-icon md="md-log-out"></ion-icon>\n\n        </button>\n\n      </ion-buttons> -->\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="dashboard-container" hide-fab>\n\n  <div class="empty-dashboard" *ngIf="emptyGames">\n\n    <ion-grid style="height: 100%">\n\n      <ion-row justify-content-center align-items-center style="height: 100%">\n\n        <div>\n\n          <img src="../../assets/imgs/volley_empty_list.png" />\n\n          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n  <div *ngIf="!emptyGames">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async; let i = index">\n\n          <ion-card class="animated bounceIn" [style.animation-delay]=" i/10 + \'s\'">\n\n            <!-- <ion-card-header>\n\n              {{game.name}}\n\n            </ion-card-header> -->\n\n            <ion-card-content>\n\n              <div>Punteggio Finale</div>\n\n              <div>Mar 3/7</div>\n\n              <div>\n\n                  <div>Svezia</div>\n\n                  <div>3</div>\n\n              </div>\n\n              <div>\n\n                  <div>Svizzera</div>\n\n                  <div>1</div>\n\n              </div>\n\n              <div>Imola</div>\n\n            </ion-card-content>\n\n          </ion-card>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]])
     ], DashboardPage);
     return DashboardPage;
-    var _a, _b, _c, _d, _e, _f;
 }(__WEBPACK_IMPORTED_MODULE_4__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=dashboard.js.map
