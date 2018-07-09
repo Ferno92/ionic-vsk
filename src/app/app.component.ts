@@ -7,6 +7,7 @@ import { App, AlertController } from "ionic-angular";
 import { Events } from "ionic-angular";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { Observable, Subject } from "rxjs";
+import { ApplicationRef } from '@angular/core';
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 @Component({
   templateUrl: "app.html"
@@ -29,7 +30,8 @@ export class MyApp {
     splashScreen: SplashScreen,
     private auth: AuthService,
     public events: Events,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController, 
+    private applicationRef : ApplicationRef 
   ) {
 
     platform.ready().then(() => {
@@ -164,5 +166,6 @@ export class MyApp {
       this.hasFab = false;
       
     }
+    this.applicationRef.tick();
   }
 }
