@@ -28023,6 +28023,10 @@ div {
   float: left;
 }
 
+.float-right {
+  float: right;
+}
+
 .clear {
   clear: both;
 }
@@ -28066,4 +28070,22 @@ page-dashboard .update-button .button-inner {
 
 page-dashboard .update-button .button-inner .icon {
   margin-bottom: 5px;
+}
+
+page-dashboard .side-text {
+  color: gray;
+  font-size: 14px;
+}
+
+page-dashboard .relevant-text {
+  font-size: 18px;
+}
+
+page-dashboard .relevant-text.winner {
+  font-weight: bold;
+}
+
+page-dashboard .game-card:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

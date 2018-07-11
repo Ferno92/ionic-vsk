@@ -124,7 +124,11 @@ export class MyApp {
   }
 
   startMatch() {
-    this.app.getActiveNav().push("live-match");
+    this.events.publish("create-match");
+    // this.app.getActiveNav().push("live-match", {
+    //   "teamA": "Squadra A",
+    //   "teamB": "Squadra B"
+    // });
   }
 
   scrollTop(){

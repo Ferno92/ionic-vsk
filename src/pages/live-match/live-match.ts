@@ -25,6 +25,8 @@ import {
 })
 export class LiveMatchPage extends BasePage {
   games: AfoListObservable<any[]>;
+  teamA: String;
+  teamB: String;
 
   constructor(
     public navCtrl: NavController,
@@ -34,6 +36,9 @@ export class LiveMatchPage extends BasePage {
     public afoDatabase: AngularFireOfflineDatabase
   ) {
     super(navCtrl, authService);
+    this.teamA = navParams.get("teamA");
+    this.teamB = navParams.get("teamB");
+    console.log(this.teamA + " vs " + this.teamB);
     
   }
 

@@ -43,22 +43,22 @@
     <ion-grid>
       <ion-row>
         <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async; let i = index">
-          <ion-card class="animated bounceIn" [style.animation-delay]=" i/10 + 's'">
+          <ion-card class="animated bounceIn game-card" [style.animation-delay]=" i/10 + 's'">
             <!-- <ion-card-header>
               {{game.name}}
             </ion-card-header> -->
             <ion-card-content>
-              <div>Punteggio Finale</div>
-              <div>Mar 3/7</div>
-              <div>
-                  <div>Svezia</div>
-                  <div>3</div>
+              <div class="float-left side-text">Punteggio Finale</div>
+              <div class="float-right side-text">Mar 3/7</div>
+              <div class="clear">
+                  <div class="float-left winner relevant-text">Svezia</div>
+                  <div class="float-right winner relevant-text">3</div>
               </div>
-              <div>
-                  <div>Svizzera</div>
-                  <div>1</div>
+              <div class="clear">
+                  <div class="float-left relevant-text">Svizzera</div>
+                  <div class="float-right relevant-text">1</div>
               </div>
-              <div>Imola</div>
+              <div class="clear side-text">Imola</div>
             </ion-card-content>
           </ion-card>
         </ion-col>

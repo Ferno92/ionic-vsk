@@ -20,10 +20,20 @@ import { AuthService } from "../../services/auth.service";
   templateUrl: 'create-match.html',
 })
 export class CreateMatchPage extends BasePage {
+  teamA: String;
+  teamB: String;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events,
     public authService: AuthService) {
     super(navCtrl, authService);
+
+    events.subscribe("create-match", page => {
+      console.log(this.teamA + " - " + this.teamB);
+      this.navCtrl.push("live-match", {
+        "teamA": this.teamA,
+        "teamB": this.teamB
+      });
+    });
   }
 
   ionViewDidLoad() {
@@ -33,5 +43,6 @@ export class CreateMatchPage extends BasePage {
   ionViewWillEnter(){
     this.events.publish('currentPage', 'create-match');
   }
+
 
 }
