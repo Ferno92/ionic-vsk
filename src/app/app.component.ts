@@ -61,7 +61,7 @@ export class MyApp {
 
       events.subscribe("currentPage", page => {
         // user and time are the same arguments passed in `events.publish(user, time)`
-        console.log("current page: " + page);
+        // console.log("current page: " + page);
         this.setCurrentPage(page);
         this.changeFab(page);
       });
@@ -91,7 +91,7 @@ export class MyApp {
         {
           text: "Indietro",
           handler: data => {
-            console.log("Cancel clicked");
+            // console.log("Cancel clicked");
           }
         },
         {
@@ -134,7 +134,7 @@ export class MyApp {
   scrollTop(){
     document.getElementsByClassName("dashboard-container")[0].getElementsByClassName("scroll-content")[0].scrollTop = 0;
     
-    console.log("top!!!");
+    // console.log("top!!!");
     // var element = document.getElementsByClassName("fab-button");
     // for(var i=0, len = element.length; i<len; i++)
     // {
@@ -164,7 +164,7 @@ export class MyApp {
       this.fabColor = "primary";
       this.fabIcon = "md-arrow-round-up";
       this.hasFab = true;
-      console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
+      // console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
     }else{
       //hide fab
       this.hasFab = false;

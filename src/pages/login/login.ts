@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Platform, ToastController, Events, AlertController, Navbar } from 'ionic-angular';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
-import { ToastController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { Platform } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
-import { Events } from 'ionic-angular';
 import { BasePage } from '../../common/BasePage';
 
 /**
@@ -28,18 +25,20 @@ import { BasePage } from '../../common/BasePage';
   templateUrl: 'login.html',
 })
 export class LoginPage extends BasePage {
+  @ViewChild('navbar') navBar: Navbar;
 
   user: Observable<firebase.User>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private gplus: GooglePlus, private platform: Platform,
-    public authService: AuthService,private toastCtrl: ToastController, public events: Events) {
-      super(navCtrl, authService)
+    private gplus: GooglePlus, public platform: Platform,
+    public authService: AuthService,private toastCtrl: ToastController, public events: Events,
+    public alertCtrl: AlertController) {
+      super(navCtrl, authService, alertCtrl, platform)
 
   }
 
   ionViewDidLoad() {
-    this.onInit();
+    this.onInit(this.navBar);
   }
 
   ionViewWillEnter(){

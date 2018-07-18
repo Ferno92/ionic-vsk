@@ -28077,6 +28077,25 @@ page-dashboard .side-text {
   font-size: 14px;
 }
 
+page-dashboard .live-text.live {
+  color: #f53d3d;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+page-dashboard .live-text.live:before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+}
+
+page-dashboard .live-text.live:before {
+  border-radius: 50%;
+  background-color: #f53d3d;
+}
+
 page-dashboard .relevant-text {
   font-size: 18px;
 }
@@ -28085,7 +28104,15 @@ page-dashboard .relevant-text.winner {
   font-weight: bold;
 }
 
+page-dashboard .game-card {
+  cursor: pointer;
+}
+
 page-dashboard .game-card:hover {
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+page-dashboard .game-card.live {
+  border: solid 2px #f53d3d;
 }

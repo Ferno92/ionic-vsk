@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar #navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -43,22 +43,25 @@
     <ion-grid>
       <ion-row>
         <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games | async; let i = index">
-          <ion-card class="animated bounceIn game-card" [style.animation-delay]=" i/10 + 's'">
+          <ion-card class="animated bounceIn game-card" 
+          [ngClass]="{'live': game.live}" 
+          [style.animation-delay]=" i/10 + 's'"
+          (click)="openGame(game)">
             <!-- <ion-card-header>
               {{game.name}}
             </ion-card-header> -->
             <ion-card-content>
-              <div class="float-left side-text">Punteggio Finale</div>
-              <div class="float-right side-text">Mar 3/7</div>
+              <div class="float-left side-text live-text" [ngClass]="{'live': game.live}">{{game.live ? 'Live' : 'Punteggio finale'}}</div>
+              <div class="float-right side-text">{{game.date}}</div>
               <div class="clear">
-                  <div class="float-left winner relevant-text">Svezia</div>
-                  <div class="float-right winner relevant-text">3</div>
+                  <div class="float-left relevant-text" [ngClass]="{'winner': game.resultA > game.resultB}">{{game.teamA}}</div>
+                  <div class="float-right relevant-text"  [ngClass]="{'winner': game.resultA > game.resultB}">{{game.resultA}}</div>
               </div>
               <div class="clear">
-                  <div class="float-left relevant-text">Svizzera</div>
-                  <div class="float-right relevant-text">1</div>
+                  <div class="float-left relevant-text"  [ngClass]="{'winner': game.resultB > game.resultA}">{{game.teamB}}</div>
+                  <div class="float-right relevant-text"  [ngClass]="{'winner': game.resultB > game.resultA}">{{game.resultB}}</div>
               </div>
-              <div class="clear side-text">Imola</div>
+              <div class="clear side-text">{{game.location}}</div>
             </ion-card-content>
           </ion-card>
         </ion-col>

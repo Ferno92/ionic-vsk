@@ -1,16 +1,13 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams, Events, MenuController, ToastController, AlertController, Platform, Navbar} from "ionic-angular";
+import { ViewChild } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
-import { MenuController } from "ionic-angular";
-import { Events } from "ionic-angular";
 import {
   AfoListObservable,
   AngularFireOfflineDatabase,
   AfoObjectObservable
 } from "angularfire2-offline/database";
-import { empty } from "rxjs/observable/empty";
 import { BasePage } from "../../common/BasePage";
-import { auth } from "firebase/app";
 
 /**
  * Generated class for the DashboardPage page.
@@ -28,6 +25,8 @@ import { auth } from "firebase/app";
   templateUrl: "dashboard.html"
 })
 export class DashboardPage extends BasePage {
+  @ViewChild('navbar') navBar: Navbar;
+
   userLogged: boolean;
   userImage: String;
   version: String = "0.0.1";
@@ -41,9 +40,12 @@ export class DashboardPage extends BasePage {
     public authService: AuthService,
     public menuCtrl: MenuController,
     public events: Events,
-    public afoDatabase: AngularFireOfflineDatabase
+    public afoDatabase: AngularFireOfflineDatabase,
+    private toastCtrl: ToastController,
+    public alertCtrl: AlertController,
+    public platform: Platform
   ) {
-    super(navCtrl, authService);
+    super(navCtrl, authService, alertCtrl, platform);
     this.userLogged = false;
     this.emptyGames = true;
 
@@ -71,7 +73,7 @@ export class DashboardPage extends BasePage {
   }
 
   ionViewDidLoad() {
-    this.onInit();
+    this.onInit(this.navBar);
   }
 
   ionViewWillEnter() {
@@ -80,10 +82,27 @@ export class DashboardPage extends BasePage {
 
   logOut() {
     this.authService.signOut();
+    this.showSuccesfullToast("Logout avvenuto", "success");
   }
 
   reload() {
     window.location.reload();
+  }
+
+  showSuccesfullToast(text: String, result: String){
+    let toast = this.toastCtrl.create({
+      message: '' + text,
+      duration: 2000,
+      position: 'top',
+      cssClass: 'toast-login ' + result
+    });
+  
+    toast.present();
+  }
+
+  openGame(game:any){
+    console.log(game);
+    this.openLiveMatch(game.id, game.teamA, game.teamB);
   }
 
 }
