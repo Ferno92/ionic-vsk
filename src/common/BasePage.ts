@@ -44,8 +44,7 @@ export class BasePage {
     }, 2);
     navBar.backButtonClick = (e: UIEvent) => {
       // todo something
-      console.log("backPressed 2");
-      this.askGoBackPopup();
+      this.goBack();
     };
     this.askBeforeGoBack = false;
     this.canGoBack = this.navCtrl.canGoBack();

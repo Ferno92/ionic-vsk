@@ -1,6 +1,16 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, Events, MenuController, ToastController, AlertController, Platform, Navbar} from "ionic-angular";
-import { ViewChild } from '@angular/core';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  Events,
+  MenuController,
+  ToastController,
+  AlertController,
+  Platform,
+  Navbar
+} from "ionic-angular";
+import { ViewChild } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 import {
   AfoListObservable,
@@ -25,7 +35,7 @@ import { BasePage } from "../../common/BasePage";
   templateUrl: "dashboard.html"
 })
 export class DashboardPage extends BasePage {
-  @ViewChild('navbar') navBar: Navbar;
+  @ViewChild("navbar") navBar: Navbar;
 
   userLogged: boolean;
   userImage: String;
@@ -60,7 +70,12 @@ export class DashboardPage extends BasePage {
       this.userLogged = true;
       this.userImage = user.photoURL;
       this.games = this.afoDatabase.list(
-        "/" + this.authService.user.uid + "/games"
+        "/" + this.authService.user.uid + "/games",
+        {
+          query: {
+            orderByChild: "date"
+          }
+        }
       );
       this.games.subscribe({
         next(gamesFound) {
@@ -89,20 +104,24 @@ export class DashboardPage extends BasePage {
     window.location.reload();
   }
 
-  showSuccesfullToast(text: String, result: String){
+  showSuccesfullToast(text: String, result: String) {
     let toast = this.toastCtrl.create({
-      message: '' + text,
+      message: "" + text,
       duration: 2000,
-      position: 'top',
-      cssClass: 'toast-login ' + result
+      position: "top",
+      cssClass: "toast-login " + result
     });
-  
+
     toast.present();
   }
 
-  openGame(game:any){
+  openGame(game: any) {
     console.log(game);
     this.openLiveMatch(game.id, game.teamA, game.teamB);
   }
 
+  onPressingCardGame(game: any){
+    console.log("onPressingCardGame");
+    game.pressed = true;
+  }
 }

@@ -69,6 +69,9 @@ export class LiveMatchPage extends BasePage {
             this.teamB = item.teamB;
             console.log(this.teamA + " vs " + this.teamB);
             found = true;
+            if(item.live){
+              this.askBeforeGoBack = true;
+            }
           }
 
         });
@@ -82,7 +85,6 @@ export class LiveMatchPage extends BasePage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad LiveMatchPage");
     this.onInit(this.navBar);
-    this.askBeforeGoBack = true;
   }
 
   ionViewWillEnter() {

@@ -14,7 +14,8 @@ import {
   AfoListObservable,
   AngularFireOfflineDatabase
 } from "angularfire2-offline/database";
-import * as moment from 'moment';
+import * as moment from "moment";
+import { createMatchedData } from "ionic-angular/umd/navigation/url-serializer";
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -35,8 +36,9 @@ export class CreateMatchPage extends BasePage {
   @ViewChild("navbar") navBar: Navbar;
   teamA: String;
   teamB: String;
-
   games: AfoListObservable<any[]>;
+  liveMatchOn: boolean;
+  liveMatch: any;
 
   constructor(
     public navCtrl: NavController,
@@ -50,19 +52,93 @@ export class CreateMatchPage extends BasePage {
     super(navCtrl, authService, alertCtrl, platform);
 
     events.subscribe("create-match", page => {
-      console.log(this.teamA + " - " + this.teamB);
-      if (
-        this.teamA == undefined ||
-        this.teamA.trim() == "" ||
-        this.teamB == undefined ||
-        this.teamB.trim() == ""
-      ) {
-        this.errorPopup(
-          "Dati mancanti",
-          "Inserisci entrambi i nomi delle squadre in gioco"
-        );
-      } else {
-        if (this.authService.user != null) {
+      this.createMatch();
+    });
+  }
+
+  ionViewDidLoad() {
+    this.onInit(this.navBar);
+    console.log("ionViewDidLoad");
+  }
+
+  ionViewWillEnter() {
+    this.events.publish("currentPage", "create-match");
+  }
+
+  onUserChange(user: any) {
+    if (user != null) {
+      this.games = this.afoDatabase.list(
+        "/" + this.authService.user.uid + "/games"
+      );
+      this.games.subscribe(items => {
+        var found = false;
+        // items is an array
+        items.forEach(item => {
+          if (item.live) {
+            found = true;
+            this.askBeforeGoBack = true;
+            this.liveMatch = item;
+          }
+        });
+        if (found) {
+          this.liveMatchOn = true;
+        } else {
+          this.liveMatchOn = false;
+        }
+      });
+    }
+  }
+
+  askCloseLiveMatch() {
+    let prompt = this.alertCtrl.create({
+      title: "Partita in corso",
+      message:
+        "Hai una partita in corso '" +
+        this.liveMatch.teamA +
+        " - " +
+        this.liveMatch.teamB +
+        "', vuoi chiuderla e aprirne una nuova?",
+      buttons: [
+        {
+          text: "No",
+          handler: data => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "Si",
+          handler: data => {
+            this.liveMatch.live = false;
+            this.afoDatabase
+              .object(
+                "/" + this.authService.user.uid + "/games/" + this.liveMatch.id
+              )
+              .update(this.liveMatch);
+            this.liveMatchOn = false;
+            this.createMatch();
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  createMatch() {
+    if (
+      this.teamA == undefined ||
+      this.teamA.trim() == "" ||
+      this.teamB == undefined ||
+      this.teamB.trim() == ""
+    ) {
+      this.errorPopup(
+        "Dati mancanti",
+        "Inserisci entrambi i nomi delle squadre in gioco"
+      );
+    } else {
+      if (this.authService.user != null) {
+        if (this.liveMatchOn) {
+          this.askCloseLiveMatch();
+        } else {
           const newGameRef = this.games.push({});
 
           const promise = newGameRef.set({
@@ -71,7 +147,7 @@ export class CreateMatchPage extends BasePage {
             teamB: this.teamB,
             resultA: 0,
             resultB: 0,
-            date: moment(new Date).format("MMM/DD"),
+            date: moment(new Date()).format("MMM/DD"),
             location: "Reggio-Emilia",
             live: true
           });
@@ -85,25 +161,14 @@ export class CreateMatchPage extends BasePage {
             }
           }
 
+          //TODO remove from stack create-match
+          // let currentIndex = this.navController.getActive().index;
+          // this.navController.push(DestinationPage).then(() => {
+          //   this.navController.remove(currentIndex);
+          // });
           this.openLiveMatch(newGameRef.key, this.teamA, this.teamB);
         }
       }
-    });
-  }
-
-  ionViewDidLoad() {
-    this.onInit(this.navBar);
-  }
-
-  ionViewWillEnter() {
-    this.events.publish("currentPage", "create-match");
-  }
-
-  onUserChange(user: any) {
-    if (user != null) {
-      this.games = this.afoDatabase.list(
-        "/" + this.authService.user.uid + "/games"
-      );
     }
   }
 }
