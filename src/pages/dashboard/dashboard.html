@@ -44,7 +44,7 @@
       <ion-row>
         <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of (games | async)?.slice().reverse(); let i = index">
           <ion-card class="animated bounceIn game-card" 
-          [ngClass]="{'live': game.live" 
+          [ngClass]="{'live': game.lives}" 
           [style.animation-delay]=" i/10 + 's'"
           (tap)="openGame(game)"
           (press)="onPressingCardGame(game)">
