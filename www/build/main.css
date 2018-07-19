@@ -8514,10 +8514,10 @@ ion-card-content {
 }
 
 .checkbox-md .checkbox-icon {
-  border-radius: 2px;
+  border-radius: 50%;
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border-width: 2px;
   border-style: solid;
   border-color: #787878;
@@ -28115,4 +28115,23 @@ page-dashboard .game-card:hover {
 
 page-dashboard .game-card.live {
   border: solid 2px #f53d3d;
+}
+
+page-dashboard .game-card .card-content {
+  position: relative;
+}
+
+page-dashboard .game-card .card-content .game-content.edit {
+  opacity: 0.5;
+}
+
+page-dashboard .game-card .card-content .edit-game-checkbox {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+page-dashboard .game-card .card-content .edit-game-checkbox.edit {
+  display: block;
 }

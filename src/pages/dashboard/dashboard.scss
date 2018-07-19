@@ -63,5 +63,22 @@ page-dashboard {
     &.live {
       border: solid 2px color($colors, danger, base);
     }
+
+    .card-content{
+      position: relative;
+      .game-content.edit{
+        opacity: 0.5;
+      }
+      .edit-game-checkbox{
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        &.edit{
+          display: block;
+        }
+      }
+    }
+    
   }
 }

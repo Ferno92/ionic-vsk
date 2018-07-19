@@ -7,10 +7,15 @@
 <ion-header>
 
   <ion-navbar #navbar color="primary">
-    <button ion-button menuToggle>
+    <button ion-button menuToggle *ngIf="!onEdit">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Dashboard</ion-title>
+    <ion-buttons left *ngIf="onEdit">
+      <button ion-button icon-only (click)="removeOnEdit()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </button>
+  </ion-buttons>
+    <ion-title>{{onEdit ? 'Elimina partite' : 'Dashboard'}}</ion-title>
     <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">
       <button ion-button icon-only (click)="reload()" class="update-button">
         <ion-icon md="md-cloud-download"></ion-icon>
@@ -46,23 +51,27 @@
           <ion-card class="animated bounceIn game-card" 
           [ngClass]="{'live': game.lives}" 
           [style.animation-delay]=" i/10 + 's'"
-          (tap)="openGame(game)"
           (press)="onPressingCardGame(game)">
             <!-- <ion-card-header>
               {{game.name}}
             </ion-card-header> -->
-            <ion-card-content>
-              <div class="float-left side-text live-text" [ngClass]="{'live': game.live}">{{game.live ? 'Live' : 'Punteggio finale'}}</div>
-              <div class="float-right side-text">{{game.date}}</div>
-              <div class="clear">
-                  <div class="float-left relevant-text" [ngClass]="{'winner': game.resultA > game.resultB}">{{game.teamA}}</div>
-                  <div class="float-right relevant-text"  [ngClass]="{'winner': game.resultA > game.resultB}">{{game.resultA}}</div>
-              </div>
-              <div class="clear">
-                  <div class="float-left relevant-text"  [ngClass]="{'winner': game.resultB > game.resultA}">{{game.teamB}}</div>
-                  <div class="float-right relevant-text"  [ngClass]="{'winner': game.resultB > game.resultA}">{{game.resultB}}</div>
-              </div>
-              <div class="clear side-text">{{game.location}}</div>
+            <ion-card-content class="card-content">
+              <div  class="game-content" [ngClass]="{'edit': onEdit}"
+              (tap)="openGame(game)">
+                  <div class="float-left side-text live-text" [ngClass]="{'live': game.live}">{{game.live ? 'Live' : 'Punteggio finale'}}</div>
+                  <div class="float-right side-text">{{game.date}}</div>
+                  <div class="clear">
+                      <div class="float-left relevant-text" [ngClass]="{'winner': game.resultA > game.resultB}">{{game.teamA}}</div>
+                      <div class="float-right relevant-text"  [ngClass]="{'winner': game.resultA > game.resultB}">{{game.resultA}}</div>
+                  </div>
+                  <div class="clear">
+                      <div class="float-left relevant-text"  [ngClass]="{'winner': game.resultB > game.resultA}">{{game.teamB}}</div>
+                      <div class="float-right relevant-text"  [ngClass]="{'winner': game.resultB > game.resultA}">{{game.resultB}}</div>
+                  </div>
+                  <div class="clear side-text">{{game.location}}</div>
+              </div>            
+              <ion-checkbox [(ngModel)]="game.checked" (ionChange)="updateEditCheck(game)"
+              class="edit-game-checkbox" [ngClass]="{'edit': onEdit}"></ion-checkbox>  
             </ion-card-content>
           </ion-card>
         </ion-col>

@@ -43,6 +43,8 @@ export class DashboardPage extends BasePage {
   onlineVersion: AfoObjectObservable<any>;
   games: AfoListObservable<any[]>;
   emptyGames: boolean = false;
+  onEdit: boolean = false;
+  gamesChecked: String[] = new Array<String>();
 
   constructor(
     public navCtrl: NavController,
@@ -116,12 +118,37 @@ export class DashboardPage extends BasePage {
   }
 
   openGame(game: any) {
-    console.log(game);
-    this.openLiveMatch(game.id, game.teamA, game.teamB);
+    if (this.onEdit) {
+      game.checked = !game.checked;
+      console.log("openGame: " + game.checked);
+    } else {
+      this.openLiveMatch(game.id, game.teamA, game.teamB);
+    }
   }
 
-  onPressingCardGame(game: any){
-    console.log("onPressingCardGame");
-    game.pressed = true;
+  onPressingCardGame(game: any) {
+    if (!this.onEdit) {
+      game.checked = true;
+      this.onEdit = true;
+      this.gamesChecked.push(game);
+    }
+  }
+  updateEditCheck(game: any) {
+    console.log("updateEditCheck, checked: " + game.checked);
+    // game.checked = !game.checked;
+    if(game.checked){
+      this.gamesChecked.push(game);
+    }else{
+      var index = this.gamesChecked.indexOf(game);
+      this.gamesChecked.splice(index, 1);
+      console.log("gamesChecked length: " + this.gamesChecked.length);
+      if(this.gamesChecked.length == 0){
+        this.onEdit = false;
+      }
+    }
+  }
+
+  removeOnEdit() {
+    this.onEdit = false;
   }
 }
