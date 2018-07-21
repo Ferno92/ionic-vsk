@@ -121,6 +121,9 @@ export class DashboardPage extends BasePage {
     if (this.onEdit) {
       game.checked = !game.checked;
       console.log("openGame: " + game.checked);
+      if (game.checked) {
+        this.updateEditCheck(game, false);
+      }
     } else {
       this.openLiveMatch(game.id, game.teamA, game.teamB);
     }
@@ -131,24 +134,52 @@ export class DashboardPage extends BasePage {
       game.checked = true;
       this.onEdit = true;
       this.gamesChecked.push(game);
+      this.events.publish("currentPage", "dashboard-edit");
     }
   }
-  updateEditCheck(game: any) {
+  updateEditCheck(game: any, reverse: boolean) {
     console.log("updateEditCheck, checked: " + game.checked);
     // game.checked = !game.checked;
-    if(game.checked){
+    if ((reverse && !game.checked) || (!reverse && game.checked)) {
       this.gamesChecked.push(game);
-    }else{
+    } else {
       var index = this.gamesChecked.indexOf(game);
       this.gamesChecked.splice(index, 1);
-      console.log("gamesChecked length: " + this.gamesChecked.length);
-      if(this.gamesChecked.length == 0){
-        this.onEdit = false;
+      if (this.gamesChecked.length == 0) {
+        this.removeOnEdit();
       }
     }
+    console.log("gamesChecked length: " + this.gamesChecked.length);
   }
 
   removeOnEdit() {
     this.onEdit = false;
+    this.events.publish("currentPage", "enable-dashboard");
+    // while (this.gamesChecked.length > 0) {
+    //   var gameRemoved: any = this.gamesChecked.pop();
+    //   this.games.forEach(items => {
+
+    //     for (var item in items) {
+    //       var game: any = item;
+    //       console.log("removeonedit id: " + game.id + " length: " + this.gamesChecked.length);
+    //       if (gameRemoved.id == game.id) {
+    //         game.edit = false;
+    //       }
+    //     }
+
+    //   });
+    // }
+  }
+
+  deleteGames() {
+  }
+
+  tapCheckbox(game: any) {
+    //console.log("tapCheckbox: " + game.checked);
+    //if (game.checked == undefined || !game.checked) {
+    //this.updateEditCheck(game, true);
+    //} else {
+    //this.updateEditCheck(game, true);
+    //}
   }
 }

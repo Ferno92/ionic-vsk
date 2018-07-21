@@ -22,6 +22,7 @@ export class MyApp {
   hasFab: boolean;
   public currentMenu: String;
   public subject: Subject<String>;
+  currentPage: String;
 
   constructor(
     public app: App,
@@ -30,8 +31,8 @@ export class MyApp {
     splashScreen: SplashScreen,
     private auth: AuthService,
     public events: Events,
-    public alertCtrl: AlertController, 
-    private applicationRef : ApplicationRef 
+    public alertCtrl: AlertController,
+    private applicationRef: ApplicationRef
   ) {
 
     platform.ready().then(() => {
@@ -62,8 +63,12 @@ export class MyApp {
       events.subscribe("currentPage", page => {
         // user and time are the same arguments passed in `events.publish(user, time)`
         // console.log("current page: " + page);
-        this.setCurrentPage(page);
-        this.changeFab(page);
+        if (this.currentPage == "dashboard-edit" && (page == "dashboard-scroll" || page == "dashboard")) {
+          //do nothing
+        } else {
+          this.setCurrentPage(page);
+          this.changeFab(page);
+        }
       });
     });
   }
@@ -80,7 +85,9 @@ export class MyApp {
   }
 
   setCurrentPage(page: String) {
+    console.log("set current page: " + page);
     this.subject.next(page);
+    this.currentPage = page;
   }
 
   popupLogout() {
@@ -109,12 +116,12 @@ export class MyApp {
     this.auth.signOut();
   }
 
-  fabOnClick(){
-    if(this.currentMenu == "dashboard"){
+  fabOnClick() {
+    if (this.currentMenu == "dashboard") {
       this.createMatch();
-    }else if(this.currentMenu == "create-match"){
+    } else if (this.currentMenu == "create-match") {
       this.startMatch();
-    }else if(this.currentMenu == "dashboard-scroll"){
+    } else if (this.currentMenu == "dashboard-scroll") {
       this.scrollTop();
     }
   }
@@ -131,9 +138,9 @@ export class MyApp {
     // });
   }
 
-  scrollTop(){
+  scrollTop() {
     document.getElementsByClassName("dashboard-container")[0].getElementsByClassName("scroll-content")[0].scrollTop = 0;
-    
+
     // console.log("top!!!");
     // var element = document.getElementsByClassName("fab-button");
     // for(var i=0, len = element.length; i<len; i++)
@@ -143,10 +150,10 @@ export class MyApp {
     // }
     // document.getElementsByClassName("fab-icon")[0].classList.remove("ion-md-arrow-round-up");
     // document.getElementsByClassName("fab-icon")[0].classList.add("ion-md-add");
-    
+
     this.fabColor = "secondary";
     this.fabIcon = "md-add";
-    
+
     this.events.publish("currentPage", "dashboard");
   }
 
@@ -156,19 +163,23 @@ export class MyApp {
       this.fabColor = "success";
       this.fabIcon = "md-checkmark";
       this.hasFab = true;
-    }else if(type === "dashboard"){
+    } else if (type === "dashboard") {
       this.fabColor = "secondary";
       this.fabIcon = "md-add";
       this.hasFab = true;
-    }else if(type === "dashboard-scroll"){
+    } else if (type === "dashboard-scroll") {
       this.fabColor = "primary";
       this.fabIcon = "md-arrow-round-up";
       this.hasFab = true;
       // console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
-    }else{
+    } else if (type === "enable-dashboard") {
+      this.fabColor = "secondary";
+      this.fabIcon = "md-add";
+      this.hasFab = true;
+    } else {
       //hide fab
       this.hasFab = false;
-      
+
     }
     this.applicationRef.tick();
   }

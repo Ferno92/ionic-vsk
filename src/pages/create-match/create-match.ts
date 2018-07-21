@@ -76,7 +76,7 @@ export class CreateMatchPage extends BasePage {
         items.forEach(item => {
           if (item.live) {
             found = true;
-            this.askBeforeGoBack = true;
+            //this.askBeforeGoBack = true;
             this.liveMatch = item;
           }
         });

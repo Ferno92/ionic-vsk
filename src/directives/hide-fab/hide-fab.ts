@@ -19,29 +19,31 @@ export class HideFabDirective {
     public renderer: Renderer,
     public events: Events
   ) {
-    
+
   }
 
   ngAfterViewInit() {
     var self = this;
-    setTimeout(function() {
+    setTimeout(function () {
       // console.log("All Transtition set");
       self.fabRef = document.getElementsByClassName("fab-button")[0];
-      self.iconRef = self.fabRef.getElementsByClassName("fab-icon")[0];
-      // console.log("All Transtition set " + self.fabRef + " | " + self.renderer);
-      self.renderer.setElementStyle(
-        self.fabRef,
-        "webkitTransition",
-        "transform 500ms,bottom 500ms"
-      );
+      if (self.fabRef != undefined) {
+        self.iconRef = self.fabRef.getElementsByClassName("fab-icon")[0];
+        // console.log("All Transtition set " + self.fabRef + " | " + self.renderer);
+        self.renderer.setElementStyle(
+          self.fabRef,
+          "webkitTransition",
+          "transform 500ms,bottom 500ms"
+        );
 
-      self.events.subscribe("currentPage", page => {
-        // user and time are the same arguments passed in `events.publish(user, time)`
-        console.log("HideFabDirective - current page: " + page);
-        if(page == "dashboard"){
-          self.onTop = true;
-        }
-      });
+        self.events.subscribe("currentPage", page => {
+          // user and time are the same arguments passed in `events.publish(user, time)`
+          //console.log("HideFabDirective - current page: " + page);
+          if (page == "dashboard") {
+            self.onTop = true;
+          }
+        });
+      }
 
     }, 500);
   }
@@ -65,7 +67,7 @@ export class HideFabDirective {
       // this.iconRef.classList.remove("ion-md-add");
       // this.iconRef.classList.add("ion-md-arrow-round-up");
 
-      if(this.onTop){
+      if (this.onTop) {
         this.events.publish("currentPage", "dashboard-scroll");
       }
       this.onTop = false;
@@ -77,7 +79,7 @@ export class HideFabDirective {
       // this.renderer.setElementStyle(this.fabRef, "color", "#000000");
       // this.iconRef.classList.remove("ion-md-arrow-round-up");
       // this.iconRef.classList.add("ion-md-add");
-      if(!this.onTop){
+      if (!this.onTop) {
         this.events.publish("currentPage", "dashboard");
       }
       this.onTop = true;
