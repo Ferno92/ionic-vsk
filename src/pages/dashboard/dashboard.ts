@@ -172,6 +172,12 @@ export class DashboardPage extends BasePage {
   }
 
   deleteGames() {
+    for(var game in this.gamesChecked){
+      var gameChecked:any = this.gamesChecked[0];
+      console.log(gameChecked.id);
+      this.games.remove(gameChecked.id);
+    }
+    this.removeOnEdit();
   }
 
   tapCheckbox(game: any) {

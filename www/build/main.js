@@ -1035,6 +1035,12 @@ var DashboardPage = /** @class */ (function (_super) {
         // }
     };
     DashboardPage.prototype.deleteGames = function () {
+        for (var game in this.gamesChecked) {
+            var gameChecked = this.gamesChecked[0];
+            console.log(gameChecked.id);
+            this.games.remove(gameChecked.id);
+        }
+        this.removeOnEdit();
     };
     DashboardPage.prototype.tapCheckbox = function (game) {
         //console.log("tapCheckbox: " + game.checked);
