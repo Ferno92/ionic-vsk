@@ -15,7 +15,7 @@ import {
   AngularFireOfflineDatabase
 } from "angularfire2-offline/database";
 import * as moment from "moment";
-import { createMatchedData } from "ionic-angular/umd/navigation/url-serializer";
+import { GeoService } from "../../services/geo.service"
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -47,7 +47,8 @@ export class CreateMatchPage extends BasePage {
     public authService: AuthService,
     public alertCtrl: AlertController,
     public platform: Platform,
-    public afoDatabase: AngularFireOfflineDatabase
+    public afoDatabase: AngularFireOfflineDatabase,
+    private geoService: GeoService
   ) {
     super(navCtrl, authService, alertCtrl, platform);
 
@@ -59,6 +60,7 @@ export class CreateMatchPage extends BasePage {
   ionViewDidLoad() {
     this.onInit(this.navBar);
     console.log("ionViewDidLoad");
+    this.geoService.getLocation();
   }
 
   ionViewWillEnter() {

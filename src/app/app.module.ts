@@ -17,6 +17,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AuthService } from '../services/auth.service';
 import { HideFabDirective} from '../directives/hide-fab/hide-fab';
+import { GeoService } from "../services/geo.service";
+import { HttpClientModule } from '@angular/common/http';
 // import {
 //   AfoListObservable,
 //   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
@@ -43,7 +45,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireOfflineModule,
-    LoginPageModule
+    LoginPageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +59,8 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
     GooglePlus,
-    AuthService
+    AuthService,
+    GeoService
   ]
 })
 export class AppModule {}
