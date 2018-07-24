@@ -34,6 +34,7 @@
   </ion-list>
   <div>Fornisci la posizione della tua palestra, per accedere a più funzionalità:</div>
   <ion-item>
+    <ion-label>Punti d'interesse vicini</ion-label>
     <ion-select [(ngModel)]="selectedPlace" (ionChange)="onPlaceSelection(place)" class="gym-select">
       <ion-option *ngFor="let place of places; let i = index" value="{{place.id}}">{{place.name}}</ion-option>
     </ion-select>

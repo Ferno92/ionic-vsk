@@ -28051,6 +28051,10 @@ div {
   overflow: auto;
 }
 
+.alert-md .alert-wrapper {
+  max-width: 100%;
+}
+
 page-create-match .gym-select {
   max-width: 100%;
 }

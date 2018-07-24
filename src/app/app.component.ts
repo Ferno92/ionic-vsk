@@ -152,7 +152,7 @@ export class MyApp {
     // document.getElementsByClassName("fab-icon")[0].classList.add("ion-md-add");
 
     this.fabColor = "secondary";
-    this.fabIcon = "md-add";
+    this.fabIcon = "add";
 
     this.events.publish("currentPage", "dashboard");
   }
@@ -161,20 +161,20 @@ export class MyApp {
     console.log("changeFab: " + type);
     if (type === "create-match") {
       this.fabColor = "success";
-      this.fabIcon = "md-checkmark";
+      this.fabIcon = "checkmark";
       this.hasFab = true;
     } else if (type === "dashboard") {
       this.fabColor = "secondary";
-      this.fabIcon = "md-add";
+      this.fabIcon = "add";
       this.hasFab = true;
     } else if (type === "dashboard-scroll") {
       this.fabColor = "primary";
-      this.fabIcon = "md-arrow-round-up";
+      this.fabIcon = "arrow-round-up";
       this.hasFab = true;
       // console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
     } else if (type === "enable-dashboard") {
       this.fabColor = "secondary";
-      this.fabIcon = "md-add";
+      this.fabIcon = "add";
       this.hasFab = true;
     } else {
       //hide fab

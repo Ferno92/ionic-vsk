@@ -71,26 +71,30 @@ div {
   float: right;
 }
 
-.clear{
-    clear: both;
+.clear {
+  clear: both;
 }
 
 .user-info {
   margin-top: 40px;
 }
 
-.do-login-message{
-    margin-left: 15px;
+.do-login-message {
+  margin-left: 15px;
 }
 
-.menu-active{
-    background-color: color($colors, secondary, base);
+.menu-active {
+  background-color: color($colors, secondary, base);
 }
 
 .fab-dashboard {
   margin: 15px;
 }
 
-.scroll-content{
+.scroll-content {
   overflow: auto;
+}
+
+.alert-md .alert-wrapper {
+  max-width: 100%;
 }

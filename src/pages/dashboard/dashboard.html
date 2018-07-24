@@ -18,7 +18,7 @@
     <ion-title>{{onEdit ? 'Elimina partite' : 'Dashboard'}}</ion-title>
     <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">
       <button ion-button icon-only (click)="reload()" class="update-button">
-        <ion-icon md="md-cloud-download"></ion-icon>
+        <ion-icon name="cloud-download"></ion-icon>
         Update
       </button>
     </ion-buttons>
