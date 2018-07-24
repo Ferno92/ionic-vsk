@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-navbar #navbar color="secondary">
-      <ion-buttons left *ngIf="!canGoBack">
-          <button ion-button icon-only (click)="goBack()">
-              <ion-icon name="arrow-back"></ion-icon>
-          </button>
-      </ion-buttons>
+    <ion-buttons left *ngIf="!canGoBack">
+      <button ion-button icon-only (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Crea Partita</ion-title>
   </ion-navbar>
 
@@ -19,19 +19,26 @@
 
 
 <ion-content padding>
-    <ion-list>
+  <ion-list>
 
-        <ion-item>
-          <ion-label fixed>Team A</ion-label>
-          <ion-input type="text" [(ngModel)]="teamA"></ion-input>
-        </ion-item>
-    
-        <ion-item>
-          <ion-label fixed>Team B</ion-label>
-          <ion-input type="text" [(ngModel)]="teamB"></ion-input>
-        </ion-item>
-    
-      </ion-list>
+    <ion-item>
+      <ion-label fixed>Team A</ion-label>
+      <ion-input type="text" [(ngModel)]="teamA"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Team B</ion-label>
+      <ion-input type="text" [(ngModel)]="teamB"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <div>Fornisci la posizione della tua palestra, per accedere a più funzionalità:</div>
+  <ion-item>
+    <ion-select [(ngModel)]="selectedPlace" (ionChange)="onPlaceSelection(place)" class="gym-select">
+      <ion-option *ngFor="let place of places; let i = index" value="{{place.id}}">{{place.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
   <!-- <ion-fab class="fab-dashboard" bottom right>
     <button ion-fab icon-only color="success">
       <ion-icon md="md-checkmark"></ion-icon>

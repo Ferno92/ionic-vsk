@@ -69,7 +69,7 @@
                   <div class="float-left relevant-text" [ngClass]="{'winner': game.resultB > game.resultA}">{{game.teamB}}</div>
                   <div class="float-right relevant-text" [ngClass]="{'winner': game.resultB > game.resultA}">{{game.resultB}}</div>
                 </div>
-                <div class="clear side-text">{{game.location}}</div>
+                <div class="clear side-text">{{game.location.id == undefined || game.location.id == "" ? "Posizione non registrata" : game.location.name + ", " + game.location.city}}</div>
               </div>
               <ion-checkbox [(ngModel)]="game.checked" (ionChange)="updateEditCheck(game, false)" class="edit-game-checkbox" [ngClass]="{'edit': onEdit}"
               (tap)="tapCheckbox(game)"></ion-checkbox>

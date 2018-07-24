@@ -28051,6 +28051,10 @@ div {
   overflow: auto;
 }
 
+page-create-match .gym-select {
+  max-width: 100%;
+}
+
 page-dashboard .dashboard-container .empty-dashboard {
   height: 100%;
 }

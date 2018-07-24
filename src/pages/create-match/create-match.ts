@@ -16,6 +16,7 @@ import {
 } from "angularfire2-offline/database";
 import * as moment from "moment";
 import { GeoService } from "../../services/geo.service"
+import { ChangeDetectorRef } from '@angular/core';
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -39,6 +40,8 @@ export class CreateMatchPage extends BasePage {
   games: AfoListObservable<any[]>;
   liveMatchOn: boolean;
   liveMatch: any;
+  places: any[] = [];
+  selectedPlace: string;
 
   constructor(
     public navCtrl: NavController,
@@ -48,7 +51,8 @@ export class CreateMatchPage extends BasePage {
     public alertCtrl: AlertController,
     public platform: Platform,
     public afoDatabase: AngularFireOfflineDatabase,
-    private geoService: GeoService
+    private geoService: GeoService,
+    private changeDetector:ChangeDetectorRef
   ) {
     super(navCtrl, authService, alertCtrl, platform);
 
@@ -60,7 +64,7 @@ export class CreateMatchPage extends BasePage {
   ionViewDidLoad() {
     this.onInit(this.navBar);
     console.log("ionViewDidLoad");
-    this.geoService.getLocation();
+    this.geoService.getLocation(this.retrievePlaces, this);
   }
 
   ionViewWillEnter() {
@@ -142,6 +146,22 @@ export class CreateMatchPage extends BasePage {
           this.askCloseLiveMatch();
         } else {
           const newGameRef = this.games.push({});
+          var location = {id: "", name:"", lat: "", long: "", city:"", address: ""};
+          if(this.selectedPlace != "0"){
+            for(var i = 0; i < this.places.length; i++){
+              var item:any = this.places[i];
+              console.log(item.id);
+              if(item.id == this.selectedPlace){
+                location.id = this.selectedPlace;
+                location.name = item.name;
+                location.lat = item.location.lat;
+                location.long = item.location.lng;
+                location.city = item.location.city;
+                location.address = item.location.address;
+                break;
+              }
+            }
+          }
 
           const promise = newGameRef.set({
             id: newGameRef.key,
@@ -150,7 +170,7 @@ export class CreateMatchPage extends BasePage {
             resultA: 0,
             resultB: 0,
             date: moment(new Date()).format("MMM/DD"),
-            location: "Reggio-Emilia",
+            location: location,
             live: true
           });
 
@@ -172,5 +192,23 @@ export class CreateMatchPage extends BasePage {
         }
       }
     }
+  }
+
+  retrievePlaces(placesObserver:any, pagesRef:CreateMatchPage){
+    placesObserver.subscribe(
+      data => {
+        console.log(data.response.venues);
+        data.response.venues.push({"id": 0, "name": "Seleziona una voce.."});
+        pagesRef.selectedPlace = "0";
+        pagesRef.places = data.response.venues;
+        // pagesRef.changeDetector.detectChanges();
+      },
+      err => console.error(err),
+      () => console.log("done loading places")
+    );
+  }
+
+  onPlaceSelection(text: String){
+    console.log(this.selectedPlace);
   }
 }
