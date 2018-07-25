@@ -34,9 +34,9 @@ export class LiveMatchPage extends BasePage {
   @ViewChild("navbar") navBar: Navbar;
   games: AfoListObservable<any[]>;
   gameId: String;
-  teamA: String;
-  teamB: String;
   currentGame: any;
+  pause = false;
+  gameOver = false;
 
   constructor(
     public navCtrl: NavController,
@@ -62,20 +62,27 @@ export class LiveMatchPage extends BasePage {
         var found = false;
         // items is an array
         items.forEach(item => {
-          if(item.id == this.gameId){
+          if (item.id == this.gameId) {
             console.log("Item:", item);
             this.currentGame = item;
-            this.teamA = item.teamA;
-            this.teamB = item.teamB;
-            console.log(this.teamA + " vs " + this.teamB);
+            if (this.currentGame.live) {
+              if (this.currentGame.sets == undefined) {
+                this.currentGame.sets = [{ a: 0, b: 0 }];
+              } else {
+                if (this.isSetEnded() && !this.isGameOver()) {
+                  this.pause = true;
+                } else if (this.isGameOver()) {
+                  this.gameOver = true;
+                }
+              }
+            }
             found = true;
-            if(item.live){
+            if (item.live) {
               this.askBeforeGoBack = true;
             }
           }
-
         });
-        if(!found){
+        if (!found) {
           //TODO: error message
         }
       });
@@ -83,11 +90,137 @@ export class LiveMatchPage extends BasePage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad LiveMatchPage");
     this.onInit(this.navBar);
   }
 
   ionViewWillEnter() {
     this.events.publish("currentPage", "live-match");
+  }
+
+  updateSetValue(team: String, increment: boolean) {
+    var teamValue =
+      team == "a"
+        ? this.currentGame.sets[
+            this.currentGame.resultA + this.currentGame.resultB
+          ].a
+        : this.currentGame.sets[
+            this.currentGame.resultA + this.currentGame.resultB
+          ].b;
+    if (increment) {
+      teamValue = teamValue + 1;
+    } else {
+      teamValue = teamValue == 0 ? 0 : teamValue - 1;
+    }
+
+    if (team == "a") {
+      this.currentGame.sets[
+        this.currentGame.resultA + this.currentGame.resultB
+      ].a = teamValue;
+    } else {
+      this.currentGame.sets[
+        this.currentGame.resultA + this.currentGame.resultB
+      ].b = teamValue;
+    }
+
+    if (this.isSetEnded() && !this.isGameOver()) {
+      this.pause = true;
+    } else if (this.isGameOver()) {
+      this.gameOver = true;
+    }
+    this.updateGame();
+  }
+
+  isSetEnded() {
+    var isSetEnded =
+      (this.currentGame.sets[
+        this.currentGame.resultA + this.currentGame.resultB
+      ].a >= 25 &&
+        this.currentGame.sets[
+          this.currentGame.resultA + this.currentGame.resultB
+        ].a >=
+          this.currentGame.sets[
+            this.currentGame.resultA + this.currentGame.resultB
+          ].b +
+            2) ||
+      (this.currentGame.sets[
+        this.currentGame.resultA + this.currentGame.resultB
+      ].b >= 25 &&
+        this.currentGame.sets[
+          this.currentGame.resultA + this.currentGame.resultB
+        ].b >=
+          this.currentGame.sets[
+            this.currentGame.resultA + this.currentGame.resultB
+          ].a +
+            2);
+    console.log("set ended: " + isSetEnded);
+    return isSetEnded;
+  }
+
+  isGameOver() {
+    var winnerA =
+      this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+        .a >=
+      this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+        .b;
+    var gameOver =
+      this.isSetEnded() &&
+      (winnerA ? this.currentGame.resultA == 2 : this.currentGame.resultB == 2);
+    console.log("is game over: " + gameOver);
+    return gameOver;
+  }
+
+  createSet() {
+    var winnerA =
+      this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+        .a >=
+      this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+        .b;
+    if (winnerA) {
+      this.currentGame.resultA = this.currentGame.resultA + 1;
+    } else {
+      this.currentGame.resultB = this.currentGame.resultB + 1;
+    }
+    if (!this.gameOver) {
+      this.currentGame.sets.push({ a: 0, b: 0 });
+      this.pause = false;
+    } else {
+      this.currentGame.live = false;
+    }
+    this.updateGame();
+  }
+
+  rollBack() {
+    var winnerA =
+      this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+        .a >
+      this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+        .b;
+    if (winnerA) {
+      this.currentGame.sets[
+        this.currentGame.resultA + this.currentGame.resultB
+      ].a =
+        this.currentGame.sets[
+          this.currentGame.resultA + this.currentGame.resultB
+        ].a - 1;
+    } else {
+      this.currentGame.sets[
+        this.currentGame.resultA + this.currentGame.resultB
+      ].b =
+        this.currentGame.sets[
+          this.currentGame.resultA + this.currentGame.resultB
+        ].b - 1;
+    }
+    if (!this.isSetEnded()) {
+      console.log("setEnded");
+      this.pause = false;
+      this.gameOver = false;
+    }
+    this.updateGame();
+  }
+
+  updateGame() {
+    this.afoDatabase
+      .object("/" + this.authService.user.uid + "/games/" + this.currentGame.id)
+      .update(this.currentGame);
   }
 }

@@ -27996,6 +27996,10 @@ div {
   height: 100%;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .toast-login {
   margin: 20px;
   width: calc(100% - 40px);
@@ -28053,6 +28057,10 @@ div {
 
 .alert-md .alert-wrapper {
   max-width: 100%;
+}
+
+.text-center {
+  text-align: center;
 }
 
 page-create-match .gym-select {
@@ -28142,4 +28150,17 @@ page-dashboard .game-card .card-content .edit-game-checkbox {
 
 page-dashboard .game-card .card-content .edit-game-checkbox.edit {
   display: block;
+}
+
+page-live-match .set-value {
+  font-size: 80px;
+  font-weight: 300;
+}
+
+page-live-match .icon-sets {
+  margin-right: 5px;
+}
+
+page-live-match .winner {
+  font-weight: bold;
 }

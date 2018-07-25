@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-navbar #navbar color="primary">
-      <ion-buttons left *ngIf="!canGoBack">
-          <button ion-button icon-only (click)="goBack()">
-              <ion-icon name="arrow-back"></ion-icon>
-          </button>
-      </ion-buttons>
+    <ion-buttons left *ngIf="!canGoBack">
+      <button ion-button icon-only (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Partita Live</ion-title>
   </ion-navbar>
 
@@ -19,5 +19,89 @@
 
 
 <ion-content padding>
-  <div>{{teamA}} vs {{teamB}}</div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 class="text-center">
+        {{(currentGame)?.teamA}}
+      </ion-col>
+      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB) && gameOver) ? 'winner' : ''">
+        {{(currentGame)?.resultA}}
+      </ion-col>
+      <ion-col col-2 class="text-center">
+        -
+      </ion-col>
+      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA) && gameOver) ? 'winner' : ''">
+        {{(currentGame)?.resultB}}
+      </ion-col>
+      <ion-col col-4 class="text-center">
+        {{(currentGame)?.teamB}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="(currentGame)?.live">
+    <ion-row>
+      <ion-col col-5 class="text-center">
+        <ion-buttons>
+          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('a', true)" color="secondary">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-5 offset-2 class="text-center">
+        <ion-buttons>
+          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('b', true)" color="secondary">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5 class="text-center set-value" [ngClass]="(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b ? 'winner' : ''">
+        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}
+      </ion-col>
+      <ion-col col-2 class="text-center set-value">
+        -
+      </ion-col>
+      <ion-col col-5 class="text-center set-value" [ngClass]="(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a ? 'winner' : ''">
+        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5 class="text-center">
+        <ion-buttons>
+          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('a', false)" color="secondary">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-5 offset-2 class="text-center">
+        <ion-buttons>
+          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('b', false)" color="secondary">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="pause || gameOver">
+    <ion-row>
+      <ion-col col-5>
+        <ion-buttons>
+          <button ion-button class="full-width" (click)="rollBack()">
+            <ion-icon name="undo" class="icon-sets"></ion-icon>
+            Torna indietro
+          </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-5 offset-2>
+        <ion-buttons>
+          <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? 'success' : 'primary'}}">
+            <ion-icon name="{{gameOver ? 'filing' : 'refresh'}}" class="icon-sets"></ion-icon>
+            {{gameOver ? 'Salva ed esci' : 'Nuovo set'}}
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

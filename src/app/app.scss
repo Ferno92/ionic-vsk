@@ -37,6 +37,10 @@ div {
   height: 100%;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .toast-login {
   margin: 20px;
   width: calc(100% - 40px);
@@ -97,4 +101,8 @@ div {
 
 .alert-md .alert-wrapper {
   max-width: 100%;
+}
+
+.text-center{
+  text-align: center;
 }
