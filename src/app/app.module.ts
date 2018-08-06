@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { SearchLivePage } from '../pages/search-live/search-live';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -19,6 +20,8 @@ import { AuthService } from '../services/auth.service';
 import { HideFabDirective} from '../directives/hide-fab/hide-fab';
 import { GeoService } from "../services/geo.service";
 import { HttpClientModule } from '@angular/common/http';
+import { Guid} from "../common/Guid";
+// import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
 //   AfoListObservable,
 //   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
@@ -60,7 +63,8 @@ export const firebaseConfig = {
     AngularFireAuth,
     GooglePlus,
     AuthService,
-    GeoService
+    GeoService,
+    Guid
   ]
 })
 export class AppModule {}

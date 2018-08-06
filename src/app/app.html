@@ -24,6 +24,10 @@
                 <ion-icon name="contact"></ion-icon>
                 Login
             </button>
+            <button menuClose ion-item icon-left (click)="goToSearchLive()" [ngClass]="{'menu-active': currentMenu == 'search-live'}">
+                <ion-icon name="flag"></ion-icon>
+                Partite in corso
+            </button>
 
 
             <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">

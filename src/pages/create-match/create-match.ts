@@ -12,11 +12,13 @@ import { BasePage } from "../../common/BasePage";
 import { AuthService } from "../../services/auth.service";
 import {
   AfoListObservable,
-  AngularFireOfflineDatabase
+  AngularFireOfflineDatabase,
+  AfoObjectObservable
 } from "angularfire2-offline/database";
 import * as moment from "moment";
-import { GeoService } from "../../services/geo.service"
-import { ChangeDetectorRef } from '@angular/core';
+import { GeoService } from "../../services/geo.service";
+import { ChangeDetectorRef } from "@angular/core";
+import { Guid } from "../../common/Guid";
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -38,6 +40,10 @@ export class CreateMatchPage extends BasePage {
   teamA: String;
   teamB: String;
   games: AfoListObservable<any[]>;
+  live: AfoListObservable<any[]>;
+  audience: AfoObjectObservable<any>;
+  audienceId: string;
+  liveKey: string;
   liveMatchOn: boolean;
   liveMatch: any;
   places: any[] = [];
@@ -52,7 +58,8 @@ export class CreateMatchPage extends BasePage {
     public platform: Platform,
     public afoDatabase: AngularFireOfflineDatabase,
     private geoService: GeoService,
-    private changeDetector:ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private guid: Guid
   ) {
     super(navCtrl, authService, alertCtrl, platform);
 
@@ -92,6 +99,33 @@ export class CreateMatchPage extends BasePage {
           this.liveMatchOn = false;
         }
       });
+
+      //check spectateId exists
+      this.audience = this.afoDatabase.object(
+        "/" + this.authService.user.uid + "/audienceId"
+      );
+      var self = this;
+      this.audience.subscribe(item => {
+        if (item.$value == null) {
+          var id = self.guid.newGuid();
+          self.audience.set(id);
+          self.audienceId = id;
+        } else {
+          self.audienceId = item.$value;
+        }
+      });
+
+      //reference to live game list
+      this.live = this.afoDatabase.list("/live");
+      this.live.subscribe(items => {
+        items.forEach(item => {
+          if (item.audienceId == this.audienceId) {
+            console.log("found live: " + item.$key);
+          } else {
+            console.log("not found live");
+          }
+        });
+      });
     }
   }
 
@@ -120,6 +154,7 @@ export class CreateMatchPage extends BasePage {
                 "/" + this.authService.user.uid + "/games/" + this.liveMatch.id
               )
               .update(this.liveMatch);
+            this.live.remove(this.liveKey);
             this.liveMatchOn = false;
             this.createMatch();
           }
@@ -146,18 +181,29 @@ export class CreateMatchPage extends BasePage {
           this.askCloseLiveMatch();
         } else {
           const newGameRef = this.games.push({});
-          var location = {id: "", name:"", lat: "", long: "", city:"", address: ""};
-          if(this.selectedPlace != "0"){
-            for(var i = 0; i < this.places.length; i++){
-              var item:any = this.places[i];
+          var location = {
+            id: "",
+            name: "",
+            lat: "",
+            long: "",
+            city: "",
+            address: ""
+          };
+          if (this.selectedPlace != "0") {
+            for (var i = 0; i < this.places.length; i++) {
+              var item: any = this.places[i];
               console.log(item.id);
-              if(item.id == this.selectedPlace){
+              if (item.id == this.selectedPlace) {
                 location.id = this.selectedPlace;
                 location.name = item.name;
                 location.lat = item.location.lat;
                 location.long = item.location.lng;
-                location.city = item.location.city;
-                location.address = item.location.address;
+                location.city =
+                  item.location.city == undefined ? "" : item.location.city;
+                location.address =
+                  item.location.address == undefined
+                    ? ""
+                    : item.location.address;
                 break;
               }
             }
@@ -174,11 +220,22 @@ export class CreateMatchPage extends BasePage {
             live: true
           });
 
+          const liveRef = this.live.push({});
+          const livePromise = liveRef.set({
+            audienceId: this.audienceId,
+            userId: this.authService.user.uid,
+            gameKey: newGameRef.key
+          });
+
           if (promise != undefined) {
             promise.then(() => console.log("data added to firebase!"));
+            livePromise.then(() => console.log("live link added to firebase!"));
             if (promise.offline != undefined) {
               promise.offline.then(() =>
                 console.log("offline data added to device storage!")
+              );
+              livePromise.offline.then(() =>
+                console.log("offline live link added to device storage!")
               );
             }
           }
@@ -194,11 +251,11 @@ export class CreateMatchPage extends BasePage {
     }
   }
 
-  retrievePlaces(placesObserver:any, pagesRef:CreateMatchPage){
+  retrievePlaces(placesObserver: any, pagesRef: CreateMatchPage) {
     placesObserver.subscribe(
       data => {
         console.log(data.response.venues);
-        data.response.venues.push({"id": 0, "name": "Seleziona una voce.."});
+        data.response.venues.push({ id: 0, name: "Seleziona una voce.." });
         pagesRef.selectedPlace = "0";
         pagesRef.places = data.response.venues;
         // pagesRef.changeDetector.detectChanges();
@@ -208,7 +265,7 @@ export class CreateMatchPage extends BasePage {
     );
   }
 
-  onPlaceSelection(text: String){
+  onPlaceSelection(text: String) {
     console.log(this.selectedPlace);
   }
 }

@@ -84,6 +84,11 @@ export class MyApp {
     this.subject.next("dashboard");
   }
 
+  goToSearchLive(){
+    this.app.getActiveNav().push("search-live");
+    this.subject.next("search-live");
+  }
+
   setCurrentPage(page: String) {
     console.log("set current page: " + page);
     this.subject.next(page);
