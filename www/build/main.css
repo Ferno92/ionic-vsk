@@ -28067,6 +28067,11 @@ div {
   line-height: 1 !important;
 }
 
+.search-bar {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
 game-widget .side-text {
   color: gray;
   font-size: 14px;

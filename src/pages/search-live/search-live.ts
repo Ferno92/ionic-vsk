@@ -37,6 +37,8 @@ export class SearchLivePage extends BasePage {
   liveList: AfoListObservable<any[]>;
   emptyGames = true;
   games = [];
+  gamesFiltered = [];
+  onSearch = false;
 
   constructor(
     public navCtrl: NavController,
@@ -75,6 +77,7 @@ export class SearchLivePage extends BasePage {
               }
             }
           });
+          this.gamesFiltered = this.games;
         });
       });
     });
@@ -94,4 +97,29 @@ export class SearchLivePage extends BasePage {
   onPressingCardGame(game: any, pageRef: any) {}
   
   updateEditCheck(game: any, pageRef: any) {}
+
+  showSearch(){
+    this.onSearch = true;
+  }
+
+  getItems(ev: any){
+    const val = ev.target.value;
+    console.log("getItems" + val);
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.gamesFiltered = this.games.filter((item) => {
+        return (item.teamA.toLowerCase().indexOf(val.toLowerCase()) > -1) || 
+        (item.teamB.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    }else if(val == undefined){
+      this.onSearch = false;
+      this.gamesFiltered = this.games;
+    }
+  }
+
+  onCancel(ev:any){
+    this.onSearch = false;
+    this.gamesFiltered = this.games;
+    console.log("onCancel");
+  }
 }

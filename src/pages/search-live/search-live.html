@@ -12,7 +12,14 @@
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Partite in corso</ion-title>
+    <ion-title *ngIf="!onSearch">Partite in corso</ion-title>
+    <ion-searchbar class="animated fadeInRight search-bar" *ngIf="onSearch" 
+    (ionInput)="getItems($event)" [showCancelButton]="false" (ionCancel)="onCancel($event)"></ion-searchbar>
+    <ion-buttons right *ngIf="!onSearch">
+        <button ion-button icon-only (click)="showSearch()">
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -22,7 +29,7 @@
   <div *ngIf="!emptyGames">
     <ion-grid>
       <ion-row>
-        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games; let i = index">
+        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of gamesFiltered; let i = index">
           <game-widget [game]="game" [i]="i" [openGame]="showLiveGame" [ref]="this" [onEdit]="false" [onPressingCardGame]="onPressingCardGame" 
           [updateEditCheck]="updateEditCheck"></game-widget>
         </ion-col>
