@@ -13,6 +13,7 @@ import { Component, Input } from '@angular/core';
 export class GameWidgetComponent {
 
   @Input() game: any;
+  @Input() i: number;
 
   constructor() {  
     console.log("GameWidgetComponent");  

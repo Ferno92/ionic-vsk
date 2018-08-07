@@ -8,6 +8,7 @@ import { Events } from "ionic-angular";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { Observable, Subject } from "rxjs";
 import { ApplicationRef } from '@angular/core';
+import { SearchLivePage } from "../pages/search-live/search-live";
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 @Component({
   templateUrl: "app.html"
@@ -85,7 +86,7 @@ export class MyApp {
   }
 
   goToSearchLive(){
-    this.app.getActiveNav().push("search-live");
+    this.app.getActiveNav().push(SearchLivePage);
     this.subject.next("search-live");
   }
 

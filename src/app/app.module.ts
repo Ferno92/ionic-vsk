@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { SearchLivePage } from '../pages/search-live/search-live';
 
@@ -21,6 +20,7 @@ import { HideFabDirective} from '../directives/hide-fab/hide-fab';
 import { GeoService } from "../services/geo.service";
 import { HttpClientModule } from '@angular/common/http';
 import { Guid} from "../common/Guid";
+import { GameWidgetComponent } from "../components/game-widget/game-widget";
 // import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
 //   AfoListObservable,
@@ -40,7 +40,9 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     DashboardPage,
-    HideFabDirective
+    HideFabDirective,
+    GameWidgetComponent,
+    SearchLivePage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DashboardPage
+    DashboardPage,
+    SearchLivePage
   ],
   providers: [
     StatusBar,

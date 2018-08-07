@@ -4,7 +4,7 @@ import { SearchLivePage } from './search-live';
 
 @NgModule({
   declarations: [
-    SearchLivePage,
+    SearchLivePage
   ],
   imports: [
     IonicPageModule.forChild(SearchLivePage),
