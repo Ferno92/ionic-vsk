@@ -66,12 +66,22 @@ var SearchLivePage = /** @class */ (function (_super) {
                 _this.emptyGames = true;
             }
             items.forEach(function (item) {
-                var afoListObs = self.afoDatabase.list("/" + item.userId + "/games");
+                var afoListObs = self.afoDatabase.list("/users/" + item.userId + "/games");
                 afoListObs.subscribe(function (userGames) {
                     userGames.forEach(function (game) {
                         // console.log(game.$key + " - " + item.gameKey + " = " + (game.$key == item.gameKey));
                         if (game.$key == item.gameKey) {
-                            self.games.push(game);
+                            game.audienceId = item.audienceId;
+                            if (self.games.length > 0) {
+                                self.games.forEach(function (gamePushed) {
+                                    if (gamePushed.id != game.id) {
+                                        self.games.push(game);
+                                    }
+                                });
+                            }
+                            else {
+                                self.games.push(game);
+                            }
                         }
                     });
                 });
@@ -82,6 +92,14 @@ var SearchLivePage = /** @class */ (function (_super) {
     SearchLivePage.prototype.ionViewDidLoad = function () {
         this.onInit(this.navBar);
     };
+    SearchLivePage.prototype.showLiveGame = function (game, pageRef) {
+        pageRef.navCtrl.push("live-match", {
+            id: game.$key,
+            audienceId: game.audienceId
+        });
+    };
+    SearchLivePage.prototype.onPressingCardGame = function (game, pageRef) { };
+    SearchLivePage.prototype.updateEditCheck = function (game, pageRef) { };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
@@ -92,7 +110,7 @@ var SearchLivePage = /** @class */ (function (_super) {
     ], SearchLivePage.prototype, "gameWidget", void 0);
     SearchLivePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "search-live",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/'<!--\n  Generated template for the SearchLivePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partite in corso</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div *ngIf="!emptyGames">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games; let i = index">\n          <game-widget [game]="game" [i] ="i"></game-widget>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/
+            selector: "search-live",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/'<!--\n  Generated template for the SearchLivePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partite in corso</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div *ngIf="!emptyGames">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of games; let i = index">\n          <game-widget [game]="game" [i]="i" [openGame]="showLiveGame" [ref]="this" [onEdit]="false" [onPressingCardGame]="onPressingCardGame" \n          [updateEditCheck]="updateEditCheck"></game-widget>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _h || Object])
     ], SearchLivePage);
@@ -205,6 +223,7 @@ var LoginPageModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GameWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_BasePage__ = __webpack_require__(95);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -214,6 +233,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 /**
  * Generated class for the GameWidgetComponent component.
@@ -225,6 +245,18 @@ var GameWidgetComponent = /** @class */ (function () {
     function GameWidgetComponent() {
         console.log("GameWidgetComponent");
     }
+    GameWidgetComponent.prototype.openGameInWidget = function (game) {
+        this.openGame(game, this.ref);
+    };
+    GameWidgetComponent.prototype.onPressing = function (game) {
+        this.onPressingCardGame(game, this.ref);
+    };
+    GameWidgetComponent.prototype.updateCheck = function (game) {
+        this.updateEditCheck(game, this.ref);
+    };
+    GameWidgetComponent.prototype.tapCheck = function (game) {
+        this.tapCheckbox(game, this.ref);
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
         __metadata("design:type", Object)
@@ -233,13 +265,38 @@ var GameWidgetComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
         __metadata("design:type", Number)
     ], GameWidgetComponent.prototype, "i", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Function)
+    ], GameWidgetComponent.prototype, "openGame", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Function)
+    ], GameWidgetComponent.prototype, "onPressingCardGame", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Function)
+    ], GameWidgetComponent.prototype, "updateEditCheck", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Function)
+    ], GameWidgetComponent.prototype, "tapCheckbox", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_BasePage__["a" /* BasePage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__common_BasePage__["a" /* BasePage */]) === "function" && _a || Object)
+    ], GameWidgetComponent.prototype, "ref", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], GameWidgetComponent.prototype, "onEdit", void 0);
     GameWidgetComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'game-widget',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/'<!-- Generated template for the GameWidgetComponent component -->\n<ion-card class="animated bounceIn game-card" [ngClass]="{\'live\': game.live}" [style.animation-delay]=" i/10 + \'s\'" (press)="onPressingCardGame(game)">\n  <!-- <ion-card-header>\n    {{game.name}}\n  </ion-card-header> -->\n  <ion-card-content class="card-content">\n    <div class="game-content" [ngClass]="{\'edit\': onEdit}" (tap)="openGame(game)">\n      <div class="float-left side-text live-text" [ngClass]="{\'live\': game.live}">{{game.live ? \'Live\' : \'Punteggio finale\'}}</div>\n      <div class="float-right side-text">{{game.date}}</div>\n      <div class="clear">\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.teamA}}</div>\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.resultA}}</div>\n      </div>\n      <div class="clear">\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.teamB}}</div>\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.resultB}}</div>\n      </div>\n      <div class="clear side-text">{{game.location.id == undefined || game.location.id == "" ? "Posizione non registrata" : game.location.name + ", " + game.location.city}}</div>\n    </div>\n    <ion-checkbox [(ngModel)]="game.checked" (ionChange)="updateEditCheck(game, false)" class="edit-game-checkbox" [ngClass]="{\'edit\': onEdit}"\n    (tap)="tapCheckbox(game)"></ion-checkbox>\n  </ion-card-content>\n</ion-card>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/
+            selector: 'game-widget',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/'<!-- Generated template for the GameWidgetComponent component -->\n<ion-card class="animated bounceIn game-card" [ngClass]="{\'live\': game.live}" [style.animation-delay]=" i/10 + \'s\'" (press)="onPressing(game)">\n  <!-- <ion-card-header>\n    {{game.name}}\n  </ion-card-header> -->\n  <ion-card-content class="card-content">\n    <div class="game-content" [ngClass]="{\'edit\': onEdit}" (tap)="openGameInWidget(game)">\n      <div class="float-left side-text live-text" [ngClass]="{\'live\': game.live}">{{game.live ? \'Live\' : \'Punteggio finale\'}}</div>\n      <div class="float-right side-text">{{game.date.day}}</div>\n      <div class="clear">\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.teamA}}</div>\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.resultA}}</div>\n      </div>\n      <div class="clear">\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.teamB}}</div>\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.resultB}}</div>\n      </div>\n      <div class="clear side-text">{{game.location.id == undefined || game.location.id == "" ? "Posizione non registrata" : game.location.name + \n          (game.location.city == "" ? "" : ", " + game.location.city)}}</div>\n    </div>\n    <ion-checkbox [(ngModel)]="game.checked" (ionChange)="updateEditCheck(game, false)" class="edit-game-checkbox" [ngClass]="{\'edit\': onEdit}"></ion-checkbox>\n  </ion-card-content>\n</ion-card>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], GameWidgetComponent);
     return GameWidgetComponent;
+    var _a;
 }());
 
 //# sourceMappingURL=game-widget.js.map
@@ -443,7 +500,7 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/create-match/create-match.module#CreateMatchPageModule', name: 'create-match', segment: 'create-match', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'dashboard', segment: 'dashboard', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-live/search-live.module#SearchLivePageModule', name: 'search-live', segment: 'search-live', priority: 'low', defaultHistory: [] }
                     ]
@@ -1231,9 +1288,9 @@ var DashboardPage = /** @class */ (function (_super) {
         if (user != null) {
             this.userLogged = true;
             this.userImage = user.photoURL;
-            this.games = this.afoDatabase.list("/" + this.authService.user.uid + "/games", {
+            this.games = this.afoDatabase.list("/users/" + this.authService.user.uid + "/games", {
                 query: {
-                    orderByChild: "date"
+                    orderByChild: "date/ms"
                 }
             });
             this.games.subscribe({
@@ -1268,40 +1325,40 @@ var DashboardPage = /** @class */ (function (_super) {
         });
         toast.present();
     };
-    DashboardPage.prototype.openGame = function (game) {
-        if (this.onEdit) {
+    DashboardPage.prototype.openGame = function (game, pageRef) {
+        console.log(pageRef);
+        if (pageRef.onEdit) {
             game.checked = !game.checked;
-            console.log("openGame: " + game.checked);
             if (game.checked) {
-                this.updateEditCheck(game, false);
+                pageRef.updateEditCheck(game, false, this);
             }
         }
         else {
-            this.openLiveMatch(game.id, game.teamA, game.teamB);
+            pageRef.openLiveMatch(game.id, game.teamA, game.teamB);
         }
     };
-    DashboardPage.prototype.onPressingCardGame = function (game) {
-        if (!this.onEdit) {
+    DashboardPage.prototype.onPressingCardGame = function (game, pageRef) {
+        if (!pageRef.onEdit) {
             game.checked = true;
-            this.onEdit = true;
-            this.gamesChecked.push(game);
-            this.events.publish("currentPage", "dashboard-edit");
+            pageRef.onEdit = true;
+            pageRef.gamesChecked.push(game);
+            pageRef.events.publish("currentPage", "dashboard-edit");
         }
     };
-    DashboardPage.prototype.updateEditCheck = function (game, reverse) {
+    DashboardPage.prototype.updateEditCheck = function (game, reverse, pageRef) {
         console.log("updateEditCheck, checked: " + game.checked);
         // game.checked = !game.checked;
         if ((reverse && !game.checked) || (!reverse && game.checked)) {
-            this.gamesChecked.push(game);
+            pageRef.gamesChecked.push(game);
         }
         else {
-            var index = this.gamesChecked.indexOf(game);
-            this.gamesChecked.splice(index, 1);
-            if (this.gamesChecked.length == 0) {
-                this.removeOnEdit();
+            var index = pageRef.gamesChecked.indexOf(game);
+            pageRef.gamesChecked.splice(index, 1);
+            if (pageRef.gamesChecked.length == 0) {
+                pageRef.removeOnEdit();
             }
         }
-        console.log("gamesChecked length: " + this.gamesChecked.length);
+        console.log("gamesChecked length: " + pageRef.gamesChecked.length);
     };
     DashboardPage.prototype.removeOnEdit = function () {
         this.onEdit = false;
@@ -1327,33 +1384,18 @@ var DashboardPage = /** @class */ (function (_super) {
         }
         this.removeOnEdit();
     };
-    DashboardPage.prototype.tapCheckbox = function (game) {
-        //console.log("tapCheckbox: " + game.checked);
-        //if (game.checked == undefined || !game.checked) {
-        //this.updateEditCheck(game, true);
-        //} else {
-        //this.updateEditCheck(game, true);
-        //}
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
     ], DashboardPage.prototype, "navBar", void 0);
     DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-dashboard",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n\n  Generated template for the DashboardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar #navbar color="primary">\n\n    <button ion-button menuToggle *ngIf="!onEdit">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons left *ngIf="onEdit">\n\n      <button ion-button icon-only (click)="removeOnEdit()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{onEdit ? \'Elimina partite\' : \'Dashboard\'}}</ion-title>\n\n    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">\n\n      <button ion-button icon-only (click)="reload()" class="update-button">\n\n        <ion-icon name="cloud-download"></ion-icon>\n\n        Update\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="onEdit">\n\n      <button ion-button icon-only (click)="deleteGames()">\n\n        <ion-icon name="trash"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <!-- <ion-buttons end *ngIf="userLogged">\n\n        <button ion-button icon-only (click)="logOut()">\n\n          <ion-icon md="md-log-out"></ion-icon>\n\n        </button>\n\n      </ion-buttons> -->\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="dashboard-container" hide-fab>\n\n  <div class="empty-dashboard" *ngIf="emptyGames">\n\n    <ion-grid style="height: 100%">\n\n      <ion-row justify-content-center align-items-center style="height: 100%">\n\n        <div>\n\n          <img src="../../assets/imgs/volley_empty_list.png" />\n\n          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n  <div *ngIf="!emptyGames">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of (games | async)?.slice().reverse(); let i = index">\n\n          <game-widget [game]="game" [i]="i"></game-widget>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/
+            selector: "page-dashboard",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n\n  Generated template for the DashboardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar #navbar color="primary">\n\n    <button ion-button menuToggle *ngIf="!onEdit">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons left *ngIf="onEdit">\n\n      <button ion-button icon-only (click)="removeOnEdit()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{onEdit ? \'Elimina partite\' : \'Dashboard\'}}</ion-title>\n\n    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">\n\n      <button ion-button icon-only (click)="reload()" class="update-button">\n\n        <ion-icon name="cloud-download"></ion-icon>\n\n        Update\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="onEdit">\n\n      <button ion-button icon-only (click)="deleteGames()">\n\n        <ion-icon name="trash"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <!-- <ion-buttons end *ngIf="userLogged">\n\n        <button ion-button icon-only (click)="logOut()">\n\n          <ion-icon md="md-log-out"></ion-icon>\n\n        </button>\n\n      </ion-buttons> -->\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="dashboard-container" hide-fab>\n\n  <div class="empty-dashboard" *ngIf="emptyGames">\n\n    <ion-grid style="height: 100%">\n\n      <ion-row justify-content-center align-items-center style="height: 100%">\n\n        <div>\n\n          <img src="../../assets/imgs/volley_empty_list.png" />\n\n          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n  <div *ngIf="!emptyGames">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of (games | async)?.slice().reverse(); let i = index">\n\n          <game-widget [game]="game" [i]="i" [openGame]="openGame" [ref]="this" [onEdit]="onEdit" [onPressingCardGame]="onPressingCardGame" \n\n          [updateEditCheck]="updateEditCheck"></game-widget>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _k || Object])
     ], DashboardPage);
     return DashboardPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }(__WEBPACK_IMPORTED_MODULE_4__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=dashboard.js.map

@@ -24,13 +24,13 @@
       <ion-col col-4 class="text-center">
         {{(currentGame)?.teamA}}
       </ion-col>
-      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB) && gameOver) ? 'winner' : ''">
+      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? 'winner' : ''">
         {{(currentGame)?.resultA}}
       </ion-col>
       <ion-col col-2 class="text-center">
         -
       </ion-col>
-      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA) && gameOver) ? 'winner' : ''">
+      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? 'winner' : ''">
         {{(currentGame)?.resultB}}
       </ion-col>
       <ion-col col-4 class="text-center">
@@ -39,7 +39,7 @@
     </ion-row>
   </ion-grid>
   <ion-grid *ngIf="(currentGame)?.live">
-    <ion-row>
+    <ion-row *ngIf="!isAudience">
       <ion-col col-5 class="text-center">
         <ion-buttons>
           <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('a', true)" color="secondary">
@@ -56,17 +56,17 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-5 class="text-center set-value" [ngClass]="(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b ? 'winner' : ''">
+      <ion-col col-5 class="text-center set-value" [ngClass]="((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && (gameOver || isSetEnded())) ? 'winner' : ''">
         {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}
       </ion-col>
       <ion-col col-2 class="text-center set-value">
         -
       </ion-col>
-      <ion-col col-5 class="text-center set-value" [ngClass]="(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a ? 'winner' : ''">
+      <ion-col col-5 class="text-center set-value" [ngClass]="((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && (gameOver || isSetEnded())) ? 'winner' : ''">
         {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row *ngIf="!isAudience">
       <ion-col col-5 class="text-center">
         <ion-buttons>
           <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('a', false)" color="secondary">
@@ -83,7 +83,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-grid *ngIf="pause || gameOver">
+  <ion-grid *ngIf="(pause || gameOver) && !isAudience">
     <ion-row>
       <ion-col col-5>
         <ion-buttons>

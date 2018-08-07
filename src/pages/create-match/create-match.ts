@@ -70,7 +70,7 @@ export class CreateMatchPage extends BasePage {
 
   ionViewDidLoad() {
     this.onInit(this.navBar);
-    console.log("ionViewDidLoad");
+    console.log("ionViewDidLoad " + moment(new Date()).valueOf());
     this.geoService.getLocation(this.retrievePlaces, this);
   }
 
@@ -81,7 +81,7 @@ export class CreateMatchPage extends BasePage {
   onUserChange(user: any) {
     if (user != null) {
       this.games = this.afoDatabase.list(
-        "/" + this.authService.user.uid + "/games"
+        "/users/" + this.authService.user.uid + "/games"
       );
       this.games.subscribe(items => {
         var found = false;
@@ -102,7 +102,7 @@ export class CreateMatchPage extends BasePage {
 
       //check spectateId exists
       this.audience = this.afoDatabase.object(
-        "/" + this.authService.user.uid + "/audienceId"
+        "/users/" + this.authService.user.uid + "/audienceId"
       );
       var self = this;
       this.audience.subscribe(item => {
@@ -151,7 +151,7 @@ export class CreateMatchPage extends BasePage {
             this.liveMatch.live = false;
             this.afoDatabase
               .object(
-                "/" + this.authService.user.uid + "/games/" + this.liveMatch.id
+                "/users/" + this.authService.user.uid + "/games/" + this.liveMatch.id
               )
               .update(this.liveMatch);
             this.live.remove(this.liveKey);
@@ -209,13 +209,18 @@ export class CreateMatchPage extends BasePage {
             }
           }
 
+          var date = {
+            ms: moment(new Date()).valueOf(),
+            day: moment(new Date()).format("MMM/DD")
+          }
+
           const promise = newGameRef.set({
             id: newGameRef.key,
             teamA: this.teamA,
             teamB: this.teamB,
             resultA: 0,
             resultB: 0,
-            date: moment(new Date()).format("MMM/DD"),
+            date: date,
             location: location,
             live: true
           });

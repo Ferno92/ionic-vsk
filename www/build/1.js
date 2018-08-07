@@ -91,46 +91,70 @@ var LiveMatchPage = /** @class */ (function (_super) {
         _this.platform = platform;
         _this.pause = false;
         _this.gameOver = false;
+        _this.isAudience = false;
         // this.teamA = navParams.get("teamA");
         // this.teamB = navParams.get("teamB");
         _this.gameId = navParams.get("id");
+        _this.audienceId = navParams.get("audienceId");
+        console.log("audience: " + _this.audienceId + " - id: " + _this.gameId);
         return _this;
     }
     LiveMatchPage.prototype.onUserChange = function (user) {
         var _this = this;
         if (user != null) {
-            this.games = this.afoDatabase.list("/" + this.authService.user.uid + "/games");
-            this.games.subscribe(function (items) {
-                var found = false;
-                // items is an array
-                items.forEach(function (item) {
-                    if (item.id == _this.gameId) {
-                        console.log("Item:", item);
-                        _this.currentGame = item;
-                        if (_this.currentGame.live) {
-                            if (_this.currentGame.sets == undefined) {
-                                _this.currentGame.sets = [{ a: 0, b: 0 }];
-                            }
-                            else {
-                                if (_this.isSetEnded() && !_this.isGameOver()) {
-                                    _this.pause = true;
-                                }
-                                else if (_this.isGameOver()) {
-                                    _this.gameOver = true;
-                                }
-                            }
+            var url = "";
+            if (this.audienceId == undefined || this.audienceId == ":audienceId") {
+                url = "/users/" + this.authService.user.uid + "/games";
+                this.retrieveGameInfo(url);
+            }
+            else {
+                this.isAudience = true;
+                var users = this.afoDatabase.list("/users");
+                users.subscribe(function (userList) {
+                    userList.forEach(function (user) {
+                        if (user.audienceId == _this.audienceId) {
+                            url = "/users/" + user.$key + "/games";
+                            console.log(url);
+                            _this.retrieveGameInfo(url);
                         }
-                        found = true;
-                        if (item.live) {
-                            _this.askBeforeGoBack = true;
+                    });
+                });
+            }
+        }
+    };
+    LiveMatchPage.prototype.retrieveGameInfo = function (url) {
+        var _this = this;
+        this.games = this.afoDatabase.list(url);
+        this.games.subscribe(function (items) {
+            var found = false;
+            // items is an array
+            items.forEach(function (item) {
+                if (item.id == _this.gameId) {
+                    console.log("Item:", item);
+                    _this.currentGame = item;
+                    if (_this.currentGame.live) {
+                        if (_this.currentGame.sets == undefined) {
+                            _this.currentGame.sets = [{ a: 0, b: 0 }];
+                        }
+                        else {
+                            if (_this.isSetEnded() && !_this.isGameOver()) {
+                                _this.pause = true;
+                            }
+                            else if (_this.isGameOver()) {
+                                _this.gameOver = true;
+                            }
                         }
                     }
-                });
-                if (!found) {
-                    //TODO: error message
+                    found = true;
+                    if (item.live && !_this.isAudience) {
+                        _this.askBeforeGoBack = true;
+                    }
                 }
             });
-        }
+            if (!found) {
+                //TODO: error message
+            }
+        });
     };
     LiveMatchPage.prototype.ionViewDidLoad = function () {
         this.onInit(this.navBar);
@@ -171,7 +195,6 @@ var LiveMatchPage = /** @class */ (function (_super) {
                 this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >=
                     this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a +
                         2);
-        console.log("set ended: " + isSetEnded);
         return isSetEnded;
     };
     LiveMatchPage.prototype.isGameOver = function () {
@@ -181,7 +204,6 @@ var LiveMatchPage = /** @class */ (function (_super) {
                 .b;
         var gameOver = this.isSetEnded() &&
             (winnerA ? this.currentGame.resultA == 2 : this.currentGame.resultB == 2);
-        console.log("is game over: " + gameOver);
         return gameOver;
     };
     LiveMatchPage.prototype.createSet = function () {
@@ -218,7 +240,6 @@ var LiveMatchPage = /** @class */ (function (_super) {
                 this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b - 1;
         }
         if (!this.isSetEnded()) {
-            console.log("setEnded");
             this.pause = false;
             this.gameOver = false;
         }
@@ -226,26 +247,21 @@ var LiveMatchPage = /** @class */ (function (_super) {
     };
     LiveMatchPage.prototype.updateGame = function () {
         this.afoDatabase
-            .object("/" + this.authService.user.uid + "/games/" + this.currentGame.id)
+            .object("/users/" + this.authService.user.uid + "/games/" + this.currentGame.id)
             .update(this.currentGame);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
     ], LiveMatchPage.prototype, "navBar", void 0);
     LiveMatchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n  Generated template for the LiveMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partita Live</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-4 class="text-center">\n        {{(currentGame)?.teamA}}\n      </ion-col>\n      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB) && gameOver) ? \'winner\' : \'\'">\n        {{(currentGame)?.resultA}}\n      </ion-col>\n      <ion-col col-2 class="text-center">\n        -\n      </ion-col>\n      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA) && gameOver) ? \'winner\' : \'\'">\n        {{(currentGame)?.resultB}}\n      </ion-col>\n      <ion-col col-4 class="text-center">\n        {{(currentGame)?.teamB}}\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid *ngIf="(currentGame)?.live">\n    <ion-row>\n      <ion-col col-5 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-5 class="text-center set-value" [ngClass]="(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b ? \'winner\' : \'\'">\n        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n      </ion-col>\n      <ion-col col-2 class="text-center set-value">\n        -\n      </ion-col>\n      <ion-col col-5 class="text-center set-value" [ngClass]="(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a ? \'winner\' : \'\'">\n        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-5 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n            <ion-icon name="remove"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n            <ion-icon name="remove"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid *ngIf="pause || gameOver">\n    <ion-row>\n      <ion-col col-5>\n        <ion-buttons>\n          <button ion-button class="full-width" (click)="rollBack()">\n            <ion-icon name="undo" class="icon-sets"></ion-icon>\n            Torna indietro\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2>\n        <ion-buttons>\n          <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n            <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n            {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
+            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n  Generated template for the LiveMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partita Live</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-4 class="text-center">\n        {{(currentGame)?.teamA}}\n      </ion-col>\n      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n        {{(currentGame)?.resultA}}\n      </ion-col>\n      <ion-col col-2 class="text-center">\n        -\n      </ion-col>\n      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n        {{(currentGame)?.resultB}}\n      </ion-col>\n      <ion-col col-4 class="text-center">\n        {{(currentGame)?.teamB}}\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid *ngIf="(currentGame)?.live">\n    <ion-row *ngIf="!isAudience">\n      <ion-col col-5 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-5 class="text-center set-value" [ngClass]="((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && (gameOver || isSetEnded())) ? \'winner\' : \'\'">\n        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n      </ion-col>\n      <ion-col col-2 class="text-center set-value">\n        -\n      </ion-col>\n      <ion-col col-5 class="text-center set-value" [ngClass]="((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && (gameOver || isSetEnded())) ? \'winner\' : \'\'">\n        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n      </ion-col>\n    </ion-row>\n    <ion-row *ngIf="!isAudience">\n      <ion-col col-5 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n            <ion-icon name="remove"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n            <ion-icon name="remove"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid *ngIf="(pause || gameOver) && !isAudience">\n    <ion-row>\n      <ion-col col-5>\n        <ion-buttons>\n          <button ion-button class="full-width" (click)="rollBack()">\n            <ion-icon name="undo" class="icon-sets"></ion-icon>\n            Torna indietro\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2>\n        <ion-buttons>\n          <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n            <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n            {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _h || Object])
     ], LiveMatchPage);
     return LiveMatchPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=live-match.js.map

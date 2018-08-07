@@ -58,12 +58,21 @@ export class SearchLivePage extends BasePage {
         this.emptyGames = true;
       }
       items.forEach(item => {
-        var afoListObs = self.afoDatabase.list("/" + item.userId + "/games");
+        var afoListObs = self.afoDatabase.list("/users/" + item.userId + "/games");
         afoListObs.subscribe(userGames => {
           userGames.forEach(game => {
             // console.log(game.$key + " - " + item.gameKey + " = " + (game.$key == item.gameKey));
-            if(game.$key == item.gameKey){
-              self.games.push(game);
+            if (game.$key == item.gameKey) {
+              game.audienceId = item.audienceId;
+              if (self.games.length > 0) {
+                self.games.forEach(gamePushed => {
+                  if (gamePushed.id != game.id) {
+                    self.games.push(game);
+                  }
+                });
+              } else {
+                self.games.push(game);
+              }
             }
           });
         });
@@ -74,4 +83,15 @@ export class SearchLivePage extends BasePage {
   ionViewDidLoad() {
     this.onInit(this.navBar);
   }
+
+  showLiveGame(game: any, pageRef: any) {
+    pageRef.navCtrl.push("live-match", {
+      id: game.$key,
+      audienceId: game.audienceId
+    });
+  }
+  
+  onPressingCardGame(game: any, pageRef: any) {}
+  
+  updateEditCheck(game: any, pageRef: any) {}
 }

@@ -72,10 +72,10 @@ export class DashboardPage extends BasePage {
       this.userLogged = true;
       this.userImage = user.photoURL;
       this.games = this.afoDatabase.list(
-        "/" + this.authService.user.uid + "/games",
+        "/users/" + this.authService.user.uid + "/games",
         {
           query: {
-            orderByChild: "date"
+            orderByChild: "date/ms"
           }
         }
       );
@@ -117,39 +117,39 @@ export class DashboardPage extends BasePage {
     toast.present();
   }
 
-  openGame(game: any) {
-    if (this.onEdit) {
+  openGame(game: any, pageRef:any) {
+    console.log(pageRef);
+    if (pageRef.onEdit) {
       game.checked = !game.checked;
-      console.log("openGame: " + game.checked);
       if (game.checked) {
-        this.updateEditCheck(game, false);
+        pageRef.updateEditCheck(game, false, this);
       }
     } else {
-      this.openLiveMatch(game.id, game.teamA, game.teamB);
+      pageRef.openLiveMatch(game.id, game.teamA, game.teamB);
     }
   }
 
-  onPressingCardGame(game: any) {
-    if (!this.onEdit) {
+  onPressingCardGame(game: any, pageRef:any) {
+    if (!pageRef.onEdit) {
       game.checked = true;
-      this.onEdit = true;
-      this.gamesChecked.push(game);
-      this.events.publish("currentPage", "dashboard-edit");
+      pageRef.onEdit = true;
+      pageRef.gamesChecked.push(game);
+      pageRef.events.publish("currentPage", "dashboard-edit");
     }
   }
-  updateEditCheck(game: any, reverse: boolean) {
+  updateEditCheck(game: any, reverse: boolean, pageRef:any) {
     console.log("updateEditCheck, checked: " + game.checked);
     // game.checked = !game.checked;
     if ((reverse && !game.checked) || (!reverse && game.checked)) {
-      this.gamesChecked.push(game);
+      pageRef.gamesChecked.push(game);
     } else {
-      var index = this.gamesChecked.indexOf(game);
-      this.gamesChecked.splice(index, 1);
-      if (this.gamesChecked.length == 0) {
-        this.removeOnEdit();
+      var index = pageRef.gamesChecked.indexOf(game);
+      pageRef.gamesChecked.splice(index, 1);
+      if (pageRef.gamesChecked.length == 0) {
+        pageRef.removeOnEdit();
       }
     }
-    console.log("gamesChecked length: " + this.gamesChecked.length);
+    console.log("gamesChecked length: " + pageRef.gamesChecked.length);
   }
 
   removeOnEdit() {
@@ -180,12 +180,12 @@ export class DashboardPage extends BasePage {
     this.removeOnEdit();
   }
 
-  tapCheckbox(game: any) {
-    //console.log("tapCheckbox: " + game.checked);
-    //if (game.checked == undefined || !game.checked) {
-    //this.updateEditCheck(game, true);
-    //} else {
-    //this.updateEditCheck(game, true);
-    //}
-  }
+  // tapCheckbox(game: any) {
+  //   //console.log("tapCheckbox: " + game.checked);
+  //   //if (game.checked == undefined || !game.checked) {
+  //   //this.updateEditCheck(game, true);
+  //   //} else {
+  //   //this.updateEditCheck(game, true);
+  //   //}
+  // }
 }

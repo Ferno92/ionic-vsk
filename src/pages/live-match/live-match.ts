@@ -24,7 +24,7 @@ import {
 
 @IonicPage({
   name: "live-match",
-  segment: "live-match/:id"
+  segment: "live-match/:id/:audienceId"
 })
 @Component({
   selector: "page-live-match",
@@ -34,9 +34,11 @@ export class LiveMatchPage extends BasePage {
   @ViewChild("navbar") navBar: Navbar;
   games: AfoListObservable<any[]>;
   gameId: String;
+  audienceId: String;
   currentGame: any;
   pause = false;
   gameOver = false;
+  isAudience = false;
 
   constructor(
     public navCtrl: NavController,
@@ -51,42 +53,62 @@ export class LiveMatchPage extends BasePage {
     // this.teamA = navParams.get("teamA");
     // this.teamB = navParams.get("teamB");
     this.gameId = navParams.get("id");
+    this.audienceId = navParams.get("audienceId");
+    console.log("audience: " + this.audienceId + " - id: " + this.gameId);
   }
 
   onUserChange(user: any) {
     if (user != null) {
-      this.games = this.afoDatabase.list(
-        "/" + this.authService.user.uid + "/games"
-      );
-      this.games.subscribe(items => {
-        var found = false;
-        // items is an array
-        items.forEach(item => {
-          if (item.id == this.gameId) {
-            console.log("Item:", item);
-            this.currentGame = item;
-            if (this.currentGame.live) {
-              if (this.currentGame.sets == undefined) {
-                this.currentGame.sets = [{ a: 0, b: 0 }];
-              } else {
-                if (this.isSetEnded() && !this.isGameOver()) {
-                  this.pause = true;
-                } else if (this.isGameOver()) {
-                  this.gameOver = true;
-                }
+      var url = "";
+      if (this.audienceId == undefined || this.audienceId == ":audienceId") {
+        url = "/users/" + this.authService.user.uid + "/games";
+        this.retrieveGameInfo(url);
+      } else {
+        this.isAudience = true;
+        var users = this.afoDatabase.list("/users");
+        users.subscribe(userList => {
+          userList.forEach(user => {
+            if (user.audienceId == this.audienceId) {
+              url = "/users/" + user.$key + "/games";
+              console.log(url);
+              this.retrieveGameInfo(url);
+            }
+          });
+        });
+      }
+    }
+  }
+
+  retrieveGameInfo(url: string) {
+    this.games = this.afoDatabase.list(url);
+    this.games.subscribe(items => {
+      var found = false;
+      // items is an array
+      items.forEach(item => {
+        if (item.id == this.gameId) {
+          console.log("Item:", item);
+          this.currentGame = item;
+          if (this.currentGame.live) {
+            if (this.currentGame.sets == undefined) {
+              this.currentGame.sets = [{ a: 0, b: 0 }];
+            } else {
+              if (this.isSetEnded() && !this.isGameOver()) {
+                this.pause = true;
+              } else if (this.isGameOver()) {
+                this.gameOver = true;
               }
             }
-            found = true;
-            if (item.live) {
-              this.askBeforeGoBack = true;
-            }
           }
-        });
-        if (!found) {
-          //TODO: error message
+          found = true;
+          if (item.live && !this.isAudience) {
+            this.askBeforeGoBack = true;
+          }
         }
       });
-    }
+      if (!found) {
+        //TODO: error message
+      }
+    });
   }
 
   ionViewDidLoad() {
@@ -152,7 +174,6 @@ export class LiveMatchPage extends BasePage {
             this.currentGame.resultA + this.currentGame.resultB
           ].a +
             2);
-    console.log("set ended: " + isSetEnded);
     return isSetEnded;
   }
 
@@ -165,7 +186,6 @@ export class LiveMatchPage extends BasePage {
     var gameOver =
       this.isSetEnded() &&
       (winnerA ? this.currentGame.resultA == 2 : this.currentGame.resultB == 2);
-    console.log("is game over: " + gameOver);
     return gameOver;
   }
 
@@ -211,7 +231,6 @@ export class LiveMatchPage extends BasePage {
         ].b - 1;
     }
     if (!this.isSetEnded()) {
-      console.log("setEnded");
       this.pause = false;
       this.gameOver = false;
     }
@@ -220,7 +239,9 @@ export class LiveMatchPage extends BasePage {
 
   updateGame() {
     this.afoDatabase
-      .object("/" + this.authService.user.uid + "/games/" + this.currentGame.id)
+      .object(
+        "/users/" + this.authService.user.uid + "/games/" + this.currentGame.id
+      )
       .update(this.currentGame);
   }
 }
