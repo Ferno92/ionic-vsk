@@ -14,6 +14,8 @@ import {
   AfoListObservable,
   AngularFireOfflineDatabase
 } from "angularfire2-offline/database";
+import * as moment from "moment";
+import { text } from "@angular/core/src/render3/instructions";
 
 /**
  * Generated class for the LiveMatchPage page.
@@ -33,12 +35,14 @@ import {
 export class LiveMatchPage extends BasePage {
   @ViewChild("navbar") navBar: Navbar;
   games: AfoListObservable<any[]>;
+  chats: AfoListObservable<any[]>;
   gameId: String;
   audienceId: String;
   currentGame: any;
   pause = false;
   gameOver = false;
   isAudience = false;
+  textAreaMessage: string;
 
   constructor(
     public navCtrl: NavController,
@@ -59,27 +63,35 @@ export class LiveMatchPage extends BasePage {
 
   onUserChange(user: any) {
     if (user != null) {
-      var url = "";
+      var id = "";
       if (this.audienceId == undefined || this.audienceId == ":audienceId") {
-        url = "/users/" + this.authService.user.uid + "/games";
-        this.retrieveGameInfo(url);
+        id = this.authService.user.uid;
+        this.retrieveGameInfo(id);
       } else {
-        this.isAudience = true;
-        var users = this.afoDatabase.list("/users");
-        users.subscribe(userList => {
-          userList.forEach(user => {
-            if (user.audienceId == this.audienceId) {
-              url = "/users/" + user.$key + "/games";
-              console.log(url);
-              this.retrieveGameInfo(url);
-            }
-          });
-        });
+        this.findUserFromAudienceId();
       }
+    } else {
+      this.findUserFromAudienceId();
     }
   }
 
-  retrieveGameInfo(url: string) {
+  findUserFromAudienceId() {
+    var id = "";
+    this.isAudience = true;
+    var users = this.afoDatabase.list("/users");
+    users.subscribe(userList => {
+      userList.forEach(user => {
+        if (user.audienceId == this.audienceId) {
+          id = user.$key;
+          this.retrieveGameInfo(id);
+        }
+      });
+    });
+  }
+
+  retrieveGameInfo(userId: string) {
+    var url = "/users/" + userId + "/games";
+    console.log(url);
     this.games = this.afoDatabase.list(url);
     this.games.subscribe(items => {
       var found = false;
@@ -88,6 +100,7 @@ export class LiveMatchPage extends BasePage {
         if (item.id == this.gameId) {
           console.log("Item:", item);
           this.currentGame = item;
+          this.showChat(userId, item.$key);
           if (this.currentGame.live) {
             if (this.currentGame.sets == undefined) {
               this.currentGame.sets = [{ a: 0, b: 0 }];
@@ -243,5 +256,51 @@ export class LiveMatchPage extends BasePage {
         "/users/" + this.authService.user.uid + "/games/" + this.currentGame.id
       )
       .update(this.currentGame);
+  }
+
+  showChat(userId: string, gameKey: string) {
+    this.chats = this.afoDatabase.list(
+      "/users/" + userId + "/games/" + gameKey + "/chats"
+    );
+    this.chats.subscribe(chatList => {
+      console.log("chat length: " + chatList.length);
+      
+    var scrollableContent = document.getElementsByClassName("scrollable-content")[0] as HTMLDivElement;
+    console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
+    scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+    });
+  }
+
+  keyPress(ev: any) {
+    console.log(ev);
+    if (ev.keyCode == 13) {
+      //press enter
+      this.pushMessage();
+    }
+  }
+
+  pushMessage() {
+    if (this.textAreaMessage.trim() != "") {
+      var user = this.authService.user;
+      const chatsRef = this.chats.push({});
+      const chatsPromise = chatsRef.set({
+        name: user != null ? user.displayName : "Anonimo",
+        userId: user != null ? user.uid : "",
+        pictureUrl: user != null ? user.photoURL : "",
+        text: this.textAreaMessage,
+        ms: moment(new Date()).valueOf(),
+        date: moment(new Date()).format("MMM/DD")
+      });
+
+      if (chatsPromise != undefined) {
+        chatsPromise.then(() => console.log("chat added to firebase!"));
+        if (chatsPromise.offline != undefined) {
+          chatsPromise.offline.then(() =>
+            console.log("offline chat added to device storage!")
+          );
+        }
+      }
+      this.textAreaMessage = "";
+    }
   }
 }

@@ -8,7 +8,7 @@ webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_BasePage__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_BasePage__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_game_widget_game_widget__ = __webpack_require__(336);
 var __extends = (this && this.__extends) || (function () {
@@ -70,6 +70,7 @@ var SearchLivePage = /** @class */ (function (_super) {
             items.forEach(function (item) {
                 var afoListObs = self.afoDatabase.list("/users/" + item.userId + "/games");
                 afoListObs.subscribe(function (userGames) {
+                    var found = false;
                     userGames.forEach(function (game) {
                         // console.log(game.$key + " - " + item.gameKey + " = " + (game.$key == item.gameKey));
                         if (game.$key == item.gameKey) {
@@ -78,14 +79,19 @@ var SearchLivePage = /** @class */ (function (_super) {
                                 self.games.forEach(function (gamePushed) {
                                     if (gamePushed.id != game.id) {
                                         self.games.push(game);
+                                        found = true;
                                     }
                                 });
                             }
                             else {
                                 self.games.push(game);
+                                found = true;
                             }
                         }
                     });
+                    if (!found) {
+                        console.log("not found live game alias - REMOVE game key: " + item.gameKey);
+                    }
                     _this.gamesFiltered = _this.games;
                 });
             });
@@ -128,20 +134,24 @@ var SearchLivePage = /** @class */ (function (_super) {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */])
     ], SearchLivePage.prototype, "navBar", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("gameWidget"),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__components_game_widget_game_widget__["a" /* GameWidgetComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__components_game_widget_game_widget__["a" /* GameWidgetComponent */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__components_game_widget_game_widget__["a" /* GameWidgetComponent */])
     ], SearchLivePage.prototype, "gameWidget", void 0);
     SearchLivePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: "search-live",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/'<!--\n  Generated template for the SearchLivePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title *ngIf="!onSearch">Partite in corso</ion-title>\n    <ion-searchbar class="animated fadeInRight search-bar" *ngIf="onSearch" \n    (ionInput)="getItems($event)" [showCancelButton]="false" (ionCancel)="onCancel($event)"></ion-searchbar>\n    <ion-buttons right *ngIf="!onSearch">\n        <button ion-button icon-only (click)="showSearch()">\n          <ion-icon name="search"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div *ngIf="!emptyGames">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of gamesFiltered; let i = index">\n          <game-widget [game]="game" [i]="i" [openGame]="showLiveGame" [ref]="this" [onEdit]="false" [onPressingCardGame]="onPressingCardGame" \n          [updateEditCheck]="updateEditCheck"></game-widget>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
+            __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
     ], SearchLivePage);
     return SearchLivePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }(__WEBPACK_IMPORTED_MODULE_3__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=search-live.js.map
@@ -249,7 +259,7 @@ var LoginPageModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GameWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_BasePage__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_BasePage__ = __webpack_require__(70);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -309,7 +319,7 @@ var GameWidgetComponent = /** @class */ (function () {
     ], GameWidgetComponent.prototype, "tapCheckbox", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_BasePage__["a" /* BasePage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__common_BasePage__["a" /* BasePage */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__common_BasePage__["a" /* BasePage */])
     ], GameWidgetComponent.prototype, "ref", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
@@ -322,7 +332,6 @@ var GameWidgetComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], GameWidgetComponent);
     return GameWidgetComponent;
-    var _a;
 }());
 
 //# sourceMappingURL=game-widget.js.map
@@ -643,7 +652,7 @@ var AuthService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(334);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_BasePage__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_BasePage__ = __webpack_require__(70);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -832,6 +841,107 @@ var LoginPage = /** @class */ (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_5__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 70:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_dashboard_dashboard__ = __webpack_require__(96);
+
+var BasePage = /** @class */ (function () {
+    function BasePage(navCtrl, authService, alertCtrl, platform) {
+        this.navCtrl = navCtrl;
+        this.authService = authService;
+        this.alertCtrl = alertCtrl;
+        this.platform = platform;
+    }
+    BasePage.prototype.onUserChange = function (user) {
+        console.log("onUserChange");
+    };
+    BasePage.prototype.goBack = function () {
+        console.log("askBeforeGoBack: " + this.askBeforeGoBack);
+        if (this.askBeforeGoBack) {
+            this.askGoBackPopup();
+        }
+        else {
+            if (this.navCtrl.canGoBack()) {
+                this.navCtrl.pop();
+            }
+            else {
+                this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__pages_dashboard_dashboard__["a" /* DashboardPage */]);
+                this.navCtrl.popToRoot();
+            }
+        }
+    };
+    BasePage.prototype.onInit = function (navBar) {
+        var _this = this;
+        console.log("navbar");
+        this.platform.registerBackButtonAction(function () {
+            console.log("backPressed 1");
+            _this.errorPopup("what", "ouch");
+        }, 2);
+        navBar.backButtonClick = function (e) {
+            // todo something
+            _this.goBack();
+        };
+        this.askBeforeGoBack = false;
+        this.canGoBack = this.navCtrl.canGoBack();
+        this.authService.authState.subscribe(function (user) {
+            _this.onUserChange(user);
+        });
+    };
+    BasePage.prototype.errorPopup = function (text, description) {
+        var prompt = this.alertCtrl.create({
+            title: text,
+            message: description,
+            buttons: [
+                {
+                    text: "OK",
+                    handler: function (data) {
+                        console.log("Cancel clicked");
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    BasePage.prototype.askGoBackPopup = function () {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: "Abbandona partita",
+            message: "Sei sicuro di voler abbandonare la partita?",
+            buttons: [
+                {
+                    text: "Si",
+                    handler: function (data) {
+                        _this.askBeforeGoBack = false;
+                        _this.goBack();
+                    }
+                },
+                {
+                    text: "No",
+                    handler: function (data) {
+                        console.log("Cancel clicked");
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    BasePage.prototype.openLiveMatch = function (key, teamA, teamB) {
+        this.navCtrl.push("live-match", {
+            id: key,
+            teamA: teamA,
+            teamB: teamB
+        });
+    };
+    return BasePage;
+}());
+
+//# sourceMappingURL=BasePage.js.map
 
 /***/ }),
 
@@ -1144,107 +1254,6 @@ var HideFabDirective = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 95:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_dashboard_dashboard__ = __webpack_require__(96);
-
-var BasePage = /** @class */ (function () {
-    function BasePage(navCtrl, authService, alertCtrl, platform) {
-        this.navCtrl = navCtrl;
-        this.authService = authService;
-        this.alertCtrl = alertCtrl;
-        this.platform = platform;
-    }
-    BasePage.prototype.onUserChange = function (user) {
-        console.log("onUserChange");
-    };
-    BasePage.prototype.goBack = function () {
-        console.log("askBeforeGoBack: " + this.askBeforeGoBack);
-        if (this.askBeforeGoBack) {
-            this.askGoBackPopup();
-        }
-        else {
-            if (this.navCtrl.canGoBack()) {
-                this.navCtrl.pop();
-            }
-            else {
-                this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__pages_dashboard_dashboard__["a" /* DashboardPage */]);
-                this.navCtrl.popToRoot();
-            }
-        }
-    };
-    BasePage.prototype.onInit = function (navBar) {
-        var _this = this;
-        console.log("navbar");
-        this.platform.registerBackButtonAction(function () {
-            console.log("backPressed 1");
-            _this.errorPopup("what", "ouch");
-        }, 2);
-        navBar.backButtonClick = function (e) {
-            // todo something
-            _this.goBack();
-        };
-        this.askBeforeGoBack = false;
-        this.canGoBack = this.navCtrl.canGoBack();
-        this.authService.authState.subscribe(function (user) {
-            _this.onUserChange(user);
-        });
-    };
-    BasePage.prototype.errorPopup = function (text, description) {
-        var prompt = this.alertCtrl.create({
-            title: text,
-            message: description,
-            buttons: [
-                {
-                    text: "OK",
-                    handler: function (data) {
-                        console.log("Cancel clicked");
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
-    BasePage.prototype.askGoBackPopup = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: "Abbandona partita",
-            message: "Sei sicuro di voler abbandonare la partita?",
-            buttons: [
-                {
-                    text: "Si",
-                    handler: function (data) {
-                        _this.askBeforeGoBack = false;
-                        _this.goBack();
-                    }
-                },
-                {
-                    text: "No",
-                    handler: function (data) {
-                        console.log("Cancel clicked");
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
-    BasePage.prototype.openLiveMatch = function (key, teamA, teamB) {
-        this.navCtrl.push("live-match", {
-            id: key,
-            teamA: teamA,
-            teamB: teamB
-        });
-    };
-    return BasePage;
-}());
-
-//# sourceMappingURL=BasePage.js.map
-
-/***/ }),
-
 /***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1254,7 +1263,7 @@ var BasePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_BasePage__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_BasePage__ = __webpack_require__(70);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1412,16 +1421,23 @@ var DashboardPage = /** @class */ (function (_super) {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */])
     ], DashboardPage.prototype, "navBar", void 0);
     DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: "page-dashboard",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/'<!--\n\n  Generated template for the DashboardPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar #navbar color="primary">\n\n    <button ion-button menuToggle *ngIf="!onEdit">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons left *ngIf="onEdit">\n\n      <button ion-button icon-only (click)="removeOnEdit()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{onEdit ? \'Elimina partite\' : \'Dashboard\'}}</ion-title>\n\n    <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">\n\n      <button ion-button icon-only (click)="reload()" class="update-button">\n\n        <ion-icon name="cloud-download"></ion-icon>\n\n        Update\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end *ngIf="onEdit">\n\n      <button ion-button icon-only (click)="deleteGames()">\n\n        <ion-icon name="trash"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <!-- <ion-buttons end *ngIf="userLogged">\n\n        <button ion-button icon-only (click)="logOut()">\n\n          <ion-icon md="md-log-out"></ion-icon>\n\n        </button>\n\n      </ion-buttons> -->\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="dashboard-container" hide-fab>\n\n  <div class="empty-dashboard" *ngIf="emptyGames">\n\n    <ion-grid style="height: 100%">\n\n      <ion-row justify-content-center align-items-center style="height: 100%">\n\n        <div>\n\n          <img src="../../assets/imgs/volley_empty_list.png" />\n\n          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>\n\n        </div>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n  <div *ngIf="!emptyGames">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of (games | async)?.slice().reverse(); let i = index">\n\n          <game-widget [game]="game" [i]="i" [openGame]="openGame" [ref]="this" [onEdit]="onEdit" [onPressingCardGame]="onPressingCardGame" \n\n          [updateEditCheck]="updateEditCheck"></game-widget>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\dashboard\dashboard.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _k || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_3_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
     ], DashboardPage);
     return DashboardPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }(__WEBPACK_IMPORTED_MODULE_4__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=dashboard.js.map

@@ -3,10 +3,71 @@ page-live-match {
     font-size: 80px;
     font-weight: 300;
   }
-  .icon-sets{
-      margin-right: 5px;
+  .icon-sets {
+    margin-right: 5px;
   }
-  .winner{
-      font-weight: bold;
+  .winner {
+    font-weight: bold;
+  }
+  .chat-container {
+    height: 200px;
+    margin-top: 20px;
+
+    .scrollable-content {
+      height: 180px;
+      overflow: auto;
+      border-top: solid 1px;
+      margin-bottom: 10px;
+
+      .chat {
+        margin: 5px;
+        .chat-user-image {
+          height: 40px;
+          width: 40px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 50%;
+          &.owner {
+            display: none;
+          }
+          .anonymous-icon {
+            font-size: 40px;
+            color: gray;
+          }
+        }
+        .chat-text {
+          background: lightblue;
+          padding: 10px;
+          border-radius: 5px;
+          max-width: calc(100% - 40px);
+          &.owner {
+            background: lightcoral;
+            max-width: 100%;
+          }
+        }
+        .small-text {
+          font-size: 12px;
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .chat-footer {
+      .chat-text-area {
+        border: solid 1px;
+        border-radius: 15px;
+        width: calc(100% - 60px);
+        textarea {
+          width: calc(100% - 20px);
+        }
+      }
+      .send-button {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+      }
+    }
   }
 }

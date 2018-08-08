@@ -62,6 +62,7 @@ export class SearchLivePage extends BasePage {
       items.forEach(item => {
         var afoListObs = self.afoDatabase.list("/users/" + item.userId + "/games");
         afoListObs.subscribe(userGames => {
+          var found = false;
           userGames.forEach(game => {
             // console.log(game.$key + " - " + item.gameKey + " = " + (game.$key == item.gameKey));
             if (game.$key == item.gameKey) {
@@ -70,13 +71,18 @@ export class SearchLivePage extends BasePage {
                 self.games.forEach(gamePushed => {
                   if (gamePushed.id != game.id) {
                     self.games.push(game);
+                    found = true;
                   }
                 });
               } else {
                 self.games.push(game);
+                found = true;
               }
             }
           });
+          if(!found){
+            console.log("not found live game alias - REMOVE game key: " + item.gameKey);
+          }
           this.gamesFiltered = this.games;
         });
       });
