@@ -1,15 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 717:
+/***/ 715:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiveMatchPageModule", function() { return LiveMatchPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateMatchPageModule", function() { return CreateMatchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_match__ = __webpack_require__(846);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__ = __webpack_require__(847);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_match__ = __webpack_require__(845);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,25 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var LiveMatchPageModule = /** @class */ (function () {
-    function LiveMatchPageModule() {
+var CreateMatchPageModule = /** @class */ (function () {
+    function CreateMatchPageModule() {
     }
-    LiveMatchPageModule = __decorate([
+    CreateMatchPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__live_match__["a" /* LiveMatchPage */],
+                __WEBPACK_IMPORTED_MODULE_2__create_match__["a" /* CreateMatchPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_match__["a" /* LiveMatchPage */]),
-                __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__["a" /* AutosizeModule */]
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__create_match__["a" /* CreateMatchPage */]),
             ],
         })
-    ], LiveMatchPageModule);
-    return LiveMatchPageModule;
+    ], CreateMatchPageModule);
+    return CreateMatchPageModule;
 }());
 
-//# sourceMappingURL=live-match.module.js.map
+//# sourceMappingURL=create-match.module.js.map
 
 /***/ }),
 
@@ -1879,7 +1876,7 @@ var LiveMatchPageModule = /** @class */ (function () {
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(845)("./" + name);
+                __webpack_require__(844)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4551,7 +4548,7 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(844)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(843)(module)))
 
 /***/ }),
 
@@ -16523,7 +16520,7 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 844:
+/***/ 843:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -16552,7 +16549,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 845:
+/***/ 844:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -16817,15 +16814,15 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 845;
+webpackContext.id = 844;
 
 /***/ }),
 
-/***/ 846:
+/***/ 845:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LiveMatchPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateMatchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_BasePage__ = __webpack_require__(70);
@@ -16833,6 +16830,8 @@ webpackContext.id = 845;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(719);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_geo_service__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_Guid__ = __webpack_require__(379);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -16858,356 +16857,241 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
- * Generated class for the LiveMatchPage page.
+ * Generated class for the CreateMatchPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LiveMatchPage = /** @class */ (function (_super) {
-    __extends(LiveMatchPage, _super);
-    function LiveMatchPage(navCtrl, navParams, events, authService, afoDatabase, alertCtrl, platform) {
+var CreateMatchPage = /** @class */ (function (_super) {
+    __extends(CreateMatchPage, _super);
+    function CreateMatchPage(navCtrl, navParams, events, authService, alertCtrl, platform, afoDatabase, geoService, changeDetector, guid) {
         var _this = _super.call(this, navCtrl, authService, alertCtrl, platform) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
         _this.events = events;
         _this.authService = authService;
-        _this.afoDatabase = afoDatabase;
         _this.alertCtrl = alertCtrl;
         _this.platform = platform;
-        _this.pause = false;
-        _this.gameOver = false;
-        _this.isAudience = false;
-        // this.teamA = navParams.get("teamA");
-        // this.teamB = navParams.get("teamB");
-        _this.gameId = navParams.get("id");
-        _this.audienceId = navParams.get("audienceId");
-        console.log("audience: " + _this.audienceId + " - id: " + _this.gameId);
+        _this.afoDatabase = afoDatabase;
+        _this.geoService = geoService;
+        _this.changeDetector = changeDetector;
+        _this.guid = guid;
+        _this.places = [];
+        events.subscribe("create-match", function (page) {
+            _this.createMatch();
+        });
         return _this;
     }
-    LiveMatchPage.prototype.onUserChange = function (user) {
-        if (user != null) {
-            var id = "";
-            if (this.audienceId == undefined || this.audienceId == ":audienceId") {
-                id = this.authService.user.uid;
-                this.retrieveGameInfo(id);
-            }
-            else {
-                this.findUserFromAudienceId();
-            }
-        }
-        else {
-            this.findUserFromAudienceId();
-        }
-    };
-    LiveMatchPage.prototype.findUserFromAudienceId = function () {
-        var _this = this;
-        var id = "";
-        this.isAudience = true;
-        var users = this.afoDatabase.list("/users");
-        users.subscribe(function (userList) {
-            userList.forEach(function (user) {
-                if (user.audienceId == _this.audienceId) {
-                    id = user.$key;
-                    _this.retrieveGameInfo(id);
-                }
-            });
-        });
-    };
-    LiveMatchPage.prototype.retrieveGameInfo = function (userId) {
-        var _this = this;
-        var url = "/users/" + userId + "/games";
-        console.log(url);
-        this.games = this.afoDatabase.list(url);
-        this.games.subscribe(function (items) {
-            var found = false;
-            // items is an array
-            items.forEach(function (item) {
-                if (item.id == _this.gameId) {
-                    console.log("Item:", item);
-                    _this.currentGame = item;
-                    _this.showChat(userId, item.$key);
-                    if (_this.currentGame.live) {
-                        if (_this.currentGame.sets == undefined) {
-                            _this.currentGame.sets = [{ a: 0, b: 0 }];
-                        }
-                        else {
-                            if (_this.isSetEnded() && !_this.isGameOver()) {
-                                _this.pause = true;
-                            }
-                            else if (_this.isGameOver()) {
-                                _this.gameOver = true;
-                            }
-                        }
-                    }
-                    found = true;
-                    if (item.live && !_this.isAudience) {
-                        _this.askBeforeGoBack = true;
-                    }
-                }
-            });
-            if (!found) {
-                //TODO: error message
-            }
-        });
-    };
-    LiveMatchPage.prototype.ionViewDidLoad = function () {
+    CreateMatchPage.prototype.ionViewDidLoad = function () {
         this.onInit(this.navBar);
+        console.log("ionViewDidLoad " + __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).valueOf());
+        this.geoService.getLocation(this.retrievePlaces, this);
     };
-    LiveMatchPage.prototype.ionViewWillEnter = function () {
-        this.events.publish("currentPage", "live-match");
+    CreateMatchPage.prototype.ionViewWillEnter = function () {
+        this.events.publish("currentPage", "create-match");
     };
-    LiveMatchPage.prototype.updateSetValue = function (team, increment) {
-        var teamValue = team == "a"
-            ? this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a
-            : this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b;
-        if (increment) {
-            teamValue = teamValue + 1;
-        }
-        else {
-            teamValue = teamValue == 0 ? 0 : teamValue - 1;
-        }
-        if (team == "a") {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a = teamValue;
-        }
-        else {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b = teamValue;
-        }
-        if (this.isSetEnded() && !this.isGameOver()) {
-            this.pause = true;
-        }
-        else if (this.isGameOver()) {
-            this.gameOver = true;
-        }
-        this.updateGame();
-    };
-    LiveMatchPage.prototype.isSetEnded = function () {
-        var isSetEnded = (this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a >= 25 &&
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a >=
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b +
-                    2) ||
-            (this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >= 25 &&
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >=
-                    this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a +
-                        2);
-        return isSetEnded;
-    };
-    LiveMatchPage.prototype.isGameOver = function () {
-        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-            .a >=
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-                .b;
-        var gameOver = this.isSetEnded() &&
-            (winnerA ? this.currentGame.resultA == 2 : this.currentGame.resultB == 2);
-        return gameOver;
-    };
-    LiveMatchPage.prototype.createSet = function () {
-        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-            .a >=
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-                .b;
-        if (winnerA) {
-            this.currentGame.resultA = this.currentGame.resultA + 1;
-        }
-        else {
-            this.currentGame.resultB = this.currentGame.resultB + 1;
-        }
-        if (!this.gameOver) {
-            this.currentGame.sets.push({ a: 0, b: 0 });
-            this.pause = false;
-        }
-        else {
-            this.currentGame.live = false;
-        }
-        this.updateGame();
-    };
-    LiveMatchPage.prototype.rollBack = function () {
-        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-            .a >
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-                .b;
-        if (winnerA) {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a =
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a - 1;
-        }
-        else {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b =
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b - 1;
-        }
-        if (!this.isSetEnded()) {
-            this.pause = false;
-            this.gameOver = false;
-        }
-        this.updateGame();
-    };
-    LiveMatchPage.prototype.updateGame = function () {
-        this.afoDatabase
-            .object("/users/" + this.authService.user.uid + "/games/" + this.currentGame.id)
-            .update(this.currentGame);
-    };
-    LiveMatchPage.prototype.showChat = function (userId, gameKey) {
-        this.chats = this.afoDatabase.list("/users/" + userId + "/games/" + gameKey + "/chats");
-        this.chats.subscribe(function (chatList) {
-            console.log("chat length: " + chatList.length);
-            var scrollableContent = document.getElementsByClassName("scrollable-content")[0];
-            console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
-            scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
-        });
-    };
-    LiveMatchPage.prototype.keyPress = function (ev) {
-        console.log(ev);
-        if (ev.keyCode == 13) {
-            //press enter
-            this.pushMessage();
-        }
-    };
-    LiveMatchPage.prototype.pushMessage = function () {
-        if (this.textAreaMessage.trim() != "") {
-            var user = this.authService.user;
-            var chatsRef = this.chats.push({});
-            var chatsPromise = chatsRef.set({
-                name: user != null ? user.displayName : "Anonimo",
-                userId: user != null ? user.uid : "",
-                pictureUrl: user != null ? user.photoURL : "",
-                text: this.textAreaMessage,
-                ms: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).valueOf(),
-                date: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).format("MMM/DD")
+    CreateMatchPage.prototype.onUserChange = function (user) {
+        var _this = this;
+        if (user != null) {
+            this.games = this.afoDatabase.list("/users/" + this.authService.user.uid + "/games");
+            this.games.subscribe(function (items) {
+                var found = false;
+                // items is an array
+                items.forEach(function (item) {
+                    if (item.live) {
+                        found = true;
+                        //this.askBeforeGoBack = true;
+                        _this.liveMatch = item;
+                    }
+                });
+                if (found) {
+                    _this.liveMatchOn = true;
+                }
+                else {
+                    _this.liveMatchOn = false;
+                }
             });
-            if (chatsPromise != undefined) {
-                chatsPromise.then(function () { return console.log("chat added to firebase!"); });
-                if (chatsPromise.offline != undefined) {
-                    chatsPromise.offline.then(function () {
-                        return console.log("offline chat added to device storage!");
+            //check spectateId exists
+            this.audience = this.afoDatabase.object("/users/" + this.authService.user.uid + "/audienceId");
+            var self = this;
+            this.audience.subscribe(function (item) {
+                if (item.$value == null) {
+                    var id = self.guid.newGuid();
+                    self.audience.set(id);
+                    self.audienceId = id;
+                }
+                else {
+                    self.audienceId = item.$value;
+                }
+            });
+            //reference to live game list
+            this.live = this.afoDatabase.list("/live");
+            this.live.subscribe(function (items) {
+                items.forEach(function (item) {
+                    if (item.audienceId == _this.audienceId) {
+                        console.log("found live: " + item.$key);
+                    }
+                    else {
+                        console.log("not found live");
+                    }
+                });
+            });
+        }
+    };
+    CreateMatchPage.prototype.askCloseLiveMatch = function () {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: "Partita in corso",
+            message: "Hai una partita in corso '" +
+                this.liveMatch.teamA +
+                " - " +
+                this.liveMatch.teamB +
+                "', vuoi chiuderla e aprirne una nuova?",
+            buttons: [
+                {
+                    text: "No",
+                    handler: function (data) {
+                        console.log("Cancel clicked");
+                    }
+                },
+                {
+                    text: "Si",
+                    handler: function (data) {
+                        _this.liveMatch.live = false;
+                        _this.afoDatabase
+                            .object("/users/" + _this.authService.user.uid + "/games/" + _this.liveMatch.id)
+                            .update(_this.liveMatch);
+                        _this.live.remove(_this.liveKey);
+                        _this.liveMatchOn = false;
+                        _this.createMatch();
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
+    CreateMatchPage.prototype.createMatch = function () {
+        if (this.teamA == undefined ||
+            this.teamA.trim() == "" ||
+            this.teamB == undefined ||
+            this.teamB.trim() == "") {
+            this.errorPopup("Dati mancanti", "Inserisci entrambi i nomi delle squadre in gioco");
+        }
+        else {
+            if (this.authService.user != null) {
+                if (this.liveMatchOn) {
+                    this.askCloseLiveMatch();
+                }
+                else {
+                    var newGameRef = this.games.push({});
+                    var location = {
+                        id: "",
+                        name: "",
+                        lat: "",
+                        long: "",
+                        city: "",
+                        address: ""
+                    };
+                    if (this.selectedPlace != "0") {
+                        for (var i = 0; i < this.places.length; i++) {
+                            var item = this.places[i];
+                            console.log(item.id);
+                            if (item.id == this.selectedPlace) {
+                                location.id = this.selectedPlace;
+                                location.name = item.name;
+                                location.lat = item.location.lat;
+                                location.long = item.location.lng;
+                                location.city =
+                                    item.location.city == undefined ? "" : item.location.city;
+                                location.address =
+                                    item.location.address == undefined
+                                        ? ""
+                                        : item.location.address;
+                                break;
+                            }
+                        }
+                    }
+                    var date = {
+                        ms: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).valueOf(),
+                        day: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).format("MMM/DD")
+                    };
+                    var promise = newGameRef.set({
+                        id: newGameRef.key,
+                        teamA: this.teamA,
+                        teamB: this.teamB,
+                        resultA: 0,
+                        resultB: 0,
+                        date: date,
+                        location: location,
+                        live: true
                     });
+                    var liveRef = this.live.push({});
+                    var livePromise = liveRef.set({
+                        audienceId: this.audienceId,
+                        userId: this.authService.user.uid,
+                        gameKey: newGameRef.key
+                    });
+                    if (promise != undefined) {
+                        promise.then(function () { return console.log("data added to firebase!"); });
+                        livePromise.then(function () { return console.log("live link added to firebase!"); });
+                        if (promise.offline != undefined) {
+                            promise.offline.then(function () {
+                                return console.log("offline data added to device storage!");
+                            });
+                            livePromise.offline.then(function () {
+                                return console.log("offline live link added to device storage!");
+                            });
+                        }
+                    }
+                    //TODO remove from stack create-match
+                    // let currentIndex = this.navController.getActive().index;
+                    // this.navController.push(DestinationPage).then(() => {
+                    //   this.navController.remove(currentIndex);
+                    // });
+                    this.openLiveMatch(newGameRef.key, this.teamA, this.teamB);
                 }
             }
-            this.textAreaMessage = "";
         }
+    };
+    CreateMatchPage.prototype.retrievePlaces = function (placesObserver, pagesRef) {
+        placesObserver.subscribe(function (data) {
+            console.log(data.response.venues);
+            data.response.venues.push({ id: 0, name: "Seleziona una voce.." });
+            pagesRef.selectedPlace = "0";
+            pagesRef.places = data.response.venues;
+            // pagesRef.changeDetector.detectChanges();
+        }, function (err) { return console.error(err); }, function () { return console.log("done loading places"); });
+    };
+    CreateMatchPage.prototype.onPlaceSelection = function (text) {
+        console.log(this.selectedPlace);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
-    ], LiveMatchPage.prototype, "navBar", void 0);
-    LiveMatchPage = __decorate([
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */])
+    ], CreateMatchPage.prototype, "navBar", void 0);
+    CreateMatchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n  Generated template for the LiveMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partita Live</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-4 class="text-center">\n        {{(currentGame)?.teamA}}\n      </ion-col>\n      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n        {{(currentGame)?.resultA}}\n      </ion-col>\n      <ion-col col-2 class="text-center">\n        -\n      </ion-col>\n      <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n        {{(currentGame)?.resultB}}\n      </ion-col>\n      <ion-col col-4 class="text-center">\n        {{(currentGame)?.teamB}}\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid *ngIf="(currentGame)?.live">\n    <ion-row *ngIf="!isAudience">\n      <ion-col col-5 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n            <ion-icon name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-5 class="text-center set-value" [ngClass]="((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && (gameOver || isSetEnded())) ? \'winner\' : \'\'">\n        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n      </ion-col>\n      <ion-col col-2 class="text-center set-value">\n        -\n      </ion-col>\n      <ion-col col-5 class="text-center set-value" [ngClass]="((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && (gameOver || isSetEnded())) ? \'winner\' : \'\'">\n        {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n      </ion-col>\n    </ion-row>\n    <ion-row *ngIf="!isAudience">\n      <ion-col col-5 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n            <ion-icon name="remove"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2 class="text-center">\n        <ion-buttons>\n          <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n            <ion-icon name="remove"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid *ngIf="(pause || gameOver) && !isAudience">\n    <ion-row>\n      <ion-col col-5>\n        <ion-buttons>\n          <button ion-button class="full-width" (click)="rollBack()">\n            <ion-icon name="undo" class="icon-sets"></ion-icon>\n            Torna indietro\n          </button>\n        </ion-buttons>\n      </ion-col>\n      <ion-col col-5 offset-2>\n        <ion-buttons>\n          <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n            <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n            {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n          </button>\n        </ion-buttons>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <div class="chat-container">\n\n    <div class="scrollable-content">\n      <div *ngFor="let chat of (chats | async); let i = index" class="chat">\n        <div class="chat-user-image float-left" [style.background-image]="\'url(\' + chat.pictureUrl + \')\'" \n        [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner\' : \'\') : \'\' ">\n        <ion-icon *ngIf="chat.pictureUrl == \'\'" name="contact" class="anonymous-icon"></ion-icon>\n      </div>\n        <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner float-right\' : \'float-left\') : \'float-left\' ">\n          <div class="small-text float-left">{{chat.name}}</div>\n          <div class="small-text float-right">{{chat.date}}</div>\n          <div class="clear"></div>\n          <div>{{chat.text}}</div>\n        </div>\n        <div class="clear"></div>\n      </div>\n\n    </div>\n\n    <div class="chat-footer">\n      <ion-buttons class="float-right">\n        <button ion-button (click)="pushMessage()" class="send-button">\n          <ion-icon name="send"></ion-icon>\n        </button>\n      </ion-buttons>\n      <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"\n        (keypress)="keyPress($event)"></ion-textarea>\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
+            selector: "page-create-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\create-match\create-match.html"*/'<!--\n  Generated template for the CreateMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="secondary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Crea Partita</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n\n    <ion-item>\n      <ion-label fixed>Team A</ion-label>\n      <ion-input type="text" [(ngModel)]="teamA"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label fixed>Team B</ion-label>\n      <ion-input type="text" [(ngModel)]="teamB"></ion-input>\n    </ion-item>\n\n  </ion-list>\n  <div>Fornisci la posizione della tua palestra, per accedere a più funzionalità:</div>\n  <ion-item>\n    <ion-label>Punti d\'interesse vicini</ion-label>\n    <ion-select [(ngModel)]="selectedPlace" (ionChange)="onPlaceSelection(place)" class="gym-select">\n      <ion-option *ngFor="let place of places; let i = index" value="{{place.id}}">{{place.name}}</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <!-- <ion-fab class="fab-dashboard" bottom right>\n    <button ion-fab icon-only color="success">\n      <ion-icon md="md-checkmark"></ion-icon>\n    </button>\n  </ion-fab> -->\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\create-match\create-match.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _h || Object])
-    ], LiveMatchPage);
-    return LiveMatchPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
+            __WEBPACK_IMPORTED_MODULE_6__services_geo_service__["a" /* GeoService */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */],
+            __WEBPACK_IMPORTED_MODULE_7__common_Guid__["a" /* Guid */]])
+    ], CreateMatchPage);
+    return CreateMatchPage;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
-//# sourceMappingURL=live-match.js.map
-
-/***/ }),
-
-/***/ 847:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AutosizeModule; });
-/* unused harmony export Autosize */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-
-
-var MAX_LOOKUP_RETRIES = 3;
-var Autosize = (function () {
-    function Autosize(element) {
-        this.element = element;
-        this.retries = 0;
-        if (this.element.nativeElement.tagName !== 'TEXTAREA') {
-            this._findNestedTextArea();
-        }
-        else {
-            this.textAreaEl = this.element.nativeElement;
-        }
-    }
-    Autosize.prototype.onInput = function (textArea) {
-        this.adjust();
-    };
-    Autosize.prototype._findNestedTextArea = function () {
-        var _this = this;
-        this.textAreaEl = this.element.nativeElement.getElementsByTagName('TEXTAREA')[0];
-        if (!this.textAreaEl) {
-            if (this.retries >= MAX_LOOKUP_RETRIES) {
-                console.warn('angular2-autosize: textarea not found');
-            }
-            else {
-                this.retries++;
-                setTimeout(function () {
-                    _this._findNestedTextArea();
-                }, 100);
-            }
-        }
-    };
-    Autosize.prototype.ngAfterContentChecked = function () {
-        this.adjust();
-    };
-    Autosize.prototype.adjust = function () {
-        if (this.textAreaEl) {
-            var area = this.textAreaEl;
-            area.style.overflow = 'hidden';
-            area.style.height = 'auto';
-            var lineHeight = this._getLineHeight();
-            var height = area.scrollHeight;
-            var rowsCount = height / lineHeight;
-            if (this.minRows && this.minRows >= rowsCount) {
-                area.style.overflow = 'auto';
-                height = this.minRows * lineHeight;
-            }
-            else if (this.maxRows && this.maxRows <= rowsCount) {
-                area.style.overflow = 'auto';
-                height = this.maxRows * lineHeight;
-            }
-            area.style.height = height + "px";
-        }
-    };
-    Autosize.prototype._getLineHeight = function () {
-        var lineHeight = parseInt(this.textAreaEl.style.lineHeight, 10);
-        if (isNaN(lineHeight)) {
-            var fontSize = window.getComputedStyle(this.textAreaEl, null).getPropertyValue('font-size');
-            lineHeight = Math.floor(parseInt(fontSize.replace('px', '')) * 1.5);
-        }
-        return lineHeight;
-    };
-    return Autosize;
-}());
-Autosize.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */], args: [{
-                selector: '[autosize]'
-            },] },
-];
-Autosize.ctorParameters = function () { return [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */], },
-]; };
-Autosize.propDecorators = {
-    "minRows": [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */] },],
-    "maxRows": [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */] },],
-    "onInput": [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* HostListener */], args: ['input', ['$event.target'],] },],
-};
-var AutosizeModule = (function () {
-    function AutosizeModule() {
-    }
-    AutosizeModule.forRoot = function () {
-        return { ngModule: AutosizeModule, providers: [] };
-    };
-    return AutosizeModule;
-}());
-AutosizeModule.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */], args: [{
-                declarations: [
-                    Autosize
-                ],
-                exports: [
-                    Autosize
-                ]
-            },] },
-];
-
-
-//# sourceMappingURL=ngx-autosize.js.map
-
+//# sourceMappingURL=create-match.js.map
 
 /***/ })
 

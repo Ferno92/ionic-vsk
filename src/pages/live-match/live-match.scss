@@ -2,6 +2,10 @@ page-live-match {
   .set-value {
     font-size: 80px;
     font-weight: 300;
+    &.reduced {
+      font-size: 25px;
+      font-weight: bold;
+    }
   }
   .icon-sets {
     margin-right: 5px;
@@ -10,14 +14,39 @@ page-live-match {
     font-weight: bold;
   }
   .chat-container {
-    height: 200px;
     margin-top: 20px;
+    position: relative;
+    .expand-icon {
+      position: absolute;
+      left: 40%;
+      top: 40%;
+      background: lightgray;
+      border-radius: 50%;
+      height: 70px;
+      width: 70px;
+      padding-left: 18px;
+      padding-top: 9px;
+      opacity: 0.5;
+      font-size: 50px;
+      cursor: pointer;
+      
+      &.expanded {
+        top: 10px;
+        right: 10px;
+        left: auto;
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+        padding-left: 9px;
+        padding-top: 5px;
+      }
+    }
 
     .scrollable-content {
-      height: 180px;
       overflow: auto;
       border-top: solid 1px;
       margin-bottom: 10px;
+      height: 100%;
 
       .chat {
         margin: 5px;
@@ -31,7 +60,7 @@ page-live-match {
             display: none;
           }
           .anonymous-icon {
-            font-size: 40px;
+            font-size: 49px;
             color: gray;
           }
         }
@@ -40,9 +69,10 @@ page-live-match {
           padding: 10px;
           border-radius: 5px;
           max-width: calc(100% - 40px);
+          margin-left: 5px;
           &.owner {
             background: lightcoral;
-            max-width: 100%;
+            max-width: calc(100% - 45px);
           }
         }
         .small-text {

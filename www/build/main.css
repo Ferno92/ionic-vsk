@@ -28166,6 +28166,11 @@ page-live-match .set-value {
   font-weight: 300;
 }
 
+page-live-match .set-value.reduced {
+  font-size: 25px;
+  font-weight: bold;
+}
+
 page-live-match .icon-sets {
   margin-right: 5px;
 }
@@ -28175,15 +28180,41 @@ page-live-match .winner {
 }
 
 page-live-match .chat-container {
-  height: 200px;
   margin-top: 20px;
+  position: relative;
+}
+
+page-live-match .chat-container .expand-icon {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  background: lightgray;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  padding-left: 18px;
+  padding-top: 9px;
+  opacity: 0.5;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+page-live-match .chat-container .expand-icon.expanded {
+  top: 10px;
+  right: 10px;
+  left: auto;
+  height: 40px;
+  width: 40px;
+  font-size: 30px;
+  padding-left: 9px;
+  padding-top: 5px;
 }
 
 page-live-match .chat-container .scrollable-content {
-  height: 180px;
   overflow: auto;
   border-top: solid 1px;
   margin-bottom: 10px;
+  height: 100%;
 }
 
 page-live-match .chat-container .scrollable-content .chat {
@@ -28203,7 +28234,7 @@ page-live-match .chat-container .scrollable-content .chat .chat-user-image.owner
 }
 
 page-live-match .chat-container .scrollable-content .chat .chat-user-image .anonymous-icon {
-  font-size: 40px;
+  font-size: 49px;
   color: gray;
 }
 
@@ -28212,11 +28243,12 @@ page-live-match .chat-container .scrollable-content .chat .chat-text {
   padding: 10px;
   border-radius: 5px;
   max-width: calc(100% - 40px);
+  margin-left: 5px;
 }
 
 page-live-match .chat-container .scrollable-content .chat .chat-text.owner {
   background: lightcoral;
-  max-width: 100%;
+  max-width: calc(100% - 45px);
 }
 
 page-live-match .chat-container .scrollable-content .chat .small-text {

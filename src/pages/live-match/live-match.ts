@@ -33,9 +33,11 @@ import { text } from "@angular/core/src/render3/instructions";
   templateUrl: "live-match.html"
 })
 export class LiveMatchPage extends BasePage {
-  @ViewChild("navbar") navBar: Navbar;
+  @ViewChild("navbar")
+  navBar: Navbar;
   games: AfoListObservable<any[]>;
-  chats: AfoListObservable<any[]>;
+  chatsRef: AfoListObservable<any[]>;
+  chats = [];
   gameId: String;
   audienceId: String;
   currentGame: any;
@@ -43,6 +45,8 @@ export class LiveMatchPage extends BasePage {
   gameOver = false;
   isAudience = false;
   textAreaMessage: string;
+  chatExpanded = false;
+  iconExpand = "expand";
 
   constructor(
     public navCtrl: NavController,
@@ -259,15 +263,20 @@ export class LiveMatchPage extends BasePage {
   }
 
   showChat(userId: string, gameKey: string) {
-    this.chats = this.afoDatabase.list(
+    this.chatsRef = this.afoDatabase.list(
       "/users/" + userId + "/games/" + gameKey + "/chats"
     );
-    this.chats.subscribe(chatList => {
+    this.chatsRef.subscribe(chatList => {
       console.log("chat length: " + chatList.length);
-      
-    var scrollableContent = document.getElementsByClassName("scrollable-content")[0] as HTMLDivElement;
-    console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
-    scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+      this.chats = chatList;
+
+      setTimeout(function() {
+        var scrollableContent = document.getElementsByClassName(
+          "scrollable-content"
+        )[0] as HTMLDivElement;
+        console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
+        scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
+      }, 500);
     });
   }
 
@@ -282,8 +291,8 @@ export class LiveMatchPage extends BasePage {
   pushMessage() {
     if (this.textAreaMessage.trim() != "") {
       var user = this.authService.user;
-      const chatsRef = this.chats.push({});
-      const chatsPromise = chatsRef.set({
+      const chatsNewItem = this.chatsRef.push({});
+      const chatsPromise = chatsNewItem.set({
         name: user != null ? user.displayName : "Anonimo",
         userId: user != null ? user.uid : "",
         pictureUrl: user != null ? user.photoURL : "",
@@ -301,6 +310,31 @@ export class LiveMatchPage extends BasePage {
         }
       }
       this.textAreaMessage = "";
+    }
+    var scrollableContent = document.getElementsByClassName(
+      "scrollable-content"
+    )[0] as HTMLDivElement;
+    console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
+    scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+  }
+
+  getChatHeight(){
+    var infoContent = document.getElementsByClassName(
+      "match-info-container"
+    )[0] as HTMLDivElement;
+    return "calc(100% - " + (infoContent.offsetHeight + 100) + "px)";
+  }
+
+  expandChat(){
+    this.chatExpanded = !this.chatExpanded;
+    this.changeIconExpand();
+  }
+
+  changeIconExpand(){
+    if(this.iconExpand== "expand"){
+      this.iconExpand = "contract";
+    }else{
+      this.iconExpand = "expand";
     }
   }
 }
