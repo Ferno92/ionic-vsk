@@ -77,16 +77,17 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <platform name="browser">
-        <preference name="SplashScreen" value="assets/imgs/ic_launcher-web.png" /> <!-- defaults to "img/logo.png" -->
-        <preference name="SplashScreenDelay" value="1000" /> <!-- defaults to "3000" -->
-        <preference name="SplashScreenBackgroundColor" value="#FF0000" /> <!-- defaults to "#464646" -->
-        <preference name="ShowSplashScreen" value="false" /> <!-- defaults to "true" -->
-        <preference name="SplashScreenWidth" value="600" /> <!-- defaults to "170" -->
-        <preference name="SplashScreenHeight" value="300" /> <!-- defaults to "200" -->
+        <preference name="SplashScreen" value="assets/imgs/ic_launcher-web.png" />
+        <preference name="SplashScreenDelay" value="1000" />
+        <preference name="SplashScreenBackgroundColor" value="#FF0000" />
+        <preference name="ShowSplashScreen" value="false" />
+        <preference name="SplashScreenWidth" value="600" />
+        <preference name="SplashScreenHeight" value="300" />
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
 </widget>

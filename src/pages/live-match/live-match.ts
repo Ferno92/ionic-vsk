@@ -15,7 +15,7 @@ import {
   AngularFireOfflineDatabase
 } from "angularfire2-offline/database";
 import * as moment from "moment";
-import { text } from "@angular/core/src/render3/instructions";
+import { ScreenOrientation } from "@ionic-native/screen-orientation";
 
 /**
  * Generated class for the LiveMatchPage page.
@@ -47,6 +47,9 @@ export class LiveMatchPage extends BasePage {
   textAreaMessage: string;
   chatExpanded = false;
   iconExpand = "expand";
+  rotation = "phone-landscape";
+  isLandscape = false;
+  isLocked = false;
 
   constructor(
     public navCtrl: NavController,
@@ -55,7 +58,8 @@ export class LiveMatchPage extends BasePage {
     public authService: AuthService,
     public afoDatabase: AngularFireOfflineDatabase,
     public alertCtrl: AlertController,
-    public platform: Platform
+    public platform: Platform,
+    private screenOrientation: ScreenOrientation
   ) {
     super(navCtrl, authService, alertCtrl, platform);
     // this.teamA = navParams.get("teamA");
@@ -77,6 +81,7 @@ export class LiveMatchPage extends BasePage {
     } else {
       this.findUserFromAudienceId();
     }
+    this.initOnScreenOrientationChange();
   }
 
   findUserFromAudienceId() {
@@ -264,24 +269,32 @@ export class LiveMatchPage extends BasePage {
 
   showChat(userId: string, gameKey: string) {
     this.chatsRef = this.afoDatabase.list(
-      "/users/" + userId + "/games/" + gameKey + "/chats"
+      "/users/" + userId + "/games/" + gameKey + "/chats",
+      {
+        query: {
+          orderByChild: "ms"
+        }
+      }
     );
     this.chatsRef.subscribe(chatList => {
-      console.log("chat length: " + chatList.length);
+      // console.log("chat length: " + chatList.length);
       this.chats = chatList;
+      var self = this;
 
       setTimeout(function() {
         var scrollableContent = document.getElementsByClassName(
           "scrollable-content"
         )[0] as HTMLDivElement;
-        console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
-        scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
+        // console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
+        if (!self.isLandscape) {
+          scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
+        }
       }, 500);
     });
   }
 
   keyPress(ev: any) {
-    console.log(ev);
+    // console.log(ev);
     if (ev.keyCode == 13) {
       //press enter
       this.pushMessage();
@@ -298,7 +311,7 @@ export class LiveMatchPage extends BasePage {
         pictureUrl: user != null ? user.photoURL : "",
         text: this.textAreaMessage,
         ms: moment(new Date()).valueOf(),
-        date: moment(new Date()).format("MMM/DD")
+        date: moment(new Date()).format("MMM/DD, h:mm")
       });
 
       if (chatsPromise != undefined) {
@@ -315,26 +328,87 @@ export class LiveMatchPage extends BasePage {
       "scrollable-content"
     )[0] as HTMLDivElement;
     console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
-    scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+    if (!this.isLandscape) {
+      scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+    }
   }
 
-  getChatHeight(){
+  getChatHeight() {
     var infoContent = document.getElementsByClassName(
       "match-info-container"
     )[0] as HTMLDivElement;
     return "calc(100% - " + (infoContent.offsetHeight + 100) + "px)";
   }
 
-  expandChat(){
+  expandChat() {
     this.chatExpanded = !this.chatExpanded;
     this.changeIconExpand();
   }
 
-  changeIconExpand(){
-    if(this.iconExpand== "expand"){
+  changeIconExpand() {
+    if (this.iconExpand == "expand") {
       this.iconExpand = "contract";
-    }else{
+    } else {
       this.iconExpand = "expand";
     }
+  }
+
+  rotate() {
+    // console.log(this.screenOrientation.type);
+    if (
+      this.screenOrientation.type !=
+        this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
+      this.screenOrientation.type !=
+        this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
+      this.screenOrientation.type !=
+        this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY
+    ) {
+      document.body.webkitRequestFullscreen();
+      if (!this.isLocked) {
+        this.screenOrientation.lock(
+          this.screenOrientation.ORIENTATIONS.LANDSCAPE
+        );
+        this.isLocked = true;
+      }
+      this.isLandscape = true;
+      this.rotation = "phone-portrait";
+    } else {
+      if (!this.isLocked) {
+        this.screenOrientation.lock(
+          this.screenOrientation.ORIENTATIONS.PORTRAIT
+        );
+        this.isLocked = true;
+      }
+      var self = this;
+      setTimeout(function() {
+        if (this.isLocked) {
+          self.screenOrientation.unlock();
+          self.isLocked = false;
+        }
+        document.webkitExitFullscreen();
+        self.isLandscape = false;
+        self.rotation = "phone-landscape";
+      }, 500);
+    }
+  }
+
+  initOnScreenOrientationChange() {
+    this.screenOrientation.onChange().subscribe(type => {
+      console.log("on change: " + type);
+      if (
+        this.screenOrientation.type !=
+          this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
+        this.screenOrientation.type !=
+          this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
+        this.screenOrientation.type !=
+          this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY
+      ) {
+        this.isLandscape = false;
+        this.rotation = "phone-landscape";
+      } else {
+        this.isLandscape = true;
+        this.rotation = "phone-portrait";
+      }
+    });
   }
 }

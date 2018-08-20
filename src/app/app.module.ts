@@ -21,6 +21,7 @@ import { GeoService } from "../services/geo.service";
 import { HttpClientModule } from '@angular/common/http';
 import { Guid} from "../common/Guid";
 import { GameWidgetComponent } from "../components/game-widget/game-widget";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
 //   AfoListObservable,
@@ -67,7 +68,8 @@ export const firebaseConfig = {
     GooglePlus,
     AuthService,
     GeoService,
-    Guid
+    Guid,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

@@ -8,8 +8,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiveMatchPageModule", function() { return LiveMatchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_match__ = __webpack_require__(846);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__ = __webpack_require__(847);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_match__ = __webpack_require__(847);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__ = __webpack_require__(848);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 719:
+/***/ 720:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var require;//! moment.js
@@ -1879,7 +1879,7 @@ var LiveMatchPageModule = /** @class */ (function () {
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(844)("./" + name);
+                __webpack_require__(845)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4551,17 +4551,17 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(843)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(844)(module)))
 
 /***/ }),
 
-/***/ 720:
+/***/ 721:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4633,13 +4633,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 721:
+/***/ 722:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4773,13 +4773,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 722:
+/***/ 723:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4837,13 +4837,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 723:
+/***/ 724:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4901,13 +4901,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 724:
+/***/ 725:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5028,13 +5028,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 725:
+/***/ 726:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5092,13 +5092,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 726:
+/***/ 727:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5201,13 +5201,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 727:
+/***/ 728:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5265,13 +5265,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 728:
+/***/ 729:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5375,13 +5375,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 729:
+/***/ 730:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5512,13 +5512,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 730:
+/***/ 731:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5607,13 +5607,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 731:
+/***/ 732:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5670,13 +5670,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 732:
+/***/ 733:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5794,13 +5794,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 733:
+/***/ 734:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5918,13 +5918,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 734:
+/***/ 735:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6031,13 +6031,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 735:
+/***/ 736:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6187,13 +6187,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 736:
+/***/ 737:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6280,13 +6280,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 737:
+/***/ 738:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6464,13 +6464,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 738:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6532,13 +6532,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 739:
+/***/ 740:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6617,13 +6617,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 740:
+/***/ 741:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6682,13 +6682,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 741:
+/***/ 742:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6763,13 +6763,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 742:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6844,13 +6844,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 743:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6925,13 +6925,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 744:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7029,13 +7029,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 745:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7134,13 +7134,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 746:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7206,13 +7206,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 747:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7274,13 +7274,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 748:
+/***/ 749:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7346,13 +7346,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 749:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7418,13 +7418,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 750:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7485,13 +7485,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7557,13 +7557,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 752:
+/***/ 753:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7633,13 +7633,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 753:
+/***/ 754:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7730,13 +7730,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 754:
+/***/ 755:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7827,13 +7827,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7915,13 +7915,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 757:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8000,13 +8000,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 758:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8071,13 +8071,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 759:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8182,13 +8182,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 759:
+/***/ 760:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8296,13 +8296,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 760:
+/***/ 761:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8361,13 +8361,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 761:
+/***/ 762:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8449,13 +8449,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 762:
+/***/ 763:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8528,13 +8528,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 763:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8611,13 +8611,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 764:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8691,13 +8691,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 765:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8772,13 +8772,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 766:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8854,13 +8854,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8982,13 +8982,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9111,13 +9111,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9213,13 +9213,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9342,13 +9342,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9501,13 +9501,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 772:
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9616,13 +9616,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 773:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9716,13 +9716,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 774:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9803,13 +9803,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 775:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9940,13 +9940,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 776:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10014,13 +10014,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 777:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10111,13 +10111,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 778:
+/***/ 779:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10198,13 +10198,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 779:
+/***/ 780:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10292,13 +10292,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 780:
+/***/ 781:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10384,13 +10384,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 781:
+/***/ 782:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10499,13 +10499,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 782:
+/***/ 783:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10630,13 +10630,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 783:
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10716,13 +10716,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 784:
+/***/ 785:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10808,13 +10808,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 785:
+/***/ 786:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10949,13 +10949,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 786:
+/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11024,13 +11024,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11147,13 +11147,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 788:
+/***/ 789:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11249,13 +11249,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 789:
+/***/ 790:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11366,13 +11366,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 790:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11435,13 +11435,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 791:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11530,13 +11530,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 792:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11616,13 +11616,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 793:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11725,13 +11725,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 794:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11890,13 +11890,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 795:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11977,13 +11977,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 796:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12064,13 +12064,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 797:
+/***/ 798:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12129,13 +12129,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 798:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12227,13 +12227,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 799:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12294,13 +12294,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 800:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12422,13 +12422,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 801:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12514,13 +12514,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 802:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12606,13 +12606,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 803:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12671,13 +12671,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 804:
+/***/ 805:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12800,13 +12800,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 805:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12931,13 +12931,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 806:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13001,13 +13001,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 807:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13067,13 +13067,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 808:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13147,13 +13147,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 809:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13334,13 +13334,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 810:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13437,13 +13437,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 811:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13502,13 +13502,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 812:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13578,13 +13578,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 813:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13739,13 +13739,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 814:
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13917,13 +13917,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 815:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13990,13 +13990,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 816:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14106,13 +14106,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 817:
+/***/ 818:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14222,13 +14222,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 818:
+/***/ 819:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14315,13 +14315,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 819:
+/***/ 820:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14389,13 +14389,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 820:
+/***/ 821:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14453,13 +14453,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 821:
+/***/ 822:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14587,13 +14587,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 822:
+/***/ 823:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14681,13 +14681,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 823:
+/***/ 824:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14753,13 +14753,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 824:
+/***/ 825:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14874,13 +14874,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 825:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14946,13 +14946,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 826:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15013,13 +15013,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 827:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15140,12 +15140,12 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 828:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15239,13 +15239,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 829:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15335,13 +15335,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 830:
+/***/ 831:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15398,13 +15398,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 831:
+/***/ 832:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15461,13 +15461,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 832:
+/***/ 833:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15585,13 +15585,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 833:
+/***/ 834:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15741,13 +15741,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 834:
+/***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15844,13 +15844,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 835:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15907,13 +15907,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 836:
+/***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15970,13 +15970,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 837:
+/***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16054,13 +16054,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 838:
+/***/ 839:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16127,13 +16127,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 839:
+/***/ 840:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16192,13 +16192,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 840:
+/***/ 841:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16307,13 +16307,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 841:
+/***/ 842:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16415,13 +16415,13 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 842:
+/***/ 843:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(719)) :
+    true ? factory(__webpack_require__(720)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16523,7 +16523,7 @@ var LiveMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 843:
+/***/ 844:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -16552,256 +16552,256 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 844:
+/***/ 845:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 720,
-	"./af.js": 720,
-	"./ar": 721,
-	"./ar-dz": 722,
-	"./ar-dz.js": 722,
-	"./ar-kw": 723,
-	"./ar-kw.js": 723,
-	"./ar-ly": 724,
-	"./ar-ly.js": 724,
-	"./ar-ma": 725,
-	"./ar-ma.js": 725,
-	"./ar-sa": 726,
-	"./ar-sa.js": 726,
-	"./ar-tn": 727,
-	"./ar-tn.js": 727,
-	"./ar.js": 721,
-	"./az": 728,
-	"./az.js": 728,
-	"./be": 729,
-	"./be.js": 729,
-	"./bg": 730,
-	"./bg.js": 730,
-	"./bm": 731,
-	"./bm.js": 731,
-	"./bn": 732,
-	"./bn.js": 732,
-	"./bo": 733,
-	"./bo.js": 733,
-	"./br": 734,
-	"./br.js": 734,
-	"./bs": 735,
-	"./bs.js": 735,
-	"./ca": 736,
-	"./ca.js": 736,
-	"./cs": 737,
-	"./cs.js": 737,
-	"./cv": 738,
-	"./cv.js": 738,
-	"./cy": 739,
-	"./cy.js": 739,
-	"./da": 740,
-	"./da.js": 740,
-	"./de": 741,
-	"./de-at": 742,
-	"./de-at.js": 742,
-	"./de-ch": 743,
-	"./de-ch.js": 743,
-	"./de.js": 741,
-	"./dv": 744,
-	"./dv.js": 744,
-	"./el": 745,
-	"./el.js": 745,
-	"./en-au": 746,
-	"./en-au.js": 746,
-	"./en-ca": 747,
-	"./en-ca.js": 747,
-	"./en-gb": 748,
-	"./en-gb.js": 748,
-	"./en-ie": 749,
-	"./en-ie.js": 749,
-	"./en-il": 750,
-	"./en-il.js": 750,
-	"./en-nz": 751,
-	"./en-nz.js": 751,
-	"./eo": 752,
-	"./eo.js": 752,
-	"./es": 753,
-	"./es-do": 754,
-	"./es-do.js": 754,
-	"./es-us": 755,
-	"./es-us.js": 755,
-	"./es.js": 753,
-	"./et": 756,
-	"./et.js": 756,
-	"./eu": 757,
-	"./eu.js": 757,
-	"./fa": 758,
-	"./fa.js": 758,
-	"./fi": 759,
-	"./fi.js": 759,
-	"./fo": 760,
-	"./fo.js": 760,
-	"./fr": 761,
-	"./fr-ca": 762,
-	"./fr-ca.js": 762,
-	"./fr-ch": 763,
-	"./fr-ch.js": 763,
-	"./fr.js": 761,
-	"./fy": 764,
-	"./fy.js": 764,
-	"./gd": 765,
-	"./gd.js": 765,
-	"./gl": 766,
-	"./gl.js": 766,
-	"./gom-latn": 767,
-	"./gom-latn.js": 767,
-	"./gu": 768,
-	"./gu.js": 768,
-	"./he": 769,
-	"./he.js": 769,
-	"./hi": 770,
-	"./hi.js": 770,
-	"./hr": 771,
-	"./hr.js": 771,
-	"./hu": 772,
-	"./hu.js": 772,
-	"./hy-am": 773,
-	"./hy-am.js": 773,
-	"./id": 774,
-	"./id.js": 774,
-	"./is": 775,
-	"./is.js": 775,
-	"./it": 776,
-	"./it.js": 776,
-	"./ja": 777,
-	"./ja.js": 777,
-	"./jv": 778,
-	"./jv.js": 778,
-	"./ka": 779,
-	"./ka.js": 779,
-	"./kk": 780,
-	"./kk.js": 780,
-	"./km": 781,
-	"./km.js": 781,
-	"./kn": 782,
-	"./kn.js": 782,
-	"./ko": 783,
-	"./ko.js": 783,
-	"./ky": 784,
-	"./ky.js": 784,
-	"./lb": 785,
-	"./lb.js": 785,
-	"./lo": 786,
-	"./lo.js": 786,
-	"./lt": 787,
-	"./lt.js": 787,
-	"./lv": 788,
-	"./lv.js": 788,
-	"./me": 789,
-	"./me.js": 789,
-	"./mi": 790,
-	"./mi.js": 790,
-	"./mk": 791,
-	"./mk.js": 791,
-	"./ml": 792,
-	"./ml.js": 792,
-	"./mn": 793,
-	"./mn.js": 793,
-	"./mr": 794,
-	"./mr.js": 794,
-	"./ms": 795,
-	"./ms-my": 796,
-	"./ms-my.js": 796,
-	"./ms.js": 795,
-	"./mt": 797,
-	"./mt.js": 797,
-	"./my": 798,
-	"./my.js": 798,
-	"./nb": 799,
-	"./nb.js": 799,
-	"./ne": 800,
-	"./ne.js": 800,
-	"./nl": 801,
-	"./nl-be": 802,
-	"./nl-be.js": 802,
-	"./nl.js": 801,
-	"./nn": 803,
-	"./nn.js": 803,
-	"./pa-in": 804,
-	"./pa-in.js": 804,
-	"./pl": 805,
-	"./pl.js": 805,
-	"./pt": 806,
-	"./pt-br": 807,
-	"./pt-br.js": 807,
-	"./pt.js": 806,
-	"./ro": 808,
-	"./ro.js": 808,
-	"./ru": 809,
-	"./ru.js": 809,
-	"./sd": 810,
-	"./sd.js": 810,
-	"./se": 811,
-	"./se.js": 811,
-	"./si": 812,
-	"./si.js": 812,
-	"./sk": 813,
-	"./sk.js": 813,
-	"./sl": 814,
-	"./sl.js": 814,
-	"./sq": 815,
-	"./sq.js": 815,
-	"./sr": 816,
-	"./sr-cyrl": 817,
-	"./sr-cyrl.js": 817,
-	"./sr.js": 816,
-	"./ss": 818,
-	"./ss.js": 818,
-	"./sv": 819,
-	"./sv.js": 819,
-	"./sw": 820,
-	"./sw.js": 820,
-	"./ta": 821,
-	"./ta.js": 821,
-	"./te": 822,
-	"./te.js": 822,
-	"./tet": 823,
-	"./tet.js": 823,
-	"./tg": 824,
-	"./tg.js": 824,
-	"./th": 825,
-	"./th.js": 825,
-	"./tl-ph": 826,
-	"./tl-ph.js": 826,
-	"./tlh": 827,
-	"./tlh.js": 827,
-	"./tr": 828,
-	"./tr.js": 828,
-	"./tzl": 829,
-	"./tzl.js": 829,
-	"./tzm": 830,
-	"./tzm-latn": 831,
-	"./tzm-latn.js": 831,
-	"./tzm.js": 830,
-	"./ug-cn": 832,
-	"./ug-cn.js": 832,
-	"./uk": 833,
-	"./uk.js": 833,
-	"./ur": 834,
-	"./ur.js": 834,
-	"./uz": 835,
-	"./uz-latn": 836,
-	"./uz-latn.js": 836,
-	"./uz.js": 835,
-	"./vi": 837,
-	"./vi.js": 837,
-	"./x-pseudo": 838,
-	"./x-pseudo.js": 838,
-	"./yo": 839,
-	"./yo.js": 839,
-	"./zh-cn": 840,
-	"./zh-cn.js": 840,
-	"./zh-hk": 841,
-	"./zh-hk.js": 841,
-	"./zh-tw": 842,
-	"./zh-tw.js": 842
+	"./af": 721,
+	"./af.js": 721,
+	"./ar": 722,
+	"./ar-dz": 723,
+	"./ar-dz.js": 723,
+	"./ar-kw": 724,
+	"./ar-kw.js": 724,
+	"./ar-ly": 725,
+	"./ar-ly.js": 725,
+	"./ar-ma": 726,
+	"./ar-ma.js": 726,
+	"./ar-sa": 727,
+	"./ar-sa.js": 727,
+	"./ar-tn": 728,
+	"./ar-tn.js": 728,
+	"./ar.js": 722,
+	"./az": 729,
+	"./az.js": 729,
+	"./be": 730,
+	"./be.js": 730,
+	"./bg": 731,
+	"./bg.js": 731,
+	"./bm": 732,
+	"./bm.js": 732,
+	"./bn": 733,
+	"./bn.js": 733,
+	"./bo": 734,
+	"./bo.js": 734,
+	"./br": 735,
+	"./br.js": 735,
+	"./bs": 736,
+	"./bs.js": 736,
+	"./ca": 737,
+	"./ca.js": 737,
+	"./cs": 738,
+	"./cs.js": 738,
+	"./cv": 739,
+	"./cv.js": 739,
+	"./cy": 740,
+	"./cy.js": 740,
+	"./da": 741,
+	"./da.js": 741,
+	"./de": 742,
+	"./de-at": 743,
+	"./de-at.js": 743,
+	"./de-ch": 744,
+	"./de-ch.js": 744,
+	"./de.js": 742,
+	"./dv": 745,
+	"./dv.js": 745,
+	"./el": 746,
+	"./el.js": 746,
+	"./en-au": 747,
+	"./en-au.js": 747,
+	"./en-ca": 748,
+	"./en-ca.js": 748,
+	"./en-gb": 749,
+	"./en-gb.js": 749,
+	"./en-ie": 750,
+	"./en-ie.js": 750,
+	"./en-il": 751,
+	"./en-il.js": 751,
+	"./en-nz": 752,
+	"./en-nz.js": 752,
+	"./eo": 753,
+	"./eo.js": 753,
+	"./es": 754,
+	"./es-do": 755,
+	"./es-do.js": 755,
+	"./es-us": 756,
+	"./es-us.js": 756,
+	"./es.js": 754,
+	"./et": 757,
+	"./et.js": 757,
+	"./eu": 758,
+	"./eu.js": 758,
+	"./fa": 759,
+	"./fa.js": 759,
+	"./fi": 760,
+	"./fi.js": 760,
+	"./fo": 761,
+	"./fo.js": 761,
+	"./fr": 762,
+	"./fr-ca": 763,
+	"./fr-ca.js": 763,
+	"./fr-ch": 764,
+	"./fr-ch.js": 764,
+	"./fr.js": 762,
+	"./fy": 765,
+	"./fy.js": 765,
+	"./gd": 766,
+	"./gd.js": 766,
+	"./gl": 767,
+	"./gl.js": 767,
+	"./gom-latn": 768,
+	"./gom-latn.js": 768,
+	"./gu": 769,
+	"./gu.js": 769,
+	"./he": 770,
+	"./he.js": 770,
+	"./hi": 771,
+	"./hi.js": 771,
+	"./hr": 772,
+	"./hr.js": 772,
+	"./hu": 773,
+	"./hu.js": 773,
+	"./hy-am": 774,
+	"./hy-am.js": 774,
+	"./id": 775,
+	"./id.js": 775,
+	"./is": 776,
+	"./is.js": 776,
+	"./it": 777,
+	"./it.js": 777,
+	"./ja": 778,
+	"./ja.js": 778,
+	"./jv": 779,
+	"./jv.js": 779,
+	"./ka": 780,
+	"./ka.js": 780,
+	"./kk": 781,
+	"./kk.js": 781,
+	"./km": 782,
+	"./km.js": 782,
+	"./kn": 783,
+	"./kn.js": 783,
+	"./ko": 784,
+	"./ko.js": 784,
+	"./ky": 785,
+	"./ky.js": 785,
+	"./lb": 786,
+	"./lb.js": 786,
+	"./lo": 787,
+	"./lo.js": 787,
+	"./lt": 788,
+	"./lt.js": 788,
+	"./lv": 789,
+	"./lv.js": 789,
+	"./me": 790,
+	"./me.js": 790,
+	"./mi": 791,
+	"./mi.js": 791,
+	"./mk": 792,
+	"./mk.js": 792,
+	"./ml": 793,
+	"./ml.js": 793,
+	"./mn": 794,
+	"./mn.js": 794,
+	"./mr": 795,
+	"./mr.js": 795,
+	"./ms": 796,
+	"./ms-my": 797,
+	"./ms-my.js": 797,
+	"./ms.js": 796,
+	"./mt": 798,
+	"./mt.js": 798,
+	"./my": 799,
+	"./my.js": 799,
+	"./nb": 800,
+	"./nb.js": 800,
+	"./ne": 801,
+	"./ne.js": 801,
+	"./nl": 802,
+	"./nl-be": 803,
+	"./nl-be.js": 803,
+	"./nl.js": 802,
+	"./nn": 804,
+	"./nn.js": 804,
+	"./pa-in": 805,
+	"./pa-in.js": 805,
+	"./pl": 806,
+	"./pl.js": 806,
+	"./pt": 807,
+	"./pt-br": 808,
+	"./pt-br.js": 808,
+	"./pt.js": 807,
+	"./ro": 809,
+	"./ro.js": 809,
+	"./ru": 810,
+	"./ru.js": 810,
+	"./sd": 811,
+	"./sd.js": 811,
+	"./se": 812,
+	"./se.js": 812,
+	"./si": 813,
+	"./si.js": 813,
+	"./sk": 814,
+	"./sk.js": 814,
+	"./sl": 815,
+	"./sl.js": 815,
+	"./sq": 816,
+	"./sq.js": 816,
+	"./sr": 817,
+	"./sr-cyrl": 818,
+	"./sr-cyrl.js": 818,
+	"./sr.js": 817,
+	"./ss": 819,
+	"./ss.js": 819,
+	"./sv": 820,
+	"./sv.js": 820,
+	"./sw": 821,
+	"./sw.js": 821,
+	"./ta": 822,
+	"./ta.js": 822,
+	"./te": 823,
+	"./te.js": 823,
+	"./tet": 824,
+	"./tet.js": 824,
+	"./tg": 825,
+	"./tg.js": 825,
+	"./th": 826,
+	"./th.js": 826,
+	"./tl-ph": 827,
+	"./tl-ph.js": 827,
+	"./tlh": 828,
+	"./tlh.js": 828,
+	"./tr": 829,
+	"./tr.js": 829,
+	"./tzl": 830,
+	"./tzl.js": 830,
+	"./tzm": 831,
+	"./tzm-latn": 832,
+	"./tzm-latn.js": 832,
+	"./tzm.js": 831,
+	"./ug-cn": 833,
+	"./ug-cn.js": 833,
+	"./uk": 834,
+	"./uk.js": 834,
+	"./ur": 835,
+	"./ur.js": 835,
+	"./uz": 836,
+	"./uz-latn": 837,
+	"./uz-latn.js": 837,
+	"./uz.js": 836,
+	"./vi": 838,
+	"./vi.js": 838,
+	"./x-pseudo": 839,
+	"./x-pseudo.js": 839,
+	"./yo": 840,
+	"./yo.js": 840,
+	"./zh-cn": 841,
+	"./zh-cn.js": 841,
+	"./zh-hk": 842,
+	"./zh-hk.js": 842,
+	"./zh-tw": 843,
+	"./zh-tw.js": 843
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -16817,11 +16817,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 844;
+webpackContext.id = 845;
 
 /***/ }),
 
-/***/ 846:
+/***/ 847:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16831,8 +16831,9 @@ webpackContext.id = 844;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_BasePage__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(380);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -16858,6 +16859,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LiveMatchPage page.
  *
@@ -16866,7 +16868,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var LiveMatchPage = /** @class */ (function (_super) {
     __extends(LiveMatchPage, _super);
-    function LiveMatchPage(navCtrl, navParams, events, authService, afoDatabase, alertCtrl, platform) {
+    function LiveMatchPage(navCtrl, navParams, events, authService, afoDatabase, alertCtrl, platform, screenOrientation) {
         var _this = _super.call(this, navCtrl, authService, alertCtrl, platform) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
@@ -16875,12 +16877,16 @@ var LiveMatchPage = /** @class */ (function (_super) {
         _this.afoDatabase = afoDatabase;
         _this.alertCtrl = alertCtrl;
         _this.platform = platform;
+        _this.screenOrientation = screenOrientation;
         _this.chats = [];
         _this.pause = false;
         _this.gameOver = false;
         _this.isAudience = false;
         _this.chatExpanded = false;
         _this.iconExpand = "expand";
+        _this.rotation = "phone-landscape";
+        _this.isLandscape = false;
+        _this.isLocked = false;
         // this.teamA = navParams.get("teamA");
         // this.teamB = navParams.get("teamB");
         _this.gameId = navParams.get("id");
@@ -16902,6 +16908,7 @@ var LiveMatchPage = /** @class */ (function (_super) {
         else {
             this.findUserFromAudienceId();
         }
+        this.initOnScreenOrientationChange();
     };
     LiveMatchPage.prototype.findUserFromAudienceId = function () {
         var _this = this;
@@ -17050,19 +17057,26 @@ var LiveMatchPage = /** @class */ (function (_super) {
     };
     LiveMatchPage.prototype.showChat = function (userId, gameKey) {
         var _this = this;
-        this.chatsRef = this.afoDatabase.list("/users/" + userId + "/games/" + gameKey + "/chats");
+        this.chatsRef = this.afoDatabase.list("/users/" + userId + "/games/" + gameKey + "/chats", {
+            query: {
+                orderByChild: "ms"
+            }
+        });
         this.chatsRef.subscribe(function (chatList) {
-            console.log("chat length: " + chatList.length);
+            // console.log("chat length: " + chatList.length);
             _this.chats = chatList;
+            var self = _this;
             setTimeout(function () {
                 var scrollableContent = document.getElementsByClassName("scrollable-content")[0];
-                console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
-                scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
+                // console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
+                if (!self.isLandscape) {
+                    scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
+                }
             }, 500);
         });
     };
     LiveMatchPage.prototype.keyPress = function (ev) {
-        console.log(ev);
+        // console.log(ev);
         if (ev.keyCode == 13) {
             //press enter
             this.pushMessage();
@@ -17078,7 +17092,7 @@ var LiveMatchPage = /** @class */ (function (_super) {
                 pictureUrl: user != null ? user.photoURL : "",
                 text: this.textAreaMessage,
                 ms: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).valueOf(),
-                date: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).format("MMM/DD")
+                date: __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).format("MMM/DD, h:mm")
             });
             if (chatsPromise != undefined) {
                 chatsPromise.then(function () { return console.log("chat added to firebase!"); });
@@ -17092,7 +17106,9 @@ var LiveMatchPage = /** @class */ (function (_super) {
         }
         var scrollableContent = document.getElementsByClassName("scrollable-content")[0];
         console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
-        scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+        if (!this.isLandscape) {
+            scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
+        }
     };
     LiveMatchPage.prototype.getChatHeight = function () {
         var infoContent = document.getElementsByClassName("match-info-container")[0];
@@ -17110,25 +17126,77 @@ var LiveMatchPage = /** @class */ (function (_super) {
             this.iconExpand = "expand";
         }
     };
+    LiveMatchPage.prototype.rotate = function () {
+        // console.log(this.screenOrientation.type);
+        if (this.screenOrientation.type !=
+            this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
+            this.screenOrientation.type !=
+                this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
+            this.screenOrientation.type !=
+                this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY) {
+            document.body.webkitRequestFullscreen();
+            if (!this.isLocked) {
+                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+                this.isLocked = true;
+            }
+            this.isLandscape = true;
+            this.rotation = "phone-portrait";
+        }
+        else {
+            if (!this.isLocked) {
+                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+                this.isLocked = true;
+            }
+            var self = this;
+            setTimeout(function () {
+                if (this.isLocked) {
+                    self.screenOrientation.unlock();
+                    self.isLocked = false;
+                }
+                document.webkitExitFullscreen();
+                self.isLandscape = false;
+                self.rotation = "phone-landscape";
+            }, 500);
+        }
+    };
+    LiveMatchPage.prototype.initOnScreenOrientationChange = function () {
+        var _this = this;
+        this.screenOrientation.onChange().subscribe(function (type) {
+            console.log("on change: " + type);
+            if (_this.screenOrientation.type !=
+                _this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
+                _this.screenOrientation.type !=
+                    _this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
+                _this.screenOrientation.type !=
+                    _this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY) {
+                _this.isLandscape = false;
+                _this.rotation = "phone-landscape";
+            }
+            else {
+                _this.isLandscape = true;
+                _this.rotation = "phone-portrait";
+            }
+        });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Navbar */]) === "function" && _a || Object)
     ], LiveMatchPage.prototype, "navBar", void 0);
     LiveMatchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n  Generated template for the LiveMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partita Live</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div class="match-info-container">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-4 class="text-center">\n          {{(currentGame)?.teamA}}\n        </ion-col>\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n          {{(currentGame)?.resultA}}\n        </ion-col>\n        <ion-col col-2 class="text-center">\n          -\n        </ion-col>\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n          {{(currentGame)?.resultB}}\n        </ion-col>\n        <ion-col col-4 class="text-center">\n          {{(currentGame)?.teamB}}\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-grid *ngIf="(currentGame)?.live">\n      <ion-row *ngIf="!isAudience && !chatExpanded">\n        <ion-col col-5 class="text-center">\n          <ion-buttons>\n            <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n              <ion-icon name="add"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-col>\n        <ion-col col-5 offset-2 class="text-center">\n          <ion-buttons>\n            <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n              <ion-icon name="add"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n            (gameOver || isSetEnded())), \'reduced\': chatExpanded }">\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n        </ion-col>\n        <ion-col col-2 class="text-center set-value" [ngClass]="{\'reduced\': chatExpanded}">\n          -\n        </ion-col>\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n            (gameOver || isSetEnded())), \'reduced\': chatExpanded} ">\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n        </ion-col>\n      </ion-row>\n      <ion-row *ngIf="!isAudience && !chatExpanded">\n        <ion-col col-5 class="text-center">\n          <ion-buttons>\n            <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n              <ion-icon name="remove"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-col>\n        <ion-col col-5 offset-2 class="text-center">\n          <ion-buttons>\n            <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n              <ion-icon name="remove"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-grid *ngIf="(pause || gameOver) && !isAudience">\n      <ion-row>\n        <ion-col col-5>\n          <ion-buttons>\n            <button ion-button class="full-width" (click)="rollBack()">\n              <ion-icon name="undo" class="icon-sets"></ion-icon>\n              Torna indietro\n            </button>\n          </ion-buttons>\n        </ion-col>\n        <ion-col col-5 offset-2>\n          <ion-buttons>\n            <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n              <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n              {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n            </button>\n          </ion-buttons>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n\n  <div class="chat-container" [style.height]="getChatHeight()">\n    <ion-icon name="{{iconExpand}}" class="expand-icon animated infinite pulse" [ngClass]="{\'expanded\': chatExpanded}" (tap)="expandChat()"></ion-icon>\n\n    <div class="scrollable-content">\n      <div *ngFor="let chat of chats; let i = index" class="chat">\n        <div class="chat-user-image float-left" [style.opacity]="i== 0 || chats[i - 1].userId != chat.userId ? 1 : 0" [style.background-image]="\'url(\' + chat.pictureUrl + \')\'"\n          [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner\' : \'\') : \'\' ">\n          <ion-icon *ngIf="chat.pictureUrl == \'\'" name="contact" class="anonymous-icon"></ion-icon>\n        </div>\n        <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner float-right\' : \'float-left\') : \'float-left\' ">\n          <div class="small-text float-left">{{chat.name}}</div>\n          <div class="small-text float-right">{{chat.date}}</div>\n          <div class="clear"></div>\n          <div>{{chat.text}}</div>\n        </div>\n        <div class="clear"></div>\n      </div>\n\n    </div>\n\n    <div class="chat-footer">\n      <ion-buttons class="float-right">\n        <button ion-button (click)="pushMessage()" class="send-button">\n          <ion-icon name="send"></ion-icon>\n        </button>\n      </ion-buttons>\n      <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"\n        (keypress)="keyPress($event)"></ion-textarea>\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
+            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n  Generated template for the LiveMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary" *ngIf="!isLandscape">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partita Live</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (tap)="rotate()">\n        <ion-icon name="{{rotation}}"></ion-icon>\n      </button>\n      <button ion-button icon-only (tap)="share()">\n        <ion-icon name="share"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding [ngClass]="{\'landscape\': isLandscape}">\n  <div *ngIf="isLandscape" class="landscape-container">\n    <ion-buttons class="rotate-landscape">\n      <button ion-button icon-only (tap)="rotate()">\n        <ion-icon name="{{rotation}}"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-grid class="game-landscape-info">\n      <ion-row align-items-center>\n        <ion-col col-4 class="text-center">\n          {{(currentGame)?.teamA}}\n        </ion-col>\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n          {{(currentGame)?.resultA}}\n        </ion-col>\n        <ion-col col-2 class="text-center">\n          -\n        </ion-col>\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n          {{(currentGame)?.resultB}}\n        </ion-col>\n        <ion-col col-4 class="text-center">\n          {{(currentGame)?.teamB}}\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-grid class="game-landscape-set-info">\n      <ion-row align-items-center>\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n                    (gameOver || isSetEnded())), \'reduced\': chatExpanded }">\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n        </ion-col>\n        <ion-col col-2 class="text-center set-value" [ngClass]="{\'reduced\': chatExpanded}">\n          -\n        </ion-col>\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n                    (gameOver || isSetEnded())), \'reduced\': chatExpanded} ">\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n  <div *ngIf="!isLandscape" class="portrait-container">\n    <div class="match-info-container">\n      <ion-grid>\n        <ion-row>\n          <ion-col col-4 class="text-center">\n            {{(currentGame)?.teamA}}\n          </ion-col>\n          <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n            {{(currentGame)?.resultA}}\n          </ion-col>\n          <ion-col col-2 class="text-center">\n            -\n          </ion-col>\n          <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n            {{(currentGame)?.resultB}}\n          </ion-col>\n          <ion-col col-4 class="text-center">\n            {{(currentGame)?.teamB}}\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n      <ion-grid *ngIf="(currentGame)?.live">\n        <ion-row *ngIf="!isAudience && !chatExpanded">\n          <ion-col col-5 class="text-center">\n            <ion-buttons>\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n                <ion-icon name="add"></ion-icon>\n              </button>\n            </ion-buttons>\n          </ion-col>\n          <ion-col col-5 offset-2 class="text-center">\n            <ion-buttons>\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n                <ion-icon name="add"></ion-icon>\n              </button>\n            </ion-buttons>\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n                  (gameOver || isSetEnded())), \'reduced\': chatExpanded }">\n            {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n          </ion-col>\n          <ion-col col-2 class="text-center set-value" [ngClass]="{\'reduced\': chatExpanded}">\n            -\n          </ion-col>\n          <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n                  (gameOver || isSetEnded())), \'reduced\': chatExpanded} ">\n            {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n          </ion-col>\n        </ion-row>\n        <ion-row *ngIf="!isAudience && !chatExpanded">\n          <ion-col col-5 class="text-center">\n            <ion-buttons>\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n                <ion-icon name="remove"></ion-icon>\n              </button>\n            </ion-buttons>\n          </ion-col>\n          <ion-col col-5 offset-2 class="text-center">\n            <ion-buttons>\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n                <ion-icon name="remove"></ion-icon>\n              </button>\n            </ion-buttons>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n      <ion-grid *ngIf="(pause || gameOver) && !isAudience">\n        <ion-row>\n          <ion-col col-5>\n            <ion-buttons>\n              <button ion-button class="full-width" (click)="rollBack()">\n                <ion-icon name="undo" class="icon-sets"></ion-icon>\n                Torna indietro\n              </button>\n            </ion-buttons>\n          </ion-col>\n          <ion-col col-5 offset-2>\n            <ion-buttons>\n              <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n                <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n                {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n              </button>\n            </ion-buttons>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </div>\n\n    <div class="chat-container" [style.height]="getChatHeight()">\n      <ion-icon name="{{iconExpand}}" class="expand-icon animated infinite pulse" (tap)="expandChat()"></ion-icon>\n\n      <div class="scrollable-content">\n        <div *ngFor="let chat of chats; let i = index" class="chat">\n          <div class="chat-user-image float-left" [style.opacity]="i== 0 || chats[i - 1].userId != chat.userId ? 1 : 0" [style.background-image]="\'url(\' + chat.pictureUrl + \')\'"\n            [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner\' : \'\') : \'\' ">\n            <ion-icon *ngIf="chat.pictureUrl == \'\'" name="contact" class="anonymous-icon"></ion-icon>\n          </div>\n          <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner float-right\' : \'float-left\') : \'float-left\' ">\n            <div class="small-text float-left">{{chat.name}}</div>\n            <div class="small-text float-right">{{chat.date}}</div>\n            <div class="clear"></div>\n            <div>{{chat.text}}</div>\n          </div>\n          <div class="clear"></div>\n        </div>\n\n      </div>\n\n      <div class="chat-footer">\n        <ion-buttons class="float-right">\n          <button ion-button (click)="pushMessage()" class="send-button">\n            <ion-icon name="send"></ion-icon>\n          </button>\n        </ion-buttons>\n        <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"\n          (keypress)="keyPress($event)"></ion-textarea>\n      </div>\n\n    </div>\n  </div>\n\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]) === "function" && _j || Object])
     ], LiveMatchPage);
     return LiveMatchPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=live-match.js.map
 
 /***/ }),
 
-/***/ 847:
+/***/ 848:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
