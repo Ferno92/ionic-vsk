@@ -47,7 +47,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, { scrollPadding: false}),
+    IonicModule.forRoot(MyApp, { scrollPadding: false}),//, locationStrategy: 'path' on production
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireOfflineModule,

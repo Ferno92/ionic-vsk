@@ -94,9 +94,11 @@ export class SearchLivePage extends BasePage {
   }
 
   showLiveGame(game: any, pageRef: any) {
-    pageRef.navCtrl.push("live-match", {
+    console.log("Live search: " + game.audienceId);
+    pageRef.navCtrl.push("loading", {
       id: game.$key,
-      audienceId: game.audienceId
+      audienceId: game.audienceId,
+      pageId:"game-tabs"
     });
   }
   

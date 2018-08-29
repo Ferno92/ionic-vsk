@@ -33,8 +33,6 @@ import { ScreenOrientation } from "@ionic-native/screen-orientation";
   templateUrl: "live-match.html"
 })
 export class LiveMatchPage extends BasePage {
-  @ViewChild("navbar")
-  navBar: Navbar;
   games: AfoListObservable<any[]>;
   chatsRef: AfoListObservable<any[]>;
   chats = [];
@@ -66,21 +64,28 @@ export class LiveMatchPage extends BasePage {
     // this.teamB = navParams.get("teamB");
     this.gameId = navParams.get("id");
     this.audienceId = navParams.get("audienceId");
-    console.log("audience: " + this.audienceId + " - id: " + this.gameId);
+    //console.log("audience: " + this.audienceId + " - id: " + this.gameId);
+    //console.log(navParams);
   }
 
   onUserChange(user: any) {
+    console.log("on user change live" + user);
     if (user != null) {
       var id = "";
-      if (this.audienceId == undefined || this.audienceId == ":audienceId") {
+      console.log("1, audience: " + (this.audienceId == "undefined"));
+      if (this.audienceId == undefined || this.audienceId == "undefined" || this.audienceId == ":audienceId") {
+        console.log("2");
         id = this.authService.user.uid;
         this.retrieveGameInfo(id);
       } else {
+        console.log("3");
         this.findUserFromAudienceId();
       }
     } else {
+      console.log("4");
       this.findUserFromAudienceId();
     }
+    console.log("5");
     this.initOnScreenOrientationChange();
   }
 
@@ -134,7 +139,7 @@ export class LiveMatchPage extends BasePage {
   }
 
   ionViewDidLoad() {
-    this.onInit(this.navBar);
+    this.onInit(undefined);
   }
 
   ionViewWillEnter() {
@@ -350,45 +355,6 @@ export class LiveMatchPage extends BasePage {
       this.iconExpand = "contract";
     } else {
       this.iconExpand = "expand";
-    }
-  }
-
-  rotate() {
-    // console.log(this.screenOrientation.type);
-    if (
-      this.screenOrientation.type !=
-        this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
-      this.screenOrientation.type !=
-        this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
-      this.screenOrientation.type !=
-        this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY
-    ) {
-      document.body.webkitRequestFullscreen();
-      if (!this.isLocked) {
-        this.screenOrientation.lock(
-          this.screenOrientation.ORIENTATIONS.LANDSCAPE
-        );
-        this.isLocked = true;
-      }
-      this.isLandscape = true;
-      this.rotation = "phone-portrait";
-    } else {
-      if (!this.isLocked) {
-        this.screenOrientation.lock(
-          this.screenOrientation.ORIENTATIONS.PORTRAIT
-        );
-        this.isLocked = true;
-      }
-      var self = this;
-      setTimeout(function() {
-        if (this.isLocked) {
-          self.screenOrientation.unlock();
-          self.isLocked = false;
-        }
-        document.webkitExitFullscreen();
-        self.isLandscape = false;
-        self.rotation = "phone-landscape";
-      }, 500);
     }
   }
 

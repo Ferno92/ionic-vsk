@@ -6,6 +6,7 @@ import {
 } from "ionic-angular";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { AuthService } from "../services/auth.service";
+import { overrideComponentView } from "@angular/core/src/view";
 
 export class BasePage {
   public canGoBack: boolean;
@@ -37,15 +38,17 @@ export class BasePage {
   }
 
   onInit(navBar: Navbar) {
-    console.log("navbar");
     this.platform.registerBackButtonAction(() => {
       console.log("backPressed 1");
       this.errorPopup("what", "ouch");
     }, 2);
-    navBar.backButtonClick = (e: UIEvent) => {
-      // todo something
-      this.goBack();
-    };
+    //console.log("navbar: " + navBar);
+    if (navBar != undefined) { //TODO: ------> lost navbar back button override
+      navBar.backButtonClick = (e: UIEvent) => {
+        // todo something
+        this.goBack();
+      };
+    }
     this.askBeforeGoBack = false;
     this.canGoBack = this.navCtrl.canGoBack();
     this.authService.authState.subscribe(user => {
@@ -92,12 +95,17 @@ export class BasePage {
     prompt.present();
   }
 
-  openLiveMatch(key:String, teamA:String, teamB:String){
-    this.navCtrl.push("live-match", {
+  openLiveMatch(key: String, teamA: String, teamB: String) {
+    // this.navCtrl.push("live-match", {
+    //   id: key,
+    //   teamA: teamA,
+    //   teamB: teamB
+    // });
+    this.navCtrl.push("loading", {
       id: key,
       teamA: teamA,
-      teamB: teamB
+      teamB: teamB,
+      pageId: "game-tabs"
     });
   }
-
 }
