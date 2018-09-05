@@ -42,6 +42,7 @@ export class GameTabsPage extends BasePage {
   isLocked = false;
   tabIndex: number = 0;
   audienceIdForShare: string;
+  shortenedUrl: string;
 
   constructor(
     public navCtrl: NavController,
@@ -65,6 +66,16 @@ export class GameTabsPage extends BasePage {
   ionViewDidLoad() {
     this.initOnScreenOrientationChange();
     this.onInit(this.navbar);
+  }
+
+  shortAudienceUrl() {
+    var re = /undefined/gi;
+    var url = window.location.href.replace(re, this.audienceIdForShare);
+    this.logOnConsole(this.TAG, "ref: " + url);
+    this.shortUrlService.load(url).then(data => {
+      this.logOnConsole(this.TAG, "shortUrlService: " + data);
+      this.shortenedUrl = data;
+    });
   }
 
   onUserChange(user: any) {
@@ -134,6 +145,8 @@ export class GameTabsPage extends BasePage {
     );
     audienceRef.subscribe(audience => {
       this.audienceIdForShare = audience.$value;
+
+      this.shortAudienceUrl();
     });
   }
 
@@ -201,28 +214,19 @@ export class GameTabsPage extends BasePage {
   }
 
   share() {
-    var re = /undefined/gi;
-    var url = window.location.href.replace(re, this.audienceIdForShare);
-    this.logOnConsole(this.TAG, "ref: " + url);
-    // window.location.href="intent://<URL>#Intent;scheme=http;action=android.intent.action.SEND;end"
     let newVariable: any;
-
-    this.shortUrlService.load(url).then(data => {
-      console.log("shortUrlService" + data);
-
-      newVariable = window.navigator;
-      if (newVariable && newVariable.share) {
-        newVariable
-          .share({
-            title: "title",
-            text: "description",
-            url: data
-          })
-          .then(() => console.log("Successful share"))
-          .catch(error => console.log("Error sharing", error));
-      } else {
-        alert("share not supported");
-      }
-    });
+    newVariable = window.navigator;
+    if (newVariable && newVariable.share) {
+      newVariable
+        .share({
+          title: "title",
+          text: "description",
+          url: this.shortenedUrl
+        })
+        .then(() => console.log("Successful share"))
+        .catch(error => console.log("Error sharing", error));
+    } else {
+      alert("share not supported");
+    }
   }
 }
