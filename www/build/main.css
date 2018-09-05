@@ -28056,7 +28056,7 @@ div {
 }
 
 .alert-md .alert-wrapper {
-  max-width: 100%;
+  max-width: 90%;
 }
 
 .text-center {
@@ -28175,6 +28175,28 @@ game-widget .game-card .card-content .edit-game-checkbox.edit {
   display: block;
 }
 
+player .number-container {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+player .number-container .number {
+  background: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border: solid 2px;
+  font-size: 24px;
+}
+
+player .name {
+  margin-top: 10px;
+}
+
 page-create-match .gym-select {
   max-width: 100%;
 }
@@ -28198,6 +28220,30 @@ page-dashboard .update-button .button-inner {
 
 page-dashboard .update-button .button-inner .icon {
   margin-bottom: 5px;
+}
+
+page-formation .prima-linea {
+  background-color: orange;
+  border: solid 3px;
+  width: 100%;
+  padding-top: 33.3%;
+  /* 3:1 Aspect Ratio */
+  position: relative;
+}
+
+page-formation .seconda-linea {
+  background-color: orange;
+  border: solid 3px;
+  border-top: 0;
+  width: 100%;
+  padding-top: 66.6%;
+  /* 3:2 Aspect Ratio */
+  position: relative;
+}
+
+page-formation .grid {
+  position: absolute;
+  top: 0;
 }
 
 page-game-tabs .landscape .scroll-content {

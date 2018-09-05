@@ -7,5 +7,22 @@
 
 
 <ion-content padding>
-FORMAZIONE
+  <div class="prima-linea">
+    <ion-grid class="full-height grid">
+      <ion-row justify-content-center align-items-center class="full-height">
+        <ion-col col-4 *ngFor="let player of firstLinePlayers">
+            <player [name]="player?.name" [number]="player?.number"></player>
+        </ion-col>        
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="seconda-linea">
+    <ion-grid class="full-height grid">
+      <ion-row justify-content-center align-items-center class="full-height">
+        <ion-col col-4 *ngFor="let player of secondLinePlayers">
+          <player [name]="player?.name" [number]="player?.number"></player>
+        </ion-col>        
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
