@@ -117,6 +117,7 @@ var GameTabsPage = /** @class */ (function (_super) {
         this.onInit(this.navbar);
     };
     GameTabsPage.prototype.ionViewWillEnter = function () {
+        this.logOnConsole(this.TAG, "ionViewWillEnter");
         this.shortAudienceUrl();
     };
     GameTabsPage.prototype.shortAudienceUrl = function () {
@@ -125,7 +126,7 @@ var GameTabsPage = /** @class */ (function (_super) {
         var url = window.location.href.replace(re, this.audienceIdForShare);
         if (url.includes("loading")) {
             this.logOnConsole(this.TAG, "retry, it contains loading");
-            setTimeout(this.shortAudienceUrl(), 5000);
+            // setTimeout(this.shortAudienceUrl(), 5000);
         }
         else {
             this.logOnConsole(this.TAG, "ref: " + url);

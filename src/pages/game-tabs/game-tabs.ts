@@ -69,7 +69,7 @@ export class GameTabsPage extends BasePage {
   }
 
   ionViewWillEnter(){
-
+    this.logOnConsole(this.TAG, "ionViewWillEnter");
     this.shortAudienceUrl();
   }
 
@@ -78,7 +78,7 @@ export class GameTabsPage extends BasePage {
     var url = window.location.href.replace(re, this.audienceIdForShare);
     if(url.includes("loading")){
       this.logOnConsole(this.TAG, "retry, it contains loading");
-      setTimeout(this.shortAudienceUrl(), 5000);
+      // setTimeout(this.shortAudienceUrl(), 5000);
       
     }else{
       this.logOnConsole(this.TAG, "ref: " + url);
