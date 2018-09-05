@@ -12,6 +12,7 @@ import { BasePage } from "../../common/BasePage";
 import { AuthService } from "../../services/auth.service";
 import { ScreenOrientation } from "@ionic-native/screen-orientation";
 import { AngularFireOfflineDatabase } from "angularfire2-offline/database";
+import { ShortUrlService } from "angular-shorturl";
 // import { SocialShare } from 'angular-socialshare';
 
 /**
@@ -49,9 +50,9 @@ export class GameTabsPage extends BasePage {
     public alertCtrl: AlertController,
     public platform: Platform,
     private screenOrientation: ScreenOrientation,
-    public afoDatabase: AngularFireOfflineDatabase
-  ) // public socialShare: SocialShare
-  {
+    public afoDatabase: AngularFireOfflineDatabase,
+    private shortUrlService: ShortUrlService // public socialShare: SocialShare
+  ) {
     super(navCtrl, authService, alertCtrl, platform);
     this.TAG = "GameTabsPage";
     this.scoreParams = {
@@ -206,19 +207,22 @@ export class GameTabsPage extends BasePage {
     // window.location.href="intent://<URL>#Intent;scheme=http;action=android.intent.action.SEND;end"
     let newVariable: any;
 
-    newVariable = window.navigator;
-    console.log(newVariable.share);
-    if (newVariable && newVariable.share) {
-      newVariable
-        .share({
-          title: "title",
-          text: "description",
-          url: url
-        })
-        .then(() => console.log("Successful share"))
-        .catch(error => console.log("Error sharing", error));
-    } else {
-      alert("share not supported");
-    }
+    this.shortUrlService.load(url).then(data => {
+      console.log("shortUrlService" + data);
+
+      newVariable = window.navigator;
+      if (newVariable && newVariable.share) {
+        newVariable
+          .share({
+            title: "title",
+            text: "description",
+            url: data
+          })
+          .then(() => console.log("Successful share"))
+          .catch(error => console.log("Error sharing", error));
+      } else {
+        alert("share not supported");
+      }
+    });
   }
 }

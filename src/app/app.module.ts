@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Guid} from "../common/Guid";
 import { GameWidgetComponent } from "../components/game-widget/game-widget";
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ShortUrlService } from 'angular-shorturl';
+import { HttpModule } from '@angular/http';
 // import { SocialShareModule } from 'angular-socialshare';
 // import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
@@ -53,7 +55,8 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireOfflineModule,
     LoginPageModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
     // SocialShareModule
   ],
   bootstrap: [IonicApp],
@@ -71,7 +74,8 @@ export const firebaseConfig = {
     AuthService,
     GeoService,
     Guid,
-    ScreenOrientation
+    ScreenOrientation,
+    ShortUrlService
   ]
 })
 export class AppModule {}
