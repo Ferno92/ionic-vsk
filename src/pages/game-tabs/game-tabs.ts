@@ -52,7 +52,8 @@ export class GameTabsPage extends BasePage {
     public platform: Platform,
     private screenOrientation: ScreenOrientation,
     public afoDatabase: AngularFireOfflineDatabase,
-    private shortUrlService: ShortUrlService // public socialShare: SocialShare
+    private shortUrlService: ShortUrlService,
+    public events: Events
   ) {
     super(navCtrl, authService, alertCtrl, platform);
     this.TAG = "GameTabsPage";
@@ -68,16 +69,12 @@ export class GameTabsPage extends BasePage {
     this.onInit(this.navbar);
   }
 
-  ionViewWillEnter(){
-    this.logOnConsole(this.TAG, "ionViewWillEnter");
-    this.shortAudienceUrl();
-  }
 
   shortAudienceUrl() {
     var re = /undefined/gi;
     var url = window.location.href.replace(re, this.audienceIdForShare);
     if(url.includes("loading")){
-      this.logOnConsole(this.TAG, "retry, it contains loading");
+      this.logOnConsole(this.TAG, "retry, it contains loading: " + url);
       // setTimeout(this.shortAudienceUrl(), 5000);
       
     }else{
@@ -237,5 +234,22 @@ export class GameTabsPage extends BasePage {
     } else {
       alert("share not supported");
     }
+  }
+
+  sharePopup(){
+    this.shortAudienceUrl();
+    let prompt = this.alertCtrl.create({
+      title: "Condividi la partita in corso",
+      message: "Condividi la partita con i tuoi amici! Fai sapere come sta andando la tua squadra del cuore, punto per punto ;)",
+      buttons: [
+        {
+          text: "Condividi",
+          handler: data => {
+            this.share();
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }

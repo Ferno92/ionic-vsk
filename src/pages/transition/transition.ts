@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoadingController, Loading } from 'ionic-angular';
+import { LoadingController, Loading,
+  Events } from 'ionic-angular';
 
 /**
  * Generated class for the TransitionPage page.
@@ -21,7 +22,8 @@ import { LoadingController, Loading } from 'ionic-angular';
 export class TransitionPage {
   loader: Loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, loadingCtrl: LoadingController,
+    public events: Events) {
     this.loader = loadingCtrl.create({
       content: "Caricamento..."
     });
@@ -37,6 +39,8 @@ export class TransitionPage {
       const index = this.navCtrl.getActive().index;
       this.navCtrl.remove(0, index);
       this.loader.dismiss();
+      
+    this.events.publish("loading", "finished");
     });;
 
   }

@@ -64,9 +64,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var TransitionPage = /** @class */ (function () {
-    function TransitionPage(navCtrl, navParams, loadingCtrl) {
+    function TransitionPage(navCtrl, navParams, loadingCtrl, events) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.events = events;
         this.loader = loadingCtrl.create({
             content: "Caricamento..."
         });
@@ -82,6 +83,7 @@ var TransitionPage = /** @class */ (function () {
             var index = _this.navCtrl.getActive().index;
             _this.navCtrl.remove(0, index);
             _this.loader.dismiss();
+            _this.events.publish("loading", "finished");
         });
         ;
     };
@@ -89,7 +91,8 @@ var TransitionPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-transition',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\transition\transition.html"*/'<!--\n  Generated template for the TransitionPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\transition\transition.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
     ], TransitionPage);
     return TransitionPage;
 }());
