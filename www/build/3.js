@@ -116,13 +116,16 @@ var GameTabsPage = /** @class */ (function (_super) {
         this.initOnScreenOrientationChange();
         this.onInit(this.navbar);
     };
+    GameTabsPage.prototype.ionViewWillEnter = function () {
+        this.shortAudienceUrl();
+    };
     GameTabsPage.prototype.shortAudienceUrl = function () {
         var _this = this;
         var re = /undefined/gi;
         var url = window.location.href.replace(re, this.audienceIdForShare);
         if (url.includes("loading")) {
             this.logOnConsole(this.TAG, "retry, it contains loading");
-            setTimeout(this.shortAudienceUrl(), 1000);
+            setTimeout(this.shortAudienceUrl(), 5000);
         }
         else {
             this.logOnConsole(this.TAG, "ref: " + url);
@@ -194,7 +197,6 @@ var GameTabsPage = /** @class */ (function (_super) {
         var audienceRef = this.afoDatabase.object("/users/" + userId + "/audienceId");
         audienceRef.subscribe(function (audience) {
             _this.audienceIdForShare = audience.$value;
-            _this.shortAudienceUrl();
         });
     };
     GameTabsPage.prototype.rotate = function () {
@@ -271,23 +273,18 @@ var GameTabsPage = /** @class */ (function (_super) {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */]) === "function" && _a || Object)
     ], GameTabsPage.prototype, "navbar", void 0);
     GameTabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: "page-game-tabs",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/'<!--\n\n  Generated template for the GameTabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header no-border>\n\n\n\n  <ion-navbar #navbar color="primary" *ngIf="!isLandscape || tabIndex != 0">\n\n    <ion-buttons left *ngIf="!canGoBack">\n\n      <button ion-button icon-only (click)="goBack()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Partita Live</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (tap)="rotate()" *ngIf="tabIndex == 0">\n\n        <ion-icon name="{{rotation}}"></ion-icon>\n\n      </button>\n\n      <!-- <a  href="intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end">\n\n      <a  href="intent://<URL>#Intent;scheme=http;action=android.intent.action.SEND;end"> -->\n\n\n\n        <button ion-button icon-only (tap)="share()">\n\n          <ion-icon name="share"></ion-icon>\n\n        </button>\n\n      <!-- </a> -->\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding [ngClass]="{\'landscape\': isLandscape && tabIndex == 0}">\n\n  <ion-tabs tabsPlacement="top" tabsLayout="icon-bottom" color="primary" (ionChange)="transition($event)">\n\n    <ion-tab [root]="scorePage" [rootParams]="scoreParams" tabTitle="Punteggio" tabIcon="appname-score-icon"></ion-tab>\n\n    <ion-tab [root]="formationPage" tabTitle="Formazione" tabIcon="appname-player"></ion-tab>\n\n    <ion-tab [root]="chatPage" tabTitle="Chat" tabIcon="chatbubbles"></ion-tab>\n\n  </ion-tabs>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
-            __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
-            __WEBPACK_IMPORTED_MODULE_6_angular_shorturl__["ShortUrlService"] // public socialShare: SocialShare
-        ])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6_angular_shorturl__["ShortUrlService"] // public socialShare: SocialShare
+             !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_angular_shorturl__["ShortUrlService"] // public socialShare: SocialShare
+            ) === "function" && _j || Object])
     ], GameTabsPage);
     return GameTabsPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=game-tabs.js.map

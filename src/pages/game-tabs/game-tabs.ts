@@ -68,12 +68,17 @@ export class GameTabsPage extends BasePage {
     this.onInit(this.navbar);
   }
 
+  ionViewWillEnter(){
+
+    this.shortAudienceUrl();
+  }
+
   shortAudienceUrl() {
     var re = /undefined/gi;
     var url = window.location.href.replace(re, this.audienceIdForShare);
     if(url.includes("loading")){
       this.logOnConsole(this.TAG, "retry, it contains loading");
-      setTimeout(this.shortAudienceUrl(), 1000);
+      setTimeout(this.shortAudienceUrl(), 5000);
       
     }else{
       this.logOnConsole(this.TAG, "ref: " + url);
@@ -151,8 +156,6 @@ export class GameTabsPage extends BasePage {
     );
     audienceRef.subscribe(audience => {
       this.audienceIdForShare = audience.$value;
-
-      this.shortAudienceUrl();
     });
   }
 
