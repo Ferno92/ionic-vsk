@@ -71,11 +71,17 @@ export class GameTabsPage extends BasePage {
   shortAudienceUrl() {
     var re = /undefined/gi;
     var url = window.location.href.replace(re, this.audienceIdForShare);
-    this.logOnConsole(this.TAG, "ref: " + url);
-    this.shortUrlService.load(url).then(data => {
-      this.logOnConsole(this.TAG, "shortUrlService: " + data);
-      this.shortenedUrl = data;
-    });
+    if(url.includes("loading")){
+      this.logOnConsole(this.TAG, "retry, it contains loading");
+      setTimeout(this.shortAudienceUrl(), 500);
+      
+    }else{
+      this.logOnConsole(this.TAG, "ref: " + url);
+      this.shortUrlService.load(url).then(data => {
+        this.logOnConsole(this.TAG, "shortUrlService: " + data);
+        this.shortenedUrl = data;
+      });
+    }
   }
 
   onUserChange(user: any) {

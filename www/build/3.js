@@ -120,11 +120,17 @@ var GameTabsPage = /** @class */ (function (_super) {
         var _this = this;
         var re = /undefined/gi;
         var url = window.location.href.replace(re, this.audienceIdForShare);
-        this.logOnConsole(this.TAG, "ref: " + url);
-        this.shortUrlService.load(url).then(function (data) {
-            _this.logOnConsole(_this.TAG, "shortUrlService: " + data);
-            _this.shortenedUrl = data;
-        });
+        if (url.includes("loading")) {
+            this.logOnConsole(this.TAG, "retry, it contains loading");
+            setTimeout(this.shortAudienceUrl(), 500);
+        }
+        else {
+            this.logOnConsole(this.TAG, "ref: " + url);
+            this.shortUrlService.load(url).then(function (data) {
+                _this.logOnConsole(_this.TAG, "shortUrlService: " + data);
+                _this.shortenedUrl = data;
+            });
+        }
     };
     GameTabsPage.prototype.onUserChange = function (user) {
         this.logOnConsole(this.TAG, "on user change live" + user);
