@@ -524,6 +524,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import { SocialShareModule } from 'angular-socialshare';
 // import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
 //   AfoListObservable,
@@ -557,7 +558,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/create-match/create-match.module#CreateMatchPageModule', name: 'create-match', segment: 'create-match', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'dashboard', segment: 'dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/formation/formation.module#FormationPageModule', name: 'formation', segment: 'formation', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/game-tabs/game-tabs.module#GameTabsPageModule', name: 'game-tabs', segment: 'game-tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/game-tabs/game-tabs.module#GameTabsPageModule', name: 'game-tabs', segment: 'game-tabs/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-live/search-live.module#SearchLivePageModule', name: 'search-live', segment: 'search-live', priority: 'low', defaultHistory: [] },
@@ -569,6 +570,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10_angularfire2_offline__["a" /* AngularFireOfflineModule */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_login_login_module__["LoginPageModule"],
                 __WEBPACK_IMPORTED_MODULE_17__angular_common_http__["b" /* HttpClientModule */]
+                // SocialShareModule
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
@@ -882,12 +884,14 @@ var BasePage = /** @class */ (function () {
         this.authService = authService;
         this.alertCtrl = alertCtrl;
         this.platform = platform;
+        this.logEnabled = true;
+        this.TAG = "BasePage";
     }
     BasePage.prototype.onUserChange = function (user) {
-        console.log("onUserChange");
+        this.logOnConsole(this.TAG, "onUserChange");
     };
     BasePage.prototype.goBack = function () {
-        console.log("askBeforeGoBack: " + this.askBeforeGoBack);
+        this.logOnConsole(this.TAG, "askBeforeGoBack: " + this.askBeforeGoBack);
         if (this.askBeforeGoBack) {
             this.askGoBackPopup();
         }
@@ -904,7 +908,7 @@ var BasePage = /** @class */ (function () {
     BasePage.prototype.onInit = function (navBar) {
         var _this = this;
         this.platform.registerBackButtonAction(function () {
-            console.log("backPressed 1");
+            _this.logOnConsole(_this.TAG, "backPressed 1");
             _this.errorPopup("what", "ouch");
         }, 2);
         //console.log("navbar: " + navBar);
@@ -921,6 +925,7 @@ var BasePage = /** @class */ (function () {
         });
     };
     BasePage.prototype.errorPopup = function (text, description) {
+        var _this = this;
         var prompt = this.alertCtrl.create({
             title: text,
             message: description,
@@ -928,7 +933,7 @@ var BasePage = /** @class */ (function () {
                 {
                     text: "OK",
                     handler: function (data) {
-                        console.log("Cancel clicked");
+                        _this.logOnConsole(_this.TAG, "Cancel clicked");
                     }
                 }
             ]
@@ -951,7 +956,7 @@ var BasePage = /** @class */ (function () {
                 {
                     text: "No",
                     handler: function (data) {
-                        console.log("Cancel clicked");
+                        _this.logOnConsole(_this.TAG, "Cancel clicked");
                     }
                 }
             ]
@@ -970,6 +975,16 @@ var BasePage = /** @class */ (function () {
             teamB: teamB,
             pageId: "game-tabs"
         });
+    };
+    BasePage.prototype.logOnConsole = function (tag, text, object) {
+        if (this.logEnabled) {
+            if (object != undefined && object != null) {
+                console.log(tag + ": " + text, object);
+            }
+            else {
+                console.log(tag + ": " + text);
+            }
+        }
     };
     return BasePage;
 }());
@@ -1345,10 +1360,11 @@ var DashboardPage = /** @class */ (function (_super) {
         _this.emptyGames = false;
         _this.onEdit = false;
         _this.gamesChecked = new Array();
+        _this.TAG = "DashboardPage";
         _this.userLogged = false;
         _this.emptyGames = true;
         _this.onlineVersion = afoDatabase.object("updateVersion");
-        console.log("version: " + _this.onlineVersion);
+        _this.logOnConsole(_this.TAG, "version: " + _this.onlineVersion);
         return _this;
     }
     DashboardPage.prototype.onUserChange = function (user) {
@@ -1394,7 +1410,7 @@ var DashboardPage = /** @class */ (function (_super) {
         toast.present();
     };
     DashboardPage.prototype.openGame = function (game, pageRef) {
-        console.log(pageRef);
+        pageRef.logOnConsole(this.TAG, pageRef);
         if (pageRef.onEdit) {
             game.checked = !game.checked;
             if (game.checked) {
@@ -1414,7 +1430,7 @@ var DashboardPage = /** @class */ (function (_super) {
         }
     };
     DashboardPage.prototype.updateEditCheck = function (game, reverse, pageRef) {
-        console.log("updateEditCheck, checked: " + game.checked);
+        this.logOnConsole(this.TAG, "updateEditCheck, checked: " + game.checked);
         // game.checked = !game.checked;
         if ((reverse && !game.checked) || (!reverse && game.checked)) {
             pageRef.gamesChecked.push(game);
@@ -1426,7 +1442,7 @@ var DashboardPage = /** @class */ (function (_super) {
                 pageRef.removeOnEdit();
             }
         }
-        console.log("gamesChecked length: " + pageRef.gamesChecked.length);
+        this.logOnConsole(this.TAG, "gamesChecked length: " + pageRef.gamesChecked.length);
     };
     DashboardPage.prototype.removeOnEdit = function () {
         this.onEdit = false;
@@ -1447,7 +1463,7 @@ var DashboardPage = /** @class */ (function (_super) {
     DashboardPage.prototype.deleteGames = function () {
         for (var game in this.gamesChecked) {
             var gameChecked = this.gamesChecked[0];
-            console.log(gameChecked.id);
+            this.logOnConsole(this.TAG, gameChecked.id);
             this.games.remove(gameChecked.id);
         }
         this.removeOnEdit();

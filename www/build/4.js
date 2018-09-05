@@ -72,12 +72,11 @@ var FormationPage = /** @class */ (function () {
     };
     FormationPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-formation',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/'<!--\n  Generated template for the FormationPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content padding>\nFORMAZIONE\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/,
+            selector: 'page-formation',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/'<!--\n\n  Generated template for the FormationPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding>\n\nFORMAZIONE\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], FormationPage);
     return FormationPage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=formation.js.map

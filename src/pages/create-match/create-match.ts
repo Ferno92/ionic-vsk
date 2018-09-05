@@ -36,7 +36,8 @@ import { Guid } from "../../common/Guid";
   templateUrl: "create-match.html"
 })
 export class CreateMatchPage extends BasePage {
-  @ViewChild("navbar") navBar: Navbar;
+  @ViewChild("navbar")
+  navBar: Navbar;
   teamA: String;
   teamB: String;
   games: AfoListObservable<any[]>;
@@ -62,6 +63,7 @@ export class CreateMatchPage extends BasePage {
     private guid: Guid
   ) {
     super(navCtrl, authService, alertCtrl, platform);
+    this.TAG = "CreateMatchPage";
 
     events.subscribe("create-match", page => {
       this.createMatch();
@@ -70,7 +72,10 @@ export class CreateMatchPage extends BasePage {
 
   ionViewDidLoad() {
     this.onInit(this.navBar);
-    console.log("ionViewDidLoad " + moment(new Date()).valueOf());
+    this.logOnConsole(
+      this.TAG,
+      "ionViewDidLoad " + moment(new Date()).valueOf()
+    );
     this.geoService.getLocation(this.retrievePlaces, this);
   }
 
@@ -120,9 +125,9 @@ export class CreateMatchPage extends BasePage {
       this.live.subscribe(items => {
         items.forEach(item => {
           if (item.audienceId == this.audienceId) {
-            console.log("found live: " + item.$key);
+            this.logOnConsole(this.TAG, "found live: " + item.$key);
           } else {
-            console.log("not found live");
+            this.logOnConsole(this.TAG, "not found live");
           }
         });
       });
@@ -142,7 +147,7 @@ export class CreateMatchPage extends BasePage {
         {
           text: "No",
           handler: data => {
-            console.log("Cancel clicked");
+            this.logOnConsole(this.TAG, "Cancel clicked");
           }
         },
         {
@@ -151,7 +156,10 @@ export class CreateMatchPage extends BasePage {
             this.liveMatch.live = false;
             this.afoDatabase
               .object(
-                "/users/" + this.authService.user.uid + "/games/" + this.liveMatch.id
+                "/users/" +
+                  this.authService.user.uid +
+                  "/games/" +
+                  this.liveMatch.id
               )
               .update(this.liveMatch);
             this.live.remove(this.liveKey);
@@ -192,7 +200,7 @@ export class CreateMatchPage extends BasePage {
           if (this.selectedPlace != "0") {
             for (var i = 0; i < this.places.length; i++) {
               var item: any = this.places[i];
-              console.log(item.id);
+              this.logOnConsole(this.TAG, item.id);
               if (item.id == this.selectedPlace) {
                 location.id = this.selectedPlace;
                 location.name = item.name;
@@ -212,7 +220,7 @@ export class CreateMatchPage extends BasePage {
           var date = {
             ms: moment(new Date()).valueOf(),
             day: moment(new Date()).format("MMM/DD")
-          }
+          };
 
           const promise = newGameRef.set({
             id: newGameRef.key,
@@ -233,14 +241,24 @@ export class CreateMatchPage extends BasePage {
           });
 
           if (promise != undefined) {
-            promise.then(() => console.log("data added to firebase!"));
-            livePromise.then(() => console.log("live link added to firebase!"));
+            promise.then(() =>
+              this.logOnConsole(this.TAG, "data added to firebase!")
+            );
+            livePromise.then(() =>
+              this.logOnConsole(this.TAG, "live link added to firebase!")
+            );
             if (promise.offline != undefined) {
               promise.offline.then(() =>
-                console.log("offline data added to device storage!")
+                this.logOnConsole(
+                  this.TAG,
+                  "offline data added to device storage!"
+                )
               );
               livePromise.offline.then(() =>
-                console.log("offline live link added to device storage!")
+                this.logOnConsole(
+                  this.TAG,
+                  "offline live link added to device storage!"
+                )
               );
             }
           }
@@ -259,18 +277,18 @@ export class CreateMatchPage extends BasePage {
   retrievePlaces(placesObserver: any, pagesRef: CreateMatchPage) {
     placesObserver.subscribe(
       data => {
-        console.log(data.response.venues);
+        this.logOnConsole(this.TAG, data.response.venues);
         data.response.venues.push({ id: 0, name: "Seleziona una voce.." });
         pagesRef.selectedPlace = "0";
         pagesRef.places = data.response.venues;
         // pagesRef.changeDetector.detectChanges();
       },
       err => console.error(err),
-      () => console.log("done loading places")
+      () => this.logOnConsole(this.TAG, "done loading places")
     );
   }
 
   onPlaceSelection(text: String) {
-    console.log(this.selectedPlace);
+    this.logOnConsole(this.TAG, this.selectedPlace);
   }
 }

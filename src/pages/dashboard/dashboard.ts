@@ -58,12 +58,13 @@ export class DashboardPage extends BasePage {
     public platform: Platform
   ) {
     super(navCtrl, authService, alertCtrl, platform);
+    this.TAG = "DashboardPage";
     this.userLogged = false;
     this.emptyGames = true;
 
     this.onlineVersion = afoDatabase.object("updateVersion");
 
-    console.log("version: " + this.onlineVersion);
+    this.logOnConsole(this.TAG, "version: " + this.onlineVersion);
   }
 
   onUserChange(user: any) {
@@ -118,7 +119,7 @@ export class DashboardPage extends BasePage {
   }
 
   openGame(game: any, pageRef:any) {
-    console.log(pageRef);
+    pageRef.logOnConsole(this.TAG, pageRef);
     if (pageRef.onEdit) {
       game.checked = !game.checked;
       if (game.checked) {
@@ -138,7 +139,7 @@ export class DashboardPage extends BasePage {
     }
   }
   updateEditCheck(game: any, reverse: boolean, pageRef:any) {
-    console.log("updateEditCheck, checked: " + game.checked);
+    this.logOnConsole(this.TAG, "updateEditCheck, checked: " + game.checked);
     // game.checked = !game.checked;
     if ((reverse && !game.checked) || (!reverse && game.checked)) {
       pageRef.gamesChecked.push(game);
@@ -149,7 +150,7 @@ export class DashboardPage extends BasePage {
         pageRef.removeOnEdit();
       }
     }
-    console.log("gamesChecked length: " + pageRef.gamesChecked.length);
+    this.logOnConsole(this.TAG, "gamesChecked length: " + pageRef.gamesChecked.length);
   }
 
   removeOnEdit() {
@@ -174,7 +175,7 @@ export class DashboardPage extends BasePage {
   deleteGames() {
     for(var game in this.gamesChecked){
       var gameChecked:any = this.gamesChecked[0];
-      console.log(gameChecked.id);
+      this.logOnConsole(this.TAG, gameChecked.id);
       this.games.remove(gameChecked.id);
     }
     this.removeOnEdit();

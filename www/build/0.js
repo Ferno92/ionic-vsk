@@ -16891,30 +16891,31 @@ var LiveMatchPage = /** @class */ (function (_super) {
         // this.teamB = navParams.get("teamB");
         _this.gameId = navParams.get("id");
         _this.audienceId = navParams.get("audienceId");
+        _this.TAG = "LiveMatchPage";
         return _this;
         //console.log("audience: " + this.audienceId + " - id: " + this.gameId);
         //console.log(navParams);
     }
     LiveMatchPage.prototype.onUserChange = function (user) {
-        console.log("on user change live" + user);
+        this.logOnConsole(this.TAG, "on user change live" + user);
         if (user != null) {
             var id = "";
-            console.log("1, audience: " + (this.audienceId == "undefined"));
+            this.logOnConsole(this.TAG, "1, audience: " + (this.audienceId == "undefined"));
             if (this.audienceId == undefined || this.audienceId == "undefined" || this.audienceId == ":audienceId") {
-                console.log("2");
+                this.logOnConsole(this.TAG, "2");
                 id = this.authService.user.uid;
                 this.retrieveGameInfo(id);
             }
             else {
-                console.log("3");
+                this.logOnConsole(this.TAG, "3");
                 this.findUserFromAudienceId();
             }
         }
         else {
-            console.log("4");
+            this.logOnConsole(this.TAG, "4");
             this.findUserFromAudienceId();
         }
-        console.log("5");
+        this.logOnConsole(this.TAG, "5");
         this.initOnScreenOrientationChange();
     };
     LiveMatchPage.prototype.findUserFromAudienceId = function () {
@@ -16934,14 +16935,14 @@ var LiveMatchPage = /** @class */ (function (_super) {
     LiveMatchPage.prototype.retrieveGameInfo = function (userId) {
         var _this = this;
         var url = "/users/" + userId + "/games";
-        console.log(url);
+        this.logOnConsole(this.TAG, url);
         this.games = this.afoDatabase.list(url);
         this.games.subscribe(function (items) {
             var found = false;
             // items is an array
             items.forEach(function (item) {
                 if (item.id == _this.gameId) {
-                    console.log("Item:", item);
+                    _this.logOnConsole(_this.TAG, "Item:", item);
                     _this.currentGame = item;
                     _this.showChat(userId, item.$key);
                     if (_this.currentGame.live) {
@@ -17090,6 +17091,7 @@ var LiveMatchPage = /** @class */ (function (_super) {
         }
     };
     LiveMatchPage.prototype.pushMessage = function () {
+        var _this = this;
         if (this.textAreaMessage.trim() != "") {
             var user = this.authService.user;
             var chatsNewItem = this.chatsRef.push({});
@@ -17105,14 +17107,14 @@ var LiveMatchPage = /** @class */ (function (_super) {
                 chatsPromise.then(function () { return console.log("chat added to firebase!"); });
                 if (chatsPromise.offline != undefined) {
                     chatsPromise.offline.then(function () {
-                        return console.log("offline chat added to device storage!");
+                        return _this.logOnConsole(_this.TAG, "offline chat added to device storage!");
                     });
                 }
             }
             this.textAreaMessage = "";
         }
         var scrollableContent = document.getElementsByClassName("scrollable-content")[0];
-        console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
+        this.logOnConsole(this.TAG, scrollableContent + " - " + scrollableContent.offsetHeight);
         if (!this.isLandscape) {
             scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
         }
@@ -17136,7 +17138,7 @@ var LiveMatchPage = /** @class */ (function (_super) {
     LiveMatchPage.prototype.initOnScreenOrientationChange = function () {
         var _this = this;
         this.screenOrientation.onChange().subscribe(function (type) {
-            console.log("on change: " + type);
+            _this.logOnConsole(_this.TAG, "on change: " + type);
             if (_this.screenOrientation.type !=
                 _this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
                 _this.screenOrientation.type !=

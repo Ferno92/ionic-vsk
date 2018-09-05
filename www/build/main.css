@@ -28200,6 +28200,14 @@ page-dashboard .update-button .button-inner .icon {
   margin-bottom: 5px;
 }
 
+page-game-tabs .landscape .scroll-content {
+  margin-top: 0 !important;
+}
+
+page-game-tabs .landscape .tabbar {
+  display: none;
+}
+
 page-live-match .set-value {
   font-size: 80px;
   font-weight: 300;

@@ -74,6 +74,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import { SocialShare } from 'angular-socialshare';
 /**
  * Generated class for the GameTabsPage page.
  *
@@ -97,10 +98,13 @@ var GameTabsPage = /** @class */ (function (_super) {
         _this.rotation = "phone-landscape";
         _this.isLandscape = false;
         _this.isLocked = false;
+        _this.tabIndex = 0;
+        _this.TAG = "GameTabsPage";
         _this.scoreParams = {
             id: navParams.get("id"),
             audienceId: navParams.get("audienceId")
         };
+        _this.logOnConsole(_this.TAG, _this.scoreParams);
         return _this;
     }
     GameTabsPage.prototype.ionViewDidLoad = function () {
@@ -108,25 +112,27 @@ var GameTabsPage = /** @class */ (function (_super) {
         this.onInit(this.navbar);
     };
     GameTabsPage.prototype.onUserChange = function (user) {
-        console.log("on user change live" + user);
+        this.logOnConsole(this.TAG, "on user change live" + user);
         if (user != null) {
             var id = "";
-            console.log("1, audience: " + (this.scoreParams.audienceId == "undefined"));
-            if (this.scoreParams.audienceId == undefined || this.scoreParams.audienceId == "undefined" || this.scoreParams.audienceId == ":audienceId") {
-                console.log("2");
+            this.logOnConsole(this.TAG, "1, audience: " + (this.scoreParams.audienceId == "undefined"));
+            if (this.scoreParams.audienceId == undefined ||
+                this.scoreParams.audienceId == "undefined" ||
+                this.scoreParams.audienceId == ":audienceId") {
+                this.logOnConsole(this.TAG, "2");
                 id = this.authService.user.uid;
                 this.retrieveGameInfo(id, false);
             }
             else {
-                console.log("3");
+                this.logOnConsole(this.TAG, "3");
                 this.findUserFromAudienceId();
             }
         }
         else {
-            console.log("4");
+            this.logOnConsole(this.TAG, "4");
             this.findUserFromAudienceId();
         }
-        console.log("5");
+        this.logOnConsole(this.TAG, "5");
         this.initOnScreenOrientationChange();
     };
     GameTabsPage.prototype.findUserFromAudienceId = function () {
@@ -146,14 +152,14 @@ var GameTabsPage = /** @class */ (function (_super) {
     GameTabsPage.prototype.retrieveGameInfo = function (userId, isAudience) {
         var _this = this;
         var url = "/users/" + userId + "/games";
-        console.log(url);
+        this.logOnConsole(this.TAG, url);
         var games = this.afoDatabase.list(url);
         games.subscribe(function (items) {
             var found = false;
             // items is an array
             items.forEach(function (item) {
                 if (item.id == _this.scoreParams.id) {
-                    console.log("Item:", item);
+                    _this.logOnConsole(_this.TAG, "Item:", item);
                     found = true;
                     if (item.live && !isAudience) {
                         _this.askBeforeGoBack = true;
@@ -163,6 +169,10 @@ var GameTabsPage = /** @class */ (function (_super) {
             if (!found) {
                 //TODO: error message
             }
+        });
+        var audienceRef = this.afoDatabase.object("/users/" + userId + "/audienceId");
+        audienceRef.subscribe(function (audience) {
+            _this.audienceIdForShare = audience.$value;
         });
     };
     GameTabsPage.prototype.rotate = function () {
@@ -201,7 +211,7 @@ var GameTabsPage = /** @class */ (function (_super) {
     GameTabsPage.prototype.initOnScreenOrientationChange = function () {
         var _this = this;
         this.screenOrientation.onChange().subscribe(function (type) {
-            console.log("on change: " + type);
+            _this.logOnConsole(_this.TAG, "on change: " + type);
             if (_this.screenOrientation.type !=
                 _this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
                 _this.screenOrientation.type !=
@@ -217,13 +227,38 @@ var GameTabsPage = /** @class */ (function (_super) {
             }
         });
     };
+    GameTabsPage.prototype.transition = function (e) {
+        this.tabIndex = e.index;
+    };
+    GameTabsPage.prototype.share = function () {
+        var re = /undefined/gi;
+        var url = window.location.href.replace(re, this.audienceIdForShare);
+        this.logOnConsole(this.TAG, "ref: " + url);
+        // window.location.href="intent://<URL>#Intent;scheme=http;action=android.intent.action.SEND;end"
+        var newVariable;
+        newVariable = window.navigator;
+        console.log(newVariable.share);
+        if (newVariable && newVariable.share) {
+            newVariable
+                .share({
+                title: "title",
+                text: "description",
+                url: url
+            })
+                .then(function () { return console.log("Successful share"); })
+                .catch(function (error) { return console.log("Error sharing", error); });
+        }
+        else {
+            alert("share not supported");
+        }
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */]),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */]) === "function" && _a || Object)
     ], GameTabsPage.prototype, "navbar", void 0);
     GameTabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-game-tabs',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/'<!--\n  Generated template for the GameTabsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar #navbar color="primary" *ngIf="!isLandscape">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Partita Live</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (tap)="rotate()">\n        <ion-icon name="{{rotation}}"></ion-icon>\n      </button>\n      <button ion-button icon-only (tap)="share()">\n        <ion-icon name="share"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n  <ion-tabs>\n    <ion-tab [root]="scorePage" [rootParams]="scoreParams" tabTitle="Punteggio" tabIcon="appname-score-icon"></ion-tab>\n    <ion-tab [root]="formationPage" tabTitle="Formazione" tabIcon="appname-player"></ion-tab>\n    <ion-tab [root]="chatPage" tabTitle="Chat" tabIcon="chatbubbles"></ion-tab>\n  </ion-tabs>\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/,
+            selector: "page-game-tabs",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/'<!--\n\n  Generated template for the GameTabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header no-border>\n\n\n\n  <ion-navbar #navbar color="primary" *ngIf="!isLandscape || tabIndex != 0">\n\n    <ion-buttons left *ngIf="!canGoBack">\n\n      <button ion-button icon-only (click)="goBack()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Partita Live</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (tap)="rotate()" *ngIf="tabIndex == 0">\n\n        <ion-icon name="{{rotation}}"></ion-icon>\n\n      </button>\n\n      <!-- <a  href="intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end">\n\n      <a  href="intent://<URL>#Intent;scheme=http;action=android.intent.action.SEND;end"> -->\n\n\n\n        <button ion-button icon-only (tap)="share()">\n\n          <ion-icon name="share"></ion-icon>\n\n        </button>\n\n      <!-- </a> -->\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding [ngClass]="{\'landscape\': isLandscape && tabIndex == 0}">\n\n  <ion-tabs tabsPlacement="top" tabsLayout="icon-bottom" color="primary" (ionChange)="transition($event)">\n\n    <ion-tab [root]="scorePage" [rootParams]="scoreParams" tabTitle="Punteggio" tabIcon="appname-score-icon"></ion-tab>\n\n    <ion-tab [root]="formationPage" tabTitle="Formazione" tabIcon="appname-player"></ion-tab>\n\n    <ion-tab [root]="chatPage" tabTitle="Chat" tabIcon="chatbubbles"></ion-tab>\n\n  </ion-tabs>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _h || Object])
     ], GameTabsPage);

@@ -16881,6 +16881,7 @@ var CreateMatchPage = /** @class */ (function (_super) {
         _this.changeDetector = changeDetector;
         _this.guid = guid;
         _this.places = [];
+        _this.TAG = "CreateMatchPage";
         events.subscribe("create-match", function (page) {
             _this.createMatch();
         });
@@ -16888,7 +16889,7 @@ var CreateMatchPage = /** @class */ (function (_super) {
     }
     CreateMatchPage.prototype.ionViewDidLoad = function () {
         this.onInit(this.navBar);
-        console.log("ionViewDidLoad " + __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).valueOf());
+        this.logOnConsole(this.TAG, "ionViewDidLoad " + __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).valueOf());
         this.geoService.getLocation(this.retrievePlaces, this);
     };
     CreateMatchPage.prototype.ionViewWillEnter = function () {
@@ -16933,10 +16934,10 @@ var CreateMatchPage = /** @class */ (function (_super) {
             this.live.subscribe(function (items) {
                 items.forEach(function (item) {
                     if (item.audienceId == _this.audienceId) {
-                        console.log("found live: " + item.$key);
+                        _this.logOnConsole(_this.TAG, "found live: " + item.$key);
                     }
                     else {
-                        console.log("not found live");
+                        _this.logOnConsole(_this.TAG, "not found live");
                     }
                 });
             });
@@ -16955,7 +16956,7 @@ var CreateMatchPage = /** @class */ (function (_super) {
                 {
                     text: "No",
                     handler: function (data) {
-                        console.log("Cancel clicked");
+                        _this.logOnConsole(_this.TAG, "Cancel clicked");
                     }
                 },
                 {
@@ -16963,7 +16964,10 @@ var CreateMatchPage = /** @class */ (function (_super) {
                     handler: function (data) {
                         _this.liveMatch.live = false;
                         _this.afoDatabase
-                            .object("/users/" + _this.authService.user.uid + "/games/" + _this.liveMatch.id)
+                            .object("/users/" +
+                            _this.authService.user.uid +
+                            "/games/" +
+                            _this.liveMatch.id)
                             .update(_this.liveMatch);
                         _this.live.remove(_this.liveKey);
                         _this.liveMatchOn = false;
@@ -16975,6 +16979,7 @@ var CreateMatchPage = /** @class */ (function (_super) {
         prompt.present();
     };
     CreateMatchPage.prototype.createMatch = function () {
+        var _this = this;
         if (this.teamA == undefined ||
             this.teamA.trim() == "" ||
             this.teamB == undefined ||
@@ -16999,7 +17004,7 @@ var CreateMatchPage = /** @class */ (function (_super) {
                     if (this.selectedPlace != "0") {
                         for (var i = 0; i < this.places.length; i++) {
                             var item = this.places[i];
-                            console.log(item.id);
+                            this.logOnConsole(this.TAG, item.id);
                             if (item.id == this.selectedPlace) {
                                 location.id = this.selectedPlace;
                                 location.name = item.name;
@@ -17036,14 +17041,18 @@ var CreateMatchPage = /** @class */ (function (_super) {
                         gameKey: newGameRef.key
                     });
                     if (promise != undefined) {
-                        promise.then(function () { return console.log("data added to firebase!"); });
-                        livePromise.then(function () { return console.log("live link added to firebase!"); });
+                        promise.then(function () {
+                            return _this.logOnConsole(_this.TAG, "data added to firebase!");
+                        });
+                        livePromise.then(function () {
+                            return _this.logOnConsole(_this.TAG, "live link added to firebase!");
+                        });
                         if (promise.offline != undefined) {
                             promise.offline.then(function () {
-                                return console.log("offline data added to device storage!");
+                                return _this.logOnConsole(_this.TAG, "offline data added to device storage!");
                             });
                             livePromise.offline.then(function () {
-                                return console.log("offline live link added to device storage!");
+                                return _this.logOnConsole(_this.TAG, "offline live link added to device storage!");
                             });
                         }
                     }
@@ -17058,16 +17067,17 @@ var CreateMatchPage = /** @class */ (function (_super) {
         }
     };
     CreateMatchPage.prototype.retrievePlaces = function (placesObserver, pagesRef) {
+        var _this = this;
         placesObserver.subscribe(function (data) {
-            console.log(data.response.venues);
+            _this.logOnConsole(_this.TAG, data.response.venues);
             data.response.venues.push({ id: 0, name: "Seleziona una voce.." });
             pagesRef.selectedPlace = "0";
             pagesRef.places = data.response.venues;
             // pagesRef.changeDetector.detectChanges();
-        }, function (err) { return console.error(err); }, function () { return console.log("done loading places"); });
+        }, function (err) { return console.error(err); }, function () { return _this.logOnConsole(_this.TAG, "done loading places"); });
     };
     CreateMatchPage.prototype.onPlaceSelection = function (text) {
-        console.log(this.selectedPlace);
+        this.logOnConsole(this.TAG, this.selectedPlace);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])("navbar"),

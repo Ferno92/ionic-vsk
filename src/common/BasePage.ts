@@ -6,11 +6,12 @@ import {
 } from "ionic-angular";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { AuthService } from "../services/auth.service";
-import { overrideComponentView } from "@angular/core/src/view";
 
 export class BasePage {
   public canGoBack: boolean;
   public askBeforeGoBack: boolean;
+  logEnabled = true;
+  protected TAG = "BasePage";
 
   constructor(
     public navCtrl: NavController,
@@ -20,11 +21,11 @@ export class BasePage {
   ) {}
 
   onUserChange(user: any) {
-    console.log("onUserChange");
+    this.logOnConsole(this.TAG, "onUserChange");
   }
 
   public goBack() {
-    console.log("askBeforeGoBack: " + this.askBeforeGoBack);
+    this.logOnConsole(this.TAG, "askBeforeGoBack: " + this.askBeforeGoBack);
     if (this.askBeforeGoBack) {
       this.askGoBackPopup();
     } else {
@@ -39,7 +40,7 @@ export class BasePage {
 
   onInit(navBar: Navbar) {
     this.platform.registerBackButtonAction(() => {
-      console.log("backPressed 1");
+      this.logOnConsole(this.TAG, "backPressed 1");
       this.errorPopup("what", "ouch");
     }, 2);
     //console.log("navbar: " + navBar);
@@ -64,7 +65,7 @@ export class BasePage {
         {
           text: "OK",
           handler: data => {
-            console.log("Cancel clicked");
+            this.logOnConsole(this.TAG, "Cancel clicked");
           }
         }
       ]
@@ -87,7 +88,7 @@ export class BasePage {
         {
           text: "No",
           handler: data => {
-            console.log("Cancel clicked");
+            this.logOnConsole(this.TAG, "Cancel clicked");
           }
         }
       ]
@@ -107,5 +108,15 @@ export class BasePage {
       teamB: teamB,
       pageId: "game-tabs"
     });
+  }
+
+  protected logOnConsole(tag:string, text:string, object?:any){
+    if(this.logEnabled){
+      if(object != undefined && object != null){
+        console.log(tag + ": " + text, object);
+      }else{
+        console.log(tag + ": " + text);
+      }
+    }
   }
 }

@@ -64,28 +64,29 @@ export class LiveMatchPage extends BasePage {
     // this.teamB = navParams.get("teamB");
     this.gameId = navParams.get("id");
     this.audienceId = navParams.get("audienceId");
+    this.TAG = "LiveMatchPage";
     //console.log("audience: " + this.audienceId + " - id: " + this.gameId);
     //console.log(navParams);
   }
 
   onUserChange(user: any) {
-    console.log("on user change live" + user);
+    this.logOnConsole(this.TAG, "on user change live" + user);
     if (user != null) {
       var id = "";
-      console.log("1, audience: " + (this.audienceId == "undefined"));
+      this.logOnConsole(this.TAG, "1, audience: " + (this.audienceId == "undefined"));
       if (this.audienceId == undefined || this.audienceId == "undefined" || this.audienceId == ":audienceId") {
-        console.log("2");
+        this.logOnConsole(this.TAG, "2");
         id = this.authService.user.uid;
         this.retrieveGameInfo(id);
       } else {
-        console.log("3");
+        this.logOnConsole(this.TAG, "3");
         this.findUserFromAudienceId();
       }
     } else {
-      console.log("4");
+      this.logOnConsole(this.TAG, "4");
       this.findUserFromAudienceId();
     }
-    console.log("5");
+    this.logOnConsole(this.TAG, "5");
     this.initOnScreenOrientationChange();
   }
 
@@ -105,14 +106,14 @@ export class LiveMatchPage extends BasePage {
 
   retrieveGameInfo(userId: string) {
     var url = "/users/" + userId + "/games";
-    console.log(url);
+    this.logOnConsole(this.TAG, url);
     this.games = this.afoDatabase.list(url);
     this.games.subscribe(items => {
       var found = false;
       // items is an array
       items.forEach(item => {
         if (item.id == this.gameId) {
-          console.log("Item:", item);
+          this.logOnConsole(this.TAG, "Item:", item);
           this.currentGame = item;
           this.showChat(userId, item.$key);
           if (this.currentGame.live) {
@@ -323,7 +324,7 @@ export class LiveMatchPage extends BasePage {
         chatsPromise.then(() => console.log("chat added to firebase!"));
         if (chatsPromise.offline != undefined) {
           chatsPromise.offline.then(() =>
-            console.log("offline chat added to device storage!")
+          this.logOnConsole(this.TAG, "offline chat added to device storage!")
           );
         }
       }
@@ -332,7 +333,7 @@ export class LiveMatchPage extends BasePage {
     var scrollableContent = document.getElementsByClassName(
       "scrollable-content"
     )[0] as HTMLDivElement;
-    console.log(scrollableContent + " - " + scrollableContent.offsetHeight);
+    this.logOnConsole(this.TAG, scrollableContent + " - " + scrollableContent.offsetHeight);
     if (!this.isLandscape) {
       scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
     }
@@ -360,7 +361,7 @@ export class LiveMatchPage extends BasePage {
 
   initOnScreenOrientationChange() {
     this.screenOrientation.onChange().subscribe(type => {
-      console.log("on change: " + type);
+      this.logOnConsole(this.TAG, "on change: " + type);
       if (
         this.screenOrientation.type !=
           this.screenOrientation.ORIENTATIONS.LANDSCAPE &&

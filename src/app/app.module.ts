@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Guid} from "../common/Guid";
 import { GameWidgetComponent } from "../components/game-widget/game-widget";
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+// import { SocialShareModule } from 'angular-socialshare';
 // import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
 //   AfoListObservable,
@@ -53,6 +54,7 @@ export const firebaseConfig = {
     AngularFireOfflineModule,
     LoginPageModule,
     HttpClientModule
+    // SocialShareModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
