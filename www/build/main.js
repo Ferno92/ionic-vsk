@@ -182,15 +182,15 @@ webpackEmptyAsyncContext.id = 180;
 
 var map = {
 	"../pages/chat/chat.module": [
-		718,
+		720,
 		5
 	],
 	"../pages/create-match/create-match.module": [
-		719,
+		718,
 		1
 	],
 	"../pages/dashboard/dashboard.module": [
-		720,
+		719,
 		7
 	],
 	"../pages/formation/formation.module": [
@@ -559,9 +559,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], { scrollPadding: false }, {
                     links: [
-                        { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'chat', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-match/create-match.module#CreateMatchPageModule', name: 'create-match', segment: 'create-match', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'dashboard', segment: 'dashboard', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'chat', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/formation/formation.module#FormationPageModule', name: 'formation', segment: 'formation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/game-tabs/game-tabs.module#GameTabsPageModule', name: 'game-tabs', segment: 'game-tabs/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id/:audienceId', priority: 'low', defaultHistory: [] },

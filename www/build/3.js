@@ -122,7 +122,7 @@ var GameTabsPage = /** @class */ (function (_super) {
         var url = window.location.href.replace(re, this.audienceIdForShare);
         if (url.includes("loading")) {
             this.logOnConsole(this.TAG, "retry, it contains loading");
-            setTimeout(this.shortAudienceUrl(), 500);
+            setTimeout(this.shortAudienceUrl(), 1000);
         }
         else {
             this.logOnConsole(this.TAG, "ref: " + url);
