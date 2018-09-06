@@ -6,7 +6,7 @@ page-formation {
     padding-top: 33.3%; /* 3:1 Aspect Ratio */
     position: relative;
   }
-  
+
   .seconda-linea {
     background-color: orange;
     border: solid 3px;
@@ -16,8 +16,35 @@ page-formation {
     position: relative;
   }
 
-  .grid{
+  .grid-court {
     position: absolute;
     top: 0;
+  }
+
+  .button-add-player {
+    padding-right: 10px !important;
+  }
+
+  .player-title {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  .player-card {
+    margin: 0;
+    .player-name {
+      height: 100%;
+      line-height: 37px;
+
+      margin-left: 10px;
+    }
+
+    .player-number {
+      border: 2px solid;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      text-align: center;
+      padding-top: 4px;
+    }
   }
 }

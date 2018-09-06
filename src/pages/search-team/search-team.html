@@ -1,0 +1,68 @@
+<!--
+  Generated template for the SearchTeamPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar #navbar color="primary">
+    <ion-buttons left *ngIf="!canGoBack">
+      <button ion-button icon-only (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="!onSearch">Le tue squadre</ion-title>
+    <!-- <ion-searchbar class="animated fadeInRight search-bar" *ngIf="onSearch" 
+      (ionInput)="getItems($event)" [showCancelButton]="false" (ionCancel)="onCancel($event)"></ion-searchbar>
+      <ion-buttons right *ngIf="!onSearch">
+          <button ion-button icon-only (click)="showSearch()">
+            <ion-icon name="search"></ion-icon>
+          </button>
+        </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="empty-teams" *ngIf="emptyTeams">
+    <ion-grid style="height: 100%">
+      <ion-row justify-content-center align-items-center style="height: 100%">
+        <div>
+          <img src="../../assets/imgs/icon-team.png" />
+          <p class="text_empty_teams">Non hai squadre salvate.. Incomincia creandone una!</p>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="!emptyTeams">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let team of (teams | async)?.slice().reverse(); let i = index">
+          <ion-card class="animated bounceIn team-card" [style.animation-delay]=" i/10 + 's'" (tap)="onTapTeam(team)">
+            <ion-card-content class="card-content">
+              <div class="logo-container float-left">
+                <div class="cell">
+                    <div class="logo">{{team.logo == undefined ? team.name.charAt(0).toUpperCase() : ''}}</div>
+                </div>
+              </div>
+              <div class="float-left">
+                <div class="team-name">{{team.name}}</div>
+                <div class="team-players">{{team.players == undefined ? 0: team.players?.length}} giocatori</div>
+              </div>
+              <div class="float-right">
+                <div>
+                    <ion-icon name="trophy" class="trophy-icon"></ion-icon>
+                </div>
+                <div text-center class="win-number">{{team.win}}</div>
+              </div>
+              <div class="clear"></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -32,7 +32,7 @@
 <ion-content padding [ngClass]="{'landscape': isLandscape && tabIndex == 0}">
   <ion-tabs tabsPlacement="top" tabsLayout="icon-bottom" color="primary" (ionChange)="transition($event)">
     <ion-tab [root]="scorePage" [rootParams]="scoreParams" tabTitle="Punteggio" tabIcon="appname-score-icon"></ion-tab>
-    <ion-tab [root]="formationPage" tabTitle="Formazione" tabIcon="appname-player"></ion-tab>
+    <ion-tab [root]="formationPage" [rootParams]="formationParams" tabTitle="Formazione" tabIcon="appname-player"></ion-tab>
     <ion-tab [root]="chatPage" tabTitle="Chat" tabIcon="chatbubbles"></ion-tab>
   </ion-tabs>
 </ion-content>

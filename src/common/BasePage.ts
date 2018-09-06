@@ -10,7 +10,7 @@ import { AuthService } from "../services/auth.service";
 export class BasePage {
   public canGoBack: boolean;
   public askBeforeGoBack: boolean;
-  logEnabled = false;
+  logEnabled = true;
   protected TAG = "BasePage";
 
   constructor(

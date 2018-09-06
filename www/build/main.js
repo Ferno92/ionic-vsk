@@ -1,4 +1,4 @@
-webpackJsonp([8],{
+webpackJsonp([9],{
 
 /***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -182,39 +182,43 @@ webpackEmptyAsyncContext.id = 180;
 
 var map = {
 	"../pages/chat/chat.module": [
-		719,
-		5
+		718,
+		6
 	],
 	"../pages/create-match/create-match.module": [
-		720,
+		719,
 		1
 	],
 	"../pages/dashboard/dashboard.module": [
-		721,
-		7
+		720,
+		8
 	],
 	"../pages/formation/formation.module": [
-		722,
-		4
+		721,
+		2
 	],
 	"../pages/game-tabs/game-tabs.module": [
-		723,
-		3
+		722,
+		5
 	],
 	"../pages/live-match/live-match.module": [
-		724,
+		723,
 		0
 	],
 	"../pages/login/login.module": [
 		336
 	],
 	"../pages/search-live/search-live.module": [
+		724,
+		7
+	],
+	"../pages/search-team/search-team.module": [
 		725,
-		6
+		4
 	],
 	"../pages/transition/transition.module": [
 		726,
-		2
+		3
 	]
 };
 function webpackAsyncContext(req) {
@@ -241,7 +245,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(696);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -356,7 +360,28 @@ var GameWidgetComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 381:
+/***/ 380:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Guid; });
+var Guid = /** @class */ (function () {
+    function Guid() {
+    }
+    Guid.prototype.newGuid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    };
+    return Guid;
+}());
+
+//# sourceMappingURL=Guid.js.map
+
+/***/ }),
+
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -434,34 +459,13 @@ var GeoService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 382:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Guid; });
-var Guid = /** @class */ (function () {
-    function Guid() {
-    }
-    Guid.prototype.newGuid = function () {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    };
-    return Guid;
-}());
-
-//# sourceMappingURL=Guid.js.map
-
-/***/ }),
-
-/***/ 385:
+/***/ 384:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(389);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -469,7 +473,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 390:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -480,23 +484,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(378);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(714);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_dashboard_dashboard__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_search_live_search_live__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2__ = __webpack_require__(716);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2__ = __webpack_require__(715);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2_database__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_offline__ = __webpack_require__(717);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_offline__ = __webpack_require__(716);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login_module__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_auth__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_google_plus__ = __webpack_require__(337);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_auth_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__directives_hide_fab_hide_fab__ = __webpack_require__(718);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_geo_service__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__directives_hide_fab_hide_fab__ = __webpack_require__(717);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_geo_service__ = __webpack_require__(382);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_common_http__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_Guid__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_Guid__ = __webpack_require__(380);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_game_widget_game_widget__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_screen_orientation__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angular_shorturl__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_screen_orientation__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angular_shorturl__ = __webpack_require__(383);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angular_shorturl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_angular_shorturl__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http__ = __webpack_require__(335);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -562,11 +566,12 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'chat', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-match/create-match.module#CreateMatchPageModule', name: 'create-match', segment: 'create-match', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'dashboard', segment: 'dashboard', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/formation/formation.module#FormationPageModule', name: 'formation', segment: 'formation', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/formation/formation.module#FormationPageModule', name: 'formation', segment: 'formation/:id/:onEdit/:fromLive', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/game-tabs/game-tabs.module#GameTabsPageModule', name: 'game-tabs', segment: 'game-tabs/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-live/search-live.module#SearchLivePageModule', name: 'search-live', segment: 'search-live', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search-team/search-team.module#SearchTeamPageModule', name: 'search-team', segment: 'search-team', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transition/transition.module#TransitionPageModule', name: 'loading', segment: 'loading', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -675,7 +680,7 @@ var AuthService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 697:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -891,7 +896,7 @@ var BasePage = /** @class */ (function () {
         this.authService = authService;
         this.alertCtrl = alertCtrl;
         this.platform = platform;
-        this.logEnabled = false;
+        this.logEnabled = true;
         this.TAG = "BasePage";
     }
     BasePage.prototype.onUserChange = function (user) {
@@ -1000,7 +1005,7 @@ var BasePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 715:
+/***/ 714:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1093,6 +1098,10 @@ var MyApp = /** @class */ (function () {
         this.app.getActiveNav().push(__WEBPACK_IMPORTED_MODULE_7__pages_search_live_search_live__["a" /* SearchLivePage */]);
         this.subject.next("search-live");
     };
+    MyApp.prototype.goToSearchTeam = function () {
+        this.app.getActiveNav().push("search-team");
+        this.subject.next("search-team");
+    };
     MyApp.prototype.setCurrentPage = function (page) {
         console.log("set current page: " + page);
         this.subject.next(page);
@@ -1133,16 +1142,28 @@ var MyApp = /** @class */ (function () {
         else if (this.currentMenu == "dashboard-scroll") {
             this.scrollTop();
         }
+        else if (this.currentMenu == "search-team") {
+            this.goToFormation();
+        }
+        else if (this.currentMenu == "formation") {
+            this.createTeam();
+        }
     };
     MyApp.prototype.createMatch = function () {
         this.app.getActiveNav().push("create-match");
     };
+    MyApp.prototype.goToFormation = function () {
+        this.app.getActiveNav().push("formation", {
+            id: undefined,
+            onEdit: true,
+            fromLive: false
+        });
+    };
     MyApp.prototype.startMatch = function () {
         this.events.publish("create-match");
-        // this.app.getActiveNav().push("live-match", {
-        //   "teamA": "Squadra A",
-        //   "teamB": "Squadra B"
-        // });
+    };
+    MyApp.prototype.createTeam = function () {
+        this.events.publish("create-team");
     };
     MyApp.prototype.scrollTop = function () {
         document.getElementsByClassName("dashboard-container")[0].getElementsByClassName("scroll-content")[0].scrollTop = 0;
@@ -1182,6 +1203,16 @@ var MyApp = /** @class */ (function () {
             this.fabIcon = "add";
             this.hasFab = true;
         }
+        else if (type === "search-team") {
+            this.fabColor = "secondary";
+            this.fabIcon = "add";
+            this.hasFab = true;
+        }
+        else if (type === "formation") {
+            this.fabColor = "success";
+            this.fabIcon = "checkmark";
+            this.hasFab = true;
+        }
         else {
             //hide fab
             this.hasFab = false;
@@ -1189,7 +1220,7 @@ var MyApp = /** @class */ (function () {
         this.applicationRef.tick();
     };
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <!-- <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header> -->\n\n    <ion-content>\n\n        <div>\n\n            <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />\n\n            <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />\n\n            <div *ngIf="userLogged" class="float-left user-info">\n\n                <div class="bigger-text">Ciao</div>\n\n                <div>{{userName}}</div>\n\n            </div>\n\n        </div>\n\n        <div class="clear"></div>\n\n        <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>\n\n        <ion-list>\n\n            <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{\'menu-active\': currentMenu == \'dashboard\'}">\n\n                <ion-icon name="home"></ion-icon>\n\n                Homepage\n\n            </button>\n\n            <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{\'menu-active\': currentMenu == \'login\'}">\n\n                <ion-icon name="contact"></ion-icon>\n\n                Login\n\n            </button>\n\n            <button menuClose ion-item icon-left (click)="goToSearchLive()" [ngClass]="{\'menu-active\': currentMenu == \'search-live\'}">\n\n                <ion-icon name="flag"></ion-icon>\n\n                Partite in corso\n\n            </button>\n\n\n\n\n\n            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">\n\n                <ion-icon name="log-out"></ion-icon>\n\n                Esci\n\n            </button>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-menu>\n\n<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>\n\n<ion-fab class="fab-dashboard" bottom right (click)="fabOnClick()" *ngIf="hasFab">\n\n    <button ion-fab icon-only color="{{fabColor}}" class="fab-button">\n\n        <ion-icon name="{{fabIcon}}" class="fab-icon"></ion-icon>\n\n    </button>\n\n</ion-fab>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <!-- <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header> -->\n\n    <ion-content>\n\n        <div>\n\n            <img class="user-placeholder user-image" src="../assets/svg/account_circle.svg" *ngIf="!userLogged" />\n\n            <img class="user-image" src="{{userImage}}" *ngIf="userLogged" />\n\n            <div *ngIf="userLogged" class="float-left user-info">\n\n                <div class="bigger-text">Ciao</div>\n\n                <div>{{userName}}</div>\n\n            </div>\n\n        </div>\n\n        <div class="clear"></div>\n\n        <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>\n\n        <ion-list>\n\n            <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{\'menu-active\': currentMenu == \'dashboard\'}">\n\n                <ion-icon name="home"></ion-icon>\n\n                Homepage\n\n            </button>\n\n            <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{\'menu-active\': currentMenu == \'login\'}">\n\n                <ion-icon name="contact"></ion-icon>\n\n                Login\n\n            </button>\n\n            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="goToSearchTeam()" [ngClass]="{\'menu-active\': currentMenu == \'search-team\'}">\n\n                <ion-icon name="people"></ion-icon>\n\n                Le tue squadre\n\n            </button>\n\n            <button menuClose ion-item icon-left (click)="goToSearchLive()" [ngClass]="{\'menu-active\': currentMenu == \'search-live\'}">\n\n                <ion-icon name="flag"></ion-icon>\n\n                Partite in corso\n\n            </button>\n\n\n\n\n\n            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">\n\n                <ion-icon name="log-out"></ion-icon>\n\n                Esci\n\n            </button>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-menu>\n\n<ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>\n\n<ion-fab class="fab-dashboard" bottom right (click)="fabOnClick()" *ngIf="hasFab">\n\n    <button ion-fab icon-only color="{{fabColor}}" class="fab-button">\n\n        <ion-icon name="{{fabIcon}}" class="fab-icon"></ion-icon>\n\n    </button>\n\n</ion-fab>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
@@ -1207,7 +1238,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 718:
+/***/ 717:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1500,5 +1531,5 @@ var DashboardPage = /** @class */ (function (_super) {
 
 /***/ })
 
-},[385]);
+},[384]);
 //# sourceMappingURL=main.js.map

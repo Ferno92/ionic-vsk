@@ -90,6 +90,11 @@ export class MyApp {
     this.subject.next("search-live");
   }
 
+  goToSearchTeam(){
+    this.app.getActiveNav().push("search-team");
+    this.subject.next("search-team");
+  }
+
   setCurrentPage(page: String) {
     console.log("set current page: " + page);
     this.subject.next(page);
@@ -129,6 +134,10 @@ export class MyApp {
       this.startMatch();
     } else if (this.currentMenu == "dashboard-scroll") {
       this.scrollTop();
+    }else if (this.currentMenu == "search-team") {
+      this.goToFormation();
+    }else if (this.currentMenu == "formation") {
+      this.createTeam();
     }
   }
 
@@ -136,12 +145,20 @@ export class MyApp {
     this.app.getActiveNav().push("create-match");
   }
 
+  goToFormation(){
+    this.app.getActiveNav().push("formation", {
+      id: undefined,
+      onEdit: true,
+      fromLive: false
+    });
+  }
+
   startMatch() {
     this.events.publish("create-match");
-    // this.app.getActiveNav().push("live-match", {
-    //   "teamA": "Squadra A",
-    //   "teamB": "Squadra B"
-    // });
+  }
+
+  createTeam() {
+    this.events.publish("create-team");
   }
 
   scrollTop() {
@@ -181,6 +198,14 @@ export class MyApp {
     } else if (type === "enable-dashboard") {
       this.fabColor = "secondary";
       this.fabIcon = "add";
+      this.hasFab = true;
+    } else if (type === "search-team") {
+      this.fabColor = "secondary";
+      this.fabIcon = "add";
+      this.hasFab = true;
+    } else if (type === "formation") {
+      this.fabColor = "success";
+      this.fabIcon = "checkmark";
       this.hasFab = true;
     } else {
       //hide fab

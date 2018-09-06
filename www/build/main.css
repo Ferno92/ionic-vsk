@@ -28241,9 +28241,37 @@ page-formation .seconda-linea {
   position: relative;
 }
 
-page-formation .grid {
+page-formation .grid-court {
   position: absolute;
   top: 0;
+}
+
+page-formation .button-add-player {
+  padding-right: 10px !important;
+}
+
+page-formation .player-title {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+page-formation .player-card {
+  margin: 0;
+}
+
+page-formation .player-card .player-name {
+  height: 100%;
+  line-height: 37px;
+  margin-left: 10px;
+}
+
+page-formation .player-card .player-number {
+  border: 2px solid;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  padding-top: 4px;
 }
 
 page-game-tabs .landscape .scroll-content {
@@ -28405,4 +28433,49 @@ page-live-match .landscape .landscape-container .game-landscape-set-info {
 
 page-live-match .landscape .landscape-container .game-landscape-set-info .set-value {
   font-size: 18vw;
+}
+
+page-search-team .empty-teams {
+  height: 100%;
+}
+
+page-search-team .text_empty_teams {
+  text-align: center;
+  font-size: 16px;
+}
+
+page-search-team img {
+  width: 100%;
+}
+
+page-search-team .team-card .logo-container {
+  display: table;
+  height: 57px;
+}
+
+page-search-team .team-card .logo-container .cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+page-search-team .team-card .logo-container .cell .logo {
+  font-size: 30px;
+  margin-right: 15px;
+  border-radius: 50%;
+  border: solid 2px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+page-search-team .team-card .team-name {
+  font-size: 24px;
+}
+
+page-search-team .team-card .team-players {
+  font-size: 14px;
+}
+
+page-search-team .team-card .trophy-icon {
+  font-size: 30px;
 }

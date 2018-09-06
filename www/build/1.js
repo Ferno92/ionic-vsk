@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 720:
+/***/ 719:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateMatchPageModule", function() { return CreateMatchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_match__ = __webpack_require__(854);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_match__ = __webpack_require__(855);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16818,7 +16818,7 @@ webpackContext.id = 852;
 
 /***/ }),
 
-/***/ 854:
+/***/ 855:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16830,8 +16830,8 @@ webpackContext.id = 852;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(727);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_geo_service__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_Guid__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_geo_service__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_Guid__ = __webpack_require__(380);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -16931,13 +16931,14 @@ var CreateMatchPage = /** @class */ (function (_super) {
             });
             //reference to live game list
             this.live = this.afoDatabase.list("/live");
+            var self = this;
             this.live.subscribe(function (items) {
                 items.forEach(function (item) {
                     if (item.audienceId == _this.audienceId) {
-                        _this.logOnConsole(_this.TAG, "found live: " + item.$key);
+                        self.logOnConsole(_this.TAG, "found live: " + item.$key);
                     }
                     else {
-                        _this.logOnConsole(_this.TAG, "not found live");
+                        self.logOnConsole(_this.TAG, "not found live");
                     }
                 });
             });
@@ -17069,12 +17070,12 @@ var CreateMatchPage = /** @class */ (function (_super) {
     CreateMatchPage.prototype.retrievePlaces = function (placesObserver, pagesRef) {
         var _this = this;
         placesObserver.subscribe(function (data) {
-            _this.logOnConsole(_this.TAG, data.response.venues);
+            pagesRef.logOnConsole(_this.TAG, data.response.venues);
             data.response.venues.push({ id: 0, name: "Seleziona una voce.." });
             pagesRef.selectedPlace = "0";
             pagesRef.places = data.response.venues;
             // pagesRef.changeDetector.detectChanges();
-        }, function (err) { return console.error(err); }, function () { return _this.logOnConsole(_this.TAG, "done loading places"); });
+        }, function (err) { return console.error(err); }, function () { return pagesRef.logOnConsole(_this.TAG, "done loading places"); });
     };
     CreateMatchPage.prototype.onPlaceSelection = function (text) {
         this.logOnConsole(this.TAG, this.selectedPlace);

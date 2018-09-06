@@ -122,12 +122,13 @@ export class CreateMatchPage extends BasePage {
 
       //reference to live game list
       this.live = this.afoDatabase.list("/live");
+      var self = this;
       this.live.subscribe(items => {
         items.forEach(item => {
           if (item.audienceId == this.audienceId) {
-            this.logOnConsole(this.TAG, "found live: " + item.$key);
+            self.logOnConsole(this.TAG, "found live: " + item.$key);
           } else {
-            this.logOnConsole(this.TAG, "not found live");
+            self.logOnConsole(this.TAG, "not found live");
           }
         });
       });
@@ -277,14 +278,14 @@ export class CreateMatchPage extends BasePage {
   retrievePlaces(placesObserver: any, pagesRef: CreateMatchPage) {
     placesObserver.subscribe(
       data => {
-        this.logOnConsole(this.TAG, data.response.venues);
+        pagesRef.logOnConsole(this.TAG, data.response.venues);
         data.response.venues.push({ id: 0, name: "Seleziona una voce.." });
         pagesRef.selectedPlace = "0";
         pagesRef.places = data.response.venues;
         // pagesRef.changeDetector.detectChanges();
       },
       err => console.error(err),
-      () => this.logOnConsole(this.TAG, "done loading places")
+      () => pagesRef.logOnConsole(this.TAG, "done loading places")
     );
   }
 
