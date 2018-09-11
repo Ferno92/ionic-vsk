@@ -2,4 +2,7 @@ page-create-match {
   .gym-select {
     max-width: 100%;
   }
+  .input-list {
+    width: calc(100% - 60px);
+  }
 }

@@ -48,6 +48,9 @@ export class CreateMatchPage extends BasePage {
   liveMatchOn: boolean;
   liveMatch: any;
   places: any[] = [];
+  teams: any[] = [];
+  teamId: string;
+  teamHomeEnabled = true;
   selectedPlace: string;
 
   constructor(
@@ -132,6 +135,14 @@ export class CreateMatchPage extends BasePage {
           }
         });
       });
+
+      const teamsRef = this.afoDatabase.list("/users/" + this.authService.user.uid + "/teams");
+      teamsRef.subscribe(items => {
+        items.forEach(item =>{
+          self.teams.push(item);
+        });
+        console.log(self.teams);
+      })
     }
   }
 
@@ -231,7 +242,8 @@ export class CreateMatchPage extends BasePage {
             resultB: 0,
             date: date,
             location: location,
-            live: true
+            live: true,
+            homeTeamId: this.teamId
           });
 
           const liveRef = this.live.push({});
@@ -291,5 +303,49 @@ export class CreateMatchPage extends BasePage {
 
   onPlaceSelection(text: String) {
     this.logOnConsole(this.TAG, this.selectedPlace);
+  }
+
+  openTeamAlert(){
+    var list = [{
+      type: 'radio',
+      label: 'Inserisci nuova squadra',
+      value: 'new',
+      checked: true
+    }];
+    this.teams.forEach(item => {
+      var obj = {
+        type: 'radio',
+        label: item.name,
+        value: item.id,
+        checked: false
+      }
+      list.push(obj);
+    });
+    let prompt = this.alertCtrl.create({
+      title: "Scegli squadra",
+      message: "Scegli tra le squadre che hai salvato",
+      inputs: list
+    });
+    prompt.addButton('Cancel');
+    prompt.addButton({
+      text: 'Ok',
+      handler: (data: any) => {
+        console.log('Radio data:', data);
+        if(data == 'new'){
+          this.teamHomeEnabled = true;
+          this.teamA = '';
+          this.teamId = ''
+        }else{
+          this.teamHomeEnabled = false;
+          this.teams.forEach(team =>{
+            if(team.id == data){
+              this.teamA = team.name;
+            }
+          });
+          this.teamId = data;
+        }
+      }
+    });
+    prompt.present();
   }
 }

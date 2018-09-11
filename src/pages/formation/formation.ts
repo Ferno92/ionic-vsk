@@ -7,7 +7,8 @@ import {
   AlertController,
   Platform,
   Navbar,
-  Events
+  Events,
+  ModalController
 } from "ionic-angular";
 import { PlayerComponent } from "../../components/player/player";
 import { BasePage } from "../../common/BasePage";
@@ -46,15 +47,15 @@ export class FormationPage extends BasePage {
   pageTitle: string;
   teamKey: string;
   players: Array<any> = [];
-  firstLinePlayers: { number: number; name: string }[] = [
-    { number: 17, name: "Ferno" },
-    { number: 2, name: "Mariot" },
-    { number: 5, name: "Lalla" }
+  firstLinePlayers: {id: string, number: number; name: string }[] = [
+    { id: "", number: -1, name: "" },
+    { id: "", number: -1, name: "" },
+    { id: "", number: -1, name: "" }
   ];
-  secondLinePlayers: { number: number; name: string }[] = [
-    { number: 14, name: "Ste" },
-    { number: 4, name: "Marta" },
-    { number: 21, name: "Chiara" }
+  secondLinePlayers: { id: string, number: number; name: string }[] = [
+    { id: "", number: -1, name: "" },
+    { id: "", number: -1, name: "" },
+    { id: "", number: -1, name: "" }
   ];
 
   constructor(
@@ -65,10 +66,11 @@ export class FormationPage extends BasePage {
     public platform: Platform,
     public afoDatabase: AngularFireOfflineDatabase,
     public events: Events,
-    private guid: Guid
+    private guid: Guid,
+    public modalCtrl: ModalController
   ) {
     super(navCtrl, authService, alertCtrl, platform);
-    this.TAG = "SearchTeamPage";
+    this.TAG = "FormationPage";
     this.teamId = navParams.get("id");
     this.onEdit = navParams.get("onEdit");
     this.fromLive = navParams.get("fromLive");
@@ -97,7 +99,7 @@ export class FormationPage extends BasePage {
 
   onUserChange(user: any) {
     this.logOnConsole(this.TAG, "on user change" + user);
-    if (user != null && this.teamId != undefined) {
+    if (user != null && this.teamId != undefined && this.teamId != "undefined") {
       this.teamRef = this.afoDatabase.list(
         "/users/" + this.authService.user.uid + "/teams"
       );
@@ -117,9 +119,13 @@ export class FormationPage extends BasePage {
             self.players = teamsFound[0].players;
             self.team = teamsFound[0];
             self.teamKey = teamsFound[0].$key;
+            self.firstLinePlayers = teamsFound[0].firstLine;
+            self.secondLinePlayers = teamsFound[0].secondLine;
           }
         }
       });
+    }else{
+      this.team = {id: "", name: "Non possiedi le informazioni di questa squadra, creala nella sezione 'Le mie squadre'", players: [], win: -1};
     }
   }
 
@@ -164,7 +170,9 @@ export class FormationPage extends BasePage {
       id: this.teamId,
       name: this.team.name,
       players: this.players,
-      win: this.team.win == undefined ? 0 : this.team.win
+      win: this.team.win == undefined ? 0 : this.team.win,
+      firstLine: this.firstLinePlayers,
+      secondLine: this.secondLinePlayers
     };
     if (isNew) {
       teamRefAdded = this.teamRef.push({});
@@ -250,5 +258,59 @@ export class FormationPage extends BasePage {
       buttons: buttons
     });
     prompt.present();
+  }
+
+  changePlayer(player: any, zone: number) {
+    var playersAvailable = [];
+    this.players.forEach(element => {
+      var found = false;
+      this.firstLinePlayers.forEach(item1 =>{
+        if(item1.number == element.number){
+          found = true;
+        }
+      });
+      
+      this.secondLinePlayers.forEach(item2 =>{
+        if(item2.number == element.number){
+          found = true;
+        }
+      });
+      if(!found){
+        playersAvailable.push(element);
+      }
+      
+    });
+    const modal = this.modalCtrl.create("page-player-modal", {
+      selected: player,
+      list: playersAvailable,
+      zone: zone
+    });
+    modal.onDidDismiss(data => {
+      this.updateFormation(data);
+    });
+    modal.present();
+  }
+
+  updateFormation(data:any){
+    switch(data.zone){
+      case 1:
+      this.secondLinePlayers[2] = data.selected;
+      break;
+      case 2:
+      this.firstLinePlayers[2] = data.selected;
+      break;
+      case 3:
+      this.firstLinePlayers[1] = data.selected;
+      break;
+      case 4:
+      this.firstLinePlayers[0] = data.selected;
+      break;
+      case 5:
+      this.secondLinePlayers[0] = data.selected;
+      break;
+      case 6:
+      this.secondLinePlayers[1] = data.selected;
+      break;
+    }
   }
 }

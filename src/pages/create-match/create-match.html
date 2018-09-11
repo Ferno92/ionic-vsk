@@ -19,11 +19,11 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <ion-list class="input-list float-left">
 
     <ion-item>
       <ion-label fixed>Team A</ion-label>
-      <ion-input type="text" [(ngModel)]="teamA"></ion-input>
+      <ion-input type="text" [(ngModel)]="teamA" [disabled]="!teamHomeEnabled"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -32,6 +32,12 @@
     </ion-item>
 
   </ion-list>
+  <ion-buttons class="float-right" >
+    <button ion-button icon-only outline (tap)="openTeamAlert();">
+      <ion-icon name="list" item-end ></ion-icon>
+    </button>
+  </ion-buttons>
+  <div class="clear"></div>
   <div>Fornisci la posizione della tua palestra, per accedere a più funzionalità:</div>
   <ion-item>
     <ion-label>Punti d'interesse vicini</ion-label>

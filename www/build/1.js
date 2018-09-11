@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateMatchPageModule", function() { return CreateMatchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_match__ = __webpack_require__(855);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_match__ = __webpack_require__(856);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 727:
+/***/ 728:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var require;//! moment.js
@@ -1876,7 +1876,7 @@ var CreateMatchPageModule = /** @class */ (function () {
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(852)("./" + name);
+                __webpack_require__(853)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4548,17 +4548,17 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(851)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(852)(module)))
 
 /***/ }),
 
-/***/ 728:
+/***/ 729:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4630,13 +4630,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 729:
+/***/ 730:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4770,13 +4770,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 730:
+/***/ 731:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4834,13 +4834,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 731:
+/***/ 732:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -4898,13 +4898,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 732:
+/***/ 733:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5025,13 +5025,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 733:
+/***/ 734:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5089,13 +5089,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 734:
+/***/ 735:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5198,13 +5198,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 735:
+/***/ 736:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5262,13 +5262,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 736:
+/***/ 737:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5372,13 +5372,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 737:
+/***/ 738:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5509,13 +5509,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 738:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5604,13 +5604,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 739:
+/***/ 740:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5667,13 +5667,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 740:
+/***/ 741:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5791,13 +5791,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 741:
+/***/ 742:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -5915,13 +5915,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 742:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6028,13 +6028,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 743:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6184,13 +6184,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 744:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6277,13 +6277,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 745:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6461,13 +6461,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 746:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6529,13 +6529,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 747:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6614,13 +6614,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 748:
+/***/ 749:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6679,13 +6679,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 749:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6760,13 +6760,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 750:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6841,13 +6841,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -6922,13 +6922,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 752:
+/***/ 753:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7026,13 +7026,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 753:
+/***/ 754:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7131,13 +7131,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 754:
+/***/ 755:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7203,13 +7203,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7271,13 +7271,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 757:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7343,13 +7343,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 758:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7415,13 +7415,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 759:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7482,13 +7482,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 759:
+/***/ 760:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7554,13 +7554,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 760:
+/***/ 761:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7630,13 +7630,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 761:
+/***/ 762:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7727,13 +7727,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 762:
+/***/ 763:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7824,13 +7824,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 763:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7912,13 +7912,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 764:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -7997,13 +7997,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 765:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8068,13 +8068,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 766:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8179,13 +8179,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8293,13 +8293,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8358,13 +8358,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8446,13 +8446,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8525,13 +8525,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8608,13 +8608,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 772:
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8688,13 +8688,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 773:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8769,13 +8769,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 774:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8851,13 +8851,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 775:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -8979,13 +8979,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 776:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9108,13 +9108,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 777:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9210,13 +9210,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 778:
+/***/ 779:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9339,13 +9339,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 779:
+/***/ 780:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9498,13 +9498,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 780:
+/***/ 781:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9613,13 +9613,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 781:
+/***/ 782:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9713,13 +9713,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 782:
+/***/ 783:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9800,13 +9800,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 783:
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -9937,13 +9937,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 784:
+/***/ 785:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10011,13 +10011,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 785:
+/***/ 786:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10108,13 +10108,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 786:
+/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10195,13 +10195,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10289,13 +10289,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 788:
+/***/ 789:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10381,13 +10381,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 789:
+/***/ 790:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10496,13 +10496,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 790:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10627,13 +10627,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 791:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10713,13 +10713,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 792:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10805,13 +10805,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 793:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -10946,13 +10946,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 794:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11021,13 +11021,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 795:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11144,13 +11144,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 796:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11246,13 +11246,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 797:
+/***/ 798:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11363,13 +11363,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 798:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11432,13 +11432,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 799:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11527,13 +11527,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 800:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11613,13 +11613,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 801:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11722,13 +11722,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 802:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11887,13 +11887,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 803:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -11974,13 +11974,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 804:
+/***/ 805:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12061,13 +12061,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 805:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12126,13 +12126,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 806:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12224,13 +12224,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 807:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12291,13 +12291,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 808:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12419,13 +12419,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 809:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12511,13 +12511,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 810:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12603,13 +12603,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 811:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12668,13 +12668,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 812:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12797,13 +12797,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 813:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12928,13 +12928,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 814:
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -12998,13 +12998,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 815:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13064,13 +13064,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 816:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13144,13 +13144,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 817:
+/***/ 818:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13331,13 +13331,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 818:
+/***/ 819:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13434,13 +13434,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 819:
+/***/ 820:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13499,13 +13499,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 820:
+/***/ 821:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13575,13 +13575,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 821:
+/***/ 822:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13736,13 +13736,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 822:
+/***/ 823:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13914,13 +13914,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 823:
+/***/ 824:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -13987,13 +13987,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 824:
+/***/ 825:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14103,13 +14103,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 825:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14219,13 +14219,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 826:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14312,13 +14312,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 827:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14386,13 +14386,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 828:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14450,13 +14450,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 829:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14584,13 +14584,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 830:
+/***/ 831:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14678,13 +14678,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 831:
+/***/ 832:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14750,13 +14750,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 832:
+/***/ 833:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14871,13 +14871,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 833:
+/***/ 834:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -14943,13 +14943,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 834:
+/***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15010,13 +15010,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 835:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15137,12 +15137,12 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 836:
+/***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15236,13 +15236,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 837:
+/***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15332,13 +15332,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 838:
+/***/ 839:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15395,13 +15395,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 839:
+/***/ 840:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15458,13 +15458,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 840:
+/***/ 841:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15582,13 +15582,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 841:
+/***/ 842:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15738,13 +15738,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 842:
+/***/ 843:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15841,13 +15841,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 843:
+/***/ 844:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15904,13 +15904,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 844:
+/***/ 845:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15967,13 +15967,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 845:
+/***/ 846:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16051,13 +16051,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 846:
+/***/ 847:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16124,13 +16124,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 847:
+/***/ 848:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16189,13 +16189,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 848:
+/***/ 849:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16304,13 +16304,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 849:
+/***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16412,13 +16412,13 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 850:
+/***/ 851:
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
 
 ;(function (global, factory) {
-    true ? factory(__webpack_require__(727)) :
+    true ? factory(__webpack_require__(728)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16520,7 +16520,7 @@ var CreateMatchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 851:
+/***/ 852:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -16549,256 +16549,256 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 852:
+/***/ 853:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 728,
-	"./af.js": 728,
-	"./ar": 729,
-	"./ar-dz": 730,
-	"./ar-dz.js": 730,
-	"./ar-kw": 731,
-	"./ar-kw.js": 731,
-	"./ar-ly": 732,
-	"./ar-ly.js": 732,
-	"./ar-ma": 733,
-	"./ar-ma.js": 733,
-	"./ar-sa": 734,
-	"./ar-sa.js": 734,
-	"./ar-tn": 735,
-	"./ar-tn.js": 735,
-	"./ar.js": 729,
-	"./az": 736,
-	"./az.js": 736,
-	"./be": 737,
-	"./be.js": 737,
-	"./bg": 738,
-	"./bg.js": 738,
-	"./bm": 739,
-	"./bm.js": 739,
-	"./bn": 740,
-	"./bn.js": 740,
-	"./bo": 741,
-	"./bo.js": 741,
-	"./br": 742,
-	"./br.js": 742,
-	"./bs": 743,
-	"./bs.js": 743,
-	"./ca": 744,
-	"./ca.js": 744,
-	"./cs": 745,
-	"./cs.js": 745,
-	"./cv": 746,
-	"./cv.js": 746,
-	"./cy": 747,
-	"./cy.js": 747,
-	"./da": 748,
-	"./da.js": 748,
-	"./de": 749,
-	"./de-at": 750,
-	"./de-at.js": 750,
-	"./de-ch": 751,
-	"./de-ch.js": 751,
-	"./de.js": 749,
-	"./dv": 752,
-	"./dv.js": 752,
-	"./el": 753,
-	"./el.js": 753,
-	"./en-au": 754,
-	"./en-au.js": 754,
-	"./en-ca": 755,
-	"./en-ca.js": 755,
-	"./en-gb": 756,
-	"./en-gb.js": 756,
-	"./en-ie": 757,
-	"./en-ie.js": 757,
-	"./en-il": 758,
-	"./en-il.js": 758,
-	"./en-nz": 759,
-	"./en-nz.js": 759,
-	"./eo": 760,
-	"./eo.js": 760,
-	"./es": 761,
-	"./es-do": 762,
-	"./es-do.js": 762,
-	"./es-us": 763,
-	"./es-us.js": 763,
-	"./es.js": 761,
-	"./et": 764,
-	"./et.js": 764,
-	"./eu": 765,
-	"./eu.js": 765,
-	"./fa": 766,
-	"./fa.js": 766,
-	"./fi": 767,
-	"./fi.js": 767,
-	"./fo": 768,
-	"./fo.js": 768,
-	"./fr": 769,
-	"./fr-ca": 770,
-	"./fr-ca.js": 770,
-	"./fr-ch": 771,
-	"./fr-ch.js": 771,
-	"./fr.js": 769,
-	"./fy": 772,
-	"./fy.js": 772,
-	"./gd": 773,
-	"./gd.js": 773,
-	"./gl": 774,
-	"./gl.js": 774,
-	"./gom-latn": 775,
-	"./gom-latn.js": 775,
-	"./gu": 776,
-	"./gu.js": 776,
-	"./he": 777,
-	"./he.js": 777,
-	"./hi": 778,
-	"./hi.js": 778,
-	"./hr": 779,
-	"./hr.js": 779,
-	"./hu": 780,
-	"./hu.js": 780,
-	"./hy-am": 781,
-	"./hy-am.js": 781,
-	"./id": 782,
-	"./id.js": 782,
-	"./is": 783,
-	"./is.js": 783,
-	"./it": 784,
-	"./it.js": 784,
-	"./ja": 785,
-	"./ja.js": 785,
-	"./jv": 786,
-	"./jv.js": 786,
-	"./ka": 787,
-	"./ka.js": 787,
-	"./kk": 788,
-	"./kk.js": 788,
-	"./km": 789,
-	"./km.js": 789,
-	"./kn": 790,
-	"./kn.js": 790,
-	"./ko": 791,
-	"./ko.js": 791,
-	"./ky": 792,
-	"./ky.js": 792,
-	"./lb": 793,
-	"./lb.js": 793,
-	"./lo": 794,
-	"./lo.js": 794,
-	"./lt": 795,
-	"./lt.js": 795,
-	"./lv": 796,
-	"./lv.js": 796,
-	"./me": 797,
-	"./me.js": 797,
-	"./mi": 798,
-	"./mi.js": 798,
-	"./mk": 799,
-	"./mk.js": 799,
-	"./ml": 800,
-	"./ml.js": 800,
-	"./mn": 801,
-	"./mn.js": 801,
-	"./mr": 802,
-	"./mr.js": 802,
-	"./ms": 803,
-	"./ms-my": 804,
-	"./ms-my.js": 804,
-	"./ms.js": 803,
-	"./mt": 805,
-	"./mt.js": 805,
-	"./my": 806,
-	"./my.js": 806,
-	"./nb": 807,
-	"./nb.js": 807,
-	"./ne": 808,
-	"./ne.js": 808,
-	"./nl": 809,
-	"./nl-be": 810,
-	"./nl-be.js": 810,
-	"./nl.js": 809,
-	"./nn": 811,
-	"./nn.js": 811,
-	"./pa-in": 812,
-	"./pa-in.js": 812,
-	"./pl": 813,
-	"./pl.js": 813,
-	"./pt": 814,
-	"./pt-br": 815,
-	"./pt-br.js": 815,
-	"./pt.js": 814,
-	"./ro": 816,
-	"./ro.js": 816,
-	"./ru": 817,
-	"./ru.js": 817,
-	"./sd": 818,
-	"./sd.js": 818,
-	"./se": 819,
-	"./se.js": 819,
-	"./si": 820,
-	"./si.js": 820,
-	"./sk": 821,
-	"./sk.js": 821,
-	"./sl": 822,
-	"./sl.js": 822,
-	"./sq": 823,
-	"./sq.js": 823,
-	"./sr": 824,
-	"./sr-cyrl": 825,
-	"./sr-cyrl.js": 825,
-	"./sr.js": 824,
-	"./ss": 826,
-	"./ss.js": 826,
-	"./sv": 827,
-	"./sv.js": 827,
-	"./sw": 828,
-	"./sw.js": 828,
-	"./ta": 829,
-	"./ta.js": 829,
-	"./te": 830,
-	"./te.js": 830,
-	"./tet": 831,
-	"./tet.js": 831,
-	"./tg": 832,
-	"./tg.js": 832,
-	"./th": 833,
-	"./th.js": 833,
-	"./tl-ph": 834,
-	"./tl-ph.js": 834,
-	"./tlh": 835,
-	"./tlh.js": 835,
-	"./tr": 836,
-	"./tr.js": 836,
-	"./tzl": 837,
-	"./tzl.js": 837,
-	"./tzm": 838,
-	"./tzm-latn": 839,
-	"./tzm-latn.js": 839,
-	"./tzm.js": 838,
-	"./ug-cn": 840,
-	"./ug-cn.js": 840,
-	"./uk": 841,
-	"./uk.js": 841,
-	"./ur": 842,
-	"./ur.js": 842,
-	"./uz": 843,
-	"./uz-latn": 844,
-	"./uz-latn.js": 844,
-	"./uz.js": 843,
-	"./vi": 845,
-	"./vi.js": 845,
-	"./x-pseudo": 846,
-	"./x-pseudo.js": 846,
-	"./yo": 847,
-	"./yo.js": 847,
-	"./zh-cn": 848,
-	"./zh-cn.js": 848,
-	"./zh-hk": 849,
-	"./zh-hk.js": 849,
-	"./zh-tw": 850,
-	"./zh-tw.js": 850
+	"./af": 729,
+	"./af.js": 729,
+	"./ar": 730,
+	"./ar-dz": 731,
+	"./ar-dz.js": 731,
+	"./ar-kw": 732,
+	"./ar-kw.js": 732,
+	"./ar-ly": 733,
+	"./ar-ly.js": 733,
+	"./ar-ma": 734,
+	"./ar-ma.js": 734,
+	"./ar-sa": 735,
+	"./ar-sa.js": 735,
+	"./ar-tn": 736,
+	"./ar-tn.js": 736,
+	"./ar.js": 730,
+	"./az": 737,
+	"./az.js": 737,
+	"./be": 738,
+	"./be.js": 738,
+	"./bg": 739,
+	"./bg.js": 739,
+	"./bm": 740,
+	"./bm.js": 740,
+	"./bn": 741,
+	"./bn.js": 741,
+	"./bo": 742,
+	"./bo.js": 742,
+	"./br": 743,
+	"./br.js": 743,
+	"./bs": 744,
+	"./bs.js": 744,
+	"./ca": 745,
+	"./ca.js": 745,
+	"./cs": 746,
+	"./cs.js": 746,
+	"./cv": 747,
+	"./cv.js": 747,
+	"./cy": 748,
+	"./cy.js": 748,
+	"./da": 749,
+	"./da.js": 749,
+	"./de": 750,
+	"./de-at": 751,
+	"./de-at.js": 751,
+	"./de-ch": 752,
+	"./de-ch.js": 752,
+	"./de.js": 750,
+	"./dv": 753,
+	"./dv.js": 753,
+	"./el": 754,
+	"./el.js": 754,
+	"./en-au": 755,
+	"./en-au.js": 755,
+	"./en-ca": 756,
+	"./en-ca.js": 756,
+	"./en-gb": 757,
+	"./en-gb.js": 757,
+	"./en-ie": 758,
+	"./en-ie.js": 758,
+	"./en-il": 759,
+	"./en-il.js": 759,
+	"./en-nz": 760,
+	"./en-nz.js": 760,
+	"./eo": 761,
+	"./eo.js": 761,
+	"./es": 762,
+	"./es-do": 763,
+	"./es-do.js": 763,
+	"./es-us": 764,
+	"./es-us.js": 764,
+	"./es.js": 762,
+	"./et": 765,
+	"./et.js": 765,
+	"./eu": 766,
+	"./eu.js": 766,
+	"./fa": 767,
+	"./fa.js": 767,
+	"./fi": 768,
+	"./fi.js": 768,
+	"./fo": 769,
+	"./fo.js": 769,
+	"./fr": 770,
+	"./fr-ca": 771,
+	"./fr-ca.js": 771,
+	"./fr-ch": 772,
+	"./fr-ch.js": 772,
+	"./fr.js": 770,
+	"./fy": 773,
+	"./fy.js": 773,
+	"./gd": 774,
+	"./gd.js": 774,
+	"./gl": 775,
+	"./gl.js": 775,
+	"./gom-latn": 776,
+	"./gom-latn.js": 776,
+	"./gu": 777,
+	"./gu.js": 777,
+	"./he": 778,
+	"./he.js": 778,
+	"./hi": 779,
+	"./hi.js": 779,
+	"./hr": 780,
+	"./hr.js": 780,
+	"./hu": 781,
+	"./hu.js": 781,
+	"./hy-am": 782,
+	"./hy-am.js": 782,
+	"./id": 783,
+	"./id.js": 783,
+	"./is": 784,
+	"./is.js": 784,
+	"./it": 785,
+	"./it.js": 785,
+	"./ja": 786,
+	"./ja.js": 786,
+	"./jv": 787,
+	"./jv.js": 787,
+	"./ka": 788,
+	"./ka.js": 788,
+	"./kk": 789,
+	"./kk.js": 789,
+	"./km": 790,
+	"./km.js": 790,
+	"./kn": 791,
+	"./kn.js": 791,
+	"./ko": 792,
+	"./ko.js": 792,
+	"./ky": 793,
+	"./ky.js": 793,
+	"./lb": 794,
+	"./lb.js": 794,
+	"./lo": 795,
+	"./lo.js": 795,
+	"./lt": 796,
+	"./lt.js": 796,
+	"./lv": 797,
+	"./lv.js": 797,
+	"./me": 798,
+	"./me.js": 798,
+	"./mi": 799,
+	"./mi.js": 799,
+	"./mk": 800,
+	"./mk.js": 800,
+	"./ml": 801,
+	"./ml.js": 801,
+	"./mn": 802,
+	"./mn.js": 802,
+	"./mr": 803,
+	"./mr.js": 803,
+	"./ms": 804,
+	"./ms-my": 805,
+	"./ms-my.js": 805,
+	"./ms.js": 804,
+	"./mt": 806,
+	"./mt.js": 806,
+	"./my": 807,
+	"./my.js": 807,
+	"./nb": 808,
+	"./nb.js": 808,
+	"./ne": 809,
+	"./ne.js": 809,
+	"./nl": 810,
+	"./nl-be": 811,
+	"./nl-be.js": 811,
+	"./nl.js": 810,
+	"./nn": 812,
+	"./nn.js": 812,
+	"./pa-in": 813,
+	"./pa-in.js": 813,
+	"./pl": 814,
+	"./pl.js": 814,
+	"./pt": 815,
+	"./pt-br": 816,
+	"./pt-br.js": 816,
+	"./pt.js": 815,
+	"./ro": 817,
+	"./ro.js": 817,
+	"./ru": 818,
+	"./ru.js": 818,
+	"./sd": 819,
+	"./sd.js": 819,
+	"./se": 820,
+	"./se.js": 820,
+	"./si": 821,
+	"./si.js": 821,
+	"./sk": 822,
+	"./sk.js": 822,
+	"./sl": 823,
+	"./sl.js": 823,
+	"./sq": 824,
+	"./sq.js": 824,
+	"./sr": 825,
+	"./sr-cyrl": 826,
+	"./sr-cyrl.js": 826,
+	"./sr.js": 825,
+	"./ss": 827,
+	"./ss.js": 827,
+	"./sv": 828,
+	"./sv.js": 828,
+	"./sw": 829,
+	"./sw.js": 829,
+	"./ta": 830,
+	"./ta.js": 830,
+	"./te": 831,
+	"./te.js": 831,
+	"./tet": 832,
+	"./tet.js": 832,
+	"./tg": 833,
+	"./tg.js": 833,
+	"./th": 834,
+	"./th.js": 834,
+	"./tl-ph": 835,
+	"./tl-ph.js": 835,
+	"./tlh": 836,
+	"./tlh.js": 836,
+	"./tr": 837,
+	"./tr.js": 837,
+	"./tzl": 838,
+	"./tzl.js": 838,
+	"./tzm": 839,
+	"./tzm-latn": 840,
+	"./tzm-latn.js": 840,
+	"./tzm.js": 839,
+	"./ug-cn": 841,
+	"./ug-cn.js": 841,
+	"./uk": 842,
+	"./uk.js": 842,
+	"./ur": 843,
+	"./ur.js": 843,
+	"./uz": 844,
+	"./uz-latn": 845,
+	"./uz-latn.js": 845,
+	"./uz.js": 844,
+	"./vi": 846,
+	"./vi.js": 846,
+	"./x-pseudo": 847,
+	"./x-pseudo.js": 847,
+	"./yo": 848,
+	"./yo.js": 848,
+	"./zh-cn": 849,
+	"./zh-cn.js": 849,
+	"./zh-hk": 850,
+	"./zh-hk.js": 850,
+	"./zh-tw": 851,
+	"./zh-tw.js": 851
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -16814,11 +16814,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 852;
+webpackContext.id = 853;
 
 /***/ }),
 
-/***/ 855:
+/***/ 856:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16828,7 +16828,7 @@ webpackContext.id = 852;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_BasePage__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(728);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_geo_service__ = __webpack_require__(382);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_Guid__ = __webpack_require__(380);
@@ -16881,6 +16881,8 @@ var CreateMatchPage = /** @class */ (function (_super) {
         _this.changeDetector = changeDetector;
         _this.guid = guid;
         _this.places = [];
+        _this.teams = [];
+        _this.teamHomeEnabled = true;
         _this.TAG = "CreateMatchPage";
         events.subscribe("create-match", function (page) {
             _this.createMatch();
@@ -16941,6 +16943,13 @@ var CreateMatchPage = /** @class */ (function (_super) {
                         self.logOnConsole(_this.TAG, "not found live");
                     }
                 });
+            });
+            var teamsRef = this.afoDatabase.list("/users/" + this.authService.user.uid + "/teams");
+            teamsRef.subscribe(function (items) {
+                items.forEach(function (item) {
+                    self.teams.push(item);
+                });
+                console.log(self.teams);
             });
         }
     };
@@ -17033,7 +17042,8 @@ var CreateMatchPage = /** @class */ (function (_super) {
                         resultB: 0,
                         date: date,
                         location: location,
-                        live: true
+                        live: true,
+                        homeTeamId: this.teamId
                     });
                     var liveRef = this.live.push({});
                     var livePromise = liveRef.set({
@@ -17080,26 +17090,63 @@ var CreateMatchPage = /** @class */ (function (_super) {
     CreateMatchPage.prototype.onPlaceSelection = function (text) {
         this.logOnConsole(this.TAG, this.selectedPlace);
     };
+    CreateMatchPage.prototype.openTeamAlert = function () {
+        var _this = this;
+        var list = [{
+                type: 'radio',
+                label: 'Inserisci nuova squadra',
+                value: 'new',
+                checked: true
+            }];
+        this.teams.forEach(function (item) {
+            var obj = {
+                type: 'radio',
+                label: item.name,
+                value: item.id,
+                checked: false
+            };
+            list.push(obj);
+        });
+        var prompt = this.alertCtrl.create({
+            title: "Scegli squadra",
+            message: "Scegli tra le squadre che hai salvato",
+            inputs: list
+        });
+        prompt.addButton('Cancel');
+        prompt.addButton({
+            text: 'Ok',
+            handler: function (data) {
+                console.log('Radio data:', data);
+                if (data == 'new') {
+                    _this.teamHomeEnabled = true;
+                    _this.teamA = '';
+                    _this.teamId = '';
+                }
+                else {
+                    _this.teamHomeEnabled = false;
+                    _this.teams.forEach(function (team) {
+                        if (team.id == data) {
+                            _this.teamA = team.name;
+                        }
+                    });
+                    _this.teamId = data;
+                }
+            }
+        });
+        prompt.present();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("navbar"),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Navbar */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */]) === "function" && _a || Object)
     ], CreateMatchPage.prototype, "navBar", void 0);
     CreateMatchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-create-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\create-match\create-match.html"*/'<!--\n  Generated template for the CreateMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="secondary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Crea Partita</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n\n    <ion-item>\n      <ion-label fixed>Team A</ion-label>\n      <ion-input type="text" [(ngModel)]="teamA"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label fixed>Team B</ion-label>\n      <ion-input type="text" [(ngModel)]="teamB"></ion-input>\n    </ion-item>\n\n  </ion-list>\n  <div>Fornisci la posizione della tua palestra, per accedere a più funzionalità:</div>\n  <ion-item>\n    <ion-label>Punti d\'interesse vicini</ion-label>\n    <ion-select [(ngModel)]="selectedPlace" (ionChange)="onPlaceSelection(place)" class="gym-select">\n      <ion-option *ngFor="let place of places; let i = index" value="{{place.id}}">{{place.name}}</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <!-- <ion-fab class="fab-dashboard" bottom right>\n    <button ion-fab icon-only color="success">\n      <ion-icon md="md-checkmark"></ion-icon>\n    </button>\n  </ion-fab> -->\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\create-match\create-match.html"*/
+            selector: "page-create-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\create-match\create-match.html"*/'<!--\n  Generated template for the CreateMatchPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="secondary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Crea Partita</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list class="input-list float-left">\n\n    <ion-item>\n      <ion-label fixed>Team A</ion-label>\n      <ion-input type="text" [(ngModel)]="teamA" [disabled]="!teamHomeEnabled"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label fixed>Team B</ion-label>\n      <ion-input type="text" [(ngModel)]="teamB"></ion-input>\n    </ion-item>\n\n  </ion-list>\n  <ion-buttons class="float-right" >\n    <button ion-button icon-only outline (tap)="openTeamAlert();">\n      <ion-icon name="list" item-end ></ion-icon>\n    </button>\n  </ion-buttons>\n  <div class="clear"></div>\n  <div>Fornisci la posizione della tua palestra, per accedere a più funzionalità:</div>\n  <ion-item>\n    <ion-label>Punti d\'interesse vicini</ion-label>\n    <ion-select [(ngModel)]="selectedPlace" (ionChange)="onPlaceSelection(place)" class="gym-select">\n      <ion-option *ngFor="let place of places; let i = index" value="{{place.id}}">{{place.name}}</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <!-- <ion-fab class="fab-dashboard" bottom right>\n    <button ion-fab icon-only color="success">\n      <ion-icon md="md-checkmark"></ion-icon>\n    </button>\n  </ion-fab> -->\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\create-match\create-match.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
-            __WEBPACK_IMPORTED_MODULE_6__services_geo_service__["a" /* GeoService */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"],
-            __WEBPACK_IMPORTED_MODULE_7__common_Guid__["a" /* Guid */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__services_geo_service__["a" /* GeoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_geo_service__["a" /* GeoService */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_7__common_Guid__["a" /* Guid */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__common_Guid__["a" /* Guid */]) === "function" && _l || Object])
     ], CreateMatchPage);
     return CreateMatchPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=create-match.js.map

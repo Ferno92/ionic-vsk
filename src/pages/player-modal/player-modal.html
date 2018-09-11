@@ -1,0 +1,54 @@
+<!--
+  Generated template for the PlayerModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title center>Giocatore in zona {{zone}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="selected-number"  [ngClass]="{'unknown': selected.number <= 0}">{{selected.number <= 0 ? '?' : selected.number}}</div>
+  <div class="selected-name"  [ngClass]="{'unknown': selected.number <= 0}">{{selected.number <= 0 ? 'Nome giocatore' : selected.name}}</div>
+
+  <div *ngIf="list.length > 0">
+    <div>{{selected.number <= 0 ? 'Scegli chi gioca in questa zona:' : 'Sostituisci con:'}}</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of list; let i = index;">
+          <ion-card class="animated bounceIn player-card"[style.animation-delay]=" i/10 + 's'" (tap)="substitute(player)">
+            <ion-card-content class="card-content">
+                <div class="player-number float-left">{{ player.number}}</div>
+                <div class="player-name float-left">{{player.name}}</div>
+              
+                <div class="clear"></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="list.length <= 0 && selected.number > 0">
+    <ion-buttons center>
+      <button ion-button (click)="remove()" icon-start outline color="danger">
+        Rimuovi
+      </button>
+    </ion-buttons>
+  </div>
+  <div *ngIf="list.length <= 0 && selected.number <= 0">
+    Aggiungi altri giocatori alla tua lista per poterli inserire in questa zona
+  </div>
+  
+</ion-content>

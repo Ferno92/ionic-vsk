@@ -1,0 +1,40 @@
+page-player-modal {
+  ion-title {
+    text-align: center;
+  }
+  .selected-number {
+    font-size: 50px;
+    text-align: center;
+  }
+  .selected-name {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .player-card {
+    margin: 0;
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    .player-name {
+      height: 100%;
+      line-height: 37px;
+
+      margin-left: 10px;
+    }
+
+    .player-number {
+      border: 2px solid;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      text-align: center;
+      padding-top: 4px;
+    }
+  }
+
+  .unknown{
+    opacity: 0.5;
+  }
+}

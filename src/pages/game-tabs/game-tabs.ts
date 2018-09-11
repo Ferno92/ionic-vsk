@@ -148,6 +148,7 @@ export class GameTabsPage extends BasePage {
           if (item.live && !isAudience) {
             this.askBeforeGoBack = true;
           }
+          this.formationParams.id = item.homeTeamId;
         }
       });
       if (!found) {
@@ -232,7 +233,7 @@ export class GameTabsPage extends BasePage {
       newVariable
         .share({
           title: "title",
-          text: "description",
+          text: "Segui la partita in diretta: ",
           url: this.shortenedUrl
         })
         .then(() => console.log("Successful share"))

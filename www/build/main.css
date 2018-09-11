@@ -28197,8 +28197,16 @@ player .name {
   margin-top: 10px;
 }
 
+player .unknown {
+  opacity: 0.5;
+}
+
 page-create-match .gym-select {
   max-width: 100%;
+}
+
+page-create-match .input-list {
+  width: calc(100% - 60px);
 }
 
 page-dashboard .dashboard-container .empty-dashboard {
@@ -28220,6 +28228,12 @@ page-dashboard .update-button .button-inner {
 
 page-dashboard .update-button .button-inner .icon {
   margin-bottom: 5px;
+}
+
+page-formation .team-name-read-only {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 page-formation .prima-linea {
@@ -28257,6 +28271,11 @@ page-formation .player-title {
 
 page-formation .player-card {
   margin: 0;
+}
+
+page-formation .player-card:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 page-formation .player-card .player-name {
@@ -28433,6 +28452,49 @@ page-live-match .landscape .landscape-container .game-landscape-set-info {
 
 page-live-match .landscape .landscape-container .game-landscape-set-info .set-value {
   font-size: 18vw;
+}
+
+page-player-modal ion-title {
+  text-align: center;
+}
+
+page-player-modal .selected-number {
+  font-size: 50px;
+  text-align: center;
+}
+
+page-player-modal .selected-name {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+page-player-modal .player-card {
+  margin: 0;
+}
+
+page-player-modal .player-card:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+page-player-modal .player-card .player-name {
+  height: 100%;
+  line-height: 37px;
+  margin-left: 10px;
+}
+
+page-player-modal .player-card .player-number {
+  border: 2px solid;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+page-player-modal .unknown {
+  opacity: 0.5;
 }
 
 page-search-team .empty-teams {

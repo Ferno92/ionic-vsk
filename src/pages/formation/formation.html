@@ -26,13 +26,13 @@
       <ion-input type="text" [(ngModel)]="team.name"></ion-input>
     </ion-item>
   </ion-list>
-  <div *ngIf="!onEdit">{{team?.name}}</div>
+  <div *ngIf="!onEdit" class="team-name-read-only">{{team?.name}}</div>
 
   <div class="prima-linea">
     <ion-grid class="full-height grid-court">
       <ion-row justify-content-center align-items-center class="full-height">
-        <ion-col col-4 *ngFor="let player of firstLinePlayers">
-          <player [name]="player?.name" [number]="player?.number"></player>
+        <ion-col col-4 *ngFor="let player of firstLinePlayers; let i = index">
+          <player [name]="player?.name" [number]="player?.number" (tap)="onEdit? changePlayer(player, (4 - i)) : ''"></player>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -41,7 +41,7 @@
     <ion-grid class="full-height grid-court">
       <ion-row justify-content-center align-items-center class="full-height">
         <ion-col col-4 *ngFor="let player of secondLinePlayers">
-          <player [name]="player?.name" [number]="player?.number"></player>
+          <player [name]="player?.name" [number]="player?.number" (tap)="onEdit ? changePlayer(player, (i < 2 ? (i + 5) : 1)) : ''"></player>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -52,7 +52,7 @@
   <ion-grid>
     <ion-row>
       <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">
-          <ion-card class="animated bounceIn player-card"[style.animation-delay]=" i/10 + 's'" (tap)="modifyPlayer(player)">
+          <ion-card class="animated bounceIn player-card"[style.animation-delay]=" i/10 + 's'" (tap)="onEdit? modifyPlayer(player) : ''">
             <ion-card-content class="card-content">
                 <div class="player-number float-left">{{ player.number}}</div>
                 <div class="player-name float-left">{{player.name}}</div>

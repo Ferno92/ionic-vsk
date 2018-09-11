@@ -292,7 +292,7 @@ export class LiveMatchPage extends BasePage {
           "scrollable-content"
         )[0] as HTMLDivElement;
         // console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
-        if (!self.isLandscape) {
+        if (!self.isLandscape && scrollableContent != undefined) {
           scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
         }
       }, 500);
@@ -334,7 +334,7 @@ export class LiveMatchPage extends BasePage {
       "scrollable-content"
     )[0] as HTMLDivElement;
     this.logOnConsole(this.TAG, scrollableContent + " - " + scrollableContent.offsetHeight);
-    if (!this.isLandscape) {
+    if (!this.isLandscape && scrollableContent != undefined) {
       scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
     }
   }
