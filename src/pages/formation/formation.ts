@@ -8,7 +8,8 @@ import {
   Platform,
   Navbar,
   Events,
-  ModalController
+  ModalController,
+  FabContainer
 } from "ionic-angular";
 import { PlayerComponent } from "../../components/player/player";
 import { BasePage } from "../../common/BasePage";
@@ -42,11 +43,12 @@ export class FormationPage extends BasePage {
   teamRef: AfoListObservable<any[]>;
   team = { id: "", name: "", players: [], win: -1 };
   teamId: string;
-  onEdit: boolean;
+  onEdit = false;
   fromLive: boolean;
   pageTitle: string;
   teamKey: string;
   players: Array<any> = [];
+  flip = false;
   firstLinePlayers: {id: string, number: number; name: string }[] = [
     { id: "", number: -1, name: "" },
     { id: "", number: -1, name: "" },
@@ -72,8 +74,8 @@ export class FormationPage extends BasePage {
     super(navCtrl, authService, alertCtrl, platform);
     this.TAG = "FormationPage";
     this.teamId = navParams.get("id");
-    this.onEdit = navParams.get("onEdit");
-    this.fromLive = navParams.get("fromLive");
+    this.onEdit = navParams.get("onEdit") == "true" || navParams.get("onEdit") == true;
+    this.fromLive = navParams.get("fromLive") == "true" || navParams.get("fromLive") == true;
     this.pageTitle = "Formazione";
     this.logOnConsole(
       this.TAG,
@@ -98,7 +100,7 @@ export class FormationPage extends BasePage {
   }
 
   onUserChange(user: any) {
-    this.logOnConsole(this.TAG, "on user change" + user);
+    this.logOnConsole(this.TAG, "on user change" + user + " onedit: " + this.onEdit);
     if (user != null && this.teamId != undefined && this.teamId != "undefined") {
       this.teamRef = this.afoDatabase.list(
         "/users/" + this.authService.user.uid + "/teams"
@@ -218,7 +220,6 @@ export class FormationPage extends BasePage {
               name: data.name,
               number: data.number
             });
-            console.log(this.players);
           } else {
             this.errorPopup(
               "Dati mancanti",
@@ -312,5 +313,32 @@ export class FormationPage extends BasePage {
       this.secondLinePlayers[1] = data.selected;
       break;
     }
+  }
+
+  flipPage(fab:FabContainer){
+    this.flip = !this.flip;
+    fab.close();
+  }
+
+  saveChangesLive(){
+    this.onEdit = false;
+    this.saveTeam();
+  }
+  
+  showPlayerInfo(player:any){
+    const modal = this.modalCtrl.create("page-player-stats-modal", {
+      selected: player,
+      list: this.players,
+    });
+    modal.onDidDismiss(data => {
+      var index = this.players.indexOf(data);
+      this.players[index] = data;
+    });
+    modal.present();
+  }
+
+  switchToEditMode(){
+    this.flip = false;
+    this.onEdit = true;
   }
 }

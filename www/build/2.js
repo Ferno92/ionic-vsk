@@ -8,8 +8,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormationPageModule", function() { return FormationPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__formation__ = __webpack_require__(857);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_player_player__ = __webpack_require__(854);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__formation__ = __webpack_require__(858);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_player_player__ = __webpack_require__(855);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var FormationPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 854:
+/***/ 855:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87,14 +87,14 @@ var PlayerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 857:
+/***/ 858:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormationPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_player_player__ = __webpack_require__(854);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_player_player__ = __webpack_require__(855);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_BasePage__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__ = __webpack_require__(168);
@@ -145,7 +145,9 @@ var FormationPage = /** @class */ (function (_super) {
         _this.guid = guid;
         _this.modalCtrl = modalCtrl;
         _this.team = { id: "", name: "", players: [], win: -1 };
+        _this.onEdit = false;
         _this.players = [];
+        _this.flip = false;
         _this.firstLinePlayers = [
             { id: "", number: -1, name: "" },
             { id: "", number: -1, name: "" },
@@ -158,8 +160,8 @@ var FormationPage = /** @class */ (function (_super) {
         ];
         _this.TAG = "FormationPage";
         _this.teamId = navParams.get("id");
-        _this.onEdit = navParams.get("onEdit");
-        _this.fromLive = navParams.get("fromLive");
+        _this.onEdit = navParams.get("onEdit") == "true" || navParams.get("onEdit") == true;
+        _this.fromLive = navParams.get("fromLive") == "true" || navParams.get("fromLive") == true;
         _this.pageTitle = "Formazione";
         _this.logOnConsole(_this.TAG, _this.teamId + " " + _this.onEdit + " " + _this.fromLive);
         events.subscribe("create-team", function (page) {
@@ -179,7 +181,7 @@ var FormationPage = /** @class */ (function (_super) {
         }
     };
     FormationPage.prototype.onUserChange = function (user) {
-        this.logOnConsole(this.TAG, "on user change" + user);
+        this.logOnConsole(this.TAG, "on user change" + user + " onedit: " + this.onEdit);
         if (user != null && this.teamId != undefined && this.teamId != "undefined") {
             this.teamRef = this.afoDatabase.list("/users/" + this.authService.user.uid + "/teams");
             var self = this;
@@ -285,7 +287,6 @@ var FormationPage = /** @class */ (function (_super) {
                             name: data.name,
                             number: data.number
                         });
-                        console.log(_this.players);
                     }
                     else {
                         _this.errorPopup("Dati mancanti", "Numero o nome giocatore non inserito correttamente");
@@ -375,29 +376,46 @@ var FormationPage = /** @class */ (function (_super) {
                 break;
         }
     };
+    FormationPage.prototype.flipPage = function (fab) {
+        this.flip = !this.flip;
+        fab.close();
+    };
+    FormationPage.prototype.saveChangesLive = function () {
+        this.onEdit = false;
+        this.saveTeam();
+    };
+    FormationPage.prototype.showPlayerInfo = function (player) {
+        var _this = this;
+        var modal = this.modalCtrl.create("page-player-stats-modal", {
+            selected: player,
+            list: this.players,
+        });
+        modal.onDidDismiss(function (data) {
+            var index = _this.players.indexOf(data);
+            _this.players[index] = data;
+        });
+        modal.present();
+    };
+    FormationPage.prototype.switchToEditMode = function () {
+        this.flip = false;
+        this.onEdit = true;
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("player"),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_player_player__["a" /* PlayerComponent */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__components_player_player__["a" /* PlayerComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__components_player_player__["a" /* PlayerComponent */]) === "function" && _a || Object)
     ], FormationPage.prototype, "player", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("navbar"),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */])
+        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */]) === "function" && _b || Object)
     ], FormationPage.prototype, "navBar", void 0);
     FormationPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-formation",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/'<!--\n\n  Generated template for the FormationPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header *ngIf="!fromLive">\n\n\n\n  <ion-navbar #navbar color="primary">\n\n    <ion-buttons left *ngIf="!canGoBack">\n\n      <button ion-button icon-only (click)="goBack()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{pageTitle}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list *ngIf="onEdit">\n\n\n\n    <ion-item>\n\n      <ion-label fixed>Nome</ion-label>\n\n      <ion-input type="text" [(ngModel)]="team.name"></ion-input>\n\n    </ion-item>\n\n  </ion-list>\n\n  <div *ngIf="!onEdit" class="team-name-read-only">{{team?.name}}</div>\n\n\n\n  <div class="prima-linea">\n\n    <ion-grid class="full-height grid-court">\n\n      <ion-row justify-content-center align-items-center class="full-height">\n\n        <ion-col col-4 *ngFor="let player of firstLinePlayers; let i = index">\n\n          <player [name]="player?.name" [number]="player?.number" (tap)="onEdit? changePlayer(player, (4 - i)) : \'\'"></player>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n  <div class="seconda-linea">\n\n    <ion-grid class="full-height grid-court">\n\n      <ion-row justify-content-center align-items-center class="full-height">\n\n        <ion-col col-4 *ngFor="let player of secondLinePlayers">\n\n          <player [name]="player?.name" [number]="player?.number" (tap)="onEdit ? changePlayer(player, (i < 2 ? (i + 5) : 1)) : \'\'"></player>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n  <div class="player-title">\n\n    Giocatori:\n\n  </div>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">\n\n          <ion-card class="animated bounceIn player-card"[style.animation-delay]=" i/10 + \'s\'" (tap)="onEdit? modifyPlayer(player) : \'\'">\n\n            <ion-card-content class="card-content">\n\n                <div class="player-number float-left">{{ player.number}}</div>\n\n                <div class="player-name float-left">{{player.name}}</div>\n\n              \n\n                <div class="clear"></div>\n\n            </ion-card-content>\n\n          </ion-card>\n\n        \n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-buttons left *ngIf="onEdit">\n\n    <button ion-button icon-only (click)="addPlayer()" icon-start outline class="button-add-player">\n\n      <ion-icon name="add"></ion-icon>\n\n      Aggiungi giocatore\n\n    </button>\n\n  </ion-buttons>\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/
+            selector: "page-formation",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/'<!--\n\n  Generated template for the FormationPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header *ngIf="!fromLive">\n\n\n\n  <ion-navbar #navbar color="primary">\n\n    <ion-buttons left *ngIf="!canGoBack">\n\n      <button ion-button icon-only (click)="goBack()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{pageTitle}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-fab top right #fab *ngIf="!onEdit">\n\n    <button ion-fab mini color="secondary">\n\n      <ion-icon name="settings"></ion-icon>\n\n    </button>\n\n    <ion-fab-list side="left">\n\n      <button ion-fab>\n\n        <ion-icon name="create"></ion-icon>\n\n      </button>\n\n      <button ion-fab (tap)="flipPage(fab)">\n\n        <ion-icon name="{{flip ? \'appname-player\' : \'stats\'}}"></ion-icon>\n\n      </button>\n\n    </ion-fab-list>\n\n  </ion-fab>\n\n\n\n  <ion-fab top right *ngIf="onEdit && fromLive">\n\n    <button ion-fab mini color="success" (tap)="saveChangesLive()">\n\n      <ion-icon name="checkmark"></ion-icon>\n\n    </button>\n\n  </ion-fab>\n\n\n\n  <div class="flip-container" [ngClass]="{\'flip\': flip}">\n\n    <div class="flipper">\n\n      <div class="front">\n\n        <!-- front content -->\n\n\n\n        <ion-list *ngIf="onEdit">\n\n\n\n          <ion-item>\n\n            <ion-label fixed>Nome</ion-label>\n\n            <ion-input type="text" [(ngModel)]="team.name"></ion-input>\n\n          </ion-item>\n\n        </ion-list>\n\n        <div *ngIf="!onEdit" class="team-name-read-only">{{team?.name}}</div>\n\n\n\n        <div class="prima-linea">\n\n          <ion-grid class="full-height grid-court">\n\n            <ion-row justify-content-center align-items-center class="full-height">\n\n              <ion-col col-4 *ngFor="let player of firstLinePlayers; let i = index">\n\n                <player [name]="player?.name" [number]="player?.number" (tap)="onEdit? changePlayer(player, (4 - i)) : \'\'"></player>\n\n              </ion-col>\n\n            </ion-row>\n\n          </ion-grid>\n\n        </div>\n\n        <div class="seconda-linea">\n\n          <ion-grid class="full-height grid-court">\n\n            <ion-row justify-content-center align-items-center class="full-height">\n\n              <ion-col col-4 *ngFor="let player of secondLinePlayers">\n\n                <player [name]="player?.name" [number]="player?.number" (tap)="onEdit ? changePlayer(player, (i < 2 ? (i + 5) : 1)) : \'\'"></player>\n\n              </ion-col>\n\n            </ion-row>\n\n          </ion-grid>\n\n        </div>\n\n        <div class="player-title">\n\n          Giocatori:\n\n        </div>\n\n        <ion-grid>\n\n          <ion-row>\n\n            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">\n\n              <ion-card class="animated bounceIn player-card" [style.animation-delay]=" i/10 + \'s\'" (tap)="onEdit? modifyPlayer(player) : \'\'">\n\n                <ion-card-content class="card-content">\n\n                  <div class="player-number float-left">{{ player.number}}</div>\n\n                  <div class="player-name float-left">{{player.name}}</div>\n\n\n\n                  <div class="clear"></div>\n\n                </ion-card-content>\n\n              </ion-card>\n\n\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n        <ion-buttons left *ngIf="onEdit">\n\n          <button ion-button icon-only (click)="addPlayer()" icon-start outline class="button-add-player">\n\n            <ion-icon name="add"></ion-icon>\n\n            Aggiungi giocatore\n\n          </button>\n\n        </ion-buttons>\n\n      </div>\n\n      <div class="back">\n\n        <!-- back content -->\n\n        <div>{{onEdit && fromLive ? \'Scegli il giocatore a cui vuoi assegnare punti o errori\' : \'Statistiche\'}}</div>\n\n        <ion-grid>\n\n          <ion-row>\n\n            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">\n\n              <ion-card class="animated bounceIn player-card" [style.animation-delay]=" i/10 + \'s\'" (tap)="showPlayerInfo(player)">\n\n                <ion-card-content class="card-content">\n\n                  <div class="player-number float-left">{{ player.number}}</div>\n\n                  <div class="player-name name-with-stats float-left">{{player.name}}</div>\n\n                  <div class="float-right stat-container">\n\n                    <div class="stat-title">Andamento</div>\n\n                    <div class="stat-point" [ngClass] = "{\'negative\': player.stats?.media < 0, \'positive\': player.stats?.media > 0}">{{player.stats?.media}}</div>\n\n                  </div>\n\n\n\n                  <div class="clear"></div>\n\n                </ion-card-content>\n\n              </ion-card>\n\n\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\formation\formation.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_6__common_Guid__["a" /* Guid */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_6__common_Guid__["a" /* Guid */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__common_Guid__["a" /* Guid */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]) === "function" && _l || Object])
     ], FormationPage);
     return FormationPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }(__WEBPACK_IMPORTED_MODULE_3__common_BasePage__["a" /* BasePage */]));
 
 //# sourceMappingURL=formation.js.map

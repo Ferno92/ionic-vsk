@@ -18,56 +18,107 @@
 </ion-header>
 
 <ion-content padding>
-
-  <ion-list *ngIf="onEdit">
-
-    <ion-item>
-      <ion-label fixed>Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="team.name"></ion-input>
-    </ion-item>
-  </ion-list>
-  <div *ngIf="!onEdit" class="team-name-read-only">{{team?.name}}</div>
-
-  <div class="prima-linea">
-    <ion-grid class="full-height grid-court">
-      <ion-row justify-content-center align-items-center class="full-height">
-        <ion-col col-4 *ngFor="let player of firstLinePlayers; let i = index">
-          <player [name]="player?.name" [number]="player?.number" (tap)="onEdit? changePlayer(player, (4 - i)) : ''"></player>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-  <div class="seconda-linea">
-    <ion-grid class="full-height grid-court">
-      <ion-row justify-content-center align-items-center class="full-height">
-        <ion-col col-4 *ngFor="let player of secondLinePlayers">
-          <player [name]="player?.name" [number]="player?.number" (tap)="onEdit ? changePlayer(player, (i < 2 ? (i + 5) : 1)) : ''"></player>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-  <div class="player-title">
-    Giocatori:
-  </div>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">
-          <ion-card class="animated bounceIn player-card"[style.animation-delay]=" i/10 + 's'" (tap)="onEdit? modifyPlayer(player) : ''">
-            <ion-card-content class="card-content">
-                <div class="player-number float-left">{{ player.number}}</div>
-                <div class="player-name float-left">{{player.name}}</div>
-              
-                <div class="clear"></div>
-            </ion-card-content>
-          </ion-card>
-        
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-buttons left *ngIf="onEdit">
-    <button ion-button icon-only (click)="addPlayer()" icon-start outline class="button-add-player">
-      <ion-icon name="add"></ion-icon>
-      Aggiungi giocatore
+  <ion-fab top right #fab *ngIf="!onEdit">
+    <button ion-fab mini color="secondary">
+      <ion-icon name="settings"></ion-icon>
     </button>
-  </ion-buttons>
+    <ion-fab-list side="left">
+      <button ion-fab>
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-fab (tap)="flipPage(fab)">
+        <ion-icon name="{{flip ? 'appname-player' : 'stats'}}"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab top right *ngIf="onEdit && fromLive">
+    <button ion-fab mini color="success" (tap)="saveChangesLive()">
+      <ion-icon name="checkmark"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <div class="flip-container" [ngClass]="{'flip': flip}">
+    <div class="flipper">
+      <div class="front">
+        <!-- front content -->
+
+        <ion-list *ngIf="onEdit">
+
+          <ion-item>
+            <ion-label fixed>Nome</ion-label>
+            <ion-input type="text" [(ngModel)]="team.name"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div *ngIf="!onEdit" class="team-name-read-only">{{team?.name}}</div>
+
+        <div class="prima-linea">
+          <ion-grid class="full-height grid-court">
+            <ion-row justify-content-center align-items-center class="full-height">
+              <ion-col col-4 *ngFor="let player of firstLinePlayers; let i = index">
+                <player [name]="player?.name" [number]="player?.number" (tap)="onEdit? changePlayer(player, (4 - i)) : ''"></player>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="seconda-linea">
+          <ion-grid class="full-height grid-court">
+            <ion-row justify-content-center align-items-center class="full-height">
+              <ion-col col-4 *ngFor="let player of secondLinePlayers">
+                <player [name]="player?.name" [number]="player?.number" (tap)="onEdit ? changePlayer(player, (i < 2 ? (i + 5) : 1)) : ''"></player>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="player-title">
+          Giocatori:
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">
+              <ion-card class="animated bounceIn player-card" [style.animation-delay]=" i/10 + 's'" (tap)="onEdit? modifyPlayer(player) : ''">
+                <ion-card-content class="card-content">
+                  <div class="player-number float-left">{{ player.number}}</div>
+                  <div class="player-name float-left">{{player.name}}</div>
+
+                  <div class="clear"></div>
+                </ion-card-content>
+              </ion-card>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-buttons left *ngIf="onEdit">
+          <button ion-button icon-only (click)="addPlayer()" icon-start outline class="button-add-player">
+            <ion-icon name="add"></ion-icon>
+            Aggiungi giocatore
+          </button>
+        </ion-buttons>
+      </div>
+      <div class="back">
+        <!-- back content -->
+        <div>{{onEdit && fromLive ? 'Scegli il giocatore a cui vuoi assegnare punti o errori' : 'Statistiche'}}</div>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let player of players; let i = index;">
+              <ion-card class="animated bounceIn player-card" [style.animation-delay]=" i/10 + 's'" (tap)="showPlayerInfo(player)">
+                <ion-card-content class="card-content">
+                  <div class="player-number float-left">{{ player.number}}</div>
+                  <div class="player-name name-with-stats float-left">{{player.name}}</div>
+                  <div class="float-right stat-container">
+                    <div class="stat-title">Andamento</div>
+                    <div class="stat-point" [ngClass] = "{'negative': player.stats?.media < 0, 'positive': player.stats?.media > 0}">{{player.stats?.media}}</div>
+                  </div>
+
+                  <div class="clear"></div>
+                </ion-card-content>
+              </ion-card>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
 </ion-content>

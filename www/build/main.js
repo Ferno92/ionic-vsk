@@ -1,4 +1,4 @@
-webpackJsonp([10],{
+webpackJsonp([11],{
 
 /***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -183,7 +183,7 @@ webpackEmptyAsyncContext.id = 180;
 var map = {
 	"../pages/chat/chat.module": [
 		718,
-		7
+		8
 	],
 	"../pages/create-match/create-match.module": [
 		719,
@@ -191,7 +191,7 @@ var map = {
 	],
 	"../pages/dashboard/dashboard.module": [
 		720,
-		9
+		10
 	],
 	"../pages/formation/formation.module": [
 		721,
@@ -199,7 +199,7 @@ var map = {
 	],
 	"../pages/game-tabs/game-tabs.module": [
 		722,
-		6
+		7
 	],
 	"../pages/live-match/live-match.module": [
 		723,
@@ -210,18 +210,22 @@ var map = {
 	],
 	"../pages/player-modal/player-modal.module": [
 		724,
+		6
+	],
+	"../pages/player-stats-modal/player-stats-modal.module": [
+		725,
 		5
 	],
 	"../pages/search-live/search-live.module": [
-		725,
-		8
+		726,
+		9
 	],
 	"../pages/search-team/search-team.module": [
-		726,
+		727,
 		4
 	],
 	"../pages/transition/transition.module": [
-		727,
+		728,
 		3
 	]
 };
@@ -575,6 +579,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/player-modal/player-modal.module#PlayerModalPageModule', name: 'page-player-modal', segment: 'page-player-modal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-stats-modal/player-stats-modal.module#PlayerStatsModalPageModule', name: 'page-player-stats-modal', segment: 'page-player-stats-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-live/search-live.module#SearchLivePageModule', name: 'search-live', segment: 'search-live', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-team/search-team.module#SearchTeamPageModule', name: 'search-team', segment: 'search-team', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transition/transition.module#TransitionPageModule', name: 'loading', segment: 'loading', priority: 'low', defaultHistory: [] }

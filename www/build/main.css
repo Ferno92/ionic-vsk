@@ -28230,10 +28230,60 @@ page-dashboard .update-button .button-inner .icon {
   margin-bottom: 5px;
 }
 
+page-formation {
+  /* entire container, keeps perspective */
+  /* flip speed goes here */
+  /* hide back of pane during swap */
+  /* front pane, placed above back */
+  /* back, initially hidden pane */
+  /*---------------------------------------------*/
+}
+
+page-formation .flip-container {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+page-formation .flipper {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+page-formation .front,
+page-formation .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+page-formation .front {
+  z-index: 2;
+  /* for firefox 31 */
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+page-formation .back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+page-formation .flip-container.flip .flipper {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
 page-formation .team-name-read-only {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  margin-right: 50px;
+  margin-top: 10px;
 }
 
 page-formation .prima-linea {
@@ -28271,6 +28321,7 @@ page-formation .player-title {
 
 page-formation .player-card {
   margin: 0;
+  width: 100%;
 }
 
 page-formation .player-card:hover {
@@ -28284,6 +28335,13 @@ page-formation .player-card .player-name {
   margin-left: 10px;
 }
 
+page-formation .player-card .player-name.name-with-stats {
+  width: calc(100% - 145px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 page-formation .player-card .player-number {
   border: 2px solid;
   border-radius: 50%;
@@ -28291,6 +28349,30 @@ page-formation .player-card .player-number {
   width: 35px;
   text-align: center;
   padding-top: 4px;
+}
+
+page-formation .player-card .stat-container {
+  margin-left: 10px;
+}
+
+page-formation .player-card .stat-container .stat-title {
+  text-align: center;
+}
+
+page-formation .player-card .stat-container .stat-point {
+  text-align: center;
+}
+
+page-formation .player-card .stat-container .stat-point.positive {
+  color: #4BB543;
+}
+
+page-formation .player-card .stat-container .stat-point.negative {
+  color: #f53d3d;
+}
+
+page-formation .icon {
+  line-height: inherit !important;
 }
 
 page-game-tabs .landscape .scroll-content {
@@ -28495,6 +28577,44 @@ page-player-modal .player-card .player-number {
 
 page-player-modal .unknown {
   opacity: 0.5;
+}
+
+page-player-stats-modal ion-title {
+  text-align: center;
+}
+
+page-player-stats-modal .selected-number {
+  font-size: 50px;
+  text-align: center;
+}
+
+page-player-stats-modal .selected-name {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+page-player-stats-modal .input-value {
+  width: calc(100% - 65px);
+  text-align: center;
+  margin-left: 2px;
+  margin-top: 5px;
+}
+
+page-player-stats-modal .input-title {
+  text-align: center;
+}
+
+page-player-stats-modal .input-title.error {
+  color: #f53d3d;
+}
+
+page-player-stats-modal .input-title.positive {
+  color: #4BB543;
+}
+
+page-player-stats-modal .small-button {
+  padding: 0 5px;
 }
 
 page-search-team .empty-teams {
