@@ -39,7 +39,7 @@ export class DashboardPage extends BasePage {
 
   userLogged: boolean;
   userImage: String;
-  version: String = "0.0.1";
+  version: String = "0.0.2";
   onlineVersion: AfoObjectObservable<any>;
   games: AfoListObservable<any[]>;
   emptyGames: boolean = false;

@@ -20,27 +20,27 @@
   <!-- <script src="cordova.js"></script> -->
 
   <!-- un-comment this code to enable service worker-->
-  <!-- <script>
+  <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
         .then(() => console.log('service worker installed'))
         .catch(err => console.error('Error', err));
-        
+
       // Then later, request a one-off sync:
-      navigator.serviceWorker.ready.then(function(swRegistration) {
+      navigator.serviceWorker.ready.then(function (swRegistration) {
         return swRegistration.sync.register('myFirstSync');
       });
     }
-  </script> -->
+  </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122197736-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122197736-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'UA-122197736-1');
-</script> -->
+    gtag('config', 'UA-122197736-1');
+  </script>
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -160,31 +160,6 @@
     let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-      // Update UI notify the user they can add to home screen
-
-      modal.style.display = "block";
-      var buttonInstall = document.getElementsByClassName("install-button")[0];
-      buttonInstall.onclick = function () {
-        modal.style.display = "none";
-        // Show the prompt
-        deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice
-          .then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-              console.log('User accepted the A2HS prompt');
-            } else {
-              console.log('User dismissed the A2HS prompt');
-            }
-            deferredPrompt = null;
-          });
-      }
-    });
-    document.addEventListener("DOMContentLoaded", function (event) {
       //do work
       var modal = document.getElementById('myModal');
 
@@ -211,6 +186,30 @@
         if (event.target == modal) {
           modal.style.display = "none";
         }
+      }
+
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can add to home screen
+
+      modal.style.display = "block";
+      var buttonInstall = document.getElementsByClassName("install-button")[0];
+      buttonInstall.onclick = function () {
+        modal.style.display = "none";
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice
+          .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
       }
     });
 

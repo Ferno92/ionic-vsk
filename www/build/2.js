@@ -76,7 +76,7 @@ var PlayerComponent = /** @class */ (function () {
     ], PlayerComponent.prototype, "number", void 0);
     PlayerComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'player',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\components\player\player.html"*/'<!-- Generated template for the PlayerComponent component -->\n<div class="number-container" [ngClass]="{\'unknown\': number <= 0}">\n  <div class="number">\n      {{number <= 0 ? \'?\' : number}}\n    </div>\n</div>\n<div class="name" text-center>\n  {{name}}\n</div>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\components\player\player.html"*/
+            selector: 'player',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\components\player\player.html"*/'<!-- Generated template for the PlayerComponent component -->\n\n<div class="number-container" [ngClass]="{\'unknown\': number <= 0}">\n\n  <div class="number">\n\n      {{number <= 0 ? \'?\' : number}}\n\n    </div>\n\n</div>\n\n<div class="name" text-center>\n\n  {{name}}\n\n</div>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\components\player\player.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], PlayerComponent);

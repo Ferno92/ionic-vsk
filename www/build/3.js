@@ -89,7 +89,7 @@ var TransitionPage = /** @class */ (function () {
     };
     TransitionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-transition',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\transition\transition.html"*/'<!--\n  Generated template for the TransitionPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\transition\transition.html"*/,
+            selector: 'page-transition',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\transition\transition.html"*/'<!--\n\n  Generated template for the TransitionPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\transition\transition.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
