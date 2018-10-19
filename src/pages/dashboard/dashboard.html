@@ -15,7 +15,7 @@
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{onEdit ? 'Elimina partite' : 'Dashboard'}}</ion-title>
+    <ion-title>{{onEdit ? 'Elimina partite' : 'RealTime Volley'}}</ion-title>
     <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">
       <button ion-button icon-only (click)="reload()" class="update-button">
         <ion-icon name="cloud-download"></ion-icon>
