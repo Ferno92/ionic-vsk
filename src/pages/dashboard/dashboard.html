@@ -6,15 +6,25 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <button ion-button menuToggle>
+  <ion-navbar #navbar color="primary">
+    <button ion-button menuToggle *ngIf="!onEdit">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Dashboard</ion-title>
+    <ion-buttons left *ngIf="onEdit">
+      <button ion-button icon-only (click)="removeOnEdit()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{onEdit ? 'Elimina partite' : 'RealTime Volley'}}</ion-title>
     <ion-buttons end *ngIf="(onlineVersion | async)?.current != version">
       <button ion-button icon-only (click)="reload()" class="update-button">
-        <ion-icon md="md-cloud-download"></ion-icon>
+        <ion-icon name="cloud-download"></ion-icon>
         Update
+      </button>
+    </ion-buttons>
+    <ion-buttons end *ngIf="onEdit">
+      <button ion-button icon-only (click)="deleteGames()">
+        <ion-icon name="trash"></ion-icon>
       </button>
     </ion-buttons>
     <!-- <ion-buttons end *ngIf="userLogged">
@@ -27,20 +37,29 @@
 </ion-header>
 
 
-<ion-content padding class="dashboard-container">
-  <div class="empty-dashboard">
+<ion-content padding class="dashboard-container" hide-fab>
+  <div class="empty-dashboard" *ngIf="emptyGames">
     <ion-grid style="height: 100%">
-        <ion-row justify-content-center align-items-center style="height: 100%">
-          <div>
-              <img src="../../assets/imgs/volley_empty_list.png" />
-              <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
-          </div>
-        </ion-row>
-      </ion-grid>
+      <ion-row justify-content-center align-items-center style="height: 100%">
+        <div>
+          <img src="../../assets/imgs/volley_empty_list.png" />
+          <p class="text_empty_dashboard">Non hai partite salvate.. Incomincia creandone una!</p>
+        </div>
+      </ion-row>
+    </ion-grid>
   </div>
-  <ion-fab class="fab-dashboard" bottom right>
-      <button ion-fab icon-only color="secondary">
-          <ion-icon md="md-add"></ion-icon>
-      </button>
-    </ion-fab>
+
+  <div *ngIf="!emptyGames">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of (games | async)?.slice().reverse(); let i = index">
+          <game-widget [game]="game" [i]="i" [openGame]="openGame" [ref]="this" [onEdit]="onEdit" [onPressingCardGame]="onPressingCardGame" 
+          [updateEditCheck]="updateEditCheck"></game-widget>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UCevCYtjvHeC5kSOrZHfRVWw" frameborder="0" allowfullscreen></iframe> -->
 </ion-content>

@@ -1,0 +1,9 @@
+<!-- Generated template for the PlayerComponent component -->
+<div class="number-container" [ngClass]="{'unknown': number <= 0}">
+  <div class="number">
+      {{number <= 0 ? '?' : number}}
+    </div>
+</div>
+<div class="name" text-center>
+  {{name}}
+</div>

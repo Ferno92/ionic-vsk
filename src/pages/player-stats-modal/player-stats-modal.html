@@ -1,0 +1,343 @@
+<!--
+  Generated template for the PlayerStatsModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Statistiche giocatore</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="selected-number" [ngClass]="{'unknown': selected.number <= 0}">{{selected.number <= 0 ? '?' :
+      selected.number}}</div> <div class="selected-name" [ngClass]="{'unknown': selected.number <= 0}">{{selected.number
+      <= 0 ? 'Nome giocatore' : selected.name}}</div> <ion-list>
+        <ion-item-group>
+          <ion-item-divider>
+            Attacco
+          </ion-item-divider>
+          <div>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                  <div>
+
+                    <ion-buttons class="float-left">
+                      <button ion-button small outline color="danger" class="small-button" (tap)="remove('attacco', 'err')">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.attacco.err">
+                    <ion-buttons class="float-right">
+                      <button ion-button small outline color="danger" class="small-button" (tap)="add('attacco', 'err')">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <div class="clear"></div>
+                  </div>
+                  <div class="input-title error">Errore</div>
+
+                </ion-col>
+                <ion-col col-4>
+                  <ion-buttons class="float-left">
+                    <button ion-button small outline color="success" class="small-button"  (tap)="remove('attacco', 'pos')">
+                      <ion-icon name="remove"></ion-icon>
+                    </button>
+                  </ion-buttons>
+                  <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.attacco.pos">
+                  <ion-buttons class="float-right">
+                    <button ion-button small outline color="success" class="small-button" (tap)="add('attacco', 'pos')">
+                      <ion-icon name="add"></ion-icon>
+                    </button>
+                  </ion-buttons>
+                  <div class="clear"></div>
+                  <div class="input-title positive">Punto</div>
+                </ion-col>
+                <ion-col col-4>
+                  <ion-buttons class="float-left">
+                    <button ion-button small outline class="small-button"  (tap)="remove('attacco', 'null')">
+                      <ion-icon name="remove"></ion-icon>
+                    </button>
+                  </ion-buttons>
+                  <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.attacco.null">
+                  <ion-buttons class="float-right">
+                    <button ion-button small outline class="small-button"  (tap)="add('attacco', 'null')">
+                      <ion-icon name="add"></ion-icon>
+                    </button>
+                  </ion-buttons>
+                  <div class="clear"></div>
+                  <div class="input-title nothing">Normale</div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-item-group>
+        
+        <ion-item-group>
+            <ion-item-divider>
+              Difesa
+            </ion-item-divider>
+            <div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6>
+                    <div>
+                      <ion-buttons class="float-left">
+                        <button ion-button small outline color="danger" class="small-button"  (tap)="remove('difesa', 'err')">
+                          <ion-icon name="remove"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <input class="input-value" type="number" min="0" step="1"  [(ngModel)]="selected.stats.difesa.err">
+                      <ion-buttons class="float-right">
+                        <button ion-button small outline color="danger" class="small-button" (tap)="add('difesa', 'err')">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <div class="clear"></div>
+                    </div>
+                    <div class="input-title error">Errore</div>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-buttons class="float-left">
+                      <button ion-button small outline color="success" class="small-button"  (tap)="remove('difesa', 'pos')">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.difesa.pos">
+                    <ion-buttons class="float-right">
+                      <button ion-button small outline color="success" class="small-button" (tap)="add('difesa', 'pos')">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <div class="clear"></div>
+                    <div class="input-title positive">Positivo</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-item-group>
+
+          
+        <ion-item-group>
+            <ion-item-divider>
+              Ricezione
+            </ion-item-divider>
+            <div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6>
+                    <div>
+                      <ion-buttons class="float-left">
+                        <button ion-button small outline color="danger" class="small-button"  (tap)="remove('ricezione', 'err')">
+                          <ion-icon name="remove"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.ricezione.err">
+                      <ion-buttons class="float-right">
+                        <button ion-button small outline color="danger" class="small-button" (tap)="add('ricezione', 'err')">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <div class="clear"></div>
+                    </div>
+                    <div class="input-title error">Errore</div>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-buttons class="float-left">
+                      <button ion-button small outline color="success" class="small-button"  (tap)="remove('ricezione', 'pos')">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.ricezione.pos">
+                    <ion-buttons class="float-right">
+                      <button ion-button small outline color="success" class="small-button" (tap)="add('ricezione', 'pos')">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <div class="clear"></div>
+                    <div class="input-title positive">Positivo</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-item-group>
+
+          
+        <ion-item-group>
+            <ion-item-divider>
+              Alzata
+            </ion-item-divider>
+            <div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6>
+                    <div>
+                      <ion-buttons class="float-left">
+                        <button ion-button small outline color="danger" class="small-button"  (tap)="remove('alzata', 'err')">
+                          <ion-icon name="remove"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.alzata.err">
+                      <ion-buttons class="float-right">
+                        <button ion-button small outline color="danger" class="small-button" (tap)="add('alzata', 'err')">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <div class="clear"></div>
+                    </div>
+                    <div class="input-title error">Errore</div>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-buttons class="float-left">
+                      <button ion-button small outline color="success" class="small-button"  (tap)="remove('alzata', 'pos')">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.alzata.pos">
+                    <ion-buttons class="float-right">
+                      <button ion-button small outline color="success" class="small-button" (tap)="add('alzata', 'pos')">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <div class="clear"></div>
+                    <div class="input-title positive">Positivo</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-item-group>
+        </ion-list>
+
+        <ion-item-group>
+            <ion-item-divider>
+              Battuta
+            </ion-item-divider>
+            <div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>
+                    <div>
+  
+                      <ion-buttons class="float-left">
+                        <button ion-button small outline color="danger" class="small-button"   (tap)="remove('battuta', 'err')">
+                          <ion-icon name="remove"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.battuta.err">
+                      <ion-buttons class="float-right">
+                        <button ion-button small outline color="danger" class="small-button" (tap)="add('battuta', 'err')">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <div class="clear"></div>
+                    </div>
+                    <div class="input-title error">Errore</div>
+  
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-buttons class="float-left">
+                      <button ion-button small outline color="success" class="small-button"  (tap)="remove('battuta', 'pos')">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.battuta.pos">
+                    <ion-buttons class="float-right">
+                      <button ion-button small outline color="success" class="small-button" (tap)="add('battuta', 'pos')">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <div class="clear"></div>
+                    <div class="input-title positive">Punto</div>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-buttons class="float-left">
+                      <button ion-button small outline class="small-button"  (tap)="remove('battuta', 'null')">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.battuta.null">
+                    <ion-buttons class="float-right">
+                      <button ion-button small outline class="small-button" (tap)="add('battuta', 'null')">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <div class="clear"></div>
+                    <div class="input-title nothing">Normale</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-item-group>
+
+          <ion-item-group>
+              <ion-item-divider>
+                Muro
+              </ion-item-divider>
+              <div>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-4>
+                      <div>
+    
+                        <ion-buttons class="float-left">
+                          <button ion-button small outline color="danger" class="small-button"  (tap)="remove('muro', 'err')">
+                            <ion-icon name="remove"></ion-icon>
+                          </button>
+                        </ion-buttons>
+                        <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.muro.err">
+                        <ion-buttons class="float-right">
+                          <button ion-button small outline color="danger" class="small-button" (tap)="add('muro', 'err')">
+                            <ion-icon name="add"></ion-icon>
+                          </button>
+                        </ion-buttons>
+                        <div class="clear"></div>
+                      </div>
+                      <div class="input-title error">Errore</div>
+    
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-buttons class="float-left">
+                        <button ion-button small outline color="success" class="small-button"  (tap)="remove('muro', 'pos')">
+                          <ion-icon name="remove"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.muro.pos">
+                      <ion-buttons class="float-right">
+                        <button ion-button small outline color="success" class="small-button" (tap)="add('muro', 'pos')">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <div class="clear"></div>
+                      <div class="input-title positive">Punto</div>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-buttons class="float-left">
+                        <button ion-button small outline class="small-button"  (tap)="remove('muro', 'null')">
+                          <ion-icon name="remove"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <input class="input-value" type="number" min="0" step="1" [(ngModel)]="selected.stats.muro.null">
+                      <ion-buttons class="float-right">
+                        <button ion-button small outline class="small-button" (tap)="add('muro', 'null')">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-buttons>
+                      <div class="clear"></div>
+                      <div class="input-title nothing">Normale</div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+            </ion-item-group>
+</ion-content>

@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Platform, ToastController, Events, AlertController, Navbar } from 'ionic-angular';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
-import { ToastController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { Platform } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
-import { DashboardPage } from '../dashboard/dashboard';
-import { Events } from 'ionic-angular';
+import { BasePage } from '../../common/BasePage';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,30 +24,31 @@ import { Events } from 'ionic-angular';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage extends BasePage {
+  @ViewChild('navbar') navBar: Navbar;
 
   user: Observable<firebase.User>;
-  canGoBack: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private gplus: GooglePlus, private platform: Platform,
-    private authService: AuthService,private toastCtrl: ToastController, public events: Events) {
-
-    this.authService.authState.subscribe(user => {
-      if (user != null) {
-        this.goBack();
-      }
-    });
+    private gplus: GooglePlus, public platform: Platform,
+    public authService: AuthService,private toastCtrl: ToastController, public events: Events,
+    public alertCtrl: AlertController) {
+      super(navCtrl, authService, alertCtrl, platform)
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-    this.canGoBack = this.navCtrl.canGoBack();
+    this.onInit(this.navBar);
   }
 
   ionViewWillEnter(){
     this.events.publish('currentPage', 'login');
+  }
+
+  onUserChange(user: any){
+    if (user != null) {
+      this.goBack();
+    }
   }
 
   async nativeGoogleLogin(): Promise<void> {
@@ -116,13 +114,5 @@ export class LoginPage {
     toast.present();
   }
 
-  goBack(){
-    if(this.navCtrl.canGoBack()){
-    this.navCtrl.pop();
-    }else{
-      this.navCtrl.setRoot(DashboardPage);
-      this.navCtrl.popToRoot();
-    }
-  }
 
 }

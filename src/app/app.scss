@@ -30,11 +30,15 @@ div {
 }
 
 .visible {
-  display: block;
+  display: block !important;
 }
 
 .full-height {
   height: 100%;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .toast-login {
@@ -67,18 +71,77 @@ div {
   float: left;
 }
 
-.clear{
-    clear: both;
+.float-right {
+  float: right;
+}
+
+.clear {
+  clear: both;
 }
 
 .user-info {
   margin-top: 40px;
 }
 
-.do-login-message{
-    margin-left: 15px;
+.do-login-message {
+  margin-left: 15px;
 }
 
-.menu-active{
-    background-color: color($colors, secondary, base);
+.menu-active {
+  background-color: color($colors, secondary, base);
+}
+
+.fab-dashboard {
+  margin: 15px;
+}
+
+.scroll-content {
+  overflow: auto;
+}
+
+.alert-md .alert-wrapper {
+  max-width: 90%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.icon {
+  line-height: 1 !important;
+}
+
+.search-bar {
+  animation-duration: 0.5s;
+}
+
+ion-icon {
+  &[class*="appname-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  // custom icons
+  &[class*="appname-volleyball"] {
+    mask-image: url(../assets/svg/volleyball.svg);
+  }
+  &[class*="appname-score-icon"] {
+    mask-image: url(../assets/svg/score-icon2.svg);
+  }
+  &[class*="appname-court-icon"] {
+    mask-image: url(../assets/svg/court-icon.svg);
+  }
+  &[class*="appname-player"] {
+    mask-image: url(../assets/svg/player.svg);
+  }
+  /*
+  &[class*="appname-customicon3"] {
+      mask-image: url(../assets/img/customicon3.svg);
+  }*/
+
 }

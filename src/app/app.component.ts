@@ -4,9 +4,11 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthService } from "../services/auth.service";
 import { App, AlertController } from "ionic-angular";
-import { Events } from 'ionic-angular';
+import { Events } from "ionic-angular";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { Observable, Subject } from "rxjs";
+import { ApplicationRef } from '@angular/core';
+import { SearchLivePage } from "../pages/search-live/search-live";
 // import { GoogleLoginComponent } from '../components/google-login/google-login';
 @Component({
   templateUrl: "app.html"
@@ -16,8 +18,12 @@ export class MyApp {
   userLogged: boolean;
   userImage: String;
   userName: String;
+  fabColor: String;
+  fabIcon: String;
+  hasFab: boolean;
   public currentMenu: String;
   public subject: Subject<String>;
+  currentPage: String;
 
   constructor(
     public app: App,
@@ -25,9 +31,11 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private auth: AuthService,
-    public events: Events, 
-    public alertCtrl: AlertController
+    public events: Events,
+    public alertCtrl: AlertController,
+    private applicationRef: ApplicationRef
   ) {
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -37,26 +45,31 @@ export class MyApp {
       this.userLogged = false;
       this.currentMenu = "dashboard";
       this.auth.authState.subscribe(user => {
-        console.log("logged user change ");
+        // console.log("logged user change ");
         if (user != null) {
           this.userLogged = true;
           this.userImage = user.photoURL;
           this.userName = user.displayName;
-          console.log("logged user: " + user.displayName);
+          // console.log("logged user: " + user.displayName);
         } else {
           this.userLogged = false;
         }
       });
-      
+
       this.subject = new Subject();
       this.subject.subscribe(next => {
         this.currentMenu = next;
-      })
+      });
 
-      events.subscribe('currentPage', (page) => {
+      events.subscribe("currentPage", page => {
         // user and time are the same arguments passed in `events.publish(user, time)`
-        console.log('current page: ' + page);
-        this.setCurrentPage(page);
+        // console.log("current page: " + page);
+        if (this.currentPage == "dashboard-edit" && (page == "dashboard-scroll" || page == "dashboard")) {
+          //do nothing
+        } else {
+          this.setCurrentPage(page);
+          this.changeFab(page);
+        }
       });
     });
   }
@@ -72,25 +85,37 @@ export class MyApp {
     this.subject.next("dashboard");
   }
 
-  setCurrentPage(page: String){
-    this.subject.next(page);
+  goToSearchLive(){
+    this.app.getActiveNav().push(SearchLivePage);
+    this.subject.next("search-live");
   }
 
-  popupLogout(){
+  goToSearchTeam(){
+    this.app.getActiveNav().push("search-team");
+    this.subject.next("search-team");
+  }
+
+  setCurrentPage(page: String) {
+    console.log("set current page: " + page);
+    this.subject.next(page);
+    this.currentPage = page;
+  }
+
+  popupLogout() {
     let prompt = this.alertCtrl.create({
-      title: 'Esci',
+      title: "Esci",
       message: "Vuoi veramente uscire?",
       buttons: [
         {
-          text: 'Indietro',
+          text: "Indietro",
           handler: data => {
-            console.log('Cancel clicked');
+            // console.log("Cancel clicked");
           }
         },
         {
-          text: 'Esci',
+          text: "Esci",
           handler: data => {
-           this.logOut();
+            this.logOut();
           }
         }
       ]
@@ -98,7 +123,95 @@ export class MyApp {
     prompt.present();
   }
 
-  logOut(){
+  logOut() {
     this.auth.signOut();
+  }
+
+  fabOnClick() {
+    if (this.currentMenu == "dashboard") {
+      this.createMatch();
+    } else if (this.currentMenu == "create-match") {
+      this.startMatch();
+    } else if (this.currentMenu == "dashboard-scroll") {
+      this.scrollTop();
+    }else if (this.currentMenu == "search-team") {
+      this.goToFormation();
+    }else if (this.currentMenu == "formation") {
+      this.createTeam();
+    }
+  }
+
+  createMatch() {
+    this.app.getActiveNav().push("create-match");
+  }
+
+  goToFormation(){
+    this.app.getActiveNav().push("formation", {
+      id: undefined,
+      onEdit: true,
+      fromLive: false
+    });
+  }
+
+  startMatch() {
+    this.events.publish("create-match");
+  }
+
+  createTeam() {
+    this.events.publish("create-team");
+  }
+
+  scrollTop() {
+    document.getElementsByClassName("dashboard-container")[0].getElementsByClassName("scroll-content")[0].scrollTop = 0;
+
+    // console.log("top!!!");
+    // var element = document.getElementsByClassName("fab-button");
+    // for(var i=0, len = element.length; i<len; i++)
+    // {
+    //   element[i].style["background-color"] = "#FFC107";
+    //   element[i].style["color"] = "#000000";
+    // }
+    // document.getElementsByClassName("fab-icon")[0].classList.remove("ion-md-arrow-round-up");
+    // document.getElementsByClassName("fab-icon")[0].classList.add("ion-md-add");
+
+    this.fabColor = "secondary";
+    this.fabIcon = "add";
+
+    this.events.publish("currentPage", "dashboard");
+  }
+
+  changeFab(type: String) {
+    console.log("changeFab: " + type);
+    if (type === "create-match") {
+      this.fabColor = "success";
+      this.fabIcon = "checkmark";
+      this.hasFab = true;
+    } else if (type === "dashboard") {
+      this.fabColor = "secondary";
+      this.fabIcon = "add";
+      this.hasFab = true;
+    } else if (type === "dashboard-scroll") {
+      this.fabColor = "primary";
+      this.fabIcon = "arrow-round-up";
+      this.hasFab = true;
+      // console.log("color: " + this.fabColor + " fabIcon: " + this.fabIcon);
+    } else if (type === "enable-dashboard") {
+      this.fabColor = "secondary";
+      this.fabIcon = "add";
+      this.hasFab = true;
+    } else if (type === "search-team") {
+      this.fabColor = "secondary";
+      this.fabIcon = "add";
+      this.hasFab = true;
+    } else if (type === "formation") {
+      this.fabColor = "success";
+      this.fabIcon = "checkmark";
+      this.hasFab = true;
+    } else {
+      //hide fab
+      this.hasFab = false;
+
+    }
+    this.applicationRef.tick();
   }
 }

@@ -17,20 +17,33 @@
         <p class="do-login-message" *ngIf="!userLogged">Fai login per accedere a tutte le funzionalità</p>
         <ion-list>
             <button menuClose ion-item icon-left (click)="goToDashboard()" [ngClass]="{'menu-active': currentMenu == 'dashboard'}">
-                <ion-icon name="homepage" md="md-home"></ion-icon>
+                <ion-icon name="home"></ion-icon>
                 Homepage
             </button>
             <button *ngIf="!userLogged" menuClose ion-item icon-left (click)="goToLogin()" [ngClass]="{'menu-active': currentMenu == 'login'}">
-                <ion-icon name="login" md="md-contact"></ion-icon>
+                <ion-icon name="contact"></ion-icon>
                 Login
             </button>
+            <button *ngIf="userLogged" menuClose ion-item icon-left (click)="goToSearchTeam()" [ngClass]="{'menu-active': currentMenu == 'search-team'}">
+                <ion-icon name="people"></ion-icon>
+                Le tue squadre
+            </button>
+            <button menuClose ion-item icon-left (click)="goToSearchLive()" [ngClass]="{'menu-active': currentMenu == 'search-live'}">
+                <ion-icon name="flag"></ion-icon>
+                Partite in corso
+            </button>
 
-            
+
             <button *ngIf="userLogged" menuClose ion-item icon-left (click)="popupLogout()">
-                    <ion-icon name="logout" md="md-log-out"></ion-icon>
-                    Esci
-                </button>
+                <ion-icon name="log-out"></ion-icon>
+                Esci
+            </button>
         </ion-list>
     </ion-content>
 </ion-menu>
 <ion-nav #content [root]="rootPage" swipeBackEnabled="false"></ion-nav>
+<ion-fab class="fab-dashboard" bottom right (click)="fabOnClick()" *ngIf="hasFab">
+    <button ion-fab icon-only color="{{fabColor}}" class="fab-button">
+        <ion-icon name="{{fabIcon}}" class="fab-icon"></ion-icon>
+    </button>
+</ion-fab>

@@ -1,0 +1,16 @@
+page-game-tabs {
+  //   .tabbar a[aria-selected="true"] {
+  //     color: color($colors, secondary, base) !important;
+  //     .tab-button-icon {
+  //       color: color($colors, secondary, base) !important;
+  //     }
+  //   }
+  .landscape {
+    .scroll-content {
+      margin-top: 0 !important;
+    }
+    .tabbar {
+      display: none;
+    }
+  }
+}

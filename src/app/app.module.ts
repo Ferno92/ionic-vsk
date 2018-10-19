@@ -5,8 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { SearchLivePage } from '../pages/search-live/search-live';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -16,6 +16,16 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AuthService } from '../services/auth.service';
+import { HideFabDirective} from '../directives/hide-fab/hide-fab';
+import { GeoService } from "../services/geo.service";
+import { HttpClientModule } from '@angular/common/http';
+import { Guid} from "../common/Guid";
+import { GameWidgetComponent } from "../components/game-widget/game-widget";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ShortUrlService } from 'angular-shorturl';
+import { HttpModule } from '@angular/http';
+// import { SocialShareModule } from 'angular-socialshare';
+// import { GameWidgetComponent } from '../components/game-widget/game-widget';
 // import {
 //   AfoListObservable,
 //   AngularFireOfflineDatabase } from 'angularfire2-offline/database';
@@ -33,20 +43,27 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    DashboardPage
+    DashboardPage,
+    HideFabDirective,
+    GameWidgetComponent,
+    SearchLivePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { scrollPadding: false}),//, locationStrategy: 'path' on production
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireOfflineModule,
-    LoginPageModule
+    LoginPageModule,
+    HttpClientModule,
+    HttpModule
+    // SocialShareModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DashboardPage
+    DashboardPage,
+    SearchLivePage
   ],
   providers: [
     StatusBar,
@@ -54,7 +71,11 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
     GooglePlus,
-    AuthService
+    AuthService,
+    GeoService,
+    Guid,
+    ScreenOrientation,
+    ShortUrlService
   ]
 })
 export class AppModule {}
