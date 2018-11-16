@@ -158,8 +158,10 @@
 
   <script>
     let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
+    console.log(window.navigator.platform);
+    var release = false;
+    if(window.navigator.platform === "Win32" && release){
+      window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -184,6 +186,8 @@
           });
       }
     });
+    }
+    
     document.addEventListener("DOMContentLoaded", function (event) {
       //do work
       var modal = document.getElementById('myModal');

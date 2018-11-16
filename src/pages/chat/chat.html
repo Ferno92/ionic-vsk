@@ -6,6 +6,37 @@
 -->
 
 <ion-content padding>
-  CHAT
+
+  <div class="chat-container">
+    <!-- <ion-icon name="{{iconExpand}}" class="expand-icon animated infinite pulse"></ion-icon> -->
+
+    <div class="scrollable-content">
+      <div *ngFor="let chat of chats; let i = index" class="chat">
+        <div class="chat-user-image float-left" [style.opacity]="i== 0 || chats[i - 1].userId != chat.userId ? 1 : 0" [style.background-image]="'url(' + chat.pictureUrl + ')'"
+          [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? 'owner' : '') : '' ">
+          <ion-icon *ngIf="chat.pictureUrl == ''" name="contact" class="anonymous-icon"></ion-icon>
+        </div>
+        <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? 'owner float-right' : 'float-left') : 'float-left' ">
+          <div class="small-text float-left">{{chat.name}}</div>
+          <div class="small-text float-right">{{chat.date}}</div>
+          <div class="clear"></div>
+          <div>{{chat.text}}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+
+    <div class="chat-footer">
+      <ion-buttons class="float-right">
+        <button ion-button (click)="pushMessage()" class="send-button">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"
+        (keypress)="keyPress($event)"></ion-textarea>
+    </div>
+
+  </div>
 
 </ion-content>

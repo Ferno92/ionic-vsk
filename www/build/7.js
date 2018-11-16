@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 722:
+/***/ 723:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameTabsPageModule", function() { return GameTabsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiveMatchPageModule", function() { return LiveMatchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__game_tabs__ = __webpack_require__(859);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_match__ = __webpack_require__(861);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,39 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var GameTabsPageModule = /** @class */ (function () {
-    function GameTabsPageModule() {
+var LiveMatchPageModule = /** @class */ (function () {
+    function LiveMatchPageModule() {
     }
-    GameTabsPageModule = __decorate([
+    LiveMatchPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__game_tabs__["a" /* GameTabsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__live_match__["a" /* LiveMatchPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__game_tabs__["a" /* GameTabsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_match__["a" /* LiveMatchPage */]),
             ],
         })
-    ], GameTabsPageModule);
-    return GameTabsPageModule;
+    ], LiveMatchPageModule);
+    return LiveMatchPageModule;
 }());
 
-//# sourceMappingURL=game-tabs.module.js.map
+//# sourceMappingURL=live-match.module.js.map
 
 /***/ }),
 
-/***/ 859:
+/***/ 861:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GameTabsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LiveMatchPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_BasePage__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular_shorturl__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular_shorturl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular_shorturl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(381);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -76,78 +74,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-// import { SocialShare } from 'angular-socialshare';
 /**
- * Generated class for the GameTabsPage page.
+ * Generated class for the LiveMatchPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var GameTabsPage = /** @class */ (function (_super) {
-    __extends(GameTabsPage, _super);
-    function GameTabsPage(navCtrl, navParams, authService, alertCtrl, platform, screenOrientation, afoDatabase, shortUrlService, events) {
+var LiveMatchPage = /** @class */ (function (_super) {
+    __extends(LiveMatchPage, _super);
+    function LiveMatchPage(navCtrl, navParams, events, authService, afoDatabase, alertCtrl, platform, screenOrientation) {
         var _this = _super.call(this, navCtrl, authService, alertCtrl, platform) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
+        _this.events = events;
         _this.authService = authService;
+        _this.afoDatabase = afoDatabase;
         _this.alertCtrl = alertCtrl;
         _this.platform = platform;
         _this.screenOrientation = screenOrientation;
-        _this.afoDatabase = afoDatabase;
-        _this.shortUrlService = shortUrlService;
-        _this.events = events;
-        _this.scorePage = "live-match";
-        _this.formationPage = "formation";
-        _this.chatPage = "chat";
+        _this.pause = false;
+        _this.gameOver = false;
+        _this.isAudience = false;
+        _this.iconExpand = "expand";
         _this.rotation = "phone-landscape";
         _this.isLandscape = false;
         _this.isLocked = false;
-        _this.tabIndex = 0;
-        _this.TAG = "GameTabsPage";
-        _this.scoreParams = {
-            id: navParams.get("id"),
-            audienceId: navParams.get("audienceId")
-        };
-        _this.formationParams = {
-            id: undefined,
-            onEdit: false,
-            fromLive: true
-        };
-        _this.logOnConsole(_this.TAG, _this.scoreParams);
+        _this.participants = [];
+        // this.teamA = navParams.get("teamA");
+        // this.teamB = navParams.get("teamB");
+        _this.gameId = navParams.get("id");
+        _this.audienceId = navParams.get("audienceId");
+        _this.TAG = "LiveMatchPage";
         return _this;
+        //console.log("audience: " + this.audienceId + " - id: " + this.gameId);
+        //console.log(navParams);
     }
-    GameTabsPage.prototype.ionViewDidLoad = function () {
-        this.initOnScreenOrientationChange();
-        this.onInit(this.navbar);
-    };
-    GameTabsPage.prototype.shortAudienceUrl = function () {
-        var _this = this;
-        var re = /undefined/gi;
-        var url = window.location.href.replace(re, this.audienceIdForShare);
-        if (url.includes("loading")) {
-            this.logOnConsole(this.TAG, "retry, it contains loading: " + url);
-            // setTimeout(this.shortAudienceUrl(), 5000);
-        }
-        else {
-            this.logOnConsole(this.TAG, "ref: " + url);
-            this.shortUrlService.load(url).then(function (data) {
-                _this.logOnConsole(_this.TAG, "shortUrlService: " + data);
-                _this.shortenedUrl = data;
-            });
-        }
-    };
-    GameTabsPage.prototype.onUserChange = function (user) {
+    LiveMatchPage.prototype.onUserChange = function (user) {
         this.logOnConsole(this.TAG, "on user change live" + user);
         if (user != null) {
             var id = "";
-            this.logOnConsole(this.TAG, "1, audience: " + (this.scoreParams.audienceId == "undefined"));
-            if (this.scoreParams.audienceId == undefined ||
-                this.scoreParams.audienceId == "undefined" ||
-                this.scoreParams.audienceId == ":audienceId") {
+            this.logOnConsole(this.TAG, "1, audience: " + (this.audienceId == "undefined"));
+            if (this.audienceId == undefined || this.audienceId == "undefined" || this.audienceId == ":audienceId") {
                 this.logOnConsole(this.TAG, "2");
                 id = this.authService.user.uid;
-                this.retrieveGameInfo(id, false);
+                this.retrieveGameInfo(id);
             }
             else {
                 this.logOnConsole(this.TAG, "3");
@@ -161,81 +131,192 @@ var GameTabsPage = /** @class */ (function (_super) {
         this.logOnConsole(this.TAG, "5");
         this.initOnScreenOrientationChange();
     };
-    GameTabsPage.prototype.findUserFromAudienceId = function () {
+    LiveMatchPage.prototype.findUserFromAudienceId = function () {
         var _this = this;
         var id = "";
-        var isAudience = true;
+        this.isAudience = true;
         var users = this.afoDatabase.list("/users");
         users.subscribe(function (userList) {
             userList.forEach(function (user) {
-                if (user.audienceId == _this.scoreParams.audienceId) {
+                if (user.audienceId == _this.audienceId) {
                     id = user.$key;
-                    _this.retrieveGameInfo(id, isAudience);
+                    _this.retrieveGameInfo(id);
                 }
             });
         });
     };
-    GameTabsPage.prototype.retrieveGameInfo = function (userId, isAudience) {
+    LiveMatchPage.prototype.retrieveGameInfo = function (userId) {
         var _this = this;
         var url = "/users/" + userId + "/games";
         this.logOnConsole(this.TAG, url);
-        var games = this.afoDatabase.list(url);
-        games.subscribe(function (items) {
+        this.games = this.afoDatabase.list(url);
+        this.games.subscribe(function (items) {
             var found = false;
             // items is an array
             items.forEach(function (item) {
-                if (item.id == _this.scoreParams.id) {
+                if (item.id == _this.gameId) {
                     _this.logOnConsole(_this.TAG, "Item:", item);
+                    _this.currentGame = item;
+                    // this.initParticipants(userId);
+                    if (_this.currentGame.live) {
+                        if (_this.currentGame.sets == undefined) {
+                            _this.currentGame.sets = [{ a: 0, b: 0 }];
+                        }
+                        else {
+                            if (_this.isSetEnded() && !_this.isGameOver()) {
+                                _this.pause = true;
+                            }
+                            else if (_this.isGameOver()) {
+                                _this.gameOver = true;
+                            }
+                        }
+                    }
                     found = true;
-                    if (item.live && !isAudience) {
+                    if (item.live && !_this.isAudience) {
                         _this.askBeforeGoBack = true;
                     }
-                    _this.formationParams.id = item.homeTeamId;
                 }
             });
             if (!found) {
                 //TODO: error message
             }
         });
-        var audienceRef = this.afoDatabase.object("/users/" + userId + "/audienceId");
-        audienceRef.subscribe(function (audience) {
-            _this.audienceIdForShare = audience.$value;
-        });
     };
-    GameTabsPage.prototype.rotate = function () {
-        // console.log(this.screenOrientation.type);
-        if (this.screenOrientation.type !=
-            this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
-            this.screenOrientation.type !=
-                this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
-            this.screenOrientation.type !=
-                this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY) {
-            document.body.webkitRequestFullscreen();
-            if (!this.isLocked) {
-                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-                this.isLocked = true;
+    LiveMatchPage.prototype.initParticipants = function (userId) {
+        var _this = this;
+        console.log("isAudience: " + this.isAudience);
+        this.participantsRef = this.afoDatabase.object("/users/" + userId + "/games/" + this.currentGame.id + "/participants");
+        var self = this;
+        this.participantsRef.subscribe(function (item) {
+            var value = [];
+            if (item !== null && item.$value !== null) {
+                console.log(item);
+                value = item;
             }
-            this.isLandscape = true;
-            this.rotation = "phone-portrait";
+            _this.throttle(function () {
+                self.participants = [];
+                self.participants.push(value);
+            }, 5000);
+            if (_this.isAudience) {
+                var spectatorId = _this.authService.user != null ? _this.authService.user.uid : _this.authService.anonymousId;
+                var index = value.indexOf(spectatorId);
+                if (index >= 0) {
+                    //do nothing, already exist
+                }
+                else {
+                    value.push(spectatorId);
+                    self.participantsRef.set(value);
+                }
+            }
+        });
+        var self = this;
+        if (!this.isAudience) {
+            this.intervalId = setInterval(function () {
+                //clean db list to reupdate it
+                console.log("clean db list to reupdate it");
+                self.participantsRef.set([]);
+            }, 30000);
+        }
+    };
+    LiveMatchPage.prototype.ionViewDidLoad = function () {
+        this.onInit(undefined);
+    };
+    LiveMatchPage.prototype.ionViewWillUnload = function () {
+        // console.log(this.TAG + " ionViewWillUnload");
+        clearInterval(this.intervalId);
+    };
+    LiveMatchPage.prototype.ionViewWillEnter = function () {
+        this.events.publish("currentPage", "live-match");
+    };
+    LiveMatchPage.prototype.updateSetValue = function (team, increment) {
+        var teamValue = team == "a"
+            ? this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a
+            : this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b;
+        if (increment) {
+            teamValue = teamValue + 1;
         }
         else {
-            if (!this.isLocked) {
-                this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-                this.isLocked = true;
-            }
-            var self = this;
-            setTimeout(function () {
-                if (this.isLocked) {
-                    self.screenOrientation.unlock();
-                    self.isLocked = false;
-                }
-                document.webkitExitFullscreen();
-                self.isLandscape = false;
-                self.rotation = "phone-landscape";
-            }, 500);
+            teamValue = teamValue == 0 ? 0 : teamValue - 1;
         }
+        if (team == "a") {
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a = teamValue;
+        }
+        else {
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b = teamValue;
+        }
+        if (this.isSetEnded() && !this.isGameOver()) {
+            this.pause = true;
+        }
+        else if (this.isGameOver()) {
+            this.gameOver = true;
+        }
+        this.updateGame();
     };
-    GameTabsPage.prototype.initOnScreenOrientationChange = function () {
+    LiveMatchPage.prototype.isSetEnded = function () {
+        var isSetEnded = (this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a >= 25 &&
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a >=
+                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b +
+                    2) ||
+            (this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >= 25 &&
+                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >=
+                    this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a +
+                        2);
+        return isSetEnded;
+    };
+    LiveMatchPage.prototype.isGameOver = function () {
+        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+            .a >=
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+                .b;
+        var gameOver = this.isSetEnded() &&
+            (winnerA ? this.currentGame.resultA == 2 : this.currentGame.resultB == 2);
+        return gameOver;
+    };
+    LiveMatchPage.prototype.createSet = function () {
+        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+            .a >=
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+                .b;
+        if (winnerA) {
+            this.currentGame.resultA = this.currentGame.resultA + 1;
+        }
+        else {
+            this.currentGame.resultB = this.currentGame.resultB + 1;
+        }
+        if (!this.gameOver) {
+            this.currentGame.sets.push({ a: 0, b: 0 });
+            this.pause = false;
+        }
+        else {
+            this.currentGame.live = false;
+        }
+        this.updateGame();
+    };
+    LiveMatchPage.prototype.rollBack = function () {
+        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+            .a >
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
+                .b;
+        if (winnerA) {
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a =
+                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a - 1;
+        }
+        else {
+            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b =
+                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b - 1;
+        }
+        if (!this.isSetEnded()) {
+            this.pause = false;
+            this.gameOver = false;
+        }
+        this.updateGame();
+    };
+    LiveMatchPage.prototype.updateGame = function () {
+        this.afoDatabase
+            .object("/users/" + this.authService.user.uid + "/games/" + this.currentGame.id)
+            .update(this.currentGame);
+    };
+    LiveMatchPage.prototype.initOnScreenOrientationChange = function () {
         var _this = this;
         this.screenOrientation.onChange().subscribe(function (type) {
             _this.logOnConsole(_this.TAG, "on change: " + type);
@@ -254,65 +335,17 @@ var GameTabsPage = /** @class */ (function (_super) {
             }
         });
     };
-    GameTabsPage.prototype.transition = function (e) {
-        this.tabIndex = e.index;
-    };
-    GameTabsPage.prototype.share = function () {
-        var newVariable;
-        newVariable = window.navigator;
-        if (newVariable && newVariable.share) {
-            newVariable
-                .share({
-                title: "title",
-                text: "Segui la partita in diretta: ",
-                url: this.shortenedUrl
-            })
-                .then(function () { return console.log("Successful share"); })
-                .catch(function (error) { return console.log("Error sharing", error); });
-        }
-        else {
-            alert("share not supported");
-        }
-    };
-    GameTabsPage.prototype.sharePopup = function () {
-        var _this = this;
-        this.shortAudienceUrl();
-        var prompt = this.alertCtrl.create({
-            title: "Condividi la partita in corso",
-            message: "Condividi la partita con i tuoi amici! Fai sapere come sta andando la tua squadra del cuore, punto per punto ;)",
-            buttons: [
-                {
-                    text: "Condividi",
-                    handler: function (data) {
-                        _this.share();
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Navbar */])
-    ], GameTabsPage.prototype, "navbar", void 0);
-    GameTabsPage = __decorate([
+    LiveMatchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-game-tabs",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/'<!--\n\n  Generated template for the GameTabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header no-border>\n\n\n\n  <ion-navbar #navbar color="primary" *ngIf="!isLandscape || tabIndex != 0">\n\n    <ion-buttons left *ngIf="!canGoBack">\n\n      <button ion-button icon-only (click)="goBack()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Partita Live</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (tap)="rotate()" *ngIf="tabIndex == 0">\n\n        <ion-icon name="{{rotation}}"></ion-icon>\n\n      </button>\n\n      <!-- <a  href="intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end">\n\n      <a  href="intent://<URL>#Intent;scheme=http;action=android.intent.action.SEND;end"> -->\n\n\n\n        <button ion-button icon-only (tap)="sharePopup()">\n\n          <ion-icon name="share"></ion-icon>\n\n        </button>\n\n      <!-- </a> -->\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content padding [ngClass]="{\'landscape\': isLandscape && tabIndex == 0}">\n\n  <ion-tabs tabsPlacement="top" tabsLayout="icon-bottom" color="primary" (ionChange)="transition($event)">\n\n    <ion-tab [root]="scorePage" [rootParams]="scoreParams" tabTitle="Punteggio" tabIcon="appname-score-icon"></ion-tab>\n\n    <ion-tab [root]="formationPage" [rootParams]="formationParams" tabTitle="Formazione" tabIcon="appname-player"></ion-tab>\n\n    <ion-tab [root]="chatPage" tabTitle="Chat" tabIcon="chatbubbles"></ion-tab>\n\n  </ion-tabs>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\game-tabs\game-tabs.html"*/
+            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n\n  Generated template for the LiveMatchPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding [ngClass]="{\'landscape\': isLandscape}">\n\n  <div *ngIf="isLandscape" class="landscape-container">\n\n    <ion-buttons class="rotate-landscape">\n\n      <button ion-button icon-only (tap)="rotate()">\n\n        <ion-icon name="{{rotation}}"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-grid class="game-landscape-info">\n\n      <ion-row align-items-center>\n\n        <ion-col col-4 class="text-center">\n\n          {{(currentGame)?.teamA}}\n\n        </ion-col>\n\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n\n          {{(currentGame)?.resultA}}\n\n        </ion-col>\n\n        <ion-col col-2 class="text-center">\n\n          -\n\n        </ion-col>\n\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n\n          {{(currentGame)?.resultB}}\n\n        </ion-col>\n\n        <ion-col col-4 class="text-center">\n\n          {{(currentGame)?.teamB}}\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n    <ion-grid class="game-landscape-set-info">\n\n      <ion-row align-items-center>\n\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n\n                    (gameOver || isSetEnded()))}">\n\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n\n        </ion-col>\n\n        <ion-col col-2 class="text-center set-value">\n\n          -\n\n        </ion-col>\n\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n\n                    (gameOver || isSetEnded()))} ">\n\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n  <div *ngIf="!isLandscape" class="portrait-container">\n\n    <div class="match-info-container">\n\n      <ion-grid>\n\n        <ion-row>\n\n          <ion-col col-4 class="text-center">\n\n            {{(currentGame)?.teamA}}\n\n          </ion-col>\n\n          <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n\n            {{(currentGame)?.resultA}}\n\n          </ion-col>\n\n          <ion-col col-2 class="text-center">\n\n            -\n\n          </ion-col>\n\n          <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n\n            {{(currentGame)?.resultB}}\n\n          </ion-col>\n\n          <ion-col col-4 class="text-center">\n\n            {{(currentGame)?.teamB}}\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n      <ion-grid *ngIf="(currentGame)?.live">\n\n        <ion-row *ngIf="!isAudience">\n\n          <ion-col col-5 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n\n                <ion-icon name="add"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n\n                <ion-icon name="add"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n\n                  (gameOver || isSetEnded()))}">\n\n            {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n\n          </ion-col>\n\n          <ion-col col-2 class="text-center set-value">\n\n            -\n\n          </ion-col>\n\n          <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n\n                  (gameOver || isSetEnded()))} ">\n\n            {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngIf="!isAudience">\n\n          <ion-col col-5 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n\n                <ion-icon name="remove"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n\n                <ion-icon name="remove"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n      <ion-grid *ngIf="(pause || gameOver) && !isAudience">\n\n        <ion-row>\n\n          <ion-col col-5>\n\n            <ion-buttons>\n\n              <button ion-button class="full-width" (click)="rollBack()">\n\n                <ion-icon name="undo" class="icon-sets"></ion-icon>\n\n                Torna indietro\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            <ion-buttons>\n\n              <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n\n                <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n\n                {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </div>\n\n\n\n    <!-- sezione spettatori -->\n\n    <div>Spettatori: {{ participants?.length }}</div>\n\n    <!-- <ion-list>\n\n      <div ion-item *ngFor="let participant of participants?; let i = index">\n\n        {{ (i + 1) + \'° SET: \' +  set.a + \' - \' + set.b }}\n\n      </div>  \n\n    </ion-list> -->\n\n    <!-- sezione dati set-->\n\n    <div>Risultati</div>\n\n    <ion-list>\n\n      <div ion-item *ngFor="let set of currentGame?.sets; let i = index">\n\n        {{ (i + 1) + \'° SET: \' +  set.a + \' - \' + set.b }}\n\n      </div>  \n\n    </ion-list>\n\n\n\n  </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
-            __WEBPACK_IMPORTED_MODULE_5_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
-            __WEBPACK_IMPORTED_MODULE_6_angular_shorturl__["ShortUrlService"],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
-    ], GameTabsPage);
-    return GameTabsPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */]) === "function" && _h || Object])
+    ], LiveMatchPage);
+    return LiveMatchPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
-//# sourceMappingURL=game-tabs.js.map
+//# sourceMappingURL=live-match.js.map
 
 /***/ })
 

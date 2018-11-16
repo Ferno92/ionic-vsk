@@ -2,6 +2,9 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.9.2';i.angular='5.2.10';i.staticDir='build/';})(window);
+  </script>
   <meta charset="UTF-8">
   <title>Ionic VSK</title>
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -158,8 +161,10 @@
 
   <script>
     let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
+    console.log(window.navigator.platform);
+    var release = false;
+    if(window.navigator.platform === "Win32" && release){
+      window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault();
       // Stash the event so it can be triggered later.
@@ -184,6 +189,8 @@
           });
       }
     });
+    }
+    
     document.addEventListener("DOMContentLoaded", function (event) {
       //do work
       var modal = document.getElementById('myModal');

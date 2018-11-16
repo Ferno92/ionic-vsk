@@ -144,7 +144,7 @@ var SearchLivePage = /** @class */ (function (_super) {
     ], SearchLivePage.prototype, "gameWidget", void 0);
     SearchLivePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "search-live",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/'<!--\n  Generated template for the SearchLivePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar #navbar color="primary">\n    <ion-buttons left *ngIf="!canGoBack">\n      <button ion-button icon-only (click)="goBack()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title *ngIf="!onSearch">Partite in corso</ion-title>\n    <ion-searchbar class="animated fadeInRight search-bar" *ngIf="onSearch" \n    (ionInput)="getItems($event)" [showCancelButton]="false" (ionCancel)="onCancel($event)"></ion-searchbar>\n    <ion-buttons right *ngIf="!onSearch">\n        <button ion-button icon-only (click)="showSearch()">\n          <ion-icon name="search"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div *ngIf="!emptyGames">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of gamesFiltered; let i = index">\n          <game-widget [game]="game" [i]="i" [openGame]="showLiveGame" [ref]="this" [onEdit]="false" [onPressingCardGame]="onPressingCardGame" \n          [updateEditCheck]="updateEditCheck"></game-widget>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/
+            selector: "search-live",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/'<!--\n\n  Generated template for the SearchLivePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar #navbar color="primary">\n\n    <ion-buttons left *ngIf="!canGoBack">\n\n      <button ion-button icon-only (click)="goBack()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title *ngIf="!onSearch">Partite in corso</ion-title>\n\n    <ion-searchbar class="animated fadeInRight search-bar" *ngIf="onSearch" \n\n    (ionInput)="getItems($event)" [showCancelButton]="false" (ionCancel)="onCancel($event)"></ion-searchbar>\n\n    <ion-buttons right *ngIf="!onSearch">\n\n        <button ion-button icon-only (click)="showSearch()">\n\n          <ion-icon name="search"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div *ngIf="!emptyGames">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 *ngFor="let game of gamesFiltered; let i = index">\n\n          <game-widget [game]="game" [i]="i" [openGame]="showLiveGame" [ref]="this" [onEdit]="false" [onPressingCardGame]="onPressingCardGame" \n\n          [updateEditCheck]="updateEditCheck"></game-widget>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\search-live\search-live.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
@@ -183,7 +183,7 @@ webpackEmptyAsyncContext.id = 180;
 var map = {
 	"../pages/chat/chat.module": [
 		718,
-		8
+		0
 	],
 	"../pages/create-match/create-match.module": [
 		719,
@@ -199,29 +199,29 @@ var map = {
 	],
 	"../pages/game-tabs/game-tabs.module": [
 		722,
-		7
+		8
 	],
 	"../pages/live-match/live-match.module": [
 		723,
-		0
+		7
 	],
 	"../pages/login/login.module": [
 		336
 	],
 	"../pages/player-modal/player-modal.module": [
-		727,
+		724,
 		6
 	],
 	"../pages/player-stats-modal/player-stats-modal.module": [
-		726,
+		725,
 		5
 	],
 	"../pages/search-live/search-live.module": [
-		724,
+		726,
 		9
 	],
 	"../pages/search-team/search-team.module": [
-		725,
+		727,
 		4
 	],
 	"../pages/transition/transition.module": [
@@ -357,7 +357,7 @@ var GameWidgetComponent = /** @class */ (function () {
     ], GameWidgetComponent.prototype, "onEdit", void 0);
     GameWidgetComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'game-widget',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/'<!-- Generated template for the GameWidgetComponent component -->\n<ion-card class="animated bounceIn game-card" [ngClass]="{\'live\': game.live}" [style.animation-delay]=" i/10 + \'s\'" (press)="onPressing(game)">\n  <!-- <ion-card-header>\n    {{game.name}}\n  </ion-card-header> -->\n  <ion-card-content class="card-content">\n    <div class="game-content" [ngClass]="{\'edit\': onEdit}" (tap)="openGameInWidget(game)">\n      <div class="float-left side-text live-text" [ngClass]="{\'live\': game.live}">{{game.live ? \'Live\' : \'Punteggio finale\'}}</div>\n      <div class="float-right side-text">{{game.date.day}}</div>\n      <div class="clear">\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.teamA}}</div>\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.resultA}}</div>\n      </div>\n      <div class="clear">\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.teamB}}</div>\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.resultB}}</div>\n      </div>\n      <div class="clear side-text">{{game.location.id == undefined || game.location.id == "" ? "Posizione non registrata" : game.location.name + \n          (game.location.city == "" ? "" : ", " + game.location.city)}}</div>\n    </div>\n    <ion-checkbox [(ngModel)]="game.checked" (ionChange)="updateEditCheck(game, false)" class="edit-game-checkbox" [ngClass]="{\'edit\': onEdit}"></ion-checkbox>\n  </ion-card-content>\n</ion-card>\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/
+            selector: 'game-widget',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/'<!-- Generated template for the GameWidgetComponent component -->\n\n<ion-card class="animated bounceIn game-card" [ngClass]="{\'live\': game.live}" [style.animation-delay]=" i/10 + \'s\'" (press)="onPressing(game)">\n\n  <!-- <ion-card-header>\n\n    {{game.name}}\n\n  </ion-card-header> -->\n\n  <ion-card-content class="card-content">\n\n    <div class="game-content" [ngClass]="{\'edit\': onEdit}" (tap)="openGameInWidget(game)">\n\n      <div class="float-left side-text live-text" [ngClass]="{\'live\': game.live}">{{game.live ? \'Live\' : \'Punteggio finale\'}}</div>\n\n      <div class="float-right side-text">{{game.date.day}}</div>\n\n      <div class="clear">\n\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.teamA}}</div>\n\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultA > game.resultB}">{{game.resultA}}</div>\n\n      </div>\n\n      <div class="clear">\n\n        <div class="float-left relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.teamB}}</div>\n\n        <div class="float-right relevant-text" [ngClass]="{\'winner\': game.resultB > game.resultA}">{{game.resultB}}</div>\n\n      </div>\n\n      <div class="clear side-text">{{game.location.id == undefined || game.location.id == "" ? "Posizione non registrata" : game.location.name + \n\n          (game.location.city == "" ? "" : ", " + game.location.city)}}</div>\n\n    </div>\n\n    <ion-checkbox [(ngModel)]="game.checked" (ionChange)="updateEditCheck(game, false)" class="edit-game-checkbox" [ngClass]="{\'edit\': onEdit}"></ion-checkbox>\n\n  </ion-card-content>\n\n</ion-card>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\components\game-widget\game-widget.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], GameWidgetComponent);
@@ -571,17 +571,17 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], { scrollPadding: false }, {
                     links: [
-                        { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'chat', segment: 'chat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'chat', segment: ':id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-match/create-match.module#CreateMatchPageModule', name: 'create-match', segment: 'create-match', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/dashboard/dashboard.module#DashboardPageModule', name: 'dashboard', segment: 'dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/formation/formation.module#FormationPageModule', name: 'formation', segment: 'formation/:id/:onEdit/:fromLive', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/game-tabs/game-tabs.module#GameTabsPageModule', name: 'game-tabs', segment: 'game-tabs/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/live-match/live-match.module#LiveMatchPageModule', name: 'live-match', segment: 'live-match/:id/:audienceId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-modal/player-modal.module#PlayerModalPageModule', name: 'page-player-modal', segment: 'page-player-modal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-stats-modal/player-stats-modal.module#PlayerStatsModalPageModule', name: 'page-player-stats-modal', segment: 'page-player-stats-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-live/search-live.module#SearchLivePageModule', name: 'search-live', segment: 'search-live', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-team/search-team.module#SearchTeamPageModule', name: 'search-team', segment: 'search-team', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/player-stats-modal/player-stats-modal.module#PlayerStatsModalPageModule', name: 'page-player-stats-modal', segment: 'page-player-stats-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/player-modal/player-modal.module#PlayerModalPageModule', name: 'page-player-modal', segment: 'page-player-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transition/transition.module#TransitionPageModule', name: 'loading', segment: 'loading', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -629,6 +629,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_Guid__ = __webpack_require__(380);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -641,10 +642,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AuthService = /** @class */ (function () {
     function AuthService(afAuth) {
         var _this = this;
         this.afAuth = afAuth;
+        this.anonymousId = new __WEBPACK_IMPORTED_MODULE_3__common_Guid__["a" /* Guid */]();
         console.log("AuthService constructor");
         this.userLogged = false;
         this.authState = this.afAuth.authState;
@@ -652,7 +655,6 @@ var AuthService = /** @class */ (function () {
             _this.user = user;
             if (_this.user != null) {
                 _this.userLogged = true;
-                console.log("logged picture: " + user.photoURL);
             }
         });
     }
@@ -681,9 +683,10 @@ var AuthService = /** @class */ (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object])
     ], AuthService);
     return AuthService;
+    var _a;
 }());
 
 //# sourceMappingURL=auth.service.js.map
@@ -906,7 +909,7 @@ var BasePage = /** @class */ (function () {
         this.authService = authService;
         this.alertCtrl = alertCtrl;
         this.platform = platform;
-        this.logEnabled = true;
+        this.logEnabled = false;
         this.TAG = "BasePage";
     }
     BasePage.prototype.onUserChange = function (user) {
@@ -999,7 +1002,7 @@ var BasePage = /** @class */ (function () {
         });
     };
     BasePage.prototype.logOnConsole = function (tag, text, object) {
-        if (this.logEnabled) {
+        if (this.logEnabled || tag === "ChatPage") {
             if (object != undefined && object != null) {
                 console.log(tag + ": " + text, object);
             }
@@ -1007,6 +1010,16 @@ var BasePage = /** @class */ (function () {
                 console.log(tag + ": " + text);
             }
         }
+    };
+    BasePage.prototype.throttle = function (fn, delay) {
+        var timer = null;
+        return function () {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(context, args);
+            }, delay);
+        };
     };
     return BasePage;
 }());
@@ -1113,7 +1126,7 @@ var MyApp = /** @class */ (function () {
         this.subject.next("search-team");
     };
     MyApp.prototype.setCurrentPage = function (page) {
-        console.log("set current page: " + page);
+        // console.log("set current page: " + page);
         this.subject.next(page);
         this.currentPage = page;
     };
@@ -1191,7 +1204,7 @@ var MyApp = /** @class */ (function () {
         this.events.publish("currentPage", "dashboard");
     };
     MyApp.prototype.changeFab = function (type) {
-        console.log("changeFab: " + type);
+        // console.log("changeFab: " + type);
         if (type === "create-match") {
             this.fabColor = "success";
             this.fabIcon = "checkmark";
@@ -1404,7 +1417,7 @@ var DashboardPage = /** @class */ (function (_super) {
         _this.toastCtrl = toastCtrl;
         _this.alertCtrl = alertCtrl;
         _this.platform = platform;
-        _this.version = "0.0.1";
+        _this.version = "0.0.2";
         _this.emptyGames = false;
         _this.onEdit = false;
         _this.gamesChecked = new Array();

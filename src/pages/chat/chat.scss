@@ -1,3 +1,81 @@
 page-chat {
+  .chat-container {
+    position: relative;
+    height: calc(100%);
+    display: flex;
+    flex-direction: column;
 
+    .expand-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      left: auto;
+      background: lightgray;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      padding-left: 9px;
+      padding-top: 5px;
+      opacity: 0.5;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .scrollable-content {
+      overflow: auto;
+      margin-bottom: 10px;
+      height: 100%;
+
+      .chat {
+        margin: 5px;
+        .chat-user-image {
+          height: 40px;
+          width: 40px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 50%;
+          &.owner {
+            display: none;
+          }
+          .anonymous-icon {
+            font-size: 49px;
+            color: gray;
+          }
+        }
+        .chat-text {
+          background: lightblue;
+          padding: 10px;
+          border-radius: 5px;
+          max-width: calc(100% - 40px);
+          margin-left: 5px;
+          &.owner {
+            background: lightcoral;
+            max-width: calc(100% - 45px);
+          }
+        }
+        .small-text {
+          font-size: 12px;
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .chat-footer {
+      .chat-text-area {
+        border: solid 1px;
+        border-radius: 15px;
+        width: calc(100% - 60px);
+        textarea {
+          width: calc(100% - 20px);
+        }
+      }
+      .send-button {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
 }

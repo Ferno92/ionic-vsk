@@ -38,6 +38,7 @@ export class GameTabsPage extends BasePage {
   chatPage = "chat";
   scoreParams: any;
   formationParams: any;
+  chatParams: any;
   rotation = "phone-landscape";
   isLandscape = false;
   isLocked = false;
@@ -66,6 +67,10 @@ export class GameTabsPage extends BasePage {
       id: undefined,
       onEdit: false,
       fromLive: true
+    }
+    this.chatParams = {
+      id: navParams.get("id"),
+      audienceId: navParams.get("audienceId")
     }
     this.logOnConsole(this.TAG, this.scoreParams);
   }

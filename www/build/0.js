@@ -1,15 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 723:
+/***/ 718:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiveMatchPageModule", function() { return LiveMatchPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatPageModule", function() { return ChatPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__live_match__ = __webpack_require__(860);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__ = __webpack_require__(861);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(856);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__ = __webpack_require__(857);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,24 +20,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LiveMatchPageModule = /** @class */ (function () {
-    function LiveMatchPageModule() {
+var ChatPageModule = /** @class */ (function () {
+    function ChatPageModule() {
     }
-    LiveMatchPageModule = __decorate([
+    ChatPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__live_match__["a" /* LiveMatchPage */],
+                __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__live_match__["a" /* LiveMatchPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */]),
                 __WEBPACK_IMPORTED_MODULE_3_ngx_autosize__["a" /* AutosizeModule */]
             ],
         })
-    ], LiveMatchPageModule);
-    return LiveMatchPageModule;
+    ], ChatPageModule);
+    return ChatPageModule;
 }());
 
-//# sourceMappingURL=live-match.module.js.map
+//# sourceMappingURL=chat.module.js.map
 
 /***/ }),
 
@@ -16821,11 +16821,11 @@ webpackContext.id = 854;
 
 /***/ }),
 
-/***/ 860:
+/***/ 856:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LiveMatchPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_BasePage__ = __webpack_require__(70);
@@ -16833,7 +16833,6 @@ webpackContext.id = 854;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(729);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(381);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -16859,16 +16858,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Generated class for the LiveMatchPage page.
+ * Generated class for the ChatPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LiveMatchPage = /** @class */ (function (_super) {
-    __extends(LiveMatchPage, _super);
-    function LiveMatchPage(navCtrl, navParams, events, authService, afoDatabase, alertCtrl, platform, screenOrientation) {
+var ChatPage = /** @class */ (function (_super) {
+    __extends(ChatPage, _super);
+    function ChatPage(navCtrl, navParams, events, authService, afoDatabase, alertCtrl, platform) {
         var _this = _super.call(this, navCtrl, authService, alertCtrl, platform) || this;
         _this.navCtrl = navCtrl;
         _this.navParams = navParams;
@@ -16877,26 +16875,17 @@ var LiveMatchPage = /** @class */ (function (_super) {
         _this.afoDatabase = afoDatabase;
         _this.alertCtrl = alertCtrl;
         _this.platform = platform;
-        _this.screenOrientation = screenOrientation;
         _this.chats = [];
-        _this.pause = false;
-        _this.gameOver = false;
         _this.isAudience = false;
-        _this.chatExpanded = false;
-        _this.iconExpand = "expand";
-        _this.rotation = "phone-landscape";
-        _this.isLandscape = false;
-        _this.isLocked = false;
-        // this.teamA = navParams.get("teamA");
-        // this.teamB = navParams.get("teamB");
         _this.gameId = navParams.get("id");
         _this.audienceId = navParams.get("audienceId");
-        _this.TAG = "LiveMatchPage";
+        _this.TAG = "ChatPage";
         return _this;
-        //console.log("audience: " + this.audienceId + " - id: " + this.gameId);
-        //console.log(navParams);
     }
-    LiveMatchPage.prototype.onUserChange = function (user) {
+    ChatPage.prototype.ionViewDidLoad = function () {
+        this.onInit(undefined);
+    };
+    ChatPage.prototype.onUserChange = function (user) {
         this.logOnConsole(this.TAG, "on user change live" + user);
         if (user != null) {
             var id = "";
@@ -16916,9 +16905,8 @@ var LiveMatchPage = /** @class */ (function (_super) {
             this.findUserFromAudienceId();
         }
         this.logOnConsole(this.TAG, "5");
-        this.initOnScreenOrientationChange();
     };
-    LiveMatchPage.prototype.findUserFromAudienceId = function () {
+    ChatPage.prototype.findUserFromAudienceId = function () {
         var _this = this;
         var id = "";
         this.isAudience = true;
@@ -16932,36 +16920,18 @@ var LiveMatchPage = /** @class */ (function (_super) {
             });
         });
     };
-    LiveMatchPage.prototype.retrieveGameInfo = function (userId) {
+    ChatPage.prototype.retrieveGameInfo = function (userId) {
         var _this = this;
         var url = "/users/" + userId + "/games";
         this.logOnConsole(this.TAG, url);
-        this.games = this.afoDatabase.list(url);
-        this.games.subscribe(function (items) {
+        var games = this.afoDatabase.list(url);
+        games.subscribe(function (items) {
             var found = false;
             // items is an array
             items.forEach(function (item) {
+                _this.logOnConsole(_this.TAG, "Item:", item + " gameId: " + _this.gameId);
                 if (item.id == _this.gameId) {
-                    _this.logOnConsole(_this.TAG, "Item:", item);
-                    _this.currentGame = item;
                     _this.showChat(userId, item.$key);
-                    if (_this.currentGame.live) {
-                        if (_this.currentGame.sets == undefined) {
-                            _this.currentGame.sets = [{ a: 0, b: 0 }];
-                        }
-                        else {
-                            if (_this.isSetEnded() && !_this.isGameOver()) {
-                                _this.pause = true;
-                            }
-                            else if (_this.isGameOver()) {
-                                _this.gameOver = true;
-                            }
-                        }
-                    }
-                    found = true;
-                    if (item.live && !_this.isAudience) {
-                        _this.askBeforeGoBack = true;
-                    }
                 }
             });
             if (!found) {
@@ -16969,101 +16939,7 @@ var LiveMatchPage = /** @class */ (function (_super) {
             }
         });
     };
-    LiveMatchPage.prototype.ionViewDidLoad = function () {
-        this.onInit(undefined);
-    };
-    LiveMatchPage.prototype.ionViewWillEnter = function () {
-        this.events.publish("currentPage", "live-match");
-    };
-    LiveMatchPage.prototype.updateSetValue = function (team, increment) {
-        var teamValue = team == "a"
-            ? this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a
-            : this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b;
-        if (increment) {
-            teamValue = teamValue + 1;
-        }
-        else {
-            teamValue = teamValue == 0 ? 0 : teamValue - 1;
-        }
-        if (team == "a") {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a = teamValue;
-        }
-        else {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b = teamValue;
-        }
-        if (this.isSetEnded() && !this.isGameOver()) {
-            this.pause = true;
-        }
-        else if (this.isGameOver()) {
-            this.gameOver = true;
-        }
-        this.updateGame();
-    };
-    LiveMatchPage.prototype.isSetEnded = function () {
-        var isSetEnded = (this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a >= 25 &&
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a >=
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b +
-                    2) ||
-            (this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >= 25 &&
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b >=
-                    this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a +
-                        2);
-        return isSetEnded;
-    };
-    LiveMatchPage.prototype.isGameOver = function () {
-        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-            .a >=
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-                .b;
-        var gameOver = this.isSetEnded() &&
-            (winnerA ? this.currentGame.resultA == 2 : this.currentGame.resultB == 2);
-        return gameOver;
-    };
-    LiveMatchPage.prototype.createSet = function () {
-        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-            .a >=
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-                .b;
-        if (winnerA) {
-            this.currentGame.resultA = this.currentGame.resultA + 1;
-        }
-        else {
-            this.currentGame.resultB = this.currentGame.resultB + 1;
-        }
-        if (!this.gameOver) {
-            this.currentGame.sets.push({ a: 0, b: 0 });
-            this.pause = false;
-        }
-        else {
-            this.currentGame.live = false;
-        }
-        this.updateGame();
-    };
-    LiveMatchPage.prototype.rollBack = function () {
-        var winnerA = this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-            .a >
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB]
-                .b;
-        if (winnerA) {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a =
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].a - 1;
-        }
-        else {
-            this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b =
-                this.currentGame.sets[this.currentGame.resultA + this.currentGame.resultB].b - 1;
-        }
-        if (!this.isSetEnded()) {
-            this.pause = false;
-            this.gameOver = false;
-        }
-        this.updateGame();
-    };
-    LiveMatchPage.prototype.updateGame = function () {
-        this.afoDatabase
-            .object("/users/" + this.authService.user.uid + "/games/" + this.currentGame.id)
-            .update(this.currentGame);
-    };
-    LiveMatchPage.prototype.showChat = function (userId, gameKey) {
+    ChatPage.prototype.showChat = function (userId, gameKey) {
         var _this = this;
         this.chatsRef = this.afoDatabase.list("/users/" + userId + "/games/" + gameKey + "/chats", {
             query: {
@@ -17077,20 +16953,20 @@ var LiveMatchPage = /** @class */ (function (_super) {
             setTimeout(function () {
                 var scrollableContent = document.getElementsByClassName("scrollable-content")[0];
                 // console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
-                if (!self.isLandscape && scrollableContent != undefined) {
+                if (scrollableContent != undefined) {
                     scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
                 }
             }, 500);
         });
     };
-    LiveMatchPage.prototype.keyPress = function (ev) {
+    ChatPage.prototype.keyPress = function (ev) {
         // console.log(ev);
         if (ev.keyCode == 13) {
             //press enter
             this.pushMessage();
         }
     };
-    LiveMatchPage.prototype.pushMessage = function () {
+    ChatPage.prototype.pushMessage = function () {
         var _this = this;
         if (this.textAreaMessage.trim() != "") {
             var user = this.authService.user;
@@ -17115,48 +16991,17 @@ var LiveMatchPage = /** @class */ (function (_super) {
         }
         var scrollableContent = document.getElementsByClassName("scrollable-content")[0];
         this.logOnConsole(this.TAG, scrollableContent + " - " + scrollableContent.offsetHeight);
-        if (!this.isLandscape && scrollableContent != undefined) {
+        if (scrollableContent != undefined) {
             scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
         }
     };
-    LiveMatchPage.prototype.getChatHeight = function () {
+    ChatPage.prototype.getChatHeight = function () {
         var infoContent = document.getElementsByClassName("match-info-container")[0];
         return "calc(100% - " + (infoContent.offsetHeight + 100) + "px)";
     };
-    LiveMatchPage.prototype.expandChat = function () {
-        this.chatExpanded = !this.chatExpanded;
-        this.changeIconExpand();
-    };
-    LiveMatchPage.prototype.changeIconExpand = function () {
-        if (this.iconExpand == "expand") {
-            this.iconExpand = "contract";
-        }
-        else {
-            this.iconExpand = "expand";
-        }
-    };
-    LiveMatchPage.prototype.initOnScreenOrientationChange = function () {
-        var _this = this;
-        this.screenOrientation.onChange().subscribe(function (type) {
-            _this.logOnConsole(_this.TAG, "on change: " + type);
-            if (_this.screenOrientation.type !=
-                _this.screenOrientation.ORIENTATIONS.LANDSCAPE &&
-                _this.screenOrientation.type !=
-                    _this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY &&
-                _this.screenOrientation.type !=
-                    _this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY) {
-                _this.isLandscape = false;
-                _this.rotation = "phone-landscape";
-            }
-            else {
-                _this.isLandscape = true;
-                _this.rotation = "phone-portrait";
-            }
-        });
-    };
-    LiveMatchPage = __decorate([
+    ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: "page-live-match",template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/'<!--\n\n  Generated template for the LiveMatchPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding [ngClass]="{\'landscape\': isLandscape}">\n\n  <div *ngIf="isLandscape" class="landscape-container">\n\n    <ion-buttons class="rotate-landscape">\n\n      <button ion-button icon-only (tap)="rotate()">\n\n        <ion-icon name="{{rotation}}"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-grid class="game-landscape-info">\n\n      <ion-row align-items-center>\n\n        <ion-col col-4 class="text-center">\n\n          {{(currentGame)?.teamA}}\n\n        </ion-col>\n\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n\n          {{(currentGame)?.resultA}}\n\n        </ion-col>\n\n        <ion-col col-2 class="text-center">\n\n          -\n\n        </ion-col>\n\n        <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n\n          {{(currentGame)?.resultB}}\n\n        </ion-col>\n\n        <ion-col col-4 class="text-center">\n\n          {{(currentGame)?.teamB}}\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n    <ion-grid class="game-landscape-set-info">\n\n      <ion-row align-items-center>\n\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n\n                    (gameOver || isSetEnded())), \'reduced\': chatExpanded }">\n\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n\n        </ion-col>\n\n        <ion-col col-2 class="text-center set-value" [ngClass]="{\'reduced\': chatExpanded}">\n\n          -\n\n        </ion-col>\n\n        <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n\n                    (gameOver || isSetEnded())), \'reduced\': chatExpanded} ">\n\n          {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n  <div *ngIf="!isLandscape" class="portrait-container">\n\n    <div class="match-info-container">\n\n      <ion-grid>\n\n        <ion-row>\n\n          <ion-col col-4 class="text-center">\n\n            {{(currentGame)?.teamA}}\n\n          </ion-col>\n\n          <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultA > (currentGame)?.resultB)) ? \'winner\' : \'\'">\n\n            {{(currentGame)?.resultA}}\n\n          </ion-col>\n\n          <ion-col col-2 class="text-center">\n\n            -\n\n          </ion-col>\n\n          <ion-col col-1 class="text-center" [ngClass]="(((currentGame)?.resultB > (currentGame)?.resultA)) ? \'winner\' : \'\'">\n\n            {{(currentGame)?.resultB}}\n\n          </ion-col>\n\n          <ion-col col-4 class="text-center">\n\n            {{(currentGame)?.teamB}}\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n      <ion-grid *ngIf="(currentGame)?.live">\n\n        <ion-row *ngIf="!isAudience && !chatExpanded">\n\n          <ion-col col-5 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', true)" color="secondary">\n\n                <ion-icon name="add"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', true)" color="secondary">\n\n                <ion-icon name="add"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n          <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && \n\n                  (gameOver || isSetEnded())), \'reduced\': chatExpanded }">\n\n            {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}\n\n          </ion-col>\n\n          <ion-col col-2 class="text-center set-value" [ngClass]="{\'reduced\': chatExpanded}">\n\n            -\n\n          </ion-col>\n\n          <ion-col col-5 class="text-center set-value" [ngClass]="{\'winner\' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && \n\n                  (gameOver || isSetEnded())), \'reduced\': chatExpanded} ">\n\n            {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngIf="!isAudience && !chatExpanded">\n\n          <ion-col col-5 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'a\', false)" color="secondary">\n\n                <ion-icon name="remove"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2 class="text-center">\n\n            <ion-buttons>\n\n              <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue(\'b\', false)" color="secondary">\n\n                <ion-icon name="remove"></ion-icon>\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n      <ion-grid *ngIf="(pause || gameOver) && !isAudience">\n\n        <ion-row>\n\n          <ion-col col-5>\n\n            <ion-buttons>\n\n              <button ion-button class="full-width" (click)="rollBack()">\n\n                <ion-icon name="undo" class="icon-sets"></ion-icon>\n\n                Torna indietro\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n          <ion-col col-5 offset-2>\n\n            <ion-buttons>\n\n              <button ion-button class="full-width" (click)="createSet()" color="{{gameOver ? \'success\' : \'primary\'}}">\n\n                <ion-icon name="{{gameOver ? \'filing\' : \'refresh\'}}" class="icon-sets"></ion-icon>\n\n                {{gameOver ? \'Salva ed esci\' : \'Nuovo set\'}}\n\n              </button>\n\n            </ion-buttons>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n    </div>\n\n\n\n    <div class="chat-container" [style.height]="getChatHeight()">\n\n      <ion-icon name="{{iconExpand}}" class="expand-icon animated infinite pulse" (tap)="expandChat()"></ion-icon>\n\n\n\n      <div class="scrollable-content">\n\n        <div *ngFor="let chat of chats; let i = index" class="chat">\n\n          <div class="chat-user-image float-left" [style.opacity]="i== 0 || chats[i - 1].userId != chat.userId ? 1 : 0" [style.background-image]="\'url(\' + chat.pictureUrl + \')\'"\n\n            [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner\' : \'\') : \'\' ">\n\n            <ion-icon *ngIf="chat.pictureUrl == \'\'" name="contact" class="anonymous-icon"></ion-icon>\n\n          </div>\n\n          <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner float-right\' : \'float-left\') : \'float-left\' ">\n\n            <div class="small-text float-left">{{chat.name}}</div>\n\n            <div class="small-text float-right">{{chat.date}}</div>\n\n            <div class="clear"></div>\n\n            <div>{{chat.text}}</div>\n\n          </div>\n\n          <div class="clear"></div>\n\n        </div>\n\n\n\n      </div>\n\n\n\n      <div class="chat-footer">\n\n        <ion-buttons class="float-right">\n\n          <button ion-button (click)="pushMessage()" class="send-button">\n\n            <ion-icon name="send"></ion-icon>\n\n          </button>\n\n        </ion-buttons>\n\n        <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"\n\n          (keypress)="keyPress($event)"></ion-textarea>\n\n      </div>\n\n\n\n    </div>\n\n  </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\live-match\live-match.html"*/
+            selector: 'page-chat',template:/*ion-inline-start:"C:\projects\personal\ionic-vsk\src\pages\chat\chat.html"*/'<!--\n\n  Generated template for the ChatPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding>\n\n\n\n  <div class="chat-container">\n\n    <!-- <ion-icon name="{{iconExpand}}" class="expand-icon animated infinite pulse"></ion-icon> -->\n\n\n\n    <div class="scrollable-content">\n\n      <div *ngFor="let chat of chats; let i = index" class="chat">\n\n        <div class="chat-user-image float-left" [style.opacity]="i== 0 || chats[i - 1].userId != chat.userId ? 1 : 0" [style.background-image]="\'url(\' + chat.pictureUrl + \')\'"\n\n          [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner\' : \'\') : \'\' ">\n\n          <ion-icon *ngIf="chat.pictureUrl == \'\'" name="contact" class="anonymous-icon"></ion-icon>\n\n        </div>\n\n        <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? \'owner float-right\' : \'float-left\') : \'float-left\' ">\n\n          <div class="small-text float-left">{{chat.name}}</div>\n\n          <div class="small-text float-right">{{chat.date}}</div>\n\n          <div class="clear"></div>\n\n          <div>{{chat.text}}</div>\n\n        </div>\n\n        <div class="clear"></div>\n\n      </div>\n\n\n\n    </div>\n\n\n\n    <div class="chat-footer">\n\n      <ion-buttons class="float-right">\n\n        <button ion-button (click)="pushMessage()" class="send-button">\n\n          <ion-icon name="send"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"\n\n        (keypress)="keyPress($event)"></ion-textarea>\n\n    </div>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\projects\personal\ionic-vsk\src\pages\chat\chat.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
@@ -17164,17 +17009,16 @@ var LiveMatchPage = /** @class */ (function (_super) {
             __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_offline_database__["a" /* AngularFireOfflineDatabase */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */]])
-    ], LiveMatchPage);
-    return LiveMatchPage;
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]])
+    ], ChatPage);
+    return ChatPage;
 }(__WEBPACK_IMPORTED_MODULE_2__common_BasePage__["a" /* BasePage */]));
 
-//# sourceMappingURL=live-match.js.map
+//# sourceMappingURL=chat.js.map
 
 /***/ }),
 
-/***/ 861:
+/***/ 857:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
