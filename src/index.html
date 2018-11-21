@@ -159,7 +159,7 @@
   <script>
     let deferredPrompt;
     console.log(window.navigator.platform);
-    var release = false;
+    var release = true;
     if(window.navigator.platform === "Win32" && release){
       window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
