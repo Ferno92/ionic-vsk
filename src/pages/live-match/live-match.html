@@ -35,14 +35,14 @@
     <ion-grid class="game-landscape-set-info">
       <ion-row align-items-center>
         <ion-col col-5 class="text-center set-value" [ngClass]="{'winner' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && 
-                    (gameOver || isSetEnded())), 'reduced': chatExpanded }">
+                    (gameOver || isSetEnded()))}">
           {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}
         </ion-col>
-        <ion-col col-2 class="text-center set-value" [ngClass]="{'reduced': chatExpanded}">
+        <ion-col col-2 class="text-center set-value">
           -
         </ion-col>
         <ion-col col-5 class="text-center set-value" [ngClass]="{'winner' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && 
-                    (gameOver || isSetEnded())), 'reduced': chatExpanded} ">
+                    (gameOver || isSetEnded()))} ">
           {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}
         </ion-col>
       </ion-row>
@@ -70,7 +70,7 @@
         </ion-row>
       </ion-grid>
       <ion-grid *ngIf="(currentGame)?.live">
-        <ion-row *ngIf="!isAudience && !chatExpanded">
+        <ion-row *ngIf="!isAudience">
           <ion-col col-5 class="text-center">
             <ion-buttons>
               <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('a', true)" color="secondary">
@@ -88,18 +88,18 @@
         </ion-row>
         <ion-row>
           <ion-col col-5 class="text-center set-value" [ngClass]="{'winner' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].a > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].b && 
-                  (gameOver || isSetEnded())), 'reduced': chatExpanded }">
+                  (gameOver || isSetEnded()))}">
             {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].a}}
           </ion-col>
-          <ion-col col-2 class="text-center set-value" [ngClass]="{'reduced': chatExpanded}">
+          <ion-col col-2 class="text-center set-value">
             -
           </ion-col>
           <ion-col col-5 class="text-center set-value" [ngClass]="{'winner' : ((currentGame)?.sets[currentGame.resultA + currentGame.resultB].b > (currentGame)?.sets[currentGame.resultA + currentGame.resultB].a  && 
-                  (gameOver || isSetEnded())), 'reduced': chatExpanded} ">
+                  (gameOver || isSetEnded()))} ">
             {{(currentGame)?.sets[currentGame.resultA + currentGame.resultB].b}}
           </ion-col>
         </ion-row>
-        <ion-row *ngIf="!isAudience && !chatExpanded">
+        <ion-row *ngIf="!isAudience">
           <ion-col col-5 class="text-center">
             <ion-buttons>
               <button ion-button icon-only class="full-width" [disabled]="pause || gameOver" (click)="updateSetValue('a', false)" color="secondary">
@@ -138,37 +138,21 @@
       </ion-grid>
     </div>
 
-    <div class="chat-container" [style.height]="getChatHeight()">
-      <ion-icon name="{{iconExpand}}" class="expand-icon animated infinite pulse" (tap)="expandChat()"></ion-icon>
+    <!-- sezione spettatori -->
+    <div>Spettatori: {{ participants?.length }}</div>
+    <!-- <ion-list>
+      <div ion-item *ngFor="let participant of participants?; let i = index">
+        {{ (i + 1) + '° SET: ' +  set.a + ' - ' + set.b }}
+      </div>  
+    </ion-list> -->
+    <!-- sezione dati set-->
+    <div>Risultati</div>
+    <ion-list>
+      <div ion-item *ngFor="let set of currentGame?.sets; let i = index">
+        {{ (i + 1) + '° SET: ' +  set.a + ' - ' + set.b }}
+      </div>  
+    </ion-list>
 
-      <div class="scrollable-content">
-        <div *ngFor="let chat of chats; let i = index" class="chat">
-          <div class="chat-user-image float-left" [style.opacity]="i== 0 || chats[i - 1].userId != chat.userId ? 1 : 0" [style.background-image]="'url(' + chat.pictureUrl + ')'"
-            [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? 'owner' : '') : '' ">
-            <ion-icon *ngIf="chat.pictureUrl == ''" name="contact" class="anonymous-icon"></ion-icon>
-          </div>
-          <div class="chat-text" [ngClass]="authService.user != null ? (chat.userId == authService.user.uid ? 'owner float-right' : 'float-left') : 'float-left' ">
-            <div class="small-text float-left">{{chat.name}}</div>
-            <div class="small-text float-right">{{chat.date}}</div>
-            <div class="clear"></div>
-            <div>{{chat.text}}</div>
-          </div>
-          <div class="clear"></div>
-        </div>
-
-      </div>
-
-      <div class="chat-footer">
-        <ion-buttons class="float-right">
-          <button ion-button (click)="pushMessage()" class="send-button">
-            <ion-icon name="send"></ion-icon>
-          </button>
-        </ion-buttons>
-        <ion-textarea [(ngModel)]="textAreaMessage" autosize [minRows]="1" [maxRows]="10" name="description" class="chat-text-area float-right"
-          (keypress)="keyPress($event)"></ion-textarea>
-      </div>
-
-    </div>
   </div>
 
 

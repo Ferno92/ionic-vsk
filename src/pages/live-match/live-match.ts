@@ -12,7 +12,8 @@ import { BasePage } from "../../common/BasePage";
 import { AuthService } from "../../services/auth.service";
 import {
   AfoListObservable,
-  AngularFireOfflineDatabase
+  AngularFireOfflineDatabase,
+  AfoObjectObservable
 } from "angularfire2-offline/database";
 import * as moment from "moment";
 import { ScreenOrientation } from "@ionic-native/screen-orientation";
@@ -34,20 +35,19 @@ import { ScreenOrientation } from "@ionic-native/screen-orientation";
 })
 export class LiveMatchPage extends BasePage {
   games: AfoListObservable<any[]>;
-  chatsRef: AfoListObservable<any[]>;
-  chats = [];
   gameId: String;
   audienceId: String;
   currentGame: any;
   pause = false;
   gameOver = false;
   isAudience = false;
-  textAreaMessage: string;
-  chatExpanded = false;
   iconExpand = "expand";
   rotation = "phone-landscape";
   isLandscape = false;
   isLocked = false;
+  participantsRef: AfoObjectObservable<any>;
+  intervalId: number;
+  participants = [];
 
   constructor(
     public navCtrl: NavController,
@@ -115,7 +115,7 @@ export class LiveMatchPage extends BasePage {
         if (item.id == this.gameId) {
           this.logOnConsole(this.TAG, "Item:", item);
           this.currentGame = item;
-          this.showChat(userId, item.$key);
+          // this.initParticipants(userId);
           if (this.currentGame.live) {
             if (this.currentGame.sets == undefined) {
               this.currentGame.sets = [{ a: 0, b: 0 }];
@@ -139,8 +139,49 @@ export class LiveMatchPage extends BasePage {
     });
   }
 
+  initParticipants(userId:string){
+    console.log("isAudience: " + this.isAudience);
+    this.participantsRef = this.afoDatabase.object("/users/" + userId + "/games/" + this.currentGame.id + "/participants");
+    var self = this;
+    this.participantsRef.subscribe(item => {
+      var value = [];
+      if(item !== null && item.$value !== null){
+        console.log(item);
+        value = item;
+      }
+      this.throttle(function(){
+        self.participants = [];
+        self.participants.push(value);
+      }, 5000);
+      
+      if(this.isAudience){
+        var spectatorId = this.authService.user != null ? this.authService.user.uid : this.authService.anonymousId;
+        var index = value.indexOf(spectatorId);
+        if(index >= 0){
+            //do nothing, already exist
+        }else{
+          value.push(spectatorId);
+          self.participantsRef.set(value);
+        }
+      }
+    });
+    var self = this;
+    if(!this.isAudience){
+      this.intervalId = setInterval(function(){
+          //clean db list to reupdate it
+          console.log("clean db list to reupdate it");
+          self.participantsRef.set([]);
+      }, 30000);
+    }
+  }
+
   ionViewDidLoad() {
     this.onInit(undefined);
+  }
+
+  ionViewWillUnload(){
+    // console.log(this.TAG + " ionViewWillUnload");
+    clearInterval(this.intervalId);
   }
 
   ionViewWillEnter() {
@@ -271,92 +312,6 @@ export class LiveMatchPage extends BasePage {
         "/users/" + this.authService.user.uid + "/games/" + this.currentGame.id
       )
       .update(this.currentGame);
-  }
-
-  showChat(userId: string, gameKey: string) {
-    this.chatsRef = this.afoDatabase.list(
-      "/users/" + userId + "/games/" + gameKey + "/chats",
-      {
-        query: {
-          orderByChild: "ms"
-        }
-      }
-    );
-    this.chatsRef.subscribe(chatList => {
-      // console.log("chat length: " + chatList.length);
-      this.chats = chatList;
-      var self = this;
-
-      setTimeout(function() {
-        var scrollableContent = document.getElementsByClassName(
-          "scrollable-content"
-        )[0] as HTMLDivElement;
-        // console.log(scrollableContent + " - " + scrollableContent.scrollHeight);
-        if (!self.isLandscape && scrollableContent != undefined) {
-          scrollableContent.scrollTo(0, scrollableContent.scrollHeight);
-        }
-      }, 500);
-    });
-  }
-
-  keyPress(ev: any) {
-    // console.log(ev);
-    if (ev.keyCode == 13) {
-      //press enter
-      this.pushMessage();
-    }
-  }
-
-  pushMessage() {
-    if (this.textAreaMessage.trim() != "") {
-      var user = this.authService.user;
-      const chatsNewItem = this.chatsRef.push({});
-      const chatsPromise = chatsNewItem.set({
-        name: user != null ? user.displayName : "Anonimo",
-        userId: user != null ? user.uid : "",
-        pictureUrl: user != null ? user.photoURL : "",
-        text: this.textAreaMessage,
-        ms: moment(new Date()).valueOf(),
-        date: moment(new Date()).format("MMM/DD, h:mm")
-      });
-
-      if (chatsPromise != undefined) {
-        chatsPromise.then(() => console.log("chat added to firebase!"));
-        if (chatsPromise.offline != undefined) {
-          chatsPromise.offline.then(() =>
-          this.logOnConsole(this.TAG, "offline chat added to device storage!")
-          );
-        }
-      }
-      this.textAreaMessage = "";
-    }
-    var scrollableContent = document.getElementsByClassName(
-      "scrollable-content"
-    )[0] as HTMLDivElement;
-    this.logOnConsole(this.TAG, scrollableContent + " - " + scrollableContent.offsetHeight);
-    if (!this.isLandscape && scrollableContent != undefined) {
-      scrollableContent.scrollTo(0, scrollableContent.offsetHeight);
-    }
-  }
-
-  getChatHeight() {
-    var infoContent = document.getElementsByClassName(
-      "match-info-container"
-    )[0] as HTMLDivElement;
-    return "calc(100% - " + (infoContent.offsetHeight + 100) + "px)";
-  }
-
-  expandChat() {
-    this.chatExpanded = !this.chatExpanded;
-    this.changeIconExpand();
-  }
-
-  changeIconExpand() {
-    if (this.iconExpand == "expand") {
-      this.iconExpand = "contract";
-    } else {
-      this.iconExpand = "expand";
-    }
   }
 
   initOnScreenOrientationChange() {

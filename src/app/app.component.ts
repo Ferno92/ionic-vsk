@@ -96,7 +96,7 @@ export class MyApp {
   }
 
   setCurrentPage(page: String) {
-    console.log("set current page: " + page);
+    // console.log("set current page: " + page);
     this.subject.next(page);
     this.currentPage = page;
   }
@@ -181,7 +181,7 @@ export class MyApp {
   }
 
   changeFab(type: String) {
-    console.log("changeFab: " + type);
+    // console.log("changeFab: " + type);
     if (type === "create-match") {
       this.fabColor = "success";
       this.fabIcon = "checkmark";

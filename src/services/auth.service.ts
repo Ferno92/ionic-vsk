@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import AuthProvider = firebase.auth.AuthProvider;
+import { Guid } from '../common/Guid';
 
 @Injectable()
 export class AuthService {
     public user: firebase.User;
     public userLogged: boolean;
     public authState: any;
+    public anonymousId = new Guid();
 
     constructor(public afAuth: AngularFireAuth) {
         console.log("AuthService constructor");
@@ -18,7 +20,6 @@ export class AuthService {
             this.user = user;
             if(this.user != null){
                 this.userLogged = true;
-                console.log("logged picture: " + user.photoURL);
             }
         });
     }

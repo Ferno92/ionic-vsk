@@ -10,7 +10,7 @@ import { AuthService } from "../services/auth.service";
 export class BasePage {
   public canGoBack: boolean;
   public askBeforeGoBack: boolean;
-  logEnabled = true;
+  logEnabled = false;
   protected TAG = "BasePage";
 
   constructor(
@@ -111,12 +111,23 @@ export class BasePage {
   }
 
   protected logOnConsole(tag:string, text:string, object?:any){
-    if(this.logEnabled){
+    if(this.logEnabled || tag === "ChatPage"){
       if(object != undefined && object != null){
         console.log(tag + ": " + text, object);
       }else{
         console.log(tag + ": " + text);
       }
     }
+  }
+
+  protected throttle(fn: (value:any) => void, delay: number) {
+    var timer = null;
+    return function () {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            fn.apply(context, args);
+        }, delay);
+    };
   }
 }
