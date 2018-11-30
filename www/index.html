@@ -166,7 +166,9 @@
     if(window.navigator.platform === "Win32" && release){
       window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
+      if(e !== undefined) { 
+        e.preventDefault();
+      }
       // Stash the event so it can be triggered later.
       deferredPrompt = e;
       // Update UI notify the user they can add to home screen
@@ -174,7 +176,9 @@
       modal.style.display = "block";
       var buttonInstall = document.getElementsByClassName("install-button")[0];
       buttonInstall.onclick = function () {
-        modal.style.display = "none";
+        if(modal !== undefined){
+          modal.style.display = "none";
+        }
         // Show the prompt
         deferredPrompt.prompt();
         // Wait for the user to respond to the prompt
